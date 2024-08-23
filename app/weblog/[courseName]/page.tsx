@@ -19,11 +19,7 @@ const CourseInfo = ({ params }: { params: { courseName: string } }) => {
           {params.courseName === "front-end" && (
             <React.Fragment>
               <div className="lg:grid lg:grid-cols-1 hidden">
-                <InfoCard
-                  title="دوره جامع فرانت اِند"
-                  textInfo="صفحه اصلی هر وبسایت و هر چیز بصری است که کاربر با آن در تماس است. همه قسمت هایی است که کاربران مستقیماً با آنها ارتباط برقرار می کنند، همه محتوا و استایلها ، دکمه ها و جلوه های مختلف قبل از اینکه کاربر روی پیوند کلیک کند، فرم های تماس با فیلدهای ورودی مختلف، کادرهای جستجو و منوهای کشویی است. طرح بندی ها، متن و رنگ ها. تصاویر و فیلم ها هستند. ولی فرانت اند ، فقط مربوط به استایلها نیست."
-                  imgSrc="/courses/frontendstack1.svg"
-                />
+                <InfoCard title="دوره جامع فرانت اِند" textInfo="صفحه اصلی هر وبسایت و هر چیز بصری است که کاربر با آن در تماس است. همه قسمت هایی است که کاربران مستقیماً با آنها ارتباط برقرار می کنند، همه محتوا و استایلها ، دکمه ها و جلوه های مختلف قبل از اینکه کاربر روی پیوند کلیک کند، فرم های تماس با فیلدهای ورودی مختلف، کادرهای جستجو و منوهای کشویی است. طرح بندی ها، متن و رنگ ها. تصاویر و فیلم ها هستند. ولی فرانت اند ، فقط مربوط به استایلها نیست." imgSrc="/courses/frontendstack1.svg" />
                 <InfoParagraphs
                   info={[
                     {
@@ -46,23 +42,9 @@ const CourseInfo = ({ params }: { params: { courseName: string } }) => {
                 />
                 <div>
                   {/* button */}
-                  <InfoBtn
-                    text={expand ? "بستن مطالب" : "ادامه مطالب"}
-                    setExpand={setExpand}
-                    expand={expand}
-                  />
+                  <InfoBtn text={expand ? "بستن مطالب" : "ادامه مطالب"} setExpand={setExpand} expand={expand} />
                   {/* Topics */}
-                  <Topics
-                    topics={{
-                      line1: [
-                        "HTML & CSS",
-                        "Sass",
-                        "Tailwind",
-                        "React JS",
-                        "Next JS",
-                      ],
-                    }}
-                  />
+                  <Topics topics={{ line1: ["HTML & CSS", "Sass", "Tailwind", "React JS", "Next JS",], }} />
                   {/* teacher */}
                   <Teacher />
                 </div>
