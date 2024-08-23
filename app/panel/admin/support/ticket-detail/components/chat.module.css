@@ -1,0 +1,48 @@
+.chatBubble {
+    /* max-width: 70%; */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    position: relative;
+    top: -3rem;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    clear: both;
+}
+
+.receiver {
+    background-color: #4866CE;
+    width: 50%;
+    color: white;
+    float: right;
+}
+
+.sender {
+    background-color: #EAEFF6;
+    float: left;
+    width: 50%;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.receiver::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #4866CE;
+}
+
+.sender::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #EAEFF6;
+}

@@ -1,0 +1,8 @@
+.reasonTitleText {
+    color: #4866CF
+}
+
+.card:hover {
+    color: white !important;
+    background-color: #4866CF;
+}

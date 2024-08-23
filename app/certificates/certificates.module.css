@@ -1,0 +1,45 @@
+.container {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 50% 100%, 50% 100%;
+}
+.certContainer {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 30% 100%, 30% 100%;
+}
+.certContainer2 {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 30% 100%, 30% 100%;
+}
+
+.containerThree {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 65% 100%, 50% 100%;
+}
+
+.containerFour {
+    background-image: url('../../public/certificates/smalllayer.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.conatinerFive {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 35% 100%, 35% 100%;
+}
+.mainContainer {
+    background-image: url('../../public/certificates/Layer_1.png'), url('../../public/certificates/Layer_2.png');
+    background-position: left, right;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+}

@@ -1,0 +1,46 @@
+.progressContainer {
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+    height: 2.5px;
+    background-color: #EAEFF6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.progressBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.5s;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4866CF;
+    top: -4px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.activeDot {
+    background-color: white;
+    z-index: 10;
+    transform: translate(73%, 15%);
+}
+
+.square {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #4866CF;
+    top: -10px;
+    transition: left 0.5s;
+    border-radius: 6px;
+}
