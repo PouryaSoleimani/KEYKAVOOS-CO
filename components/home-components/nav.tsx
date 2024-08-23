@@ -3,10 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchUserProfile,
-  setLocalStorageToken,
-} from "@/redux/features/user/userSlice";
+import { fetchUserProfile, setLocalStorageToken, } from "@/redux/features/user/userSlice";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NavMobile from "./nav-mobile";
 
@@ -62,9 +59,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 lg:${
-        activeColorChange && "shadow-md bg-slate-50"
-      }`}
+      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 lg:${activeColorChange && "shadow-md bg-slate-50"}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
