@@ -8,13 +8,7 @@ function Intro() {
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 text-right relative">
       <div className="flex justify-center lg:justify-normal relative">
-        <div
-          style={{
-            backgroundColor: "#F6FCFA",
-            borderRadius: "100%",
-          }}
-          className="lg:w-[430px] lg:h-[430px] max-w-[430px] w-[300px] h-[285px] absolute top-[1rem] lg:left-0 lg:translate-x-0"
-        ></div>
+        <div style={{ backgroundColor: "#F6FCFA", borderRadius: "100%", }} className="lg:w-[430px] lg:h-[430px] max-w-[430px] w-[300px] h-[285px] absolute top-[1rem] lg:left-0 lg:translate-x-0"></div>
         <div
           style={{
             background: "radial-gradient(circle at bottom,#F6FCFA 0%,#0000)",
@@ -27,21 +21,15 @@ function Intro() {
           className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]"
         >
           <Image src={tower} alt="tower" className="z-20" />
-          {/* <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-[5px] absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-full">
-            <Image
-              src={support}
-              alt="support"
-              width={25}
-              height={25}
-              className="bg-[#C9D6E9DE] p-[3%] rounded-full"
-            />
+          <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-[5px] absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-full">
+            <Image src={support} alt="support" width={25} height={25} className="bg-[#C9D6E9DE] p-[3%]" />
             <p className="lg:text-[12px] text-[#4C6487] text-sm text-center">
               پشتیبانی یک ساله
             </p>
             <p className="lg:text-[10px] text-[#4C6487] text-center hidden lg:inline">
               یک سال در کنارتان هستیم
             </p>
-          </div> */}
+          </div>
 
           <div className="w-[30px] h-[30px] absolute left-12 bg-[#C9D6E9] rounded-full hidden lg:block"></div>
           <div className="w-[18px] h-[18px] absolute left-[28rem] top-12 bg-[#C9D6E9] rounded-full hidden lg:block"></div>
