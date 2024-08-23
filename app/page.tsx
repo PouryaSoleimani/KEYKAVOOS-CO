@@ -15,13 +15,10 @@ import Loading from "./loading";
 export default function Home() {
   const [mainLoading, setMainLoading] = useState(true);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setMainLoading(false);
-    }, 1000);
-
+    const timer = setTimeout(() => { setMainLoading(false); }, 1000);
     return () => clearTimeout(timer);
   }, []);
-  
+
   if (mainLoading) {
     return <Loading />;
   } else {
