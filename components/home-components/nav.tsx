@@ -59,7 +59,7 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-3xl rounded-xl"}`}
+      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-white/50 backdrop-blur-3xl rounded-xl"}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
@@ -67,7 +67,7 @@ const Nav = () => {
         setShowFour(false)
       )}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] rounded-b-lg backdrop-blur-3xl bg-transparent">
+      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] rounded-b-lg backdrop-blur-3xl bg-white/50">
         {/* Mobile */}
         <NavMobile
           active={active}

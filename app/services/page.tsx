@@ -5,14 +5,14 @@ import Nav from "@/components/home-components/nav";
 import Footer from "@/components/home-components/Footer/Footer";
 import Image from "next/image";
 import options from "@/public/Plans/options.svg";
-import "aos/dist/aos.css";
+import 'animate.css';
 
 //^ COMPONENT
 function Services() {
   return (
-    <div className="grid grid-cols-1 gap-8 animate__animated animate__fadeInUp animate__slow" >
+    <div className="grid grid-cols-1 gap-8 " >
       <Nav />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-[90%] mx-auto text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-[90%] mx-auto text-center animate__animated animate__flash animate__slow">
 
         {servicesData.map((item) => (
           <div key={item.id} className="bg-white h-[400px] sm:max-md:h-[420px] md:max-lg:h-[300px] w-[260px] lg:w-full mx-auto shadow-md rounded-[15px] flex flex-col items-center gap-5">
