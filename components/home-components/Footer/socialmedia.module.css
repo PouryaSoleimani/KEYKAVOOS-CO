@@ -5,6 +5,8 @@
 
 .social-media-icon {
     width: 3em;
+    padding: 0;
+    height: 3em;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
     cursor: pointer;
