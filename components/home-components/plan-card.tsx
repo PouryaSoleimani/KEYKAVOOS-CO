@@ -16,7 +16,7 @@ type CardInfo = {
 };
 function PlanCard({ data }: PlanCardProps) {
   return (
-    <div className="bg-white w-[250px] md:max-lg:w-[260px] rounded-xl p-[3%] relative shadow">
+    <div className="bg-white w-[250px] md:max-lg:w-[260px] rounded-xl p-[3%] relative shadow hover:scale-105 duration-300 cursor-pointer">
       <div className="bg-[#4866CF] w-[80%] mx-auto text-center text-[18px] font-semibold text-white rounded-b-2xl absolute z-10 -translate-x-1/2 left-1/2 -top-[0.04rem] p-2">
         {data.type}
       </div>
