@@ -35,22 +35,22 @@ export default Footer;
 const Contact = () => {
   return (
     <div className="flex flex-col justify-stretch gap-3 col-span-2">
-      <p className={`${styles["footer-section-title"]}`}>تماس با ما</p>
-      <div className="flex flex-row items-center gap-1">
-        <Image src={LocationIcon} alt="location" width={16} />
-        <p className="font-faNum text-[16px] max-w-[22rem]">
+      <p className={`${styles["footer-section-title"]} tracking-tighter`}>تماس با ما</p>
+      <div className="flex flex-row items-center gap-2 mt-1">
+        <Image src={LocationIcon} alt="location" className="w-7 h-7 ml-1" />
+        <p className="font-faNum text-[17px] max-w-[26rem] tracking-normal">
           تهران،خیابان قائم مقام فراهانی،کوچه ماگنولیا، پلاک 30 ،واحد 12
         </p>
       </div>
 
-      <div className="flex flex-row items-center gap-1">
-        <Image src={PhoneIcon} alt="phone" width={16} />
-        <p className="font-faNum text-[16px]">021-91691650</p>
+      <div className="flex flex-row items-center gap-2 mt-1">
+        <Image src={PhoneIcon} alt="phone" className="w-6 h-6 -rotate-12"/>
+        <p className="font-faNum text-[17px] tracking-widest">021-91691650</p>
       </div>
 
-      <div className="flex flex-row items-center gap-1">
-        <Image src={MailIcon} alt="mail" width={16} />
-        <p className="text-[16px]">info@keykavoos.co</p>
+      <div className="flex flex-row items-center gap-2 mt-2">
+        <Image src={MailIcon} alt="mail" className="w-6 h-6"/>
+        <p className="text-[17px] tracking-widest">info@keykavoos.co</p>
       </div>
     </div>
   );

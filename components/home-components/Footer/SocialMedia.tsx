@@ -21,10 +21,10 @@ function SocialMedia() {
   });
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-[18.5px] whitespace-nowrap text-[#4866CF] font-semibold text-center">
+      <p className="text-[18.5px] whitespace-nowrap text-[#4866CF] font-semibold text-center tracking-tighter">
         ما را در شبکه های اجتماعی دنبال کنید
       </p>
-      <div className="flex flex-col text-center justify-center items-center gap-5">
+      <div className="flex flex-col text-center justify-center items-center gap-3">
         <div className="flex justify-center items-center gap-8">
 
           <SocialMediaIconsContainer
