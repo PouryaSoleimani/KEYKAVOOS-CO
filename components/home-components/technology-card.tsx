@@ -9,10 +9,11 @@ type TechnologyCardProps = {
     technologies: { id: number; techImgUrl: string[]; tech: string[]; }[];
   };
 };
-// COMPONENT
+
+//^ COMPONENT
 function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
   return (
-    <div className="bg-white h-[400px] md:max-lg:h-[300px] w-[260px] lg:w-full mx-auto shadow-md rounded-[15px] flex flex-col items-center gap-3 hover:scale-105 duration-300 cursor-pointer mb-6">
+    <div className="bg-white h-[400px] md:max-lg:h-[300px] w-[260px] lg:w-full mx-auto shadow-md hover:shadow-xl rounded-[15px] flex flex-col items-center gap-3 hover:scale-105 duration-300 cursor-pointer mb-6 ">
       <div className="bg-[#4866CF] text-center text-white rounded-t-lg font-bold w-full p-2 text-[20px] tracking-tighter mb-3">
         {technologyInfo.title}
       </div>
@@ -33,7 +34,7 @@ function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
               {tech.techImgUrl.map((url, index) => (
                 <Image key={index} src={url} alt={""} width={34} height={34} />
               ))}
-              <span className="text-lg tracking-tighter text-zinc-900">
+              <span className="text-xl tracking-tighter text-zinc-900">
                 {tech.tech.length > 1 ? tech.tech.join(",") : tech.tech}
               </span>
             </li>

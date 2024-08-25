@@ -5,6 +5,7 @@ import OrdersubmissionForm from "./ordersubmission-form";
 
 function Order() {
   const [currentStep, setCurrentStep] = useState(0);
+
   const renderSteps = () => {
     switch (currentStep) {
       case 0:
@@ -22,7 +23,7 @@ function Order() {
     }
   };
   return (
-    <div className="grid grid-cols-1 gap-5">
+    <div className="grid grid-cols-1 gap-5 text-lg">
       <OrderProgress
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
