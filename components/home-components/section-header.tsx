@@ -1,12 +1,6 @@
 import React from "react";
 
-type SectionHeaderProps = {
-  mainTitle: string;
-  subTitle: string;
-  width: string;
-  marginBottom?: string;
-  marginTop?: string;
-};
+type SectionHeaderProps = { mainTitle: string; subTitle: string; width: string; marginBottom?: string; marginTop?: string; };
 function SectionHeader({
   mainTitle,
   subTitle,
@@ -17,7 +11,7 @@ function SectionHeader({
   return (
     <div
       className="relative whitespace-nowrap sm:mt-24 sm:mb-20 mt-20 mb-10"
-      // style={{ marginBottom: marginBottom, marginTop: marginTop }}
+    // style={{ marginBottom: marginBottom, marginTop: marginTop }}
     >
       <div
         style={{
@@ -47,7 +41,7 @@ function SectionHeader({
         }}
         className="hidden lg:inline"
       ></div>
-      <div className="text-center absolute -top-14 left-1/2 -translate-x-1/2 bg-transparent">
+      <div className="text-center absolute -top-16 left-1/2 -translate-x-1/2 bg-transparent">
         <p className="text-[#68707A] sm:text-[32px] font-bold">
           {mainTitle}
         </p>

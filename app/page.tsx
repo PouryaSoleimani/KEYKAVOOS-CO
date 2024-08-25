@@ -11,9 +11,9 @@ import Script from "next/script";
 import Technology from "@/home-components/technology";
 import { useEffect, useState } from "react";
 import Loading from "./loading";
-
 export default function Home() {
   const [mainLoading, setMainLoading] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => { setMainLoading(false); }, 1000);
     return () => clearTimeout(timer);
@@ -22,6 +22,7 @@ export default function Home() {
   if (mainLoading) {
     return <Loading />;
   } else {
+    //^ RETURN
     return (
       <div className="bg-[#EAEFF6]">
         <Script src="/navachat.js" async />

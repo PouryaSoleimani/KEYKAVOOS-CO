@@ -20,8 +20,8 @@ function Intro() {
           }}
           className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]"
         >
-          <Image src={tower} alt="tower" className="z-20" />
-          <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-[5px] absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-full">
+          <Image src={tower} alt="tower" className="z-20 " />
+          <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-full absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-xl">
             <Image src={support} alt="support" width={25} height={25} className="bg-[#C9D6E9DE] p-[3%]" />
             <p className="lg:text-[12px] text-[#4C6487] text-sm text-center">
               پشتیبانی یک ساله
@@ -39,16 +39,13 @@ function Intro() {
       </div>
 
       <div className="flex flex-col justify-center items-end gap-5">
-        <div className="flex items-center justify-center text-center md:text-right md:text-[30px] text-[#68707A] text-[35px] 6xl:max-7xl:text-[43px] 7xl:text-[40px] 8xl:text-[45px] 5xl:max-6xl:text-[43px] 2xl:max-3xl:text-[50px] 3xl:max-5xl:text-[35px] 3xl:max-5xl:max-w-md lg:max-2xl:text-[45px] lg:max-2lg:text-[34px] 2lg:max-xl:text-[38px] xl:max-2xl:text-[44px]">
+        <div className="flex items-center justify-center text-center md:text-right md:text-[30px] text-[#68707A] text-[35px] 6xl:max-7xl:text-[43px] 7xl:text-[40px] 8xl:text-[45px] 5xl:max-6xl:text-[43px] 2xl:max-3xl:text-[38px] 3xl:max-5xl:text-[35px] 3xl:max-5xl:max-w-md lg:max-2xl:text-[45px] lg:max-2lg:text-[34px] 2lg:max-xl:text-[38px] xl:max-2xl:text-[44px] leading-snug font-YekanBakh">
           <div>
-            شرکت بین المللی <span className="font-extrabold">کیکاووس زمان</span>{" "}
+            شرکت بین المللی <span className="font-extrabold text-[#4866CF]">کیکاووس زمان</span>{" "}
             تجربه ای متفاوت در <p>دنیای دیجیتال</p>
           </div>
         </div>
-        <p
-          className="text-[#939393] md:max-w-[25rem] text-[16px] text-justify"
-          dir="rtl"
-        >
+        <p className="text-[#939393] md:max-w-[25rem] text-[16px] text-justify" dir="rtl"   >
           شرکت بین المللی کیکاووس زمان با تکیه بر دانش فنی وتخصصی بابهترین روش
           هااز متخصصان برای توسعه ی نرم افزار های نوآورانه استفاده می کند و به
           ارائه خدمات با کیفیت در زمینه های برنامه نویسی، بازرگانی وتولید قطعات
