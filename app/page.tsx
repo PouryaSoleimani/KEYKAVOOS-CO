@@ -40,7 +40,7 @@ export default function Home() {
         <Nav />
         <main className="flex flex-col w-[80%] mx-auto my-[3%]">
           <Intro />
-          <IntroStatistics />
+          {/* <IntroStatistics /> */}
           <Plans />
           <Technology />
           <Reason />
