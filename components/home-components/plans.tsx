@@ -2,10 +2,12 @@ import React from "react";
 import PlanCard from "./plan-card";
 import SectionHeader from "./section-header";
 import { PlanData } from "@/lib/data";
+import 'animate.css';
 
+//^ COMPONENT
 function Plans() {
   return (
-    <div className="flex flex-col" data-aos="fade-up" data-aos-duration="3500" >
+    <div className="flex flex-col animate__animated animate__fadeInUp animate__delay-3s animate__slow" >
       <SectionHeader mainTitle="جدول خدمات طراحی سایت" subTitle="کدام طرح مناسب کسب و کار شماست؟" width="28%" />
       <div className="flex sm:flex-row-reverse sm:justify-between sm:max-lg:flex-wrap flex-col items-center lg:gap-0 gap-5">
         {PlanData.map((item) => (
