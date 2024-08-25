@@ -5,7 +5,7 @@ import { PlanData } from "@/lib/data";
 
 function Plans() {
   return (
-    <div className="flex flex-col" data-aos="fade-up" data-aos-duration="1500">
+    <div className="flex flex-col" data-aos="fade-up" data-aos-duration="3500" >
       <SectionHeader mainTitle="جدول خدمات طراحی سایت" subTitle="کدام طرح مناسب کسب و کار شماست؟" width="28%" />
       <div className="flex sm:flex-row-reverse sm:justify-between sm:max-lg:flex-wrap flex-col items-center lg:gap-0 gap-5">
         {PlanData.map((item) => (
