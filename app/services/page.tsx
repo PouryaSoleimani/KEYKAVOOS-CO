@@ -17,7 +17,7 @@ function Services() {
         {servicesData.map((item) => (
           <div key={item.id} className="bg-white h-[400px] sm:max-md:h-[420px] md:max-lg:h-[300px] w-[260px] lg:w-full mx-auto shadow-md rounded-[15px] flex flex-col items-center gap-5">
 
-            <p className="bg-[#4866CF] text-center text-white rounded-t-[15px] font-semibold w-full px-2 text-[18px] tracking-tight py-3 whitespace-nowrap text-ellipsis">
+            <p className="bg-[#4866CF] text-center  text-white rounded-t-[15px] font-semibold w-full px-2 text-[18px] tracking-tight py-3 whitespace-nowrap text-ellipsis">
               {item.title}
             </p>
 
