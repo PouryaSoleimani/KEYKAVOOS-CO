@@ -64,7 +64,8 @@ const AuthLogos = () => {
         <Link referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=422622&Code=KGdskS8BDuEuvxkxW9GT5eCCOJ3TO3sa">
           <Image src={SenfiLogo} alt="senfi-logo" className="w-[5em]" />
         </Link>
-        <Link href="https://trustseal.enamad.ir/?id=446767&code=Y6oDWjmfcaGlRuWAK8t9YKGUq2VNkzYJ" target="_blank">
+        {/* <Link href="https://trustseal.enamad.ir/?id=446767&code=Y6oDWjmfcaGlRuWAK8t9YKGUq2VNkzYJ" target="_blank"> */}
+        <Link href="https://enamad.ir/" target="_blank">
           <Image src={EnamaadLogo} alt="enamaad-logo" className="w-[5em]" />
         </Link>
       </div>
