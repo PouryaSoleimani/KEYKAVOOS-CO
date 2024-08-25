@@ -91,7 +91,7 @@ const Nav = () => {
           </SkeletonTheme>
         ) : (
           <Link href={route}>
-            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white rounded-[4px] py-1.5 px-5 text-base hover:bg-blue-800 duration-300">
+            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && FirstName}
               {!FirstName && localToken && (
@@ -103,7 +103,7 @@ const Nav = () => {
 
         <div className="lg:flex gap-6 hidden">
           <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6">
-            <li className="bg-[#C9D6E9] text-[#4866CF] py-1.5 px-4 rounded-[4px] hover:bg-[#4866CF] hover:text-[#C9D6E9] duration-300">
+            <li className="bg-[#C9D6E9] text-[#4866CF] py-2 px-4 rounded-[4px] hover:bg-[#4866CF] hover:text-[#C9D6E9] duration-300">
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}

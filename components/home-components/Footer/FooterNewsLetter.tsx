@@ -23,7 +23,7 @@ function FooterNewsLetter() {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     const validMail = emailRegex.test(email);
     setValidEmail(validMail);
@@ -31,7 +31,7 @@ function FooterNewsLetter() {
 
   return (
     <div className="flex flex-col gap-2 items-stretch justify-center lg:justify-start lg:gap-6">
-      <p className={`${styles["footer-section-title"]}`}>مشترک شوید تا آخرین اخبار را دریافت کنید.</p>
+      <p className={`${styles["footer-section-title"]} tracking-tighter font-normal`}>مشترک شوید تا آخرین اخبار را دریافت کنید.</p>
       <form
         className="flex gap-2 flex-col lg:flex-row"
         onSubmit={(e) => handleEmailSubmission(e)}
@@ -41,7 +41,7 @@ function FooterNewsLetter() {
             placeholder="ایمیل خودرا وارد کنید..."
             type="email"
             value={email}
-            className="bg-[#4682B4] placeholder:text-white rounded-md w-full py-2 px-2 outline-none"
+            className="bg-[#F8FAFC] text-lg placeholder:text-sm rounded-md w-full py-1.5 px-2 outline-none border border-[#4866CF]"
             aria-describedby="emailnote"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -56,9 +56,10 @@ function FooterNewsLetter() {
             ایمیل معتبر نیست.
           </p>
         </div>
-        <button className="flex gap-1 p-1 text-white bg-[#4682B4] rounded-md items-center whitespace-nowrap lg:w-[160px] w-[120px] lg:h-[40px]">
-          <span>مشترک شوید</span>
-          <img src="/white-arrow.svg" className="w-3 h-3" />
+        <button className="flex gap-1 p-1 text-white bg-[#4866CF] rounded-md items-center whitespace-nowrap lg:w-[160px] w-[120px] lg:h-[40px] hover:bg-blue-800 duration-300">
+          <span className="tracking-tighter px-1 flex items-center gap-1">مشترک شوید
+            <img src="/white-arrow.svg" className="w-3 h-3 pl-1" />
+          </span>
         </button>
       </form>
       {emailSuccess !== "" && emailSuccess && (
@@ -66,7 +67,7 @@ function FooterNewsLetter() {
           {emailSuccess !== "" && emailSuccess}
         </span>
       )}
-      <p className="lg:text-center">
+      <p className="lg:text-start tracking-tight leading-7 ">
         ما به شما تمامی اخبار فروش ویژه و رویداد ها را اطلاع رسانی میکنیم.
       </p>
     </div>

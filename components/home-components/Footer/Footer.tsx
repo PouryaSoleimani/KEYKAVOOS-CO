@@ -11,6 +11,7 @@ import EnamaadLogo from "@/public/footer/enamaad.svg";
 import styles from "./footer.module.css";
 import FooterNewsLetter from "./FooterNewsLetter";
 
+// ^ COMPONENT
 function Footer() {
   return (
     <div className="text-[#000000] bg-slate-100 pt-7">

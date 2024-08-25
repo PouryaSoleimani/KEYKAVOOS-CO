@@ -23,11 +23,8 @@ function Order() {
     }
   };
   return (
-    <div className="grid grid-cols-1 gap-5 text-lg">
-      <OrderProgress
-        currentStep={currentStep}
-        setCurrentStep={setCurrentStep}
-      />
+    <div className="grid grid-cols-1 gap-5 text-lg"  data-aos="fade-up" data-aos-duration="2000">
+      <OrderProgress currentStep={currentStep} setCurrentStep={setCurrentStep} />
       {renderSteps()}
     </div>
   );

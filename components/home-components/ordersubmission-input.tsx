@@ -23,7 +23,7 @@ function OrdersubmissionInput({
         placeholder={placeholder}
         className={`${
           error ? "border-indigo-400" : "border-[#D0DBEC]"
-        } outline-none border-2  rounded-[8px] p-3 w-full`}
+        } outline-none border-2  rounded-[8px] p-3 w-full tracking-tighter`}
         dir="rtl"
         onChange={onChange}
         value={value}
