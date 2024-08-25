@@ -17,6 +17,7 @@ function Intro() {
           className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]"
         >
           <Image src={tower} alt="tower" className="z-20 animate__animated animate__fadeInUp animate__slow animate__delay-2s " />
+          
           {/*     پشتیبانی یکساله     */}
           {/* <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-full absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-xl">
             <Image src={support} alt="support" width={25} height={25} className="bg-[#C9D6E9DE] p-[3%]" />
