@@ -3,159 +3,159 @@
 @tailwind utilities;
 
 :root {
-    --main-blue-color: #4866CF;
-    --main-text-color: #ffffff;
+  --main-blue-color: #4866cf;
+  --main-text-color: #ffffff;
 }
 
-.on-hover:hover{
-    /* fill: #DEEBFF; */
-    background-color: #4866CF;
-}
-
-@font-face {
-    font-family: 'YekanBakh';
-    src: url("../public/fonts/YekanBakh-Regular.otf");
+.on-hover:hover {
+  /* fill: #DEEBFF; */
+  background-color: #4866cf;
 }
 
 @font-face {
-    font-family: 'faNum';
-    src: url("../public/fonts/YekanBakhFaNum-Regular.otf");
+  font-family: "YekanBakh";
+  src: url("../public/fonts/YekanBakh-Regular.otf");
+}
+
+@font-face {
+  font-family: "faNum";
+  src: url("../public/fonts/YekanBakhFaNum-Regular.otf");
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: YekanBakh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: YekanBakh;
 }
 
 textarea {
-    resize: none;
-    /* border: none; Remove the default textarea border */
-    outline: none;
-    /* Remove the default textarea outline */
-    padding: 0;
-    /* Remove padding to eliminate any remaining space */
-    background: transparent;
-    /* Set background to transparent */
+  resize: none;
+  /* border: none; Remove the default textarea border */
+  outline: none;
+  /* Remove the default textarea outline */
+  padding: 0;
+  /* Remove padding to eliminate any remaining space */
+  background: transparent;
+  /* Set background to transparent */
 }
 
 table,
 th,
 td {
-    border: 2px solid #4866CF;
-    border-collapse: collapse;
-    padding: 1rem;
+  border: 2px solid #4866cf;
+  border-collapse: collapse;
+  padding: 1rem;
 }
 
 tr:nth-child(even) {
-    background-color: #4866CF7A;
-    color: #FFFFFF;
+  background-color: #4866cf7a;
+  color: #ffffff;
 }
 
 tr:nth-child(odd) {
-    color: #4866CF;
+  color: #4866cf;
 }
 
 th,
 td {
-    width: 18%;
+  width: 18%;
 }
 
 /* swiper arrows customization */
 .swiper-button-next {
-    background-image: url('../public/arrow.png');
+  background-image: url("../public/arrow.png");
 }
 
 .swiper-button-prev {
-    background-image: url('../public/arrow.png');
-    rotate: 180deg;
+  background-image: url("../public/arrow.png");
+  rotate: 180deg;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    background-position: center;
-    padding: 0 2%;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: center;
+  padding: 0 2%;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    display: none;
+  display: none;
 }
 
 /* toastify */
 .Toastify__toast-theme--light {
-    color: black !important;
-    font-family: YekanBakh !important;
+  color: black !important;
+  font-family: YekanBakh !important;
 }
 
 /* main loading */
 .loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .loader-container img {
-    animation: zoom-in-zoom-out 5s ease infinite;
+  animation: zoom-in-zoom-out 5s ease infinite;
 }
 
 @keyframes zoom-in-zoom-out {
-    0% {
-        transform: scale(1, 1);
-    }
+  0% {
+    transform: scale(1, 1);
+  }
 
-    50% {
-        transform: scale(1.5, 1.5);
-    }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
 
-    100% {
-        transform: scale(1, 1);
-    }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 /* page loading */
 /* HTML: <div class="loader"></div> */
 .loader {
-    width: 15px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    animation: l5 1s infinite linear alternate;
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
 }
 
 @keyframes l5 {
-    0% {
-        box-shadow: 20px 0 #000, -20px 0 #0002;
-        background: #000
-    }
+  0% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #000;
+  }
 
-    33% {
-        box-shadow: 20px 0 #000, -20px 0 #0002;
-        background: #0002
-    }
+  33% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #0002;
+  }
 
-    66% {
-        box-shadow: 20px 0 #0002, -20px 0 #000;
-        background: #0002
-    }
+  66% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #0002;
+  }
 
-    100% {
-        box-shadow: 20px 0 #0002, -20px 0 #000;
-        background: #000
-    }
+  100% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #000;
+  }
 }
 
 /* dropdown */
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("../public/Panel/dropdownbutton.svg");
-    background-repeat: no-repeat;
-    background-position: 2% 50%;
-    outline: none;
-    padding: 0 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../public/Panel/dropdownbutton.svg");
+  background-repeat: no-repeat;
+  background-position: 2% 50%;
+  outline: none;
+  padding: 0 5px;
 }

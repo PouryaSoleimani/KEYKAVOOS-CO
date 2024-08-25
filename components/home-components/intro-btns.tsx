@@ -10,7 +10,7 @@ function IntroBtns() {
   useEffect(() => {
     dispatch(getTokenFromLocal());
   }, []);
-  
+
   const routeModifier = () => {
     if (localToken) {
       if (role === "User") {
@@ -26,10 +26,7 @@ function IntroBtns() {
 
   return (
     <div className="flex md:justify-end justify-center w-full gap-3">
-      <Link
-        href={routeForBtn}
-        className="bg-[#4866CF] flex justify-center items-center text-white h-[40px] w-[135px] rounded-[4px]"
-      >
+      <Link href={routeForBtn} className="bg-[#4866CF] flex justify-center items-center text-white h-[40px] w-[135px] rounded-[4px] hover:bg-blue-800 duration-300"  >
         ثبت سفارش
       </Link>
     </div>

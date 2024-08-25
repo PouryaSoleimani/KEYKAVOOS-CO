@@ -10,21 +10,30 @@ import Reason from "@/home-components/reason";
 import Script from "next/script";
 import Technology from "@/home-components/technology";
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Loading from "./loading";
 
+//^ COMPONENT
 export default function Home() {
   const [mainLoading, setMainLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMainLoading(false);
-    }, 1000);
 
+  useEffect(() => {
+    const timer = setTimeout(() => { setMainLoading(false); }, 1000);
     return () => clearTimeout(timer);
   }, []);
-  
+
+  // AOS
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
+
   if (mainLoading) {
     return <Loading />;
   } else {
+    //^ RETURN
     return (
       <div className="bg-[#EAEFF6]">
         <Script src="/navachat.js" async />
@@ -35,8 +44,8 @@ export default function Home() {
           <Plans />
           <Technology />
           <Reason />
-          {/* <Order /> */}
-          {/* <News /> */}
+          <Order />
+          <News />
         </main>
         <Footer />
       </div>

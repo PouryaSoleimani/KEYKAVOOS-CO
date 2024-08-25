@@ -143,7 +143,7 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
       onSubmit={handleSubmit}
       className="bg-[#F8FAFC] rounded-2xl grid grid-cols-1 gap-3 px-[5%] py-[2%] w-full"
     >
-      <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px]">
+      <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter ">
         فرم ثبت درخواست
       </label>
       <div className="flex flex-row-reverse gap-3 flex-wrap md:flex-nowrap">
@@ -173,45 +173,27 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
         />
       </div>
       <div className="flex flex-row-reverse justify-between gap-3 flex-wrap sm:flex-nowrap">
-        <textarea
-          className={`${
-            errors.Description && touched.Description
-              ? "border-indigo-400"
-              : " border-[#D0DBEC]"
-          } outline-none bg-white border-2 rounded-[8px] h-[100px] w-full sm:w-[50%] p-3`}
+        <textarea className={`${errors.Description && touched.Description ? "border-indigo-400" : " border-[#D0DBEC]"} outline-none bg-white border-2 rounded-[8px] h-[100px] w-full sm:w-[50%] p-3`}
           placeholder="توضیحات تکمیلی"
           dir="rtl"
           value={values.Description}
           onChange={handleChange}
-          name="Description"
-        ></textarea>
+          name="Description">
+        </textarea>
         <div className="flex flex-col bg-white border-[#D0DBEC] border-2 rounded-[8px] items-center justify-center sm:w-[50%] w-full">
           <div className="flex flex-col items-center gap-[5%] whitespace-nowrap">
-            <input
-              id="fileInput"
-              type="file"
-              style={{ display: "none" }}
-              onChange={handleFileChange}
-            />
+            <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
             <label className="text-[#68707A]">انتخاب فایل</label>
-            <label
-              htmlFor="fileInput"
-              style={{ cursor: "pointer" }}
-              className="flex flex-col items-center"
-            >
+            <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex flex-col items-center tracking-tighter font-bold">
               {File ? File.name : <Image src={uploadfile} alt="انتخاب فایل" />}
             </label>
-            <span dir="rtl" className="text-[#4f647e] text-[0.5rem]">
-              فرمت های مورد قبول: zip, rar
+            <span dir="rtl" className="text-[#4f647e] text-[1rem] tracking-tighter mt-1">
+              فرمت های مورد قبول:  <span className="text-[#4866CF] font-bold text-lg">zip, rar</span>
             </span>
           </div>
         </div>
       </div>
-      <button
-        className="bg-[#4866CF] text-white w-[120px] p-2 rounded-lg"
-        type="submit"
-        disabled={isValid === false || fileSelected === false ? true : false}
-      >
+      <button className="bg-[#4866CF] text-white w-[150px] py-2  tracking-tight hover:bg-blue-800 duration-300 cursor-pointer rounded-lg" type="submit" disabled={isValid === false || fileSelected === false ? true : false}>
         ثبت درخواست
       </button>
     </form>

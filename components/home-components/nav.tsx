@@ -3,10 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchUserProfile,
-  setLocalStorageToken,
-} from "@/redux/features/user/userSlice";
+import { fetchUserProfile, setLocalStorageToken, } from "@/redux/features/user/userSlice";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NavMobile from "./nav-mobile";
 
@@ -59,12 +56,10 @@ const Nav = () => {
     }
   };
   const route = routing();
-
+  //^ RETURN
   return (
     <div
-      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 lg:${
-        activeColorChange && "shadow-md bg-slate-50"
-      }`}
+      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-3xl rounded-xl"}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
@@ -72,7 +67,7 @@ const Nav = () => {
         setShowFour(false)
       )}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%]">
+      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] rounded-b-lg backdrop-blur-3xl bg-transparent">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -96,7 +91,7 @@ const Nav = () => {
           </SkeletonTheme>
         ) : (
           <Link href={route}>
-            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white rounded-[4px] py-1 px-5 text-base">
+            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && FirstName}
               {!FirstName && localToken && (
@@ -107,8 +102,8 @@ const Nav = () => {
         )}
 
         <div className="lg:flex gap-6 hidden">
-          <ul className="hidden lg:flex justify-center items-center gap-8 z-10">
-            <li className="bg-[#C9D6E9] text-[#4866CF] p-2 rounded-[4px]">
+          <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6">
+            <li className="bg-[#C9D6E9] text-[#4866CF] py-2 px-4 rounded-[4px] hover:bg-[#4866CF] hover:text-[#C9D6E9] duration-300">
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
@@ -123,17 +118,12 @@ const Nav = () => {
             >
               <div className="flex gap-2 cursor-pointer">
                 {/* <span>
-                  <Image
-                    src="/navarrow.svg"
-                    alt="arrow"
-                    width={22}
-                    height={22}
-                  />
+                  <Image  src="/navarrow.svg"    alt="arrow"    width={22}    height={22}  />
                 </span> */}
                 <Link
                   href={"/services"}
-                  // onMouseEnter={() => setShowTwo(true)}
-                  className="font-semibold hover:text-[#4866CF]"
+                  //  onMouseEnter={() => setShowTwo(true)}
+                  className="font-semibold hover:text-[#4866CF] text-[14px]"
                 >
                   خدمات ما
                 </Link>
@@ -168,16 +158,11 @@ const Nav = () => {
                 setShowThree(false)
               )}
             >
-              <div className="flex gap-2 cursor-default hover:text-[#4866CF]">
+              <div className="flex gap-2 hover:text-[#4866CF] cursor-pointer">
                 <span>
-                  <Image
-                    src="/navarrow.svg"
-                    alt="arrow"
-                    width={18}
-                    height={18}
-                  />
+                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
                 </span>
-                <span className={`font-semibold`}>وبلاگ</span>
+                <span className={`font-semibold text-[14px]`}>وبلاگ</span>
               </div>
 
               {showFour && (
@@ -187,16 +172,16 @@ const Nav = () => {
                     onMouseLeave={() => setShowFour(false)}
                   >
                     <Link href="/weblog/back-end ">
-                      <li className="text-sm pt-1 font-semibold">بک اند</li>
+                      <li className="text-sm pt-1 font-semibold hover:text-[#4866CF] duration-300">بک اند</li>
                     </Link>
                     <Link href="/weblog/front-end">
-                      <li className="text-sm font-semibold">فرانت اند</li>
+                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">فرانت اند</li>
                     </Link>
                     <Link href="/weblog/accounting">
-                      <li className="text-sm font-semibold">حسابداری</li>
+                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">حسابداری</li>
                     </Link>
                     <Link href="/weblog/digital-marketing">
-                      <li className="text-sm rounded-b-lg pb-2 font-semibold">
+                      <li className="text-sm rounded-b-lg pb-2 font-semibold hover:text-[#4866CF] duration-300">
                         دیجیتال مارکتینگ
                       </li>
                     </Link>
@@ -214,28 +199,21 @@ const Nav = () => {
                 setShowFour(false)
               )}
             >
-              <div className="flex gap-2 cursor-default ml-4 hover:text-[#4866CF]">
+              <div className="flex gap-2 cursor-default hover:text-[#4866CF]">
                 <span>
-                  <Image
-                    src="/navarrow.svg"
-                    alt="arrow"
-                    width={18}
-                    height={18}
-                  />
+                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
                 </span>
-                <span className="font-semibold">درباره ما</span>
+                <span className="font-semibold text-[14px] cursor-pointer">درباره ما</span>
               </div>
               {showThree && (
                 <React.Fragment>
-                  <ul
-                    className="list-none absolute lg:top-[65px]  rounded-2xl border-b-8 bg-white border-b-[#4866CF] w-[120px] px-2 text-right flex flex-col gap-5 z-10 "
-                    onMouseLeave={() => setShowThree(false)}
-                  >
+                  <ul className="list-none absolute lg:top-[65px]  rounded-2xl border-b-8 bg-white border-b-[#4866CF] w-[120px] px-2 text-right flex flex-col gap-5 z-10 "
+                    onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
-                      <li className="text-sm pt-2 font-semibold">مجوزها</li>
+                      <li className="text-sm pt-2 font-semibold hover:text-[#4866CF] duration-300">مجوزها</li>
                     </Link>
                     <Link href="/contact-us">
-                      <li className="text-sm font-semibold">تماس با ما</li>
+                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">تماس با ما</li>
                     </Link>
                   </ul>
                 </React.Fragment>

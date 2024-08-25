@@ -1,9 +1,6 @@
 "use client";
 import { Dispatch, SetStateAction, useEffect } from "react";
-type CounterProps = {
-  counter: number;
-  setCounter: Dispatch<SetStateAction<number>>;
-};
+type CounterProps = { counter: number; setCounter: Dispatch<SetStateAction<number>>; };
 const FormCounter = ({ setCounter, counter }: CounterProps) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
