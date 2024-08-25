@@ -6,7 +6,7 @@ import IntroBtns from "./intro-btns";
 
 function Intro() {
   return (
-    <div className="grid md:grid-cols-2 grid-cols-1 text-right relative">
+    <div className="grid md:grid-cols-2 grid-cols-1 text-right relative animate__animated animate__fadeInUp animate__slow" >
       <div className="flex justify-center lg:justify-normal relative">
         <div style={{ backgroundColor: "#F6FCFA", borderRadius: "100%", }} className="lg:w-[430px] lg:h-[430px] max-w-[430px] w-[300px] h-[285px] absolute top-[1rem] lg:left-0 lg:translate-x-0"></div>
         <div

@@ -17,6 +17,7 @@
     "@types/node": "20.10.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "18.2.17",
+    "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "autoprefixer": "10.4.16",
     "axios": "^1.6.5",
