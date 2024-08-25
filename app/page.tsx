@@ -12,7 +12,6 @@ import Technology from "@/home-components/technology";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import 'animate.css';
 import Loading from "./loading";
 
 //^ COMPONENT
