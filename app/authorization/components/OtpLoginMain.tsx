@@ -61,33 +61,16 @@ function OtpLoginMain({
           <div>{children}</div>
         </div>
         <div className="grid grid-cols-2 md:gap-[8%] gap-[5%]">
-          <FormInput
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setAnswer(e.target.value)
-            }
-            value={answer}
-            label="جواب سوال"
-            name="answer"
-          />
-          <MathProblemComponent
-            mathProblem={mathProblem}
-            wrongAnswerMessage={wrongAnswerMessage}
-          />
+          <FormInput onChange={(e: ChangeEvent<HTMLInputElement>) => setAnswer(e.target.value)} value={answer} label="جواب سوال" name="answer" />
+          <MathProblemComponent mathProblem={mathProblem} wrongAnswerMessage={wrongAnswerMessage} />
         </div>
-        <SubmissionBtn
-          text="ورود"
-          validation={isValid && result}
-          type={showModal ? "button" : "submit"}
-        />
+        <SubmissionBtn text="ورود" validation={isValid && result} type={showModal ? "button" : "submit"} />
       </form>
       {/* <LoginVia /> */}
       <div className="text-[16px] flex flex-row gap-1 justify-center items-center">
-        <p>حساب کاربری ندارید؟</p>
-        <span>
-          <span
-            onClick={() => dispatch(openModal(true), setIsLoggingIn(false))}
-            className="text-[#4866CF] cursor-pointer"
-          >
+        <p className="tracking-tighter">حساب کاربری ندارید؟</p>
+        <span className="tracking-tighter">
+          <span onClick={() => dispatch(openModal(true), setIsLoggingIn(false))} className="text-[#4866CF] cursor-pointer font-semibold tracking-tighter hover:text-blue-800 duration-300"   >
             ثبت نام
           </span>{" "}
           کنید.
