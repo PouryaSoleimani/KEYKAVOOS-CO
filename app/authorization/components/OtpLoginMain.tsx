@@ -28,24 +28,12 @@ type OtpLoginMainProps = {
   setIsLoggingIn: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function OtpLoginMain({
-  PhoneNumber,
-  onSubmitHandler,
-  onChangeHandler,
-  phoneNumberError,
-  isValid,
-  setAnswer,
-  answer,
-  mathProblem,
-  wrongAnswerMessage,
-  result,
-  children,
-  isLoggingIn,
-  setIsLoggingIn,
-}: OtpLoginMainProps) {
+function OtpLoginMain({ PhoneNumber, onSubmitHandler, onChangeHandler, phoneNumberError, isValid, setAnswer, answer, mathProblem, wrongAnswerMessage, result, children, isLoggingIn, setIsLoggingIn, }: OtpLoginMainProps) {
+
   const { showModal } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
 
+  // RETURN
   return (
     <div className="grid grid-cols-1 gap-6">
       <form className="flex flex-col gap-5" onSubmit={onSubmitHandler}>

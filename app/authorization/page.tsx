@@ -15,13 +15,12 @@ const Auth = () => {
   const [loginApproach, setLoginApproach] = useState(0);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const dispatch = useDispatch();
-  
+
   const renderSteps = () => {
+
     switch (authSteps) {
       case 1:
-        return (
-          <Login setLoginApproach={setLoginApproach} loginApproach={loginApproach} isLoggingIn={isLoggingIn} setIsLoggingIn={setIsLoggingIn} />
-        );
+        return (<Login setLoginApproach={setLoginApproach} loginApproach={loginApproach} isLoggingIn={isLoggingIn} setIsLoggingIn={setIsLoggingIn} />);
       case 2:
         return <UserLoginViaOTP />;
       case 3:

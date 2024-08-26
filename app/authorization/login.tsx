@@ -33,15 +33,7 @@ const Login = ({
   setIsLoggingIn,
 }: LoginProps) => {
   const { setAuthSteps } = useContext(AuthContext);
-  const {
-    showModal,
-    isLoggedIn,
-    errorMessage,
-    successMessage,
-    errorOnProfileHandler,
-    status,
-    token,
-  } = useSelector((state: any) => state.userData);
+  const { showModal, isLoggedIn, errorMessage, successMessage, errorOnProfileHandler, status, token, } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
   const [logwithOTP, setLogwithOTP] = useState(false);
   const [loginwithPass, setLoginwithPass] = useState(false);
@@ -108,10 +100,7 @@ const Login = ({
 
   return (
     <React.Fragment>
-      <div
-        className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]"
-        dir="rtl"
-      >
+      <div className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]" dir="rtl" >
         <div className="py-[5%] w-full relative px-[5%]">
           {errorMessage === "" && successMessage === "" && (
             <Modal
