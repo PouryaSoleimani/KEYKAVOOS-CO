@@ -14,13 +14,7 @@ import { AuthContext } from "./context/AuthContext";
 import { useTimer } from "@/hooks/useTimer";
 
 const RegisterUser = () => {
-  const {
-    PhoneNumberInput,
-    successMessage,
-    errorMessage,
-    userInfoOnLogin,
-    showModal,
-  } = useSelector((state: any) => state.userData);
+  const { PhoneNumberInput, successMessage, errorMessage, userInfoOnLogin, showModal, } = useSelector((state: any) => state.userData);
   const { setAuthSteps } = useContext(AuthContext);
   const { counter, setCounter } = useTimer();
   const dispatch = useDispatch();

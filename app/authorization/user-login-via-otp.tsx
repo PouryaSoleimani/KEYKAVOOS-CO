@@ -9,22 +9,12 @@ import sms from "../../public/Auth/sms.svg";
 import Modal from "@/components/modal";
 import { sendOTPCodeMain } from "@/utils/utils";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  openModal,
-  verifyUserByOTPInLoginAndRegistration,
-} from "@/redux/features/user/userSlice";
+import { openModal, verifyUserByOTPInLoginAndRegistration, } from "@/redux/features/user/userSlice";
 import { AuthContext } from "./context/AuthContext";
 import { useTimer } from "@/hooks/useTimer";
 
 const UserLoginViaOTP = () => {
-  const {
-    isLoggedIn,
-    status,
-    successMessage,
-    errorMessage,
-    showModal,
-    errorOnProfileHandler,
-  } = useSelector((state: any) => state.userData);
+  const { isLoggedIn, status, successMessage, errorMessage, showModal, errorOnProfileHandler, } = useSelector((state: any) => state.userData);
   const { setAuthSteps } = useContext(AuthContext);
   const dispatch = useDispatch();
   const [PhoneNumber, setPhoneNumber] = useState("");
@@ -142,9 +132,8 @@ const UserLoginViaOTP = () => {
                 />
               )}
               <span
-                className={`w-full text-[20px] ${
-                  counter === 0 && "text-blue-700 cursor-pointer "
-                }`}
+                className={`w-full text-[20px] ${counter === 0 && "text-blue-700 cursor-pointer "
+                  }`}
               >
                 {counter === 0 ? (
                   <div className="flex flex-row flex-wrap lg:flex-nowrap w-full  items-center gap-10 whitespace-nowrap">
@@ -153,7 +142,7 @@ const UserLoginViaOTP = () => {
                       onClick={async () =>
                         counter === 0 &&
                         (sendOTPCodeMain(PhoneNumber, setAuthSteps),
-                        setCounter(180))
+                          setCounter(180))
                       }
                     >
                       <Image src={sms} alt="sms" />
