@@ -106,11 +106,7 @@ const Login = ({
             <Modal
               showModal={showModal}
               data={values.PhoneNumber ? values.PhoneNumber : ""}
-              text={
-                values.PhoneNumber
-                  ? "شماره تماس زیر مورد تایید است؟"
-                  : "شماره همراه خود را وارد کنید."
-              }
+              text={values.PhoneNumber ? "شماره تماس زیر مورد تایید است؟" : "شماره همراه خود را وارد کنید."}
               setSteps={setAuthSteps}
               isLoggingIn={isLoggingIn}
               isLoggedIn={isLoggedIn}
@@ -142,17 +138,13 @@ const Login = ({
           <div className="flex flex-row justify-between items-center mb-8">
             <span
               onClick={() => setLoginApproach(0)}
-              className={loginApproach === 0 ? `tracking-tighter bg- ${styles.approach} cursor-default` : "border-none cursor-pointer"}
+              className={loginApproach === 0 ? `bg-[#4866CF] px-4 py-1.5 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}
             >
               ورود با کد تایید
             </span>
             <span
               onClick={() => setLoginApproach(1)}
-              className={
-                loginApproach === 1
-                  ? `${styles.approach} cursor-default`
-                  : "border-none cursor-pointer"
-              }
+              className={loginApproach === 1 ? `bg-[#4866CF] px-4 py-1.5 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}
             >
               ورود با رمز عبور
             </span>
