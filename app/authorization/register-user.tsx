@@ -68,8 +68,8 @@ const RegisterUser = () => {
                 value={
                   PhoneNumberInput
                     ? localStorage.getItem("PhoneNumber")?.slice(9) +
-                      "*****" +
-                      localStorage.getItem("PhoneNumber")?.slice(0, 4)
+                    "*****" +
+                    localStorage.getItem("PhoneNumber")?.slice(0, 4)
                     : (localStorage.getItem("PhoneNumber") as string)
                 }
                 label="شماره تماس"
@@ -124,21 +124,20 @@ const RegisterUser = () => {
                 />
               )} */}
               <span
-                className={`w-full text-[20px] ${
-                  counter === 0 && "text-blue-700 cursor-pointer "
-                }`}
+                className={`w-full text-[20px] ${counter === 0 && "text-blue-700 cursor-pointer "
+                  }`}
               >
                 {counter === 0 ? (
                   <div className="flex flex-row flex-wrap lg:flex-nowrap w-full  items-center gap-10 whitespace-nowrap">
                     <p
                       className="flex items-center gap-2"
-                      // onClick={async () =>
-                      //   counter === 0 &&
-                      //   (await getNewOTP(
-                      //     localStorage.getItem("PhoneNumber") as string
-                      //   ),
-                      //   setCounter(90))
-                      // }
+                    // onClick={async () =>
+                    //   counter === 0 &&
+                    //   (await getNewOTP(
+                    //     localStorage.getItem("PhoneNumber") as string
+                    //   ),
+                    //   setCounter(90))
+                    // }
                     >
                       <Image src={sms} alt="sms" />
                       <span>ارسال مجدد</span>
