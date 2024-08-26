@@ -69,10 +69,7 @@ const UserLoginViaOTP = () => {
           <div>
             <Logo />
           </div>
-          <form
-            onSubmit={(e) => handleSubmission(e)}
-            className="flex flex-col gap-5"
-          >
+          <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-5"   >
             <label className="md:whitespace-nowrap">
               <p className="font-bold text-[24px] pt-[3%] pb-1">
                 ورود به کیکاووس زمان
@@ -83,13 +80,7 @@ const UserLoginViaOTP = () => {
             </label>
 
             <div className="flex flex-col gap-4">
-              <FormInput
-                value={PhoneNumber.slice(9) + "*****" + PhoneNumber.slice(0, 4)}
-                label="شماره تماس"
-                type="tel"
-                name="PhoneNumber"
-                disabled={true}
-              />
+              <FormInput value={PhoneNumber.slice(9) + "*****" + PhoneNumber.slice(0, 4)} label="شماره تماس" type="tel" name="PhoneNumber" disabled={true} />
 
               <OtpInput
                 value={OTP}

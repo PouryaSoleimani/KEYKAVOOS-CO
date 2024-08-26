@@ -51,15 +51,7 @@ function OtpLoginMain({
       <form className="flex flex-col gap-5" onSubmit={onSubmitHandler}>
         <div className="flex flex-col gap-5">
           <div className="flex flex-col justify-end">
-            <FormInput
-              onChange={onChangeHandler}
-              value={PhoneNumber}
-              label="شماره تماس"
-              type="tel"
-              name="PhoneNumber"
-              error={phoneNumberError}
-              autoFocus={true}
-            />
+            <FormInput onChange={onChangeHandler} value={PhoneNumber} label="شماره تماس" type="tel" name="PhoneNumber" error={phoneNumberError} autoFocus={true} />
             <div className="relative">
               {phoneNumberError && (
                 <p className="text-red-500 absolute left-1/2 -translate-x-1/2 w-full z-20">{`${phoneNumberError}`}</p>
