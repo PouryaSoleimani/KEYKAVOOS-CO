@@ -137,7 +137,7 @@ function AddNewTicket() {
         <div className="flex justify-end">
           <button
             className={`${"bg-[#4866CE]"} text-white p-2 rounded-[4px]`}
-            // disabled={fileSelected === true ? false : true}
+          // disabled={fileSelected === true ? false : true}
           >
             ارسال تیکت
           </button>
