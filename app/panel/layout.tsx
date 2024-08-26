@@ -148,12 +148,11 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                           src={nextarrow}
                           alt=""
                           onClick={() => handleNextClick()}
-                          className={`${
-                            currentPage + 1 ===
-                            Math.ceil(userSidebarOptions.length / itemsPerPage)
+                          className={`${currentPage + 1 ===
+                              Math.ceil(userSidebarOptions.length / itemsPerPage)
                               ? "hidden"
                               : "flex"
-                          }`}
+                            }`}
                         />
                       </div>
                     </div>
