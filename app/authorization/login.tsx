@@ -142,11 +142,7 @@ const Login = ({
           <div className="flex flex-row justify-between items-center mb-8">
             <span
               onClick={() => setLoginApproach(0)}
-              className={
-                loginApproach === 0
-                  ? `${styles.approach} cursor-default`
-                  : "border-none cursor-pointer"
-              }
+              className={loginApproach === 0 ? `tracking-tighter bg- ${styles.approach} cursor-default` : "border-none cursor-pointer"}
             >
               ورود با کد تایید
             </span>
