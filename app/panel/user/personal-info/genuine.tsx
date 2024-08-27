@@ -24,21 +24,14 @@ function Genuine({ userProfile }: GenuineProps) {
         <div className="flex flex-col gap-5">
           <div className="self-center">
             <Image
-              src={
-                userProfile.pic_path
-                  ? `http://localhost:8000/storage/${userProfile.pic_path}`
-                  : malegender
-              }
+              src={userProfile.pic_path ? `http://localhost:8000/storage/${userProfile.pic_path}` : malegender}
               alt="profile"
               width={200}
               height={200}
             />
           </div>
           <div className="flex justify-center">
-            <Link
-              href={"/panel/user/settings"}
-              className="bg-[#4866CF] text-white text-center px-3 py-1 rounded-lg w-[200px]"
-            >
+            <Link href={"/panel/user/settings"} className="bg-[#4866CF] text-white text-center px-3 py-2 rounded-lg w-[200px] hover:bg-blue-800 duration-300"  >
               ویرایش حساب کاربری
             </Link>
           </div>
