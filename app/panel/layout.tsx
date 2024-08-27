@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import PanelNav from "@/components/panel/panel-nav";
 import PanelSidebar from "@/components/panel/panel-sidebar";
