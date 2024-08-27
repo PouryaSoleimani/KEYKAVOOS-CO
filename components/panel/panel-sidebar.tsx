@@ -14,24 +14,18 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-[260px] font-YekanBakh py-6 border-l-[0.3px] relative h-full">
+      <div className="w-[245px] font-YekanBakh py-6 border-l-[0.3px] relative h-full">
         <div className="flex justify-center">
           <Logo />
         </div>
         <Image src={sidebarpicbg} alt="sidebarbg" height={605} />
-        <div className="absolute top-40 flex flex-col gap-10 pr-2 w-full">
+        <div className="absolute top-40 flex flex-col gap-8 pr-2 w-full">
           {sideOptions.map((item) => (
-            <Link
-              href={item.address}
-              key={item.text}
-              className="flex flex-row items-center gap-7 whitespace-nowrap"
-            >
-              <Image src={item.imgSrc} alt={item.text} width={30} height={30} />
+            <Link href={item.address} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >
+              <Image src={item.imgSrc} alt={item.text} width={26} height={26} className="-translate-x-1" />
               <p
-                className={`text-[23px] font-extrabold w-full ${item?.address === pathname || item.path.includes(pathname)
-                  ? "text-[#4866CF] border-l-4 border-l-[#4866CF]"
-                  : " text-[#68707A]"
-                  }`}
+                className={`text-[17px] px-2 tracking-tight w-full ${item?.address === pathname || item.path.includes(pathname)
+                  ? "text-[#4866CF] border-l-4 border-l-[#4866CF] bg-blue-50 px-2 py-1.5 rounded-r-md" : " text-[#68707A]"}`}
               >
                 {status !== "success" ? (
                   <SkeletonTheme>
