@@ -64,20 +64,12 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  <img
-                    alt="profile"
-                    src={`http://localhost:8000/storage/${userProfile.pic_path}`}
-                    className="rounded-full w-[45px] h-[45px]"
-                  />
+                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full w-10 h-10" />
                 </div>
               ) : (
-                <Image src={maleicon} alt="default-pic" />
-              )}
-              <div
-                className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-3 cursor-pointer"
-                onClick={() => (dispatch(logoutUser()), router.replace("/"))}
-              >
-                <Image src={exit} alt="exit" width={35} />
+                <Image src={maleicon} alt="default-pic" className="w-10 h-10" />)}
+              <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
+                <Image src={exit} alt="exit" width={26} />
               </div>
             </div>
           </div>
