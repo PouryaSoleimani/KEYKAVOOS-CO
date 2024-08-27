@@ -41,9 +41,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
   const endIndex = startIndex + itemsPerPage;
 
   const displayedItems =
-    role === "Admin"
-      ? mainAdminSidebarOptions.slice(startIndex, endIndex)
-      : userSidebarOptions.slice(startIndex, endIndex);
+    role === "Admin" ? mainAdminSidebarOptions.slice(startIndex, endIndex) : userSidebarOptions.slice(startIndex, endIndex);
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) =>
