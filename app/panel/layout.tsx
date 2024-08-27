@@ -18,26 +18,21 @@ import prevarrow from "@/public/backarrow.svg";
 import DepartmentContextWrapper from "./admin/context/department-context/DepartmentContextWrapper";
 import PermissionContextWrapper from "./admin/context/permission-context/PermissionContextWrapper";
 import UserContextWrapper from "./admin/context/user-context/UserContextWrapper";
-import {
-  getAllDepartments,
-  getAllPlans,
-  getAllSiteTypes,
-  getUserNotification,
-} from "@/utils/utils";
+import { getAllDepartments, getAllPlans, getAllSiteTypes, getUserNotification, } from "@/utils/utils";
 import { OrderSubmissionContext } from "./context/order-submission-contexts/OrderSubmissionContext";
 import OrderSubmissionContextWrapper from "./context/order-submission-contexts/OrderSubmissionContextWrapper";
 import { DepartmentContext } from "./admin/context/department-context/DepartmentContext";
 import AttrIdContextWrapper from "./admin/plan-management/context/AttrIdContextWrapper";
 
+// ^ COMPONENT
 const PanelLayout = ({ children }: { children: React.ReactNode }) => {
-  const { token, userProfile, status, numberOfAnnouncements, role, userId } =
-    useSelector((store: any) => store.userData);
+
+  const { token, userProfile, status, numberOfAnnouncements, role, userId } = useSelector((store: any) => store.userData);
   const [localToken, setLocalToken] = useState("");
   const [userNotifications, setUserNotifications] = useState([]);
   const { setAllPlans, setSiteTypes } = useContext(OrderSubmissionContext);
   const { setDepartments } = useContext(DepartmentContext);
-  const [showAnnouncementDropdown, setShowAnnouncementDropdown] =
-    useState(false);
+  const [showAnnouncementDropdown, setShowAnnouncementDropdown] = useState(false);
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -149,9 +144,9 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                           alt=""
                           onClick={() => handleNextClick()}
                           className={`${currentPage + 1 ===
-                              Math.ceil(userSidebarOptions.length / itemsPerPage)
-                              ? "hidden"
-                              : "flex"
+                            Math.ceil(userSidebarOptions.length / itemsPerPage)
+                            ? "hidden"
+                            : "flex"
                             }`}
                         />
                       </div>
