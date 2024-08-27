@@ -14,13 +14,13 @@ const PanelNavSmall = ({ userRole }: PanelNavSmallProps) => {
     <div className="flex flex-row justify-between items-center p-[3%]">
       <div className="text-black font-semibold text-lg">
         {userRole === "User" && (
-        <div
-          className="flex flex-row items-center gap-2 cursor-pointer"
-          onClick={() => dispatch(deleteToken())}
-        >
-          <Image src="/exit.svg" alt="exit" width={40} height={40} />
-          <p>خروج</p>
-        </div>
+          <div
+            className="flex flex-row items-center gap-2 cursor-pointer"
+            onClick={() => dispatch(deleteToken())}
+          >
+            <Image src="/exit.svg" alt="exit" width={40} height={40} />
+            <p>خروج</p>
+          </div>
         )}
         {userRole === "student" && (
           <div
