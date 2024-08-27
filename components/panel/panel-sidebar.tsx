@@ -6,16 +6,8 @@ import sidebarpicbg from "../../public/Panel/sidebarpicbg.svg";
 import Logo from "@/app/authorization/components/logo";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-type PanelSidebarProps = {
-  status: string;
-  sideOptions: SideOptionsProps[];
-};
-type SideOptionsProps = {
-  text: string;
-  imgSrc: string;
-  address: string;
-  path: string | string[];
-};
+type PanelSidebarProps = { status: string; sideOptions: SideOptionsProps[]; };
+type SideOptionsProps = { text: string; imgSrc: string; address: string; path: string | string[]; };
 
 const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
   const pathname = usePathname();
@@ -36,11 +28,10 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
             >
               <Image src={item.imgSrc} alt={item.text} width={30} height={30} />
               <p
-                className={`text-[23px] font-extrabold w-full ${
-                  item?.address === pathname || item.path.includes(pathname)
-                    ? "text-[#4866CF] border-l-4 border-l-[#4866CF]"
-                    : " text-[#68707A]"
-                }`}
+                className={`text-[23px] font-extrabold w-full ${item?.address === pathname || item.path.includes(pathname)
+                  ? "text-[#4866CF] border-l-4 border-l-[#4866CF]"
+                  : " text-[#68707A]"
+                  }`}
               >
                 {status !== "success" ? (
                   <SkeletonTheme>

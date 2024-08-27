@@ -63,9 +63,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const token = JSON.parse(
-        window.sessionStorage.getItem("token") as string
-      );
+      const token = JSON.parse(window.sessionStorage.getItem("token") as string);
       setLocalToken(token);
     }
   }, []);
@@ -79,25 +77,18 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
         getAllDepartments(token, setDepartments),
       ]);
     }
-  }, [
-    token,
-    setAllPlans,
-    setSiteTypes,
-    setDepartments,
-    userId,
-    setUserNotifications,
-  ]);
+  }, [token, setAllPlans, setSiteTypes, setDepartments, userId, setUserNotifications,]);
+
+
+
+  //^ RETURN
   return (
     <OrderSubmissionContextWrapper>
       <UserContextWrapper>
         <DepartmentContextWrapper>
           <PermissionContextWrapper>
             <AttrIdContextWrapper>
-              <div
-                className="font-YekanBakh flex w-full flex-row relative min-h-screen bg-white"
-                style={{ boxShadow: "0px 0px 90px 2px rgba(0, 0, 0, 0.25)" }}
-                dir="rtl"
-              >
+              <div className="font-YekanBakh flex w-full flex-row relative min-h-screen bg-white" style={{ boxShadow: "0px 0px 90px 2px rgba(0, 0, 0, 0.25)" }} dir="rtl" >
                 {localToken && (
                   <>
                     <div className="hidden lg:block">
