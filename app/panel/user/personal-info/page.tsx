@@ -5,39 +5,25 @@ import PersonalInfoHeader from "./components/personal-info-header";
 import { useDispatch, useSelector } from "react-redux";
 import Genuine from "./genuine";
 import Legal from "./legal";
-import {
-  fetchUserProfile,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
+import { fetchUserProfile, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import NotFound from "../../admin/components/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-type OrganizationType = {
-  name: string;
-  shenase_melli: string;
-  registration_number: string;
-};
+type OrganizationType = { name: string; shenase_melli: string; registration_number: string; };
+
 function PersonalInfo() {
-  const { token, type, userProfile, status } = useSelector(
-    (state: any) => state.userData
-  );
+  const { token, type, userProfile, status } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
   const [step, setStep] = useState(type);
 
-  const LegalUserOrgName = userProfile.organizations?.map(
-    (item: OrganizationType) => item.name
-  );
-  const LegalUserShenaseMellli = userProfile.organizations?.map(
-    (item: OrganizationType) => item.shenase_melli
-  );
-  const LegalUserOrgReg = userProfile.organizations?.map(
-    (item: OrganizationType) => item.registration_number
-  );
+  const LegalUserOrgName = userProfile.organizations?.map((item: OrganizationType) => item.name);
 
-  useEffect(() => {
-    setStep(type);
-  }, [type]);
-  
+  const LegalUserShenaseMellli = userProfile.organizations?.map((item: OrganizationType) => item.shenase_melli);
+
+  const LegalUserOrgReg = userProfile.organizations?.map((item: OrganizationType) => item.registration_number);
+
+  useEffect(() => { setStep(type); }, [type]);
+
   // وقتی یوزر بره ستینگر تغییر بده برگرده دوباره میگیره دیتارو
   useEffect(() => {
     dispatch(getTokenFromLocal());
