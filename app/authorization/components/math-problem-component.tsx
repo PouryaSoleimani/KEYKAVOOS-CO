@@ -16,7 +16,7 @@ function MathProblemComponent({
         disabled={true}
         value={mathProblem}
       />
-      {wrongAnswerMessage && <span>{wrongAnswerMessage}</span>}
+      {wrongAnswerMessage && <span className="px-4 py-1 text-red-900 tracking-tighter rounded-lg text-md">{wrongAnswerMessage}</span>}
     </React.Fragment>
   );
 }
