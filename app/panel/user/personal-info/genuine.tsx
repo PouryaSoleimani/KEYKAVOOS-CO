@@ -17,26 +17,9 @@ function Genuine({ userProfile }: GenuineProps) {
     <div className="flex flex-col gap-2 py-8 lg:py-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
         <div className="flex flex-col justify-between lg:gap-0 gap-3">
-          <PanelFields
-            label="نام و نام خانوادگی:"
-            value={userProfile.name + " " + userProfile.surname}
-            name="FullName"
-            disable={true}
-            readonly={true}
-          />
-          <PanelFields
-            label="شماره موبایل:"
-            value={userProfile.mobile}
-            disable={true}
-            readonly={true}
-          />
-          <PanelFields
-            label="ایمیل:"
-            value={userProfile.email ? userProfile.email : "-"}
-            name="email"
-            disable={true}
-            readonly={true}
-          />
+          <PanelFields label="نام و نام خانوادگی:" value={userProfile.name + " " + userProfile.surname} name="FullName" disable={true} readonly={true} />
+          <PanelFields label="شماره موبایل:" value={userProfile.mobile} disable={true} readonly={true} />
+          <PanelFields label="ایمیل:" value={userProfile.email ? userProfile.email : "-"} name="email" disable={true} readonly={true} />
         </div>
         <div className="flex flex-col gap-5">
           <div className="self-center">
