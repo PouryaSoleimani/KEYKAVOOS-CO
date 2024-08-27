@@ -860,7 +860,7 @@ export const UserDashboardInfo = [
     link: "/panel/user/finance",
     imgUrl: Images.FinancialStatusUserDashboard,
     width: 90,
-    top: "top-16",
+    top : "top-10"
   },
   {
     id: 3,

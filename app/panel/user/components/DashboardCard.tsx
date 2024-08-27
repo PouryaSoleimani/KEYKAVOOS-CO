@@ -6,9 +6,9 @@ type DashboardCardProps = { data: { id: number; title: string; link: string; img
 
 function DashboardCard({ data }: DashboardCardProps) {
   return (
-    <Link href={data.link} className="bg-[#DEE5FE] h-[150px] w-[300px] flex justify-center items-center rounded-[20px] mx-auto relative"  >
-      <p className="font-semibold text-[24px]">{data.title}</p>
-      <Image src={data.imgUrl} alt={data.title} className={`absolute ${data.title.includes("وضعیت سفارش") ? "-top-20" : "-top-14"}`} width={data.width}
+    <Link href={data.link} className="bg-[#DEE5FE] h-[110px] w-[190px] flex justify-center items-center rounded-[12px] mx-auto relative hover:scale-105 duration-300 hover:bg-[#4866CF] hover:text-white"  >
+      <p className="text-[20px] tracking-tight">{data.title}</p>
+      <Image src={data.imgUrl} alt={data.title} className={`absolute ${data.title.includes("وضعیت سفارش") ? "-top-20" : data.title.includes("وضعیت مالی") ? "-top-8" : "-top-12"}`} width={data.width}
       />
     </Link>
   );
