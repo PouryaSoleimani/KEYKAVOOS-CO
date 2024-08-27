@@ -26,61 +26,33 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   };
   // ^ RETURN
   return (
-    <div
-      className="flex flex-col items-end relative justify-center"
-      dir="rtl"
-      onMouseLeave={() => setShowAnnouncementDropdown(false)}
-    >
+    <div className="flex flex-col items-end relative justify-center" dir="rtl" onMouseLeave={() => setShowAnnouncementDropdown(false)}>
       <div className="flex justify-center lg:justify-end items-center font-YekanBakh font-bold w-full p-3 px-9 border-b-2 border-r-[0.3px] overflow-hidden rounded-lt-lg ">
         <div className="flex flex-row gap-3 items-center py-1">
           <div>
             <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 relative">
-              <Image
-                src={notification}
-                alt="notification-bell"
-                width={42}
-                className="cursor-pointer"
-                onMouseEnter={() => setShowAnnouncementDropdown(true)}
-              />
-              <p className="bg-[#4866CF] font-faNum text-white p-2 rounded-full flex items-center justify-center w-[20px] h-[20px] absolute top-0 right-0">
+              <Image src={notification} alt="notification-bell" width={26} className="cursor-pointer" onMouseEnter={() => setShowAnnouncementDropdown(true)} />
+              <p className="bg-[#4866CF] font-faNum text-white p-2 rounded-full flex items-center text-xs justify-center w-[20px] h-[20px] absolute top-0 right-0">
                 <span>{numberOfAnnouncements.length}</span>
               </p>
             </div>
             {showAnnouncementDropdown && (
               <div
-                className={`absolute ${numberOfAnnouncements.length !== 0
-                  ? "-bottom-[2.5rem] p-1"
-                  : "-bottom-[1.25rem]"
-                  }  bg-white w-[200px] rounded-[4px]`}
+                className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"
+                  }  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`}
                 onMouseLeave={() => setShowAnnouncementDropdown(false)}
               >
-                {numberOfAnnouncements.length === 0
-                  ? "اعلانی وجود ندارد."
-                  : numberOfAnnouncements.map(
-                    (announce: {
-                      text: string;
-                      id: number;
-                      read_at: string | null;
-                    }) => (
-                      <div
-                        key={announce.id}
-                        className="flex justify-between p-3"
-                      >
-                        <p>{announce.text}</p>
-                        <div>
-                          <p
-                            className={`w-[20px] h-[20px] rounded-full ${announce.read_at
-                              ? "bg-green-800 cursor-default"
-                              : "bg-red-800 cursor-pointer"
-                              }`}
-                            onClick={() =>
-                              clickHandler(announce.id, announce.read_at)
-                            }
-                          ></p>
-                        </div>
+                {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
+                  (announce: { text: string; id: number; read_at: string | null; }) => (
+                    <div key={announce.id} className="flex justify-between p-3"  >
+                      <p>{announce.text}</p>
+                      <div>
+                        <p className={`w-[20px] h-[20px] rounded-full ${announce.read_at ? "bg-green-800 cursor-default" : "bg-red-800 cursor-pointer"}`}
+                          onClick={() => clickHandler(announce.id, announce.read_at)}>
+                        </p>
                       </div>
-                    )
-                  )}
+                    </div>
+                  ))}
               </div>
             )}
           </div>
