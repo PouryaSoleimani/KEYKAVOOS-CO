@@ -4,7 +4,7 @@ import DashboardCard from "../components/DashboardCard";
 
 function Dashboard() {
   return (
-    <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:my-5 gap-y-20 place-items-center text-center bg-white shadow mx-auto rounded-lg w-full px-[3%] py-20 lg:py-[8%]">
+    <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:my-5 gap-y-24 place-items-center text-center bg-white shadow mx-auto rounded-lg w-full px-[3%] py-20 lg:py-[8%]">
       {UserDashboardInfo.map((item) => (
         <DashboardCard key={item.id} data={item} />
       ))}
