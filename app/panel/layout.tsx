@@ -94,11 +94,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                   <>
                     <div className="hidden lg:block">
                       <PanelSidebar
-                        sideOptions={
-                          role === "Admin"
-                            ? mainAdminSidebarOptions
-                            : userSidebarOptions
-                        }
+                        sideOptions={role === "Admin" ? mainAdminSidebarOptions : userSidebarOptions}
                         status={status}
                       />
                     </div>
