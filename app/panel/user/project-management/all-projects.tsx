@@ -18,7 +18,7 @@ function AllProjects() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-4 text-center tracking-tight ">
+      <div className="grid grid-cols-4 text-center tracking-tight">
         <p>ردیف</p>
         <p>عنوان پروژه</p>
         <p>وضعیت پروژه</p>
@@ -29,9 +29,7 @@ function AllProjects() {
           <Skeleton count={1} className="p-3" baseColor="#EAEFF6" />
         </SkeletonTheme>
       ) : projectStatus.error ? (
-
         <NotFound text={projectStatus.error} />
-
       ) : (
 
         allProjects.map((item: any, index) => (
