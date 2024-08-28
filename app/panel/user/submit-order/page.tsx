@@ -27,19 +27,13 @@ export type PluginType = { plugin_name: string };
 
 function SubmitOrder() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
-  const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(
-    OrderSubmissionContext
-  );
+  const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
   const [consultationId, setConsultationId] = useState("");
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localPlans = JSON.parse(
-        window.sessionStorage.getItem("plans") as string
-      );
-      const localSiteTypes = JSON.parse(
-        window.sessionStorage.getItem("site-types") as string
-      );
-
+      const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
+      const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
       setSiteTypes(localSiteTypes);
       setAllPlans(localPlans);
     }
@@ -151,17 +145,11 @@ function SubmitOrder() {
   return (
     <div className="relative">
       <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-        <Link
-          href="/panel/user/project-management"
-          className="bg-white z-20 rounded-full p-2"
-        >
+        <Link href="/panel/user/project-management" className="bg-white z-20 rounded-full p-2"  >
           <IoArrowBack />
         </Link>
       </div>
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0"
-      >
+      <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
         {/* سایت مشابه مودال */}
         {showSimilarModal && (
           <OrdersubmissionModal
@@ -327,9 +315,9 @@ function SubmitOrder() {
               <button
                 type={
                   !showColorsModal &&
-                  !showPluginModal &&
-                  !showSimilarModal &&
-                  !showTemplatesModal
+                    !showPluginModal &&
+                    !showSimilarModal &&
+                    !showTemplatesModal
                     ? "submit"
                     : "button"
                 }
