@@ -10,19 +10,15 @@ import Image from "next/image";
 
 function AllProjects() {
   const [allProjects, setAllProjects] = useState([]);
-  const [projectStatus, setProjectStatus] = useState({
-    error: "",
-    loading: false,
-  });
+  const [projectStatus, setProjectStatus] = useState({ error: "", loading: false, });
+
   const { token } = useSelector((state: any) => state.userData);
 
-  useEffect(() => {
-    getAllProjects(token, setAllProjects, setProjectStatus);
-  }, []);
+  useEffect(() => { getAllProjects(token, setAllProjects, setProjectStatus); }, []);
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-4 text-center">
+      <div className="grid grid-cols-4 text-center tracking-tight">
         <p>ردیف</p>
         <p>عنوان پروژه</p>
         <p>وضعیت پروژه</p>
