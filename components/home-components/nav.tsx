@@ -167,21 +167,18 @@ const Nav = () => {
 
               {showFour && (
                 <React.Fragment>
-                  <ul
-                    className="list-none absolute lg:top-[65px] bg-white rounded-2xl border-b-8 border-b-[#4866CF] px-2 mt-2 text-right flex flex-col gap-4 z-10 "
-                    onMouseLeave={() => setShowFour(false)}
-                  >
+                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-3 py-2 mt-2 text-right flex flex-col gap-4 z-10" onMouseLeave={() => setShowFour(false)}  >
                     <Link href="/weblog/back-end ">
-                      <li className="text-sm pt-1 font-semibold hover:text-[#4866CF] duration-300">بک اند</li>
+                      <li className="text-sm pt-1 hover:text-[#4866CF] duration-300">بک اند</li>
                     </Link>
                     <Link href="/weblog/front-end">
-                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">فرانت اند</li>
+                      <li className="text-sm hover:text-[#4866CF] duration-300">فرانت اند</li>
                     </Link>
                     <Link href="/weblog/accounting">
-                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">حسابداری</li>
+                      <li className="text-sm hover:text-[#4866CF] duration-300">حسابداری</li>
                     </Link>
                     <Link href="/weblog/digital-marketing">
-                      <li className="text-sm rounded-b-lg pb-2 font-semibold hover:text-[#4866CF] duration-300">
+                      <li className="text-sm rounded-b-lg pb-2 hover:text-[#4866CF] duration-300">
                         دیجیتال مارکتینگ
                       </li>
                     </Link>
@@ -207,13 +204,13 @@ const Nav = () => {
               </div>
               {showThree && (
                 <React.Fragment>
-                  <ul className="list-none absolute lg:top-[65px]  rounded-2xl border-b-8 bg-white border-b-[#4866CF] w-[120px] px-2 text-right flex flex-col gap-5 z-10 "
+                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-3 py-2 mt-2 text-right flex flex-col gap-6 z-10"
                     onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
-                      <li className="text-sm pt-2 font-semibold hover:text-[#4866CF] duration-300">مجوزها</li>
+                      <li className="text-sm pt-2  hover:text-[#4866CF] duration-300">مجوزها</li>
                     </Link>
                     <Link href="/contact-us">
-                      <li className="text-sm font-semibold hover:text-[#4866CF] duration-300">تماس با ما</li>
+                      <li className="text-sm  hover:text-[#4866CF] duration-300">تماس با ما</li>
                     </Link>
                   </ul>
                 </React.Fragment>
@@ -221,24 +218,12 @@ const Nav = () => {
             </li>
           </ul>
           <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="kz-logo"
-              width={130}
-              height={44.74}
-              quality={100}
-            />
+            <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} />
           </Link>
         </div>
 
         <Link href="/" className="lg:hidden">
-          <Image
-            src="/logo.svg"
-            alt="kz-logo"
-            width={130}
-            height={44.74}
-            quality={100}
-          />
+          <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} />
         </Link>
       </div>
     </div>
