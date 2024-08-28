@@ -91,7 +91,7 @@ const Nav = () => {
           </SkeletonTheme>
         ) : (
           <Link href={route}>
-            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
+            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && FirstName}
               {!FirstName && localToken && (
