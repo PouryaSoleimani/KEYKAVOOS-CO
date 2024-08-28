@@ -17,8 +17,7 @@ const Nav = () => {
   const [activeColorChange, setActiveColorChange] = useState(false);
   const [navlocaltoken, setnavlocaltoken] = useState(null);
   const dispatch = useDispatch();
-  const { FirstName, userProfile, role, status, token, localToken } =
-    useSelector((state: any) => state.userData);
+  const { FirstName, userProfile, role, status, token, localToken } = useSelector((state: any) => state.userData);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -93,7 +92,8 @@ const Nav = () => {
           <Link href={route}>
             <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
-              {localToken && FirstName}
+              {localToken && console.log(localToken)}
+              {localToken && (<p>{FirstName}</p>)}
               {!FirstName && localToken && (
                 <Skeleton width={100} baseColor="#4866CF" />
               )}
