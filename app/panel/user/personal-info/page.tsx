@@ -32,8 +32,10 @@ function PersonalInfo() {
 
   const renderSteps = () => {
     switch (step) {
+
       case "haghighi":
         return <Genuine userProfile={userProfile} />;
+
       case "hoghooghi":
         return (
           <Legal
