@@ -2,16 +2,10 @@ import PanelFields from "../../components/panel-fileds";
 import Image from "next/image";
 import malegender from "@/public/Panel/malegender.svg";
 import Link from "next/link";
+type GenuineProps = { userProfile: { name: string; email: string; mobile: string; pic_path: string; surname: string; }; };
 
-type GenuineProps = {
-  userProfile: {
-    name: string;
-    email: string;
-    mobile: string;
-    pic_path: string;
-    surname: string;
-  };
-};
+
+//^ COMPONENT 
 function Genuine({ userProfile }: GenuineProps) {
   return (
     <div className="flex flex-col gap-2 py-8 lg:py-0">
