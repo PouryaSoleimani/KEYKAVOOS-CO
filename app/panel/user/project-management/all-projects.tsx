@@ -20,10 +20,10 @@ function AllProjects() {
   return (
     <div className="flex flex-col gap-5">
       <div className="grid grid-cols-4 text-center tracking-tight">
-        <p>ردیف</p>
-        <p>عنوان پروژه</p>
-        <p>وضعیت پروژه</p>
-        <p>مشاهده</p>
+        <p className="font-extralight text-zinc-800">ردیف</p>
+        <p className="font-extralight text-zinc-800">عنوان پروژه</p>
+        <p className="font-extralight text-zinc-800">وضعیت پروژه</p>
+        <p className="font-extralight text-zinc-800">مشاهده</p>
       </div>
       {projectStatus.loading ? (
         <SkeletonTheme>
@@ -40,9 +40,7 @@ function AllProjects() {
             <p>{item.title ? item.title : "-"}</p>
             <p className="font-semibold">
               <span className="text-red-600">
-                {(item.rejected_projects.length !== 0 ||
-                  item.status === "not-verified") &&
-                  "رد شده"}
+                {(item.rejected_projects.length !== 0 || item.status === "not-verified") && "رد شده"}
               </span>
               <span className="text-green-600">{item.status === "verified" && "تایید شده"}</span>
               <span>

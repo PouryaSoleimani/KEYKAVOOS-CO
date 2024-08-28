@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import PanelFields from "../../components/panel-fileds";
@@ -33,8 +32,13 @@ function SubmitOrder() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
-      const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
+      const localPlans = JSON.parse(
+        window.sessionStorage.getItem("plans") as string
+      );
+      const localSiteTypes = JSON.parse(
+        window.sessionStorage.getItem("site-types") as string
+      );
+
       setSiteTypes(localSiteTypes);
       setAllPlans(localPlans);
     }
@@ -89,9 +93,7 @@ function SubmitOrder() {
     discount_code: "",
   });
 
-  const planTitlesAndDescs = allPlans
-    .filter((item) => item.plan.title.includes(projectFields.type))
-    .map((item) => item.plan.title);
+  const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
 
   const siteTypeTitles = siteTypes.map((item: SimilarSiteType) => item.title);
   const plansId = allPlans.filter((item) =>
@@ -146,11 +148,17 @@ function SubmitOrder() {
   return (
     <div className="relative">
       <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-        <Link href="/panel/user/project-management" className="bg-white z-20 rounded-full p-2"  >
+        <Link
+          href="/panel/user/project-management"
+          className="bg-white z-20 rounded-full p-2"
+        >
           <IoArrowBack />
         </Link>
       </div>
-      <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
+      <form
+        onSubmit={(e) => handleSubmission(e)}
+        className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0"
+      >
         {/* سایت مشابه مودال */}
         {showSimilarModal && (
           <OrdersubmissionModal

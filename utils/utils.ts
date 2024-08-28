@@ -1319,9 +1319,7 @@ export const getAllProjects = async (
   try {
     setProjectStatus((last) => ({ ...last, loading: true }));
     const { data } = await app("/projects", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("all projects", data);
     setAllProjects(data.data);
@@ -3388,7 +3386,7 @@ export const rejectProject = async (
 // project status
 export const getProjectStatus = async (token: string) => {
   try {
-  } catch (error) {}
+  } catch (error) { }
 };
 // orders
 export const getOrders = async (
@@ -3821,7 +3819,7 @@ export const sendAmount = async (
     );
     console.log("paid", data.data.url);
     setUrl(data.data.url);
-    if(data.url){
+    if (data.url) {
       window.location.href = data.data.url;
     }
   } catch (error: any) {

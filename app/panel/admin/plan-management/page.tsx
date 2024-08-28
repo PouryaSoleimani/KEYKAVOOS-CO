@@ -1,10 +1,5 @@
 "use client";
-import {
-  deletePlan,
-  getAllPlans,
-  restorePlan,
-  updatePlan,
-} from "@/utils/utils";
+import { deletePlan, getAllPlans, restorePlan, updatePlan, } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -76,30 +71,27 @@ function PlanManagement() {
           <div className="grid grid-cols-1 gap-5">
             {allPlans.map((item: PlanType, index) => (
               <div
-                className={`${
-                  planIsDeleted && item.plan.deleted_at
+                className={`${planIsDeleted && item.plan.deleted_at
                     ? "bg-red-100"
                     : "bg-[#EAEFF6]"
-                } grid grid-cols-4 text-center py-1 rounded-[4px] cursor-pointer`}
+                  } grid grid-cols-4 text-center py-1 rounded-[4px] cursor-pointer`}
                 key={index}
               >
                 <p>{index + 1}</p>
                 <input
                   value={item.plan.title}
-                  className={`${
-                    item.plan.deleted_at
+                  className={`${item.plan.deleted_at
                       ? "bg-transparent caret-transparent cursor-default text-center"
                       : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                  } outline-none`}
+                    } outline-none`}
                   readOnly={true}
                 />
                 <input
                   value={item.plan.description ? item.plan.description : "-"}
-                  className={`${
-                    item.plan.deleted_at
+                  className={`${item.plan.deleted_at
                       ? "bg-transparent caret-transparent cursor-default text-center"
                       : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                  } outline-none`}
+                    } outline-none`}
                   readOnly={true}
                 />
                 <div className="flex flex-row items-center justify-center gap-3">
@@ -128,11 +120,10 @@ function PlanManagement() {
                     }
                   >
                     <MdOutlineSettingsBackupRestore
-                      className={`${
-                        item.plan.deleted_at && planIsDeleted
+                      className={`${item.plan.deleted_at && planIsDeleted
                           ? "text-green-600"
                           : "text-yellow-600"
-                      }  text-lg`}
+                        }  text-lg`}
                     />
                   </span>
                 </div>

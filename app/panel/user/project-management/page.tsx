@@ -7,7 +7,7 @@ function ProjectManagement() {
       <div className="mb-5 flex">
         <NewInfoOnEachPageBtn btnText="ایجاد پروژه جدید" src="/panel/user/submit-order" />
       </div>
-      <div className={`bg-white shadow mx-auto rounded-2xl py-[3%] px-[3%]`}>
+      <div className={`bg-white shadow mx-auto rounded-xl py-[3%] px-[3%]`}>
         <AllProjects />
       </div>
     </div>
