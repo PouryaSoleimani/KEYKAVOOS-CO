@@ -95,8 +95,8 @@ function SubmitOrder() {
 
   const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
 
-  const siteTypeTitles = siteTypes.map((item: SimilarSiteType) => item.title);
-  const plansId = allPlans.filter((item) =>
+  const siteTypeTitles = siteTypes?.map((item: SimilarSiteType) => item.title);
+  const plansId = allPlans?.filter((item) =>
     projectFields.plan.includes(item.plan.title)
   )[0]?.plan.id;
 
