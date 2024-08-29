@@ -26,9 +26,9 @@ function AddNewTicket() {
   }, []);
 
   useEffect(() => {
-    if (typedDepartments.length > 0) {
+    if (typedDepartments?.length > 0) {
       const firstDepId = typedDepartments?.map(
-        (item) => item.department.id
+        (item) => item?.department.id
       )?.[0];
       setTicket((last) => ({ ...last, dept_id: String(firstDepId) }));
     }
