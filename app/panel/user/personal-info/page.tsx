@@ -8,6 +8,7 @@ import Legal from "./legal";
 import { fetchUserProfile, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import NotFound from "../../admin/components/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import 'animate.css';
 
 type OrganizationType = { name: string; shenase_melli: string; registration_number: string; };
 
@@ -54,7 +55,7 @@ function PersonalInfo() {
 
   return (
     <>
-      <div className="py-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%]">
+      <div className="py-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%] animate__animated animate__pulse">
         <div className="pb-[5%] pt-0 lg:block hidden">
           <PersonalInfoHeader step={step} color="#EAEFF6" />
         </div>

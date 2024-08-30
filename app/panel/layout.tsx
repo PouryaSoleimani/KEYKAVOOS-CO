@@ -100,12 +100,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                       <div className="lg:hidden flex flex-row bg-[#4866CF] transition-all rounded-md w-full">
                         <Image src={prevarrow} alt="" onClick={() => handlePrevClick()} className={`${currentPage === 0 ? "hidden" : "flex"}`} />
                         <PanelSidebarSmall sideOptions={displayedItems} />
-                        <Image
-                          src={nextarrow}
-                          alt=""
-                          onClick={() => handleNextClick()}
-                          className={`${currentPage + 1 === Math.ceil(userSidebarOptions.length / itemsPerPage) ? "hidden" : "flex"}`}
-                        />
+                        <Image src={nextarrow} alt="" onClick={() => handleNextClick()} className={`${currentPage + 1 === Math.ceil(userSidebarOptions.length / itemsPerPage) ? "hidden" : "flex"}`} />
                       </div>
                     </div>
                   </>
