@@ -68,10 +68,10 @@ const UserLoginViaOTP = () => {
           </div>
           <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-5"   >
             <label className="md:whitespace-nowrap">
-              <p className="font-bold text-[24px] pt-[3%] pb-1">
+              <p className="font-semibold text-[24px] pt-[3%] pb-1 tracking-tight">
                 ورود به کیکاووس زمان
               </p>
-              <p className="lg:w-[90%] text-[16px] py-4">
+              <p className="lg:w-[90%] text-[15px] py-4 tracking-tight">
                 لطفا کد 6 رقمی که به شماره همراه شما ارسال شده است را وارد کنید.
               </p>
             </label>

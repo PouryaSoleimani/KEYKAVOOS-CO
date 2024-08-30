@@ -135,17 +135,11 @@ const Login = ({
             />
           )}
           <Logo />
-          <div className="flex flex-row justify-between items-center mb-8">
-            <span
-              onClick={() => setLoginApproach(0)}
-              className={loginApproach === 0 ? `bg-[#4866CF] px-4 py-1.5 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}
-            >
+          <div className="flex flex-row justify-between items-center my-10">
+            <span onClick={() => setLoginApproach(0)} className={loginApproach === 0 ? `bg-[#4866CF] px-4 py-2 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}  >
               ورود با کد تایید
             </span>
-            <span
-              onClick={() => setLoginApproach(1)}
-              className={loginApproach === 1 ? `bg-[#4866CF] px-4 py-1.5 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}
-            >
+            <span onClick={() => setLoginApproach(1)} className={loginApproach === 1 ? `bg-[#4866CF] px-4 py-2 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}  >
               ورود با رمز عبور
             </span>
           </div>

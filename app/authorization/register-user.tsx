@@ -52,7 +52,7 @@ const RegisterUser = () => {
             className="flex flex-col gap-5"
           >
             <label className="md:whitespace-nowrap">
-              <p className="lg:w-[90%] text-[16px] py-4">
+              <p className="lg:w-[90%] text-[14px] py-4 tracking-tight">
                 لطفا کد 6 رقمی که به شماره همراه شما ارسال شده است را وارد کنید.
               </p>
             </label>
@@ -78,7 +78,7 @@ const RegisterUser = () => {
                 inputStyle={{
                   border: "0.3px solid lightgray",
                   borderRadius: "7px",
-                  width: "43px",
+                  width: "47px",
                   height: "50px",
                 }}
                 containerStyle={{
