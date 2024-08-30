@@ -19,10 +19,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const { token } = useSelector((state: any) => state.userData);
 
   const clickHandler = (notif_id: number, read_at: string | null) => {
-    if (read_at === null) {
-      setIsRead(read_at);
-      changeNotificationStatus(token, notif_id);
-    }
+    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); }
   };
   // ^ RETURN
   return (
@@ -64,7 +61,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full w-10 h-10" />
+                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-500" width={26} height={26} />
                 </div>
               ) : (
                 <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}

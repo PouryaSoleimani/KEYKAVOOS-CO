@@ -22,8 +22,7 @@ function Genuine({ userId, token }: GenuineProps) {
     const formData = new FormData();
     formData.append("pic", selectedFile);
     try {
-      const { data } = await app.post(
-        `/upload/profile_pic/${userId}`,
+      const { data } = await app.post( `/upload/profile_pic/${userId}`,
         formData,
         {  headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, },}
       );
