@@ -199,7 +199,7 @@ function SubmitOrder() {
         <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} />
         <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
           <PanelFields
-            label="کد تخفیف:"
+            label="کد تخفیف : "
             onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))}
             value={projectFields.discount_code}
             name="discount_code"
