@@ -32,10 +32,8 @@ function SubmitOrder() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-
       const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
       const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
-
       setSiteTypes(localSiteTypes);
       setAllPlans(localPlans);
     }
@@ -86,7 +84,7 @@ function SubmitOrder() {
       setConsultationId(consultation_id);
     }
   }, [consultationId]);
-  
+
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await createProject(
@@ -120,49 +118,14 @@ function SubmitOrder() {
       </div>
       <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
         {/* سایت مشابه مودال */}
-        {showSimilarModal && (
-          <OrdersubmissionModal
-            showModal={showSimilarModal}
-            data={similarSiteData}
-            setData={setSimilarSiteData}
-            modalInputValue={similarSiteModalInputValue}
-            setModalInputValue={setSimilarSiteModalInputValue}
-            setShowModal={setShowSimilarModal}
-          />
-        )}
+        {showSimilarModal && (<OrdersubmissionModal showModal={showSimilarModal} data={similarSiteData} setData={setSimilarSiteData} modalInputValue={similarSiteModalInputValue} setModalInputValue={setSimilarSiteModalInputValue} setShowModal={setShowSimilarModal} />)}
         {/* تمپلیت مودال */}
-        {showTemplatesModal && (
-          <TemplateSubmissionModal
-            showModal={showTemplatesModal}
-            data={templatesData}
-            setData={setTemplatesData}
-            modalInputValue={templateModalInputValue}
-            setModalInputValue={setTemplateModalInputValue}
-            setShowModal={setShowTemplatesModal}
-          />
-        )}
+        {showTemplatesModal && (<TemplateSubmissionModal showModal={showTemplatesModal} data={templatesData} setData={setTemplatesData} modalInputValue={templateModalInputValue} setModalInputValue={setTemplateModalInputValue} setShowModal={setShowTemplatesModal} />)}
         {/* رنگ سازمانی مودال */}
-        {showColorsModal && (
-          <ColorSubmissionModal
-            showModal={showColorsModal}
-            data={colorsData}
-            setData={setColorsData}
-            modalInputValue={colorsModalInputValue}
-            setModalInputValue={setColorsModalInputValue}
-            setShowModal={setShowColorsModal}
-          />
-        )}
+        {showColorsModal && (<ColorSubmissionModal showModal={showColorsModal} data={colorsData} setData={setColorsData} modalInputValue={colorsModalInputValue} setModalInputValue={setColorsModalInputValue} setShowModal={setShowColorsModal} />)}
         {/* پلاگ این مودال */}
-        {showPluginModal && (
-          <PluginSubmissionModal
-            showModal={showPluginModal}
-            data={pluginData}
-            setData={setPluginData}
-            modalInputValue={pluginModalInputValue}
-            setModalInputValue={setPluginModalInputValue}
-            setShowModal={setShowPluginModal}
-          />
-        )}
+        {showPluginModal && (<PluginSubmissionModal showModal={showPluginModal} data={pluginData} setData={setPluginData} modalInputValue={pluginModalInputValue} setModalInputValue={setPluginModalInputValue} setShowModal={setShowPluginModal} />)}
+
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
@@ -203,7 +166,7 @@ function SubmitOrder() {
           <div className="flex justify-end">
             <div className="flex gap-5">
 
-              <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"}
+              <button type="submit"
                 className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center"
               >
                 <span>ثبت</span>
@@ -217,3 +180,4 @@ function SubmitOrder() {
 }
 
 export default SubmitOrder;
+{/* <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"} */ }
