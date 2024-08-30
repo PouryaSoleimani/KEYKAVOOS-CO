@@ -1,6 +1,7 @@
 import PanelFields from "../../components/panel-fileds";
 import Image from "next/image";
 import malegender from "@/public/Panel/malegender.svg";
+import USER__DEFAULT from "@/public/USER__DEFAULT.png"
 import Link from "next/link";
 type GenuineProps = { userProfile: { name: string; email: string; mobile: string; pic_path: string; surname: string; }; };
 
@@ -18,7 +19,7 @@ function Genuine({ userProfile }: GenuineProps) {
         <div className="flex flex-col gap-5">
           <div className="self-center">
             <Image
-              src={userProfile.pic_path ? `http://localhost:8000/storage/${userProfile.pic_path}` : malegender}
+              src={userProfile.pic_path ? `http://localhost:8000/storage/${userProfile.pic_path}` : USER__DEFAULT}
               alt="profile"
               width={180}
               height={1890}
