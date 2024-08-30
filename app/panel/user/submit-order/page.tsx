@@ -31,12 +31,9 @@ function SubmitOrder() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localPlans = JSON.parse(
-        window.sessionStorage.getItem("plans") as string
-      );
-      const localSiteTypes = JSON.parse(
-        window.sessionStorage.getItem("site-types") as string
-      );
+      
+      const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
+      const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
 
       setSiteTypes(localSiteTypes);
       setAllPlans(localPlans);
