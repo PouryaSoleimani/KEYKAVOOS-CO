@@ -169,26 +169,14 @@ function SubmitOrder() {
             <p className="absolute top-3 right-[17.5%] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown
-              dropDownTitle="اولویت پروژه:"
-              dropdownItems={["کم", "زیاد"]}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, priority: e.target.value, }))}
-              value={projectFields.priority}
-              name="priority"
-            />
+            <SubmitOrderDropdown dropDownTitle="اولویت پروژه:" dropdownItems={["کم", "زیاد"]} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, priority: e.target.value, }))} value={projectFields.priority} name="priority" />
             <p className="absolute top-3 right-[20%] text-red-800">*</p>
           </div>
         </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <SubmitOrderDropdown
-              dropDownTitle="نوع پروژه:"
-              dropdownItems={siteTypeTitles}
-              value={projectFields.type}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setProjectFields((last) => ({ ...last, type: e.target.value }))
-              }
-            />
+            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "آموزشی"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
             <p className="absolute top-0 right-[5rem] text-[#4866CF]">*</p>
           </div>
           <div className="relative pt-3">
