@@ -756,8 +756,9 @@ export const userSidebarOptions = [
   {
     text: "درخواست مشاوره رایگان",
     imgSrc: Images.ConsultationIcon,
-    address: "/panel/user/submit-order/consultation",
-    path: "/panel/user/submit-order/consultation",
+    address: "/panel/user/consultation",
+    path: "/panel/user/consultation",
+    
   },
 ];
 export const mainAdminSidebarOptions = [

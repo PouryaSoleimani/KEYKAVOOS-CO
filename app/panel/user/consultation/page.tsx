@@ -5,6 +5,8 @@ import ConsultImage from "@/public/consult-image.svg";
 import PhoneIcon from "@/public/Consult/phone.svg";
 import TicketIcon from "@/public/Consult/ticket.svg";
 import Link from "next/link";
+
+// ^ COMPONENT ======================================================================================================================================
 function Consultation() {
   return (
     <div className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-8" dir="ltr"  >
@@ -13,8 +15,8 @@ function Consultation() {
           <Image src={ConsultImage} alt="consultation" />
         </div>
         <div className="text-right flex flex-col gap-5">
-          <p className="text-[24px] font-semibold tracking-tight text-zinc-900">مشاوره رایگان</p>
-          <p className="leading-8 text-[16px] font-thin text-zinc-800 text-justify tracking-tight" dir="rtl">
+          <p className="text-[26px] font-semibold tracking-tighter text-zinc-900">مشاوره رایگان</p>
+          <p className="leading-8 text-[15px] font-thin text-zinc-700 text-justify tracking-tighter pl-4" dir="rtl">
             وقتی ثروت‌ های بزرگ به دست برخی مردم می‌افتد در پرتو آن نیرومند
             می‌شوند و در سایهٔ نیرومندی و ثروت خیال می‌ کنند که می‌توانند در
             خارج از وطن خود زندگی نمایند و خوشبخت و سرافراز باشند ولی به زودی
