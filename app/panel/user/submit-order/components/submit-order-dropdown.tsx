@@ -1,12 +1,9 @@
 import Image from "next/image";
 import React from "react";
-type SubmitOrderDropdownProps = {
-  dropDownTitle: string;
-  dropdownItems: string[];
-  value: string;
-  onChange: any;
-  name?: string;
-};
+type SubmitOrderDropdownProps = { dropDownTitle: string; dropdownItems: string[]; value: string; onChange: any; name?: string; };
+
+
+//* COMPONENT
 function SubmitOrderDropdown({ dropDownTitle, dropdownItems, value, onChange, name, }: SubmitOrderDropdownProps) {
   // ^ RETURN
   return (
