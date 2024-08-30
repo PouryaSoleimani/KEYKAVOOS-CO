@@ -195,18 +195,8 @@ function SubmitOrder() {
           <p className="absolute top-3 right-[7rem] text-red-800">*</p>
         </div>
         <SubmitTemplateModalfield modalFieldTitle="قالب های مورد نیاز :" setShowModal={setShowTemplatesModal} data={templatesData} setData={setTemplatesData} />
-        <SubmitPluginModalfield
-          modalFieldTitle="پلاگین های مورد نیاز : "
-          setShowModal={setShowPluginModal}
-          data={pluginData}
-          setData={setPluginData}
-        />
-        <SubmitColorModalfield
-          modalFieldTitle="رنگ سازمانی:"
-          setShowModal={setShowColorsModal}
-          data={colorsData}
-          setData={setColorsData}
-        />
+        <SubmitPluginModalfield modalFieldTitle="پلاگین های مورد نیاز : " setShowModal={setShowPluginModal} data={pluginData} setData={setPluginData} />
+        <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} />
         <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
           <PanelFields
             label="کد تخفیف:"
