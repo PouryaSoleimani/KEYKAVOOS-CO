@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import {
   getIdFromLocal,
@@ -12,15 +13,9 @@ import { ImBackward, ImBackward2 } from "react-icons/im";
 import { IoArrowBack } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 
-const ProjectDetailNav = [
-  "مشاوره",
-  "ثبت سفارش",
-  "دریافت فایل Brief",
-  "پروپوزال",
-  "تهیه زیرساخت",
-  "طراحی وب",
-  "تحویل وب",
-];
+const ProjectDetailNav = ["مشاوره", "ثبت سفارش", "دریافت فایل Brief", "پروپوزال", "تهیه زیرساخت", "طراحی وب", "تحویل وب",];
+
+//^ COMPONENT
 function ProjectDetail() {
   const router = useRouter();
   const { token, localUserId } = useSelector((state: any) => state.userData);
@@ -53,10 +48,7 @@ function ProjectDetail() {
   // console.log(projectCurrentState);
   return (
     <div className="relative">
-      <div
-        className="flex justify-end w-full text-xl cursor-pointer absolute -top-12"
-        onClick={() => router.back()}
-      >
+      <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
         <div className="bg-white rounded-full p-2">
           <IoArrowBack />
         </div>
@@ -66,14 +58,7 @@ function ProjectDetail() {
           ProjectDetailNav.includes(projectCurrentState) ? (
             <ul className="grid grid-cols-7 justify-between bg-[#4866CE] text-white text-center rounded-t-2xl overflow-hidden">
               {ProjectDetailNav.map((item, index) => (
-                <li
-                  key={index}
-                  className={`${
-                    item === projectCurrentState
-                      ? "bg-[#EAEFF6] text-[#4866CE]"
-                      : ""
-                  }  p-5  border border-[#4866CE]`}
-                >
+                <li key={index} className={`${item === projectCurrentState ? "bg-[#EAEFF6] text-[#4866CE]" : ""}  p-5  border border-[#4866CE]`} >
                   {item}
                 </li>
               ))}

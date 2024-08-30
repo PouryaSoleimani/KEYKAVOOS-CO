@@ -1,6 +1,8 @@
 import React from "react";
 import AllProjects from "./all-projects";
 import NewInfoOnEachPageBtn from "../components/NewInfoOnEachPageBtn";
+
+//^ COMPONENT 
 function ProjectManagement() {
   return (
     <div>
