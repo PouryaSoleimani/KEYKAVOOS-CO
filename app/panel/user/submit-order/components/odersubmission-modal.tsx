@@ -48,9 +48,8 @@ function OrdersubmissionModal({
       id="default-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className={`${
-        showModal ? "block" : "hidden"
-      }  absolute w-full text-center z-50 h-full backdrop-blur-sm`}
+      className={`${showModal ? "block" : "hidden"
+        }  absolute w-full text-center z-50 h-full backdrop-blur-sm`}
     >
       <div className="p-4 w-full flex justify-center">
         <div className="relative p-8 w-full max-w-2xl max-h-full">
@@ -93,11 +92,10 @@ function OrdersubmissionModal({
             <div className="flex items-center justify-between p-4 md:p-5 rounded-b">
               <button
                 type="button"
-                className={`${
-                  disabled
-                    ? "text-white bg-blue-400"
-                    : "text-white  bg-[#4866CF]"
-                }  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-5 md:py-2.5 text-center`}
+                className={`${disabled
+                  ? "text-white bg-blue-400"
+                  : "text-white  bg-[#4866CF]"
+                  }  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-5 md:py-2.5 text-center`}
                 onClick={() => handleSave()}
                 disabled={disabled ? true : false}
               >

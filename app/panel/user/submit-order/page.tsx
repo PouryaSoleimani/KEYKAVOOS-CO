@@ -165,15 +165,8 @@ function SubmitOrder() {
         )}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <PanelFields
-              label="عنوان پروژه:"
-              onChange={(e) =>
-                setProjectFields((last) => ({ ...last, title: e.target.value }))
-              }
-              value={projectFields.title}
-              name="title"
-            />
-            <p className="absolute top-0 right-[5.5rem] text-[#4866CF]">*</p>
+            <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
+            <p className="absolute top-2 right-[5.5rem] text-[#4866CF]">*</p>
           </div>
           <div className="relative pt-3">
             <SubmitOrderDropdown
