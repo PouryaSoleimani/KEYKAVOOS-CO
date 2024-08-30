@@ -9,17 +9,9 @@ import app from "@/services/service";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserProfile } from "@/redux/features/user/userSlice";
 
-const initialValues = {
-  FirstName: "",
-  LastName: "",
-  email: "",
-  mobile: "",
-};
-type GenuineProps = {
-  PhoneNumber: string;
-  userId: string;
-  token: string;
-};
+const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
+type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
+
 function Genuine({ userId, token }: GenuineProps) {
   const [selectedFile, setSelectedFile] = useState<any>(null);
   const handleFileChange = (file: File) => {
@@ -42,7 +34,7 @@ function Genuine({ userId, token }: GenuineProps) {
           },
         }
       );
-      console.log("success avatr" , data);
+      console.log("success avatr", data);
       // check
       dispatch(
         updateUserProfile({
