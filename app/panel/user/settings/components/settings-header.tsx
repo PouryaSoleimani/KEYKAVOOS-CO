@@ -13,8 +13,7 @@ function SettingsHeader({ step, setStep }: SettingsHeaderProps) {
           height: "100%",
           border: "none",
           borderTop: "3px solid",
-          borderImage:
-            "linear-gradient(to left, rgba(72, 102, 207, 1) -5%, rgba(234, 239, 246, 1) 100%) 1",
+          borderImage: "linear-gradient(to left, rgba(72, 102, 207, 1) -5%, rgba(234, 239, 246, 1) 100%) 1",
         }}
       ></div>
       <div
