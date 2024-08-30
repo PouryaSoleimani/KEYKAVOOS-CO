@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation";
 import sidebarpicbg from "../../public/Panel/sidebarpicbg.svg";
 import Logo from "@/app/authorization/components/logo";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-
 type PanelSidebarProps = { status: string; sideOptions: SideOptionsProps[]; };
 type SideOptionsProps = { text: string; imgSrc: string; address: string; path: string | string[]; };
 
+
+//^ COMPONENT 
 const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
   const pathname = usePathname();
 
