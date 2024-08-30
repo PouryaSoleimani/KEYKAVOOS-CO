@@ -173,7 +173,7 @@ function SubmitOrder() {
           <div className="flex justify-end">
             <div className="flex gap-5">
 
-              <button type="submit" className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center">
+              <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"} className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center">
                 <span>ثبت</span>
               </button>
             </div>
@@ -185,4 +185,3 @@ function SubmitOrder() {
 }
 
 export default SubmitOrder;
-{/* <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"} */ }
