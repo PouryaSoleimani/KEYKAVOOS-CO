@@ -5,11 +5,12 @@ import ConsultImage from "@/public/consult-image.svg";
 import PhoneIcon from "@/public/Consult/phone.svg";
 import TicketIcon from "@/public/Consult/ticket.svg";
 import Link from "next/link";
+import 'animate.css';
 
 // ^ COMPONENT ======================================================================================================================================
 function Consultation() {
   return (
-    <div className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-8" dir="ltr"  >
+    <div className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-8 animate__animated animate__pulse" dir="ltr"  >
       <div className="grid grid-cols-1 gap-5 lg:gap-0 lg:grid-cols-2">
         <div>
           <Image src={ConsultImage} alt="consultation" />

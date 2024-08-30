@@ -25,12 +25,7 @@ function Genuine({ userId, token }: GenuineProps) {
       const { data } = await app.post(
         `/upload/profile_pic/${userId}`,
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        {  headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, },}
       );
       console.log("success avatr", data);
       // check
