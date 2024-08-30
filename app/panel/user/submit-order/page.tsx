@@ -187,14 +187,9 @@ function SubmitOrder() {
 
         <div className="relative pt-3">
           <PanelFields label="بودجه مورد نظر: (برحسب تومان)" onChange={handleBudegtChange} value={projectFields.budget} name="budget" />
-          <p className="absolute top-2 right-[12rem] text-red-800">*</p>
+          <p className="absolute top-2 right-[12.5rem] text-red-800">*</p>
         </div>
-        <SubmitOrderModalfield
-          modalFieldTitle="سایت مشابه مورد نظر شماست:"
-          setShowModal={setShowSimilarModal}
-          data={similarSiteData}
-          setData={setSimilarSiteData}
-        />
+        <SubmitOrderModalfield modalFieldTitle="سایت مشابه مورد نظر شما:" setShowModal={setShowSimilarModal} data={similarSiteData} setData={setSimilarSiteData} />
         <div className="relative pt-3">
           <SubmitOrderDescription
             value={projectFields.Description}
