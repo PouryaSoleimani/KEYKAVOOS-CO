@@ -191,20 +191,10 @@ function SubmitOrder() {
         </div>
         <SubmitOrderModalfield modalFieldTitle="سایت مشابه مورد نظر شما:" setShowModal={setShowSimilarModal} data={similarSiteData} setData={setSimilarSiteData} />
         <div className="relative pt-3">
-          <SubmitOrderDescription
-            value={projectFields.Description}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setProjectFields((last) => ({ ...last, Description: e.target.value, }))
-            }
-          />
+          <SubmitOrderDescription value={projectFields.Description} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setProjectFields((last) => ({ ...last, Description: e.target.value, }))} />
           <p className="absolute top-3 right-[7rem] text-red-800">*</p>
         </div>
-        <SubmitTemplateModalfield
-          modalFieldTitle="قالب های مورد نیاز:"
-          setShowModal={setShowTemplatesModal}
-          data={templatesData}
-          setData={setTemplatesData}
-        />
+        <SubmitTemplateModalfield modalFieldTitle="قالب های مورد نیاز:" setShowModal={setShowTemplatesModal} data={templatesData} setData={setTemplatesData} />
         <SubmitPluginModalfield
           modalFieldTitle="پلاگ این های مورد نیاز:"
           setShowModal={setShowPluginModal}
