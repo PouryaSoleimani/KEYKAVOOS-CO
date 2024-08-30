@@ -48,29 +48,13 @@ function SubmitOrder() {
   const [showSimilarModal, setShowSimilarModal] = useState(false);
   const [templatesData, setTemplatesData] = useState<TemplateType[]>([]);
   const [showTemplatesModal, setShowTemplatesModal] = useState(false);
-  const [templateModalInputValue, setTemplateModalInputValue] = useState({
-    template_name: "",
-  });
+  const [templateModalInputValue, setTemplateModalInputValue] = useState({ template_name: "", });
   const [showPluginModal, setShowPluginModal] = useState(false);
-  const [pluginData, setPluginData] = useState<PluginType[]>([
-    {
-      plugin_name: "",
-    },
-  ]);
-  const [pluginModalInputValue, setPluginModalInputValue] = useState({
-    plugin_name: "",
-  });
+  const [pluginData, setPluginData] = useState<PluginType[]>([{ plugin_name: "", },]);
+  const [pluginModalInputValue, setPluginModalInputValue] = useState({ plugin_name: "", });
   const [showColorsModal, setShowColorsModal] = useState(false);
-  const [colorsData, setColorsData] = useState<ColorType[]>([
-    {
-      title: "",
-      color: "",
-    },
-  ]);
-  const [colorsModalInputValue, setColorsModalInputValue] = useState({
-    title: "",
-    color: "",
-  });
+  const [colorsData, setColorsData] = useState<ColorType[]>([{ title: "", color: "", },]);
+  const [colorsModalInputValue, setColorsModalInputValue] = useState({ title: "", color: "", });
 
   const [projectFields, setProjectFields] = useState({
     title: "",
@@ -90,9 +74,7 @@ function SubmitOrder() {
   const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
 
   const siteTypeTitles = siteTypes?.map((item: SimilarSiteType) => item.title);
-  const plansId = allPlans?.filter((item) =>
-    projectFields.plan.includes(item.plan.title)
-  )[0]?.plan.id;
+  const plansId = allPlans?.filter((item) => projectFields.plan.includes(item.plan.title))[0]?.plan.id;
 
   const handleBudegtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/,/g, "");
