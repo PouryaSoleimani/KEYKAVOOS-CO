@@ -7,11 +7,7 @@ function SubmitOrderDescription({ value, onChange, }: SubmitOrderDescriptionProp
     <div>
       <div className="flex flex-col gap-3">
         <label>توضیحات پروژه:</label>
-        <textarea
-          className="p-[2%] bg-[#EAEFF6] rounded-[4px]"
-          value={value}
-          onChange={onChange}
-        ></textarea>
+        <textarea className="p-[2%] bg-[#EAEFF6] rounded-[4px]" value={value} onChange={onChange} ></textarea>
       </div>
     </div>
   );
