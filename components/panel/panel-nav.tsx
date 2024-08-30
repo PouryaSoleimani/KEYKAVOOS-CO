@@ -45,7 +45,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
               >
                 {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
                   (announce: { text: string; id: number; read_at: string | null; }) => (
-                    <div key={announce.id} className="flex justify-between p-3"  >
+                    <div key={announce.id} className="flex justify-between p-4"  >
                       <p>{announce.text}</p>
                       <div>
                         <p className={`w-[20px] h-[20px] rounded-full ${announce.read_at ? "bg-green-800 cursor-default" : "bg-red-800 cursor-pointer"}`}
@@ -68,7 +68,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                   <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full w-10 h-10" />
                 </div>
               ) : (
-                <Image src={USER__DEFAULT} alt="default-pic" className="w-[55px]" />)}
+                <Image src={USER__DEFAULT} alt="default-pic" className="w-[57px]" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
                 <Image src={exit} alt="exit" width={26} className="p-1" />
               </div>
