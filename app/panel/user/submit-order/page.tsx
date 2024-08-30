@@ -108,6 +108,12 @@ function SubmitOrder() {
     setPluginData([]);
     setTemplatesData([]);
   };
+
+
+  function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    console.log("HELLO");
+  }
   //^ RETURN ===========================================================================================================================================================
   return (
     <div className="relative">
@@ -117,6 +123,7 @@ function SubmitOrder() {
         </Link>
       </div>
       <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
+        {/*^^^ MODALS ^^^^  */}
         {/* سایت مشابه مودال */}
         {showSimilarModal && (<OrdersubmissionModal showModal={showSimilarModal} data={similarSiteData} setData={setSimilarSiteData} modalInputValue={similarSiteModalInputValue} setModalInputValue={setSimilarSiteModalInputValue} setShowModal={setShowSimilarModal} />)}
         {/* تمپلیت مودال */}
@@ -166,9 +173,7 @@ function SubmitOrder() {
           <div className="flex justify-end">
             <div className="flex gap-5">
 
-              <button type="submit"
-                className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center"
-              >
+              <button type="submit" className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center">
                 <span>ثبت</span>
               </button>
             </div>
