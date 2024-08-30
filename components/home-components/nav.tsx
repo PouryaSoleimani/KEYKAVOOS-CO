@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile, setLocalStorageToken, } from "@/redux/features/user/userSlice";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { FaUser } from "react-icons/fa";
 import NavMobile from "./nav-mobile";
 
 const Nav = () => {
@@ -90,10 +91,10 @@ const Nav = () => {
           </SkeletonTheme>
         ) : (
           <Link href={route}>
-            <button className="hidden lg:inline-block font-semibold bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-5 text-base hover:bg-blue-800 duration-300">
+            <button className="hidden lg:inline-block bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-4 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && console.log(localToken)}
-              {localToken && (<p>{FirstName}</p>)}
+              {localToken && (<p className="flex items-center justify-between "> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
                 <Skeleton width={100} baseColor="#4866CF" />
               )}
@@ -107,57 +108,34 @@ const Nav = () => {
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
-            <li
-              className="flex flex-col"
-              onMouseEnter={() => (
-                setShowTwo(true),
-                setShowOne(false),
-                setShowThree(false),
-                setShowFour(false)
-              )}
-            >
+            <li className="flex flex-col" onMouseEnter={() => (setShowTwo(true), setShowOne(false), setShowThree(false), setShowFour(false))}>
               <div className="flex gap-2 cursor-pointer">
-                {/* <span>
-                  <Image  src="/navarrow.svg"    alt="arrow"    width={22}    height={22}  />
-                </span> */}
-                <Link
-                  href={"/services"}
-                  //  onMouseEnter={() => setShowTwo(true)}
-                  className="font-semibold hover:text-[#4866CF] text-[14px]"
-                >
+                <span>
+                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
+                </span>
+                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold hover:text-[#4866CF] text-[14px]" >
                   خدمات ما
                 </Link>
               </div>
 
-              {/* {showTwo && (
-                <React.Fragment>
-                  <ul
-                    className="list-none absolute rounded-2xl border-b-8 bg-white border-b-[#4866CF] w-[120px] px-2 text-right lg:top-[65px] flex flex-col gap-5 z-10"
-                    onMouseEnter={() => setShowTwo(true)}
-                  >
+              {showTwo && (
+                <>
+                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-4 py-3 mt-2 text-right flex flex-col gap-4 z-10 " onMouseEnter={() => setShowTwo(true)}  >
                     <Link href="/in-hand">
-                      <li className="text-sm pt-1 font-semibold">طراحی سایت</li>
+                      <li className="text-sm pt-1 hover:text-[#4866CF] duration-300 ">طراحی سایت</li>
                     </Link>
                     <Link href="/in-hand">
-                      <li className="text-sm  font-semibold">طراحی گرافیک</li>
+                      <li className="text-sm hover:text-[#4866CF] duration-300 ">طراحی گرافیک</li>
                     </Link>
                     <Link href="/in-hand">
-                      <li className="text-sm pb-2 font-semibold">کد نویسی</li>
+                      <li className="text-sm pb-2 hover:text-[#4866CF] duration-300">کد نویسی</li>
                     </Link>
                   </ul>
-                </React.Fragment>
-              )} */}
+                </>
+              )}
             </li>
             {/* weblog */}
-            <li
-              className="flex flex-col justify-center items-end"
-              onMouseEnter={() => (
-                setShowFour(true),
-                setShowOne(false),
-                setShowTwo(false),
-                setShowThree(false)
-              )}
-            >
+            <li className="flex flex-col justify-center items-end" onMouseEnter={() => (setShowFour(true), setShowOne(false), setShowTwo(false), setShowThree(false))}  >
               <div className="flex gap-2 hover:text-[#4866CF] cursor-pointer">
                 <span>
                   <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
