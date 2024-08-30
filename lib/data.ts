@@ -753,6 +753,12 @@ export const userSidebarOptions = [
     address: "/panel/user/settings",
     path: "/settings",
   },
+  {
+    text: "درخواست مشاوره رایگان",
+    imgSrc: Images.ConsultationIcon,
+    address: "/panel/user/submit-order/consultation",
+    path: "/panel/user/submit-order/consultation",
+  },
 ];
 export const mainAdminSidebarOptions = [
   {
@@ -860,7 +866,7 @@ export const UserDashboardInfo = [
     link: "/panel/user/finance",
     imgUrl: Images.FinancialStatusUserDashboard,
     width: 90,
-    top : "top-10"
+    top: "top-10"
   },
   {
     id: 3,
