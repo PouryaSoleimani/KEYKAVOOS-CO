@@ -22,9 +22,9 @@ function Genuine({ userId, token }: GenuineProps) {
     const formData = new FormData();
     formData.append("pic", selectedFile);
     try {
-      const { data } = await app.post( `/upload/profile_pic/${userId}`,
+      const { data } = await app.post(`/upload/profile_pic/${userId}`,
         formData,
-        {  headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, },}
+        { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, }, }
       );
       console.log("success avatr", data);
       // check
@@ -73,7 +73,7 @@ function Genuine({ userId, token }: GenuineProps) {
         </div>
       </div>
       <div className="w-full flex justify-end pl-8 mt-2">
-        <button className="bg-[#4866CF] text-white px-4 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
+        <button className="bg-[#4866CF] text-white px-10 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
       </div>
     </form>
   );
