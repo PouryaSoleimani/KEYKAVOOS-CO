@@ -25,6 +25,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
             <Link href={item.address} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >
               <Image src={item.imgSrc} alt={item.text} width={26} height={26} className="-translate-x-1" />
               <p className={`text-[17px] px-2 tracking-tight w-full ${item?.address === pathname || item.path.includes(pathname) ? "text-[#4866CF] border-l-4 border-l-[#4866CF] bg-blue-50 px-2 py-1.5 rounded-r-md" : " text-[#68707A]"}`} >
+
                 {status !== "success" ? (
                   <SkeletonTheme>
                     <Skeleton count={1} width={150} baseColor="#EAEFF6" />
@@ -32,6 +33,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
                 ) : (
                   item.text
                 )}
+
               </p>
             </Link>
           ))}
