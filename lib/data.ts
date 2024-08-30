@@ -718,7 +718,7 @@ export const userSidebarOptions = [
       "/panel/user/project-management",
       "/panel/user/project-management/project-detail",
       "/panel/user/submit-order",
-      // "/panel/user/submit-order/consultation",
+      "/panel/user/submit-order/consultation",
       "/panel/user/submit-order/consultation/submit-consultation",
     ],
   },
