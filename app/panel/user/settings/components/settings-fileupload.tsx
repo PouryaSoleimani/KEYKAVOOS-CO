@@ -17,9 +17,9 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
   //^ RETURN 
   return (
     <div>
-      <div className="flex lg:flex-row lg:gap-[8%] flex-col gap-5">
-        <div className="flex flex-col justify-between">
-          <div className="flex flex-row items-center gap-[5%] whitespace-nowrap">
+      <div className="flex lg:flex-row lg:gap-[7%] flex-col gap-5">
+        <div className="flex flex-col justify-center gap-y-4 h-inherit">
+          <div className="flex flex-row items-center gap-[4%] whitespace-nowrap">
             <label>{label}</label>
             <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
             <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="rounded-md px-2 w-[120px] py-2 bg-[#4866CF] hover:bg-blue-800 duration-300 flex flex-row-reverse justify-between space-x-4 items-center" >
@@ -30,8 +30,8 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
             </label>
           </div>
 
-          <p className="w-full text-justify text-[16px] tracking-tight leading-9 text-[#858585] font-faNum">
-            فقط فایل های jpg, jpeg, png ، حداکثر حجم 2MB حداقل سایز تصویر
+          <p className="text-justify text-[1vw] py-2 tracking-tight leading-10 text-[#858585] font-faNum whitespace-pre-line break-words">
+            فقط فایل های jpg / jpeg / png  حداکثر حجم 2MB حداقل سایز تصویر
             انتخابی باید( 200px  * 200px ) باشد.
           </p>
         </div>

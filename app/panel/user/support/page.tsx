@@ -13,8 +13,11 @@ import CloseTicketModal from "./components/close-ticket-modal";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../admin/components/NotFound";
 import { getAllTickets } from "@/utils/utils";
+import 'animate.css';
+
 const moment = require("moment-jalaali");
 
+// ^ COMPONENT
 const Support = () => {
   const [showModal, setShowModal] = useState(false);
   const [allTickets, setAllTickets] = useState([]);
@@ -36,7 +39,7 @@ const Support = () => {
         <span>تیکت جدید</span>
         <Image src={add} alt="add" />
       </Link>
-      <div className="bg-white shadow mx-auto rounded-2xl py-[3%] px-[3%] w-full">
+      <div className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full animate__animated animate__pulse">
         <div className="flex flex-col gap-5">
           <div className="grid lg:grid-cols-5 grid-cols-8 text-center">
             <p className="col-span-1">شماره</p>

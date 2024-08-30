@@ -40,31 +40,9 @@ function Genuine({ userId, token }: GenuineProps) {
           pic_path: data.data.pic_path,
         })
       );
-      toast.success("آپلود فایل موفق بود.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
+      toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     } catch (error) {
-      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
+      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(error);
     }
   };
@@ -72,59 +50,21 @@ function Genuine({ userId, token }: GenuineProps) {
   const GenuineSubmission = async (name: string, surname: string, email: string, mobile: string) => {
     try {
       const { data } = await app.put(`/user/update/${userId}`, { name, surname, email, mobile, });
-      dispatch(
-        updateUserProfile({
-          ...userProfile,
-          name,
-          surname,
-          email,
-          mobile,
-        })
-      );
-      toast.success("آپدیت پروفایل موفق بود.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
+      dispatch(updateUserProfile({ ...userProfile, name, surname, email, mobile, }));
+      toast.success("آپدیت پروفایل موفق بود.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(data);
     } catch (error) {
-      toast.error("خطا در آپلود فایل.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
+      toast.error("خطا در آپلود فایل.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(error);
     }
   };
   const handleSubmission = async () => {
     Promise.all([
-      await GenuineSubmission(
-        values.FirstName,
-        values.LastName,
-        values.email,
-        values.mobile
-      ),
+      await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile),
       await handleAvatar(),
     ]);
   };
-  const { values, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    onSubmit: handleSubmission,
-  });
+  const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
   return (
     <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
