@@ -184,14 +184,10 @@ function SubmitOrder() {
             <p className="absolute top-3 right-[15.5%] text-red-800">*</p>
           </div>
         </div>
+
         <div className="relative pt-3">
-          <PanelFields
-            label="بودجه مورد نظر: (برحسب تومان)"
-            onChange={handleBudegtChange}
-            value={projectFields.budget}
-            name="budget"
-          />
-          <p className="absolute top-0 right-[14rem] text-[#4866CF]">*</p>
+          <PanelFields label="بودجه مورد نظر: (برحسب تومان)" onChange={handleBudegtChange} value={projectFields.budget} name="budget" />
+          <p className="absolute top-2 right-[18%] text-red-800">*</p>
         </div>
         <SubmitOrderModalfield
           modalFieldTitle="سایت مشابه مورد نظر شماست:"
