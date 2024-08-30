@@ -1,7 +1,7 @@
 import React from "react";
 type SubmitOrderDescriptionProps = { value: string; onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; };
 
-//* COMPONENT
+//^ COMPONENT
 function SubmitOrderDescription({ value, onChange, }: SubmitOrderDescriptionProps) {
   return (
     <div>
