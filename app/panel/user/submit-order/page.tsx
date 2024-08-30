@@ -166,29 +166,22 @@ function SubmitOrder() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
-            <p className="absolute top-3 right-[17.5%] text-red-800">*</p>
+            <p className="absolute top-3 right-[14%] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
             <SubmitOrderDropdown dropDownTitle="اولویت پروژه:" dropdownItems={["کم", "زیاد"]} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, priority: e.target.value, }))} value={projectFields.priority} name="priority" />
-            <p className="absolute top-3 right-[20%] text-red-800">*</p>
+            <p className="absolute top-3 right-[17%] text-red-800">*</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "آموزشی"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
-            <p className="absolute top-0 right-[5rem] text-[#4866CF]">*</p>
+            <p className="absolute top-3 right-[13%] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown
-              dropDownTitle="پلن انتخابی:"
-              dropdownItems={planTitlesAndDescs}
-              value={projectFields.plan}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setProjectFields((last) => ({ ...last, plan: e.target.value }))
-              }
-            />
-            <p className="absolute top-0 right-[5.5rem] text-[#4866CF]">*</p>
+            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["پلاتینیوم", "طلایی", "نقره ای", "برنزی"]} value={projectFields.plan} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
+            <p className="absolute top-3 right-[15.5%] text-red-800">*</p>
           </div>
         </div>
         <div className="relative pt-3">
