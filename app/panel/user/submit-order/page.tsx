@@ -207,10 +207,7 @@ function SubmitOrder() {
           />
           <div className="flex justify-end">
             <div className="flex gap-5">
-              <Link
-                href={`/panel/user/submit-order/consultation`}
-                className="bg-[#4866CE] text-white rounded-lg p-1 whitespace-nowrap flex justify-center items-center"
-              >
+              <Link href={`/panel/user/submit-order/consultation`} className="bg-[#4866CE] text-white rounded-lg p-1 whitespace-nowrap flex justify-center items-center">
                 <span>درخواست مشاوره رایگان</span>
               </Link>
               <button
