@@ -53,13 +53,10 @@ function PersonalInfo() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="py-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%]">
         <div className="pb-[5%] pt-0 lg:block hidden">
-          <PersonalInfoHeader
-            step={step}
-            color="#EAEFF6"
-          />
+          <PersonalInfoHeader step={step} color="#EAEFF6" />
         </div>
         {status === "loading" || status === "idle" ? (
           <SkeletonTheme>
@@ -71,7 +68,7 @@ function PersonalInfo() {
           status === "success" && renderSteps()
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

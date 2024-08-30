@@ -6,6 +6,7 @@ import { logoutUser } from "@/redux/features/user/userSlice";
 import { useRouter } from "next/navigation";
 import notification from "../../public/Panel/notif.svg";
 import maleicon from "../../public/maleicon.svg";
+import USER__DEFAULT from '@/public/USER__DEFAULT.png'
 import exit from "../../public/Panel/exit.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { changeNotificationStatus } from "@/utils/utils";
@@ -67,9 +68,9 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                   <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full w-10 h-10" />
                 </div>
               ) : (
-                <Image src={maleicon} alt="default-pic" className="w-10 h-10" />)}
+                <Image src={USER__DEFAULT} alt="default-pic" className="w-[55px]" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
-                <Image src={exit} alt="exit" width={26} />
+                <Image src={exit} alt="exit" width={26} className="p-1" />
               </div>
             </div>
           </div>
