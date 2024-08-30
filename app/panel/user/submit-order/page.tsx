@@ -116,14 +116,11 @@ function SubmitOrder() {
     setPluginData([]);
     setTemplatesData([]);
   };
-
+  //^ RETURN -------------------------------------------------------------------------------------------------------------------------
   return (
     <div className="relative">
       <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-        <Link
-          href="/panel/user/project-management"
-          className="bg-white z-20 rounded-full p-2"
-        >
+        <Link href="/panel/user/project-management" className="bg-white  z-20 rounded-lg p-2 hover:bg-[#4866CF] hover:text-white  duration-300"  >
           <IoArrowBack />
         </Link>
       </div>
