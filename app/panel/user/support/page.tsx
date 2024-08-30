@@ -5,11 +5,7 @@ import add from "../../../../public/Panel/addticket.svg";
 import Link from "next/link";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchUserProfile,
-  getIdFromLocal,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
+import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import checkmark from "../../../../public/Panel/checkmark.svg";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
 import CloseTicketModal from "./components/close-ticket-modal";
@@ -22,10 +18,7 @@ const Support = () => {
   const [showModal, setShowModal] = useState(false);
   const [allTickets, setAllTickets] = useState([]);
   const [closeTicketId, setCloseTicketId] = useState("");
-  const [supportStatus, setSupportStatus] = useState({
-    error: "",
-    loading: false,
-  });
+  const [supportStatus, setSupportStatus] = useState({ error: "", loading: false, });
   const { token, localUserId } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -40,10 +33,7 @@ const Support = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      <Link
-        href="/panel/user/support/add-new-ticket"
-        className="flex flex-row gap-2 bg-[#4866CE] text-white p-2 rounded-[4px] w-[120px]"
-      >
+      <Link href="/panel/user/support/add-new-ticket" className="flex flex-row gap-2 bg-[#4866CE] text-white p-2 rounded-[6px] w-[120px]" >
         <span>تیکت جدید</span>
         <Image src={add} alt="add" />
       </Link>

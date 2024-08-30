@@ -92,14 +92,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                     </div>
                     <div className="w-full lg:overflow-hidden">
                       <div>
-                        <PanelNav
-                          userProfile={userProfile}
-                          status={status}
-                          userType={role}
-                          numberOfAnnouncements={userNotifications}
-                          setShowAnnouncementDropdown={setShowAnnouncementDropdown}
-                          showAnnouncementDropdown={showAnnouncementDropdown}
-                        />
+                        <PanelNav userProfile={userProfile} status={status} userType={role} numberOfAnnouncements={userNotifications} setShowAnnouncementDropdown={setShowAnnouncementDropdown} showAnnouncementDropdown={showAnnouncementDropdown} />
                       </div>
                       <div className="bg-[#EAEFF6] h-full px-[5%] md:p-[5%] py-[5%]" onMouseEnter={() => setShowAnnouncementDropdown(false)} >
                         {children}
