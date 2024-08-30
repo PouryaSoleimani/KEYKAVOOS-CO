@@ -198,28 +198,14 @@ function SubmitOrder() {
         <SubmitPluginModalfield modalFieldTitle="پلاگین های مورد نیاز : " setShowModal={setShowPluginModal} data={pluginData} setData={setPluginData} />
         <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} />
         <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
-          <PanelFields
-            label="کد تخفیف : "
-            onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))}
-            value={projectFields.discount_code}
-            name="discount_code"
-            flexDirection="flex-row"
-          />
+          <PanelFields label="کد تخفیف : " onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))} value={projectFields.discount_code} name="discount_code" flexDirection="flex-row" />
           <div className="flex justify-end">
             <div className="flex gap-5">
               <Link href={`/panel/user/submit-order/consultation`} className="bg-[#4866CE] text-white rounded-lg p-1 whitespace-nowrap flex justify-center items-center">
                 <span>درخواست مشاوره رایگان</span>
               </Link>
-              <button
-                type={
-                  !showColorsModal &&
-                    !showPluginModal &&
-                    !showSimilarModal &&
-                    !showTemplatesModal
-                    ? "submit"
-                    : "button"
-                }
-                className="bg-[#4866CE] text-white rounded-lg p-1 w-[80px] flex justify-center items-center"
+              <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"}
+                className="bg-[#4866CE] text-white rounded-lg px-3 py-2 hover:bg-blue-800 duration-300 w-[80px] flex justify-center items-center"
               >
                 <span>ثبت</span>
               </button>
