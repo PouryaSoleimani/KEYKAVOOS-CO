@@ -72,7 +72,7 @@ function Genuine({ userId, token }: GenuineProps) {
           <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />
         </div>
       </div>
-      <div className="w-full flex justify-end pl-12 mt-2">
+      <div className="w-full flex justify-end pl-8 mt-2">
         <button className="bg-[#4866CF] text-white px-4 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
       </div>
     </form>
