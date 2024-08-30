@@ -11,12 +11,10 @@ import { updateUserProfile } from "@/redux/features/user/userSlice";
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
 type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
-
+//^ COMPONENT 
 function Genuine({ userId, token }: GenuineProps) {
   const [selectedFile, setSelectedFile] = useState<any>(null);
-  const handleFileChange = (file: File) => {
-    setSelectedFile(file);
-  };
+  const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
 
@@ -71,19 +69,9 @@ function Genuine({ userId, token }: GenuineProps) {
     }
   };
 
-  const GenuineSubmission = async (
-    name: string,
-    surname: string,
-    email: string,
-    mobile: string
-  ) => {
+  const GenuineSubmission = async (name: string, surname: string, email: string, mobile: string) => {
     try {
-      const { data } = await app.put(`/user/update/${userId}`, {
-        name,
-        surname,
-        email,
-        mobile,
-      });
+      const { data } = await app.put(`/user/update/${userId}`, { name, surname, email, mobile, });
       dispatch(
         updateUserProfile({
           ...userProfile,
@@ -141,41 +129,17 @@ function Genuine({ userId, token }: GenuineProps) {
   return (
     <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
-        <div className="flex flex-col justify-between gap-3">
-          <PanelFields
-            label="نام:"
-            onChange={handleChange}
-            value={values.FirstName}
-            name="FirstName"
-          />
-          <PanelFields
-            label="نام خانوادگی:"
-            onChange={handleChange}
-            value={values.LastName}
-            name="LastName"
-          />
-          <PanelFields
-            label="ایمیل:"
-            onChange={handleChange}
-            value={values.email}
-            name="email"
-          />
+        <div className="flex flex-col justify-between gap-2">
+          <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" />
+          <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" />
+          <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" />
         </div>
         <div className="flex flex-col gap-20">
-          <SettingsFileupload
-            handleChange={handleFileChange}
-            selectedFile={selectedFile}
-            label="عکس کاربری:"
-          />
+          <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />
         </div>
       </div>
-      <div className="flex justify-end mt-5">
-        <button
-          className="bg-[#4866CF] text-white px-3 py-1 rounded-lg"
-          type="submit"
-        >
-          تایید ویرایش
-        </button>
+      <div className="w-full flex justify-end pl-14 mt-2">
+        <button className="bg-[#4866CF] text-white px-3 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
       </div>
     </form>
   );
