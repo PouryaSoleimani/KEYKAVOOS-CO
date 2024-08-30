@@ -166,28 +166,28 @@ function SubmitOrder() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
-            <p className="absolute top-3 right-[14%] text-red-800">*</p>
+            <p className="absolute top-3 right-[5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
             <SubmitOrderDropdown dropDownTitle="اولویت پروژه:" dropdownItems={["کم", "زیاد"]} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, priority: e.target.value, }))} value={projectFields.priority} name="priority" />
-            <p className="absolute top-3 right-[17%] text-red-800">*</p>
+            <p className="absolute top-3 right-[6rem] text-red-800">*</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "آموزشی"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
-            <p className="absolute top-3 right-[13%] text-red-800">*</p>
+            <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
             <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["پلاتینیوم", "طلایی", "نقره ای", "برنزی"]} value={projectFields.plan} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
-            <p className="absolute top-3 right-[15.5%] text-red-800">*</p>
+            <p className="absolute top-3 right-[5.5rem] text-red-800">*</p>
           </div>
         </div>
 
         <div className="relative pt-3">
           <PanelFields label="بودجه مورد نظر: (برحسب تومان)" onChange={handleBudegtChange} value={projectFields.budget} name="budget" />
-          <p className="absolute top-2 right-[18%] text-red-800">*</p>
+          <p className="absolute top-2 right-[12rem] text-red-800">*</p>
         </div>
         <SubmitOrderModalfield
           modalFieldTitle="سایت مشابه مورد نظر شماست:"
