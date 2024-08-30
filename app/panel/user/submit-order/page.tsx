@@ -86,7 +86,7 @@ function SubmitOrder() {
       setConsultationId(consultation_id);
     }
   }, [consultationId]);
-
+  
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await createProject(
@@ -110,7 +110,7 @@ function SubmitOrder() {
     setPluginData([]);
     setTemplatesData([]);
   };
-  //^ RETURN --------------------------------------------------------------------------------------------------------------------------------------------------------
+  //^ RETURN ===========================================================================================================================================================
   return (
     <div className="relative">
       <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
@@ -163,6 +163,7 @@ function SubmitOrder() {
             setShowModal={setShowPluginModal}
           />
         )}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
@@ -203,7 +204,7 @@ function SubmitOrder() {
             <div className="flex gap-5">
 
               <button type={!showColorsModal && !showPluginModal && !showSimilarModal && !showTemplatesModal ? "submit" : "button"}
-                className="bg-[#4866CE] text-white rounded-lg px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center"
+                className="bg-[#4866CE] text-white rounded-md px-24 py-3 hover:bg-blue-800 tracking-tight duration-300 w-[80px] flex justify-center items-center"
               >
                 <span>ثبت</span>
               </button>
