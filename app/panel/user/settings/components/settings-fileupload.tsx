@@ -16,7 +16,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
 
   //^ RETURN 
   return (
-    <div className="flex flex-col lg:flex-row gap-5 items-center justify-center">
+    <div className="flex flex-col lg:flex-row space-y-5 lg:gap-x-6 items-center justify-center w-full p-0">
 
       <div className="flex flex-col pt-6 justify-start gap-y-4 h-inherit w-full lg:w-1/2">
         <div className="flex flex-row items-center gap-2 whitespace-nowrap">
@@ -29,13 +29,13 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
             </span>
           </label>
         </div>
-        <p className="text-justify w-full py-2 tracking-tight leading-7 text-[#858585] font-faNum break-words whitespace-pre-wrap">
+        <p className="text-justify w-full py-2 tracking-tight leading-7 text-[#858585] font-faNum ">
           فقط فایل های jpg / jpeg / png  حداکثر حجم 2MB حداقل سایز تصویر
           انتخابی باید(200px*200px) باشد.
         </p>
       </div>
 
-      <div className="flex justify-center items-center w-full lg:w-1/2 p-7 h-full">
+      <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
         <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
       </div>
     </div>

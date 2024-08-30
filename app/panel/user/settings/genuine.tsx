@@ -71,7 +71,7 @@ function Genuine({ userId, token }: GenuineProps) {
         </div>
       </div>
       <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 mt-2">
-        <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" type="submit"  > تایید  ویرایش</button>
+        <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" type="submit"> تایید  ویرایش</button>
       </div>
     </form>
   );
