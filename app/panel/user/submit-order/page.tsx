@@ -17,14 +17,13 @@ import SubmitTemplateModalfield from "./components/submit-template-modalfield";
 import { OrderSubmissionContext } from "../../context/order-submission-contexts/OrderSubmissionContext";
 import { IoArrowBack } from "react-icons/io5";
 
-export type PlanType = {
-  plan: { id?: number; title: string; description: string; price: number };
-};
+export type PlanType = { plan: { id?: number; title: string; description: string; price: number }; };
 export type SimilarSiteType = { title: string; url: string; id?: number };
 export type ColorType = { title: string; color: string };
 export type TemplateType = { template_name: string };
 export type PluginType = { plugin_name: string };
 
+// ^ COMPONENT
 function SubmitOrder() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
   const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
@@ -44,13 +43,8 @@ function SubmitOrder() {
     }
   }, []);
 
-  const [similarSiteData, setSimilarSiteData] = useState<SimilarSiteType[]>([
-    { title: "", url: "" },
-  ]);
-  const [similarSiteModalInputValue, setSimilarSiteModalInputValue] = useState({
-    title: "",
-    url: "",
-  });
+  const [similarSiteData, setSimilarSiteData] = useState<SimilarSiteType[]>([{ title: "", url: "" },]);
+  const [similarSiteModalInputValue, setSimilarSiteModalInputValue] = useState({ title: "", url: "", });
   const [showSimilarModal, setShowSimilarModal] = useState(false);
   const [templatesData, setTemplatesData] = useState<TemplateType[]>([]);
   const [showTemplatesModal, setShowTemplatesModal] = useState(false);
