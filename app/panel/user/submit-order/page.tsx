@@ -194,13 +194,10 @@ function SubmitOrder() {
           <SubmitOrderDescription
             value={projectFields.Description}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setProjectFields((last) => ({
-                ...last,
-                Description: e.target.value,
-              }))
+              setProjectFields((last) => ({ ...last, Description: e.target.value, }))
             }
           />
-          <p className="absolute top-0 right-[7rem] text-[#4866CF]">*</p>
+          <p className="absolute top-3 right-[7rem] text-red-800">*</p>
         </div>
         <SubmitTemplateModalfield
           modalFieldTitle="قالب های مورد نیاز:"
