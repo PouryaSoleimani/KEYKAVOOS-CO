@@ -4,10 +4,11 @@ import PanelFields from "../../components/panel-fileds";
 import axios from "axios";
 import { useFormik } from "formik";
 import SettingsFileupload from "./components/settings-fileupload";
-import { Bounce, toast } from "react-toastify";
+// import { Bounce, toast } from "react-toastify";
 import app from "@/services/service";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserProfile } from "@/redux/features/user/userSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
 type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
@@ -17,7 +18,11 @@ function Genuine({ userId, token }: GenuineProps) {
   const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
+  // NOTIFICATIONS
+  const notifySuccess = () => toast.success("آپلود فایل موفقیت آمیز بود", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
+  const notifyError = () => toast.error("خطا در آپلود فایل، لطفا مجددا آپلود کنید", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
 
+  //^ COMPONENT 
   const handleAvatar = async () => {
     const formData = new FormData();
     formData.append("pic", selectedFile);
@@ -28,15 +33,10 @@ function Genuine({ userId, token }: GenuineProps) {
       );
       console.log("success avatr", data);
       // check
-      dispatch(
-        updateUserProfile({
-          ...userProfile,
-          pic_path: data.data.pic_path,
-        })
-      );
-      toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      dispatch(updateUserProfile({ ...userProfile, pic_path: data.data.pic_path, }));
+      notifySuccess()
     } catch (error) {
-      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      notifyError()
       console.log(error);
     }
   };
@@ -45,35 +45,33 @@ function Genuine({ userId, token }: GenuineProps) {
     try {
       const { data } = await app.put(`/user/update/${userId}`, { name, surname, email, mobile, });
       dispatch(updateUserProfile({ ...userProfile, name, surname, email, mobile, }));
-      toast.success("آپدیت پروفایل موفق بود.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      notifySuccess()
       console.log(data);
     } catch (error) {
-      toast.error("خطا در آپلود فایل.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      notifyError()
       console.log(error);
     }
   };
   const handleSubmission = async () => {
-    Promise.all([
-      await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile),
-      await handleAvatar(),
-    ]);
+    Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile), await handleAvatar(),]);
   };
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
   return (
     <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
+      <Toaster position="top-left" reverseOrder={true} />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
-        <div className="flex flex-col justify-between gap-2">
+        <div className="flex flex-col justify-between gap-2 px-2">
           <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" />
           <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" />
           <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" />
         </div>
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-10">
           <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />
         </div>
       </div>
-      <div className="w-full flex justify-end pl-8 mt-2">
-        <button className="bg-[#4866CF] text-white px-10 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
+      <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:pl-8 mt-2">
+        <button className="bg-[#4866CF] text-white w-full lg:w-1/5 py-2 rounded-md hover:bg-blue-800 duration-300" type="submit"  > تایید ویرایش</button>
       </div>
     </form>
   );
