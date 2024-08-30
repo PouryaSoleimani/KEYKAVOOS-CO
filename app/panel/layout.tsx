@@ -7,7 +7,7 @@ import { mainAdminSidebarOptions, userSidebarOptions } from "@/lib/data";
 import { useDispatch, useSelector } from "react-redux";
 import PanelNavSmall from "@/components/panel/panel-nav-small";
 import PanelSidebarSmall from "@/components/panel/panel-sidebar-small";
-import { deleteDataFromStorage, fetchUserProfile, getIdFromLocal, getTokenFromLocal,} from "@/redux/features/user/userSlice";
+import { deleteDataFromStorage, fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import Image from "next/image";
 import nextarrow from "@/public/forwardarrow.svg";
 import prevarrow from "@/public/backarrow.svg";
@@ -88,11 +88,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                 {localToken && (
                   <>
                     <div className="hidden lg:block">
-                      <PanelSidebar
-                        sideOptions={role === "Admin" ? mainAdminSidebarOptions : userSidebarOptions
-                        }
-                        status={status}
-                      />
+                      <PanelSidebar sideOptions={role === "Admin" ? mainAdminSidebarOptions : userSidebarOptions} status={status} />
                     </div>
                     <div className="w-full lg:overflow-hidden">
                       <div>
