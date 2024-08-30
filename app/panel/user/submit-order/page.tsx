@@ -104,13 +104,7 @@ function SubmitOrder() {
       pluginData,
       templatesData
     );
-    setProjectFields((last) => ({
-      ...last,
-      budget: "",
-      Description: "",
-      discount_code: "",
-      title: "",
-    }));
+    setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
     setSimilarSiteData([]);
     setColorsData([]);
     setPluginData([]);
@@ -124,10 +118,7 @@ function SubmitOrder() {
           <IoArrowBack />
         </Link>
       </div>
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0"
-      >
+      <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
         {/* سایت مشابه مودال */}
         {showSimilarModal && (
           <OrdersubmissionModal
