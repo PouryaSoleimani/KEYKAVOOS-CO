@@ -110,7 +110,7 @@ function SubmitOrder() {
     setPluginData([]);
     setTemplatesData([]);
   };
-  //^ RETURN -------------------------------------------------------------------------------------------------------------------------
+  //^ RETURN --------------------------------------------------------------------------------------------------------------------------------------------------------
   return (
     <div className="relative">
       <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
@@ -166,22 +166,17 @@ function SubmitOrder() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
-            <p className="absolute top-2 right-[5.5rem] text-red-800 text-lg">*</p>
+            <p className="absolute top-3 right-[17.5%] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
             <SubmitOrderDropdown
               dropDownTitle="اولویت پروژه:"
               dropdownItems={["کم", "زیاد"]}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setProjectFields((last) => ({
-                  ...last,
-                  priority: e.target.value,
-                }))
-              }
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, priority: e.target.value, }))}
               value={projectFields.priority}
               name="priority"
             />
-            <p className="absolute top-0 right-[5.5rem] text-[#4866CF]">*</p>
+            <p className="absolute top-3 right-[20%] text-red-800">*</p>
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
