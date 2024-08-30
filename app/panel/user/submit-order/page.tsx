@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import PanelFields from "../../components/panel-fileds";
@@ -31,7 +32,7 @@ function SubmitOrder() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      
+
       const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
       const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
 
@@ -81,9 +82,7 @@ function SubmitOrder() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const consultation_id = JSON.parse(
-        window.sessionStorage.getItem("consultation_id") as string
-      );
+      const consultation_id = JSON.parse(window.sessionStorage.getItem("consultation_id") as string);
       setConsultationId(consultation_id);
     }
   }, [consultationId]);
