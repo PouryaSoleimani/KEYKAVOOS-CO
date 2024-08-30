@@ -35,6 +35,9 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
               </p>
             </Link>
           ))}
+          <Link href={`/panel/user/submit-order/consultation`} className="bg-[#4866CE] text-white rounded-lg p-1 whitespace-nowrap flex justify-center items-center">
+            <span>درخواست مشاوره رایگان</span>
+          </Link>
         </div>
       </div>
     </div>

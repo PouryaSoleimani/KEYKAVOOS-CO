@@ -97,9 +97,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                           status={status}
                           userType={role}
                           numberOfAnnouncements={userNotifications}
-                          setShowAnnouncementDropdown={
-                            setShowAnnouncementDropdown
-                          }
+                          setShowAnnouncementDropdown={setShowAnnouncementDropdown}
                           showAnnouncementDropdown={showAnnouncementDropdown}
                         />
                       </div>
