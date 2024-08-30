@@ -36,7 +36,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
           </p>
         </div>
         <div className="flex justify-center">
-          <Image src={selectedFile && selectedFile.type.startsWith("image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="عکس انتخاب شده" width={600} height={200} />
+          <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="عکس انتخاب شده" width={600} height={200} />
         </div>
       </div>
     </div>
