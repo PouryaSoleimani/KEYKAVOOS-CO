@@ -33,23 +33,9 @@ function PersonalInfo() {
 
   const renderSteps = () => {
     switch (step) {
-
-      case "haghighi":
-        return <Genuine userProfile={userProfile} />;
-
-      case "hoghooghi":
-        return (
-          <Legal
-            PhoneNumber={userProfile.mobile}
-            token={token}
-            name_of_Organization={LegalUserOrgName}
-            shenase_melli={LegalUserShenaseMellli}
-            registration_Number={LegalUserOrgReg}
-            path={userProfile.pic_path}
-          />
-        );
-      default:
-        break;
+      case "haghighi": return <Genuine userProfile={userProfile} />;
+      case "hoghooghi": return (<Legal PhoneNumber={userProfile.mobile} token={token} name_of_Organization={LegalUserOrgName} shenase_melli={LegalUserShenaseMellli} registration_Number={LegalUserOrgReg} path={userProfile.pic_path} />);
+      default: break;
     }
   };
 
