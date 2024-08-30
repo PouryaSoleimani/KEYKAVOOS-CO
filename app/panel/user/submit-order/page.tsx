@@ -200,12 +200,7 @@ function SubmitOrder() {
         <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
           <PanelFields
             label="کد تخفیف:"
-            onChange={(e) =>
-              setProjectFields((last) => ({
-                ...last,
-                discount_code: e.target.value,
-              }))
-            }
+            onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))}
             value={projectFields.discount_code}
             name="discount_code"
             flexDirection="flex-row"
