@@ -21,14 +21,7 @@ function Finance() {
   const id = params.get("id");
   const sendAmount = async (amount: number) => {
     try {
-      const { data } = await axios(
-        `https://keykavoos.liara.run/pay/${amount}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localToken}`,
-          },
-        }
-      );
+      const { data } = await axios(`https://keykavoos.liara.run/pay/${amount}`, { headers: { Authorization: `Bearer ${localToken}`, }, });
       router.push(data);
       // console.log(data);
     } catch (error) {
@@ -89,7 +82,7 @@ function Finance() {
           label="مبلغ پروژه:"
           disable={true}
           value={`${handleBudegtChange(String(totalProjectCost))} ریال`}
-          // value={`${totalProjectCost.toLocaleString()} ریال`}
+        // value={`${totalProjectCost.toLocaleString()} ریال`}
         />
         <FinanceInput
           label="مبلغ باقی مانده:"
@@ -102,21 +95,14 @@ function Finance() {
         <FinanceInput
           label="مبلغ پرداخت شده:"
           disable={true}
-          value={`${
-            userProfile.Paid ? userProfile.Paid?.toLocaleString() : 0
-          } ریال`}
+          value={`${userProfile.Paid ? userProfile.Paid?.toLocaleString() : 0
+            } ریال`}
         />
-        <FinanceInput
-          label="مبلغ پرداختی شما:"
-          value={amount}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setAmount(e.target.value)
-          }
-          setToBlue={true}
+        <FinanceInput label="مبلغ پرداختی شما:" value={amount} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAmount(e.target.value)} setToBlue={true}
         />
       </div>
       <div className="w-full flex justify-center">
-        <button className="bg-[#4866CE] text-white p-2 rounded-[4px]">
+        <button className="bg-[#4866CE] text-white px-12 py-2 rounded-[4px]">
           تایید پرداخت
         </button>
       </div>
