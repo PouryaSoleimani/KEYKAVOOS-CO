@@ -754,7 +754,7 @@ export const userSidebarOptions = [
     path: "/settings",
   },
   {
-    text: "درخواست مشاوره رایگان",
+    text: "درخواست مشاوره",
     imgSrc: Images.ConsultationIcon,
     address: "/panel/user/consultation",
     path: "/panel/user/consultation",
