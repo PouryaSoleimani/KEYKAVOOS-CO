@@ -77,9 +77,7 @@ function AddNewTicket() {
         />
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTicket((last) => ({ ...last, dept_id: e.target.value }))
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))}
             value={ticket.dept_id}
             dropDownTitle="واحد مربوطه:"
             dropdownItems={departmentInfo}
@@ -87,9 +85,7 @@ function AddNewTicket() {
         </div>
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTicket((last) => ({ ...last, priority_id: e.target.value }))
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, priority_id: e.target.value }))}
             value={ticket.priority_id}
             dropDownTitle="اولویت تیکت:"
             dropdownItems={["کم", "فوری"]}
@@ -99,8 +95,7 @@ function AddNewTicket() {
           style={{
             border: "none",
             borderTop: "3px solid",
-            borderImage:
-              "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
+            borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
             margin: "3% 0",
           }}
         ></div>
@@ -114,17 +109,12 @@ function AddNewTicket() {
               rows={10}
               className="p-2 bg-[#EAEFF6] lg:w-[30%] rounded-[4px] w-full"
               value={ticket.description}
-              onChange={(e) =>
-                setTicket((last) => ({ ...last, description: e.target.value }))
-              }
+              onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}
             ></textarea>
           </div>
         </div>
         <div className="flex justify-end">
-          <button
-            className={`${"bg-[#4866CE]"} text-white p-2 rounded-[4px]`}
-          // disabled={fileSelected === true ? false : true}
-          >
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-2 rounded-lg hover:bg-blue-800 duration-300`} >
             ارسال تیکت
           </button>
         </div>
