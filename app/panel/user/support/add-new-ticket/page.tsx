@@ -91,30 +91,16 @@ function AddNewTicket() {
             dropdownItems={["کم", "فوری"]}
           />
         </div>
-        <div
-          style={{
-            border: "none",
-            borderTop: "3px solid",
-            borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
-            margin: "3% 0",
-          }}
-        ></div>
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-row gap-2">
+        <div style={{ border: "none", borderTop: "3px solid", borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1", margin: "3% 0", }}></div>
+        <div className="flex flex-col gap-2 -translate-y-4">
+          <div className="flex flex-col gap-2">
             <label htmlFor="">متن تیکت:</label>
-            <textarea
-              name=""
-              id=""
-              cols={30}
-              rows={10}
-              className="p-2 bg-[#EAEFF6] lg:w-[30%] rounded-[4px] w-full"
-              value={ticket.description}
-              onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}
-            ></textarea>
+            <textarea name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}>
+            </textarea>
           </div>
         </div>
         <div className="flex justify-end">
-          <button className={`${"bg-[#4866CE]"} text-white px-12 py-2 rounded-lg hover:bg-blue-800 duration-300`} >
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-2 rounded-lg hover:bg-blue-800 duration-300 -translate-y-4`} >
             ارسال تیکت
           </button>
         </div>
