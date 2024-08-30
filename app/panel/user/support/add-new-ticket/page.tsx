@@ -9,6 +9,7 @@ import { createTicket } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
 
+// ^ COMPONENT
 function AddNewTicket() {
   const { userProfile, token } = useSelector((state: any) => state.userData);
   const [departments, setDepartments] = useState([]);
@@ -55,39 +56,24 @@ function AddNewTicket() {
 
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createTicket(
-      token,
-      ticket.title,
-      ticket.description,
-      1,
-      ticket.priority_id === "کم" ? 1 : 2,
-      userProfile.id,
-      Number(departmentId),
-      null
-    );
+    await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
+
+  //^ RETURN 
   return (
     <div className="relative">
-      <div
-        className="flex justify-end w-full text-xl cursor-pointer absolute -top-12"
-        onClick={() => router.back()}
-      >
-        <div className="rounded-full p-2 bg-white">
+      <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
+        <div className="rounded-lg p-2 bg-white">
           <IoArrowBack />
         </div>
       </div>
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="bg-white shadow mx-auto rounded-2xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10"
-      >
+      <form onSubmit={(e) => handleSubmission(e)} className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10" >
         <TicketFields
           label="عنوان تیکت:"
           width="w-[30%]"
           value={ticket.title}
-          onChange={(e) =>
-            setTicket((last) => ({ ...last, title: e.target.value }))
-          }
+          onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))}
         />
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown

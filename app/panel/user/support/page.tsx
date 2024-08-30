@@ -27,9 +27,7 @@ const Support = () => {
     dispatch<any>(fetchUserProfile());
   }, []);
 
-  useEffect(() => {
-    getAllTickets(token, setAllTickets, setSupportStatus);
-  }, []);
+  useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
 
   return (
     <div className="flex flex-col gap-3">
