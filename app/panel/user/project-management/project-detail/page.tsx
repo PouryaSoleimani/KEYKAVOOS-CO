@@ -3,7 +3,6 @@
 // ^ PROJECT MANAGEMENT ==> ALL PROJECTS ==> PROJECTS DETAILS 
 import { getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import { getOrderDetail, getProjectDetail } from "@/utils/utils";
-import { getAllProjects , getProjectStatus  } from "@/utils/utils";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -26,8 +25,8 @@ function ProjectDetail() {
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getProjectDetail(token, id, setProjectDetail); }, []);
 
-  console.log(projectDetail);
-  const projectCurrentState = projectDetail.status?.title;
+  console.log("PROJECT DETAILS ====>", projectDetail);
+  const projectCurrentState = projectDetail.status;
   const returnStatus = (item: string) => {
     if (projectCurrentState) {
       if (item === projectCurrentState) {
@@ -39,7 +38,7 @@ function ProjectDetail() {
       return "وضعیتی یافت نشد.";
     }
   };
-  // console.log(projectCurrentState);
+  console.log(projectCurrentState);
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
@@ -47,25 +46,23 @@ function ProjectDetail() {
           <IoArrowBack />
         </div>
       </div>
+      {/* CHANGING THIS PART */}
       <div className="mt-10 lg:mt-0">
-        {projectCurrentState ? (
-          ProjectDetailNav.includes(projectCurrentState) ? (
-            <ul className="grid grid-cols-7 justify-between bg-[#4866CE] text-white text-center rounded-t-2xl overflow-hidden">
-              {ProjectDetailNav.map((item, index) => (
-                <li key={index} className={`${item === projectCurrentState ? "bg-[#EAEFF6] text-[#4866CE]" : ""}  p-5  border border-[#4866CE]`} >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="bg-[#4866CE] text-white text-center rounded-t-2xl overflow-hidden">
-              ...
-            </p>
-          )
+        {projectDetail ? (
+          <div className="flex flex-col gap-5">
+            <div className="grid grid-cols-4 text-center tracking-tight">
+              <p className="font-light py-1 text-zinc-800">ID پروژه</p>
+              <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
+              <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
+              <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
+            </div>
+
+            <div className="grid grid-cols-4 text-center py-2 bg-white rounded-[4px]"  >
+              <p>{projectDetail.id}</p>
+            </div>
+          </div>
         ) : (
-          <p className="bg-[#4866CE] text-white text-center rounded-lg py-6 overflow-hidden">
-            وضعیتی یافت نشد.
-          </p>
+          <h2>NO</h2>
         )}
       </div>
     </div>
