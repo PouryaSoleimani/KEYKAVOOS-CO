@@ -13,7 +13,7 @@ function Consultation() {
     <div className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-2xl px-[3%] grid grid-cols-1 gap-8 animate__animated animate__pulse" dir="ltr"  >
       <div className="grid grid-cols-1 gap-5 lg:gap-0 lg:grid-cols-2">
         <div>
-          <Image src={ConsultImage} alt="consultation" />
+          <Image src={ConsultImage} alt="consultation" className="w-full" />
         </div>
         <div className="text-right flex flex-col gap-5">
           <p className="text-[26px] font-semibold tracking-tighter text-zinc-900">مشاوره رایگان</p>
