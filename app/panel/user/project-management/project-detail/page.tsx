@@ -3,6 +3,7 @@
 // ^ PROJECT MANAGEMENT ==> ALL PROJECTS ==> PROJECTS DETAILS 
 import { getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import { getOrderDetail, getProjectDetail } from "@/utils/utils";
+import { getAllProjects , getProjectStatus  } from "@/utils/utils";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -23,8 +24,7 @@ function ProjectDetail() {
   const id = params.get("id");
 
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
-  useEffect(() => { getOrderDetail(token, Number(id), setProjectDetail); }, []);
-
+  useEffect(() => { getProjectDetail(token, id, setProjectDetail); }, []);
 
   console.log(projectDetail);
   const projectCurrentState = projectDetail.status?.title;

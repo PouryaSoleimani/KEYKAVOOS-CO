@@ -1295,11 +1295,7 @@ export const updateBrand = async (
 export const getAllProjects = async (
   token: string,
   setAllProjects: React.Dispatch<React.SetStateAction<never[]>>,
-  setProjectStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
+  setProjectStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>
   >
 ) => {
   try {
@@ -3241,20 +3237,13 @@ export const getProjectDetail = async (
   projectId: string | null,
   setProjectDetail: React.Dispatch<React.SetStateAction<any>>,
   setProjectDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
+    React.SetStateAction<{ loading: boolean; error: string; }>
   >
 ) => {
   try {
     setProjectDetailStatus &&
       setProjectDetailStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app.get(`/project/show/${projectId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/project/show/${projectId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("project detail", data);
     setProjectDetail(data.data);
   } catch (error: any) {
@@ -3647,9 +3636,7 @@ export const getOrderDetail = async (
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app(`/order/show/${orderId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("order detail", data);
     setOrderDetail(data.data);
