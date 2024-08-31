@@ -49,7 +49,7 @@ function ProjectDetail() {
       {/* CHANGING THIS PART */}
       <div className="mt-10 lg:mt-0">
         {projectDetail ? (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 bg-white rounded-lg py-8">
             <div className="grid grid-cols-4 text-center tracking-tight">
               <p className="font-light py-1 text-zinc-800">ID پروژه</p>
               <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
@@ -57,7 +57,7 @@ function ProjectDetail() {
               <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
             </div>
 
-            <div className="grid grid-cols-4 text-center py-2 bg-white rounded-[4px]"  >
+            <div className="grid grid-cols-4 text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px] "  >
               <p>{projectDetail.id}</p>
               <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
               <p>{projectDetail.title}</p>
