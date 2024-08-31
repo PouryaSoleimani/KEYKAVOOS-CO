@@ -24,7 +24,7 @@ function ProjectDetail() {
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getOrderDetail(token, Number(id), setProjectDetail); }, []);
   useEffect(() => {
-    axios.get('http://localhost:8000/v1/projects').then(response => console.log(response))
+    axios.get('http://localhost:8000/v1/projects').then(response => console.log("RESPONSE =>", response))
   }, [])
 
 
