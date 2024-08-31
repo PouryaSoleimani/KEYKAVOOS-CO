@@ -43,7 +43,7 @@ function ProjectDetail() {
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
-        <div className="bg-white rounded-lg p-2">
+        <div className="bg-white rounded-lg p-2 hover:bg-[#4866CF] hover:text-white duration-300">
           <IoArrowBack />
         </div>
       </div>
