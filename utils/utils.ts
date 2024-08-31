@@ -3655,11 +3655,9 @@ export const getOrderDetail = async (
     setOrderDetail(data.data);
   } catch (error: any) {
     seOrderDetailStatus &&
-      seOrderDetailStatus((last) => ({
-        ...last,
-        error: "حطا در ردیافت اطلاعات",
-      }));
-    console.log(error.response.data.message);
+      seOrderDetailStatus((last) => ({ ...last, error: "حطا در ردیافت اطلاعات" }));
+    // console.log(error.response.data.message);
+    console.log("ERROR =>", error);
   } finally {
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, loading: false }));
@@ -3673,9 +3671,7 @@ export const getAllOrderStatuses = async (
 ) => {
   try {
     const { data } = await app(`/order/get_all_status/${orderId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("all order statuses", data);
     setOrderStatuses(data.data);

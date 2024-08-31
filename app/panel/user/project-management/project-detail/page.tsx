@@ -23,10 +23,6 @@ function ProjectDetail() {
 
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getOrderDetail(token, Number(id), setProjectDetail); }, []);
-  useEffect(() => {
-    axios.get('http://localhost:8000/v1/projects').then(response => console.log("RESPONSE =>", response))
-  }, [])
-
 
   console.log(projectDetail);
   const projectCurrentState = projectDetail.status?.title;
@@ -65,7 +61,7 @@ function ProjectDetail() {
             </p>
           )
         ) : (
-          <p className="bg-[#4866CE] text-white text-center rounded-t-2xl overflow-hidden">
+          <p className="bg-[#4866CE] text-white text-center rounded-lg py-6 overflow-hidden">
             وضعیتی یافت نشد.
           </p>
         )}
