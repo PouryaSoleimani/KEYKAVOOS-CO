@@ -59,9 +59,9 @@ function ProjectDetail() {
 
             <div className="grid grid-cols-4 text-center py-2 bg-white rounded-[4px]"  >
               <p>{projectDetail.id}</p>
-              <p>{projectDetail.register_user.name} {projectDetail.register_user.surname}</p>
+              <p>{projectDetail.register_user.name.toString()} {projectDetail.register_user.surname.toString()} </p>
               <p>{projectDetail.title}</p>
-              <p>{projectDetail.status == "processing" ? "در حال بررسی" : "رد شده" }</p>
+              <p>{projectDetail.status == "processing" ? "در حال بررسی" : "رد شده"}</p>
             </div>
           </div>
         ) : (
