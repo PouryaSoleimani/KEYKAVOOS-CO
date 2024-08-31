@@ -68,7 +68,7 @@ function ProjectDetail() {
         ) : (
           <div className="flex flex-col gap-5 bg-white rounded-lg py-8">
             <div className="flex items-center justify-center text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px]">
-              <p>پروژه ای یافت نشد</p>
+              <p className="w-full mx-6 bg-red-200 text-red-800">پروژه ای یافت نشد</p>
             </div>
           </div>
         )}
