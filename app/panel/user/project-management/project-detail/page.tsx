@@ -46,7 +46,7 @@ function ProjectDetail() {
           <IoArrowBack />
         </div>
       </div>
-      {/* CHANGING THIS PART */}
+
       <div className="mt-10 lg:mt-0">
         {projectDetail ? (
           <div className="flex flex-col gap-5 bg-white rounded-lg py-8">
@@ -58,14 +58,18 @@ function ProjectDetail() {
             </div>
 
             <div className="grid grid-cols-4 text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px] "  >
-              <p>{projectDetail.id}</p>
+              <p className="translate-x-4">{projectDetail.id}</p>
               <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
               <p>{projectDetail.title}</p>
-              <p>{projectDetail.status == "processing" ? "در حال بررسی" : ""}</p>
+              <p>{projectDetail.status == "processing" ? <p className="text-blue-600">در حال بررسی</p> : projectDetail.status == "verified" ? <p className="text-emerald-600">تایید شده</p> : projectDetail.status == "notVerified" ? <p className="text-red-600">رد شده</p> : "..."}</p>
             </div>
           </div>
         ) : (
-          <h2>NO</h2>
+          <div className="flex flex-col gap-5 bg-white rounded-lg py-8">
+            <div className="flex items-center justify-center text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px]">
+              <p>پروژه ای یافت نشد</p>
+            </div>
+          </div>
         )}
       </div>
     </div>
