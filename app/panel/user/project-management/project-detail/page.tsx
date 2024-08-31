@@ -23,6 +23,7 @@ function ProjectDetail() {
 
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getOrderDetail(token, Number(id), setProjectDetail); }, []);
+  
 
   console.log(projectDetail);
   const projectCurrentState = projectDetail.status?.title;
