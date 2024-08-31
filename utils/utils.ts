@@ -1,9 +1,6 @@
 import { BrandDetailType } from "@/app/panel/admin/org_management/departments/department-detail/page";
 import { BrandType } from "@/app/panel/admin/org_management/brands/page";
-import {
-  DepartmentFinalType,
-  DepartmentType,
-} from "@/app/panel/admin/org_management/departments/page";
+import { DepartmentFinalType, DepartmentType, } from "@/app/panel/admin/org_management/departments/page";
 import { ValueType } from "@/app/panel/admin/plan-management/components/value-component";
 import { PlanType } from "@/app/panel/admin/plan-management/page";
 import { PlanAttrType } from "@/app/panel/admin/plan-management/plan-detail/page";
@@ -16,21 +13,10 @@ import { Dispatch, SetStateAction } from "react";
 import { Bounce, toast } from "react-toastify";
 import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
-import {
-  ColorType,
-  PluginType,
-  SimilarSiteType,
-  TemplateType,
-} from "@/app/panel/user/submit-order/page";
+import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
 
 // create notification
-export const createNotification = async (
-  token: string,
-  dept_id: number,
-  brand_id: number,
-  user_id: number,
-  text: string
-) => {
+export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
   try {
     console.log("user_id", user_id);
     // console.log("text", text);
