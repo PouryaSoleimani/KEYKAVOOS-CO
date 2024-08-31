@@ -718,7 +718,7 @@ export const userSidebarOptions = [
       "/panel/user/project-management",
       "/panel/user/project-management/project-detail",
       "/panel/user/submit-order",
-      "/panel/user/submit-order/consultation",
+      // "/panel/user/submit-order/consultation",
       "/panel/user/submit-order/consultation/submit-consultation",
     ],
   },
@@ -752,6 +752,13 @@ export const userSidebarOptions = [
     imgSrc: Images.SettingsIcon,
     address: "/panel/user/settings",
     path: "/settings",
+  },
+  {
+    text: "درخواست مشاوره",
+    imgSrc: Images.ConsultationIcon,
+    address: "/panel/user/consultation",
+    path: "/panel/user/consultation",
+    
   },
 ];
 export const mainAdminSidebarOptions = [
@@ -845,29 +852,29 @@ export const UserDashboardInfo = [
     title: "پروفایل",
     link: "/panel/user/personal-info",
     imgUrl: Images.ProfileUserDashboard,
-    width: 90,
+    width: 70,
   },
   {
     id: 1,
     title: "وضعیت سفارش",
     link: "/panel/user/order-management",
     imgUrl: Images.OrderUserDashboard,
-    width: 210,
+    width: 185,
   },
   {
     id: 2,
     title: "وضعیت مالی",
     link: "/panel/user/finance",
     imgUrl: Images.FinancialStatusUserDashboard,
-    width: 140,
-    top: "-top-12",
+    width: 90,
+    top: "top-10"
   },
   {
     id: 3,
     title: "پشتیبانی",
     link: "/panel/user/support",
     imgUrl: Images.SupportUserDashboard,
-    width: 110,
+    width: 90,
   },
 ];
 export const servicesData = [

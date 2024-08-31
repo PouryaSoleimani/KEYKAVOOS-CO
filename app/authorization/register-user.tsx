@@ -14,13 +14,7 @@ import { AuthContext } from "./context/AuthContext";
 import { useTimer } from "@/hooks/useTimer";
 
 const RegisterUser = () => {
-  const {
-    PhoneNumberInput,
-    successMessage,
-    errorMessage,
-    userInfoOnLogin,
-    showModal,
-  } = useSelector((state: any) => state.userData);
+  const { PhoneNumberInput, successMessage, errorMessage, userInfoOnLogin, showModal, } = useSelector((state: any) => state.userData);
   const { setAuthSteps } = useContext(AuthContext);
   const { counter, setCounter } = useTimer();
   const dispatch = useDispatch();
@@ -58,7 +52,7 @@ const RegisterUser = () => {
             className="flex flex-col gap-5"
           >
             <label className="md:whitespace-nowrap">
-              <p className="lg:w-[90%] text-[16px] py-4">
+              <p className="lg:w-[90%] text-[14px] py-4 tracking-tight">
                 لطفا کد 6 رقمی که به شماره همراه شما ارسال شده است را وارد کنید.
               </p>
             </label>
@@ -68,8 +62,8 @@ const RegisterUser = () => {
                 value={
                   PhoneNumberInput
                     ? localStorage.getItem("PhoneNumber")?.slice(9) +
-                      "*****" +
-                      localStorage.getItem("PhoneNumber")?.slice(0, 4)
+                    "*****" +
+                    localStorage.getItem("PhoneNumber")?.slice(0, 4)
                     : (localStorage.getItem("PhoneNumber") as string)
                 }
                 label="شماره تماس"
@@ -84,7 +78,7 @@ const RegisterUser = () => {
                 inputStyle={{
                   border: "0.3px solid lightgray",
                   borderRadius: "7px",
-                  width: "43px",
+                  width: "47px",
                   height: "50px",
                 }}
                 containerStyle={{
@@ -124,21 +118,20 @@ const RegisterUser = () => {
                 />
               )} */}
               <span
-                className={`w-full text-[20px] ${
-                  counter === 0 && "text-blue-700 cursor-pointer "
-                }`}
+                className={`w-full text-[20px] ${counter === 0 && "text-blue-700 cursor-pointer "
+                  }`}
               >
                 {counter === 0 ? (
                   <div className="flex flex-row flex-wrap lg:flex-nowrap w-full  items-center gap-10 whitespace-nowrap">
                     <p
                       className="flex items-center gap-2"
-                      // onClick={async () =>
-                      //   counter === 0 &&
-                      //   (await getNewOTP(
-                      //     localStorage.getItem("PhoneNumber") as string
-                      //   ),
-                      //   setCounter(90))
-                      // }
+                    // onClick={async () =>
+                    //   counter === 0 &&
+                    //   (await getNewOTP(
+                    //     localStorage.getItem("PhoneNumber") as string
+                    //   ),
+                    //   setCounter(90))
+                    // }
                     >
                       <Image src={sms} alt="sms" />
                       <span>ارسال مجدد</span>

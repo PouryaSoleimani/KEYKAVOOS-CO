@@ -9,6 +9,7 @@ import { createTicket } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
 
+// ^ COMPONENT
 function AddNewTicket() {
   const { userProfile, token } = useSelector((state: any) => state.userData);
   const [departments, setDepartments] = useState([]);
@@ -26,9 +27,9 @@ function AddNewTicket() {
   }, []);
 
   useEffect(() => {
-    if (typedDepartments.length > 0) {
+    if (typedDepartments?.length > 0) {
       const firstDepId = typedDepartments?.map(
-        (item) => item.department.id
+        (item) => item?.department.id
       )?.[0];
       setTicket((last) => ({ ...last, dept_id: String(firstDepId) }));
     }
@@ -55,90 +56,38 @@ function AddNewTicket() {
 
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createTicket(
-      token,
-      ticket.title,
-      ticket.description,
-      1,
-      ticket.priority_id === "کم" ? 1 : 2,
-      userProfile.id,
-      Number(departmentId),
-      null
-    );
+    await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
+
+  //^ RETURN 
   return (
     <div className="relative">
-      <div
-        className="flex justify-end w-full text-xl cursor-pointer absolute -top-12"
-        onClick={() => router.back()}
-      >
-        <div className="rounded-full p-2 bg-white">
+      <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
+        <div className="rounded-lg p-2 bg-white">
           <IoArrowBack />
         </div>
       </div>
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="bg-white shadow mx-auto rounded-2xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10"
-      >
-        <TicketFields
-          label="عنوان تیکت:"
-          width="w-[30%]"
-          value={ticket.title}
-          onChange={(e) =>
-            setTicket((last) => ({ ...last, title: e.target.value }))
-          }
-        />
+      <form onSubmit={(e) => handleSubmission(e)} className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10" >
+          <span className="absolute right-[7.5rem] text-red-800">*</span>
+        <TicketFields label="عنوان تیکت:" width="w-[30%]" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
         <div className="lg:w-[30%] w-full">
-          <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTicket((last) => ({ ...last, dept_id: e.target.value }))
-            }
-            value={ticket.dept_id}
-            dropDownTitle="واحد مربوطه:"
-            dropdownItems={departmentInfo}
-          />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
         </div>
         <div className="lg:w-[30%] w-full">
-          <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTicket((last) => ({ ...last, priority_id: e.target.value }))
-            }
-            value={ticket.priority_id}
-            dropDownTitle="اولویت تیکت:"
-            dropdownItems={["کم", "فوری"]}
-          />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, priority_id: e.target.value }))} value={ticket.priority_id} dropDownTitle="اولویت تیکت:" dropdownItems={["عادی", "فوری"]} />
         </div>
-        <div
-          style={{
-            border: "none",
-            borderTop: "3px solid",
-            borderImage:
-              "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
-            margin: "3% 0",
-          }}
-        ></div>
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-row gap-2">
+        <div style={{ border: "none", borderTop: "3px solid", borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1", margin: "3% 0", }}></div>
+        <div className="flex flex-col gap-2 -translate-y-4">
+          <div className="flex flex-col gap-2">
             <label htmlFor="">متن تیکت:</label>
-            <textarea
-              name=""
-              id=""
-              cols={30}
-              rows={10}
-              className="p-2 bg-[#EAEFF6] lg:w-[30%] rounded-[4px] w-full"
-              value={ticket.description}
-              onChange={(e) =>
-                setTicket((last) => ({ ...last, description: e.target.value }))
-              }
-            ></textarea>
+            <span className="absolute right-[4.7rem] text-red-800">*</span>
+            <textarea name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}>
+            </textarea>
           </div>
         </div>
-        <div className="flex justify-end">
-          <button
-            className={`${"bg-[#4866CE]"} text-white p-2 rounded-[4px]`}
-            // disabled={fileSelected === true ? false : true}
-          >
+        <div className="flex justify-end">          <span className="absolute right-[8rem] text-red-800">*</span>
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-2 rounded-lg hover:bg-blue-800 duration-300 -translate-y-4`} >
             ارسال تیکت
           </button>
         </div>

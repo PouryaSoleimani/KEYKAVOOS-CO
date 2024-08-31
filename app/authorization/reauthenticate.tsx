@@ -1,11 +1,5 @@
 "use client";
-import {
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, FormEvent, SetStateAction, useEffect, useState, } from "react";
 import FormSlider from "./components/form-slider";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -14,9 +8,7 @@ import Logo from "./components/logo";
 import { useRouter } from "next/navigation";
 import { Bounce, toast } from "react-toastify";
 import { setCookie } from "cookies-next";
-type ReauthProps = {
-  setSteps: Dispatch<SetStateAction<number>>;
-};
+type ReauthProps = { setSteps: Dispatch<SetStateAction<number>>; };
 const Reauthenticate = ({ setSteps }: ReauthProps) => {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [OTP, setOTP] = useState("");
@@ -49,12 +41,7 @@ const Reauthenticate = ({ setSteps }: ReauthProps) => {
 
   const getNewOTP = async (PhoneNumber: string) => {
     try {
-      const { data } = await axios.post(
-        "https://keykavoos.liara.run/User/getOTP",
-        {
-          PhoneNumber,
-        }
-      );
+      const { data } = await axios.post("https://keykavoos.liara.run/User/getOTP", { PhoneNumber, });
       console.log(data);
     } catch (error: any) {
       console.log(error);
@@ -63,12 +50,7 @@ const Reauthenticate = ({ setSteps }: ReauthProps) => {
 
   const confirmOTP = async (OTP: string, PhoneNumber: string) => {
     try {
-      const { data } = await axios.post(
-        "https://keykavoos.liara.run/User/Signup4",
-        {
-          OTP,
-          PhoneNumber,
-        }
+      const { data } = await axios.post("https://keykavoos.liara.run/User/Signup4", { OTP, PhoneNumber, }
       );
       console.log(data);
       setCookie("token", data.token, {
@@ -113,33 +95,14 @@ const Reauthenticate = ({ setSteps }: ReauthProps) => {
             className="flex flex-col justify-start gap-[3%] px-[5%] h-full"
           >
             <div>
-              <p className="lg:w-[90%]">
-                به {PhoneNumber} یک کد تایید ارسال شد.
-              </p>
-              <p
-                className="text-[#4866CF] text-sm cursor-pointer"
-                onClick={() => setSteps(3)}
-              >
+              <p className="lg:w-[90%]"> به {PhoneNumber} یک کد تایید ارسال شد.</p>
+              <p className="text-[#4866CF] text-sm cursor-pointer" onClick={() => setSteps(3)}  >
                 ویرایش شماره
               </p>
             </div>
-            <input
-              type="text"
-              placeholder="کد تایید"
-              className="border w-full p-[3%] rounded-md"
-              value={OTP}
-              onChange={(e) => setOTP(e.target.value)}
-              maxLength={4}
-              autoFocus
-            />
+            <input type="text" placeholder="کد تایید" className="border w-full p-[3%] rounded-md" value={OTP} onChange={(e) => setOTP(e.target.value)} maxLength={4} autoFocus />
             {validOTP !== true && (
-              <p
-                className={`w-[100%] ${
-                  validOTPMsg && status === "failed"
-                    ? "bg-black text-[0.75rem] p-[0.25rem] text-white relative -bottom-[10px] rounded-lg"
-                    : "absolute -left-[9999px]"
-                }`}
-              >
+              <p className={`w-[100%] ${validOTPMsg && status === "failed" ? "bg-black text-[0.75rem] p-[0.25rem] text-white relative -bottom-[10px] rounded-lg" : "absolute -left-[9999px]"}`}>
                 {validOTPMsg}
               </p>
             )}
@@ -151,10 +114,7 @@ const Reauthenticate = ({ setSteps }: ReauthProps) => {
                   (await getNewOTP(PhoneNumber), setCounter(90))
                 }
               >
-                {counter === 0
-                  ? "ارسال مجدد"
-                  : `${counter} ثانیه تا ارسال مجدد.
-                `}
+                {counter === 0 ? "ارسال مجدد" : `${counter} ثانیه تا ارسال مجدد.`}
               </span>
               <div className="w-full text-left">
                 <SubmissionBtn text="تایید کد تایید" validation={true} />

@@ -22,23 +22,19 @@ function SubmitOrderModalfield({
   setData,
   data,
 }: // modalInputValue,
-// setModalInputValue,
-SubmitOrderDropdownProps) {
+  // setModalInputValue,
+  SubmitOrderDropdownProps) {
   const deleteItem = (index: number) => {
     const newData = [...data];
     newData.splice(index, 1);
     setData(newData);
   };
+  // RETURN
   return (
     <div className="flex flex-col gap-3 relative">
       <label>{modalFieldTitle}</label>
       <div className="lg:p-[2%] p-5 bg-[#EAEFF6] rounded-[4px] relative">
-        <Image
-          src={plus}
-          alt="plus"
-          className="absolute left-0 top-1/2 -translate-y-1/2 pl-1 cursor-pointer"
-          onClick={() => setShowModal(true)}
-        />
+        <Image src={plus} alt="plus" className="absolute left-1 top-1/2 -translate-y-1/2 pl-1 cursor-pointer" onClick={() => setShowModal(true)} />
         <div className="flex justify-end gap-3 mx-2">
           {data.map((item, index) => (
             item.url && <div key={item.url}>

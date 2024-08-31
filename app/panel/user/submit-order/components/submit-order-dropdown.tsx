@@ -1,38 +1,17 @@
 import Image from "next/image";
 import React from "react";
-type SubmitOrderDropdownProps = {
-  dropDownTitle: string;
-  dropdownItems: string[];
-  value: string;
-  onChange: any;
-  name?: string;
-};
-function SubmitOrderDropdown({
-  dropDownTitle,
-  dropdownItems,
-  value,
-  onChange,
-  name,
-}: SubmitOrderDropdownProps) {
+type SubmitOrderDropdownProps = { dropDownTitle: string; dropdownItems: string[]; value: string; onChange: any; name?: string; };
+
+
+//* COMPONENT
+function SubmitOrderDropdown({ dropDownTitle, dropdownItems, value, onChange, name, }: SubmitOrderDropdownProps) {
+  // ^ RETURN
   return (
-    <div
-      className={`flex ${
-        dropDownTitle ? "flex-col gap-3" : "flex-row"
-      } relative`}
-    >
+    <div className={`flex ${dropDownTitle ? "flex-col gap-1" : "flex-row"} relative`} >
       <p>{dropDownTitle}</p>
-      <select
-        name={name ? name : dropDownTitle}
-        id={value}
-        className={`bg-[#EAEFF6] h-full rounded-[4px] p-2 ${
-          !dropDownTitle && "w-full"
-        }`}
-        value={`${value}`}
-        onChange={onChange}
-        
-      >
+      <select name={name ? name : dropDownTitle} id={value} className={`bg-[#EAEFF6] h-full rounded-[4px] text-zinc-800 font-YekanBakh tracking-tighter font-extralight px-3 py-2 ${!dropDownTitle && "w-full font-YekanBakh"}`} value={`${value}`} onChange={onChange}>
         {dropdownItems?.map((item) => (
-          <option key={item} value={item}>
+          <option key={item} value={item} className="font-YekanBakh text-zinc-800">
             {item}
           </option>
         ))}

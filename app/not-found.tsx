@@ -18,10 +18,7 @@ const NotFound = () => {
                 <h1 className="my-2 text-gray-800 font-bold text-4xl tracking-tighter"> متاسفانه صفحه ی مورد نظر شما یافت نشد ....</h1>
                 <p className="my-2 text-gray-600 ">لطفا از درست بودن آدرس وارد شده اطمینان حاصل فرمایید</p>
                 <br />
-                <Link
-                  href='/'
-                  className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#4866CF] text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
-                >
+                <Link href='/' className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#4866CF] text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"  >
                   بازگشت به خانه
                 </Link>
               </div>

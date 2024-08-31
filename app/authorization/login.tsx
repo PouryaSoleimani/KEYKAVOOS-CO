@@ -33,15 +33,7 @@ const Login = ({
   setIsLoggingIn,
 }: LoginProps) => {
   const { setAuthSteps } = useContext(AuthContext);
-  const {
-    showModal,
-    isLoggedIn,
-    errorMessage,
-    successMessage,
-    errorOnProfileHandler,
-    status,
-    token,
-  } = useSelector((state: any) => state.userData);
+  const { showModal, isLoggedIn, errorMessage, successMessage, errorOnProfileHandler, status, token, } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
   const [logwithOTP, setLogwithOTP] = useState(false);
   const [loginwithPass, setLoginwithPass] = useState(false);
@@ -108,20 +100,13 @@ const Login = ({
 
   return (
     <React.Fragment>
-      <div
-        className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]"
-        dir="rtl"
-      >
+      <div className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]" dir="rtl" >
         <div className="py-[5%] w-full relative px-[5%]">
           {errorMessage === "" && successMessage === "" && (
             <Modal
               showModal={showModal}
               data={values.PhoneNumber ? values.PhoneNumber : ""}
-              text={
-                values.PhoneNumber
-                  ? "شماره تماس زیر مورد تایید است؟"
-                  : "شماره همراه خود را وارد کنید."
-              }
+              text={values.PhoneNumber ? "شماره تماس زیر مورد تایید است؟" : "شماره همراه خود را وارد کنید."}
               setSteps={setAuthSteps}
               isLoggingIn={isLoggingIn}
               isLoggedIn={isLoggedIn}
@@ -150,25 +135,11 @@ const Login = ({
             />
           )}
           <Logo />
-          <div className="flex flex-row justify-between items-center mb-8">
-            <span
-              onClick={() => setLoginApproach(0)}
-              className={
-                loginApproach === 0
-                  ? `${styles.approach} cursor-default`
-                  : "border-none cursor-pointer"
-              }
-            >
+          <div className="flex flex-row justify-between items-center my-10">
+            <span onClick={() => setLoginApproach(0)} className={loginApproach === 0 ? `bg-[#4866CF] px-4 py-2 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}  >
               ورود با کد تایید
             </span>
-            <span
-              onClick={() => setLoginApproach(1)}
-              className={
-                loginApproach === 1
-                  ? `${styles.approach} cursor-default`
-                  : "border-none cursor-pointer"
-              }
-            >
+            <span onClick={() => setLoginApproach(1)} className={loginApproach === 1 ? `bg-[#4866CF] px-4 py-2 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}  >
               ورود با رمز عبور
             </span>
           </div>
