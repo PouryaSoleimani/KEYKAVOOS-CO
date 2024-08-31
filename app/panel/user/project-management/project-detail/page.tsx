@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
+// ^ PROJECT MANAGEMENT ==> ALL PROJECTS ==> PROJECTS DETAILS 
 import { getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import { getOrderDetail, getProjectDetail } from "@/utils/utils";
 import axios from "axios";

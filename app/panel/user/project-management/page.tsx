@@ -1,3 +1,4 @@
+// ^ PROJECT MANAGEMENT PAGE
 import React from "react";
 import AllProjects from "./all-projects";
 import NewInfoOnEachPageBtn from "../components/NewInfoOnEachPageBtn";
