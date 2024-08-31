@@ -19,7 +19,7 @@ function AllProjects() {
   useEffect(() => { getAllProjects(token, setAllProjects, setProjectStatus); }, []);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 ">
       <div className="grid grid-cols-4 text-center tracking-tight">
         <p className="font-light py-1 text-zinc-800">ردیف</p>
         <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>

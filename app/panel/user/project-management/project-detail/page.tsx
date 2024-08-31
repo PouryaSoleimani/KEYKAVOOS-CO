@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import { ImBackward, ImBackward2 } from "react-icons/im";
 import { IoArrowBack } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
+import 'animate.css';
 
 const ProjectDetailNav = ["مشاوره", "ثبت سفارش", "دریافت فایل Brief", "پروپوزال", "تهیه زیرساخت", "طراحی وب", "تحویل وب",];
 
@@ -49,7 +50,7 @@ function ProjectDetail() {
 
       <div className="mt-10 lg:mt-0">
         {projectDetail ? (
-          <div className="flex flex-col gap-5 bg-white rounded-lg py-8">
+          <div className="flex flex-col gap-5 bg-white rounded-lg py-8 animate__animated animate__pulse">
             <div className="grid grid-cols-4 text-center tracking-tight">
               <p className="font-light py-1 text-zinc-800">ID پروژه</p>
               <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
