@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import {
-  getIdFromLocal,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
+import { getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import { getOrderDetail, getProjectDetail } from "@/utils/utils";
 import axios from "axios";
 import Link from "next/link";
@@ -21,18 +18,17 @@ function ProjectDetail() {
   const { token, localUserId } = useSelector((state: any) => state.userData);
   const [projectDetail, setProjectDetail] = useState<any>([]);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getIdFromLocal());
-    dispatch(getTokenFromLocal());
-  }, []);
-
   const params = useSearchParams();
   const id = params.get("id");
 
+  useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
+  useEffect(() => { getOrderDetail(token, Number(id), setProjectDetail); }, []);
   useEffect(() => {
-    getOrderDetail(token, Number(id), setProjectDetail);
-  }, []);
-  // console.log(projectDetail);
+    axios.get('http://localhost:8000/v1/projects').then(response => console.log(response))
+  }, [])
+
+
+  console.log(projectDetail);
   const projectCurrentState = projectDetail.status?.title;
   const returnStatus = (item: string) => {
     if (projectCurrentState) {
@@ -49,7 +45,7 @@ function ProjectDetail() {
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
-        <div className="bg-white rounded-full p-2">
+        <div className="bg-white rounded-lg p-2">
           <IoArrowBack />
         </div>
       </div>
