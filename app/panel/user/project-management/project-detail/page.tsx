@@ -61,7 +61,7 @@ function ProjectDetail() {
               <p>{projectDetail.id}</p>
               <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
               <p>{projectDetail.title}</p>
-              <p>{projectDetail.status == "processing" ? "در حال بررسی" : "رد شده"}</p>
+              <p>{projectDetail.status == "processing" ? "در حال بررسی" : ""}</p>
             </div>
           </div>
         ) : (
