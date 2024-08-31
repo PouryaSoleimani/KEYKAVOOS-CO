@@ -42,7 +42,7 @@ function OrderManagement() {
               <p>{item.project?.title ? item.project?.title : "-"}</p>
               <p>{item.status?.title ? item.status?.title : "در حال بررسی"}</p>
               <div className="flex flex-row gap-3 justify-center items-center">
-                <Link href={`/panel/user/project-management/project-detail?id=${item?.id}`}>
+                <Link href={`/panel/user/project-management/project-detail?id=${item?.id}`} >
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link>
                 <Link
