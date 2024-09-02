@@ -52,7 +52,7 @@ const Support = () => {
             <p className="col-span-1">شماره</p>
             <p className="col-span-2 lg:col-span-1">عنوان</p>
             <p className="col-span-2 lg:col-span-1">وضعیت</p>
-            <p className="col-span-2 lg:col-span-1">تاریخ به روزرسانی</p>
+            <p className="col-span-2 lg:col-span-1">تاریخ به روزرسانی</p> 
             <p>عملیات</p>
           </div>
           {supportStatus.loading ? (
