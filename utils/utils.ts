@@ -3061,7 +3061,7 @@ export const getTicektDetail = async (
     console.log(error.response.data.message);
   }
 };
-// create new project
+//^^^ CREATING A NEW PROJECT
 export const createProject = async (
   token: string,
   title: string,
@@ -3078,8 +3078,7 @@ export const createProject = async (
   template: TemplateType[] | null
 ) => {
   try {
-    const { data } = await app.post(
-      "/project/store",
+    const { data } = await app.post("/project/store",
       {
         title,
         description,
