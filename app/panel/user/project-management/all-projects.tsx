@@ -10,13 +10,14 @@ import { getAllProjects } from "@/utils/utils";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 
+// COMPONENT
 function AllProjects() {
   const [allProjects, setAllProjects] = useState([]);
   const [projectStatus, setProjectStatus] = useState({ error: "", loading: false, });
-
   const { token } = useSelector((state: any) => state.userData);
 
   useEffect(() => { getAllProjects(token, setAllProjects, setProjectStatus); }, []);
+
 
   return (
     <div className="flex flex-col gap-5 ">
