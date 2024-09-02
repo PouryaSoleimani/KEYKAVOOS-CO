@@ -3129,13 +3129,14 @@ export const CREATEPROJECT = (
   axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, } }).
     then(response => {
       console.log(response);
-      toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      window.location.replace('http://localhost:3000/panel/user/project-management')
     }
     ).
     catch(error => {
       console.log(error);
       console.log(newProjectInfos);
-      toast.error("خطا در ثبت پروژه.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.error("خطا در ثبت پروژه.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
     )
 

@@ -36,7 +36,7 @@ function AllProjects() {
         allProjects.map((item: any, index) => (
           <div key={item.id} className="grid grid-cols-4 text-center py-2 bg-[#EAEFF6] rounded-[4px]"  >
             <p>{index + 1}</p>
-            <p className="font-semibold text-zinc-900">{item.title ? item.title : "-"}</p>
+            <p className="text-zinc-900">{item.title ? item.title : "-"}</p>
             <p>
               <span className="text-red-600">
                 {(item.rejected_projects.length !== 0 || item.status === "not-verified") && "رد شده"}
