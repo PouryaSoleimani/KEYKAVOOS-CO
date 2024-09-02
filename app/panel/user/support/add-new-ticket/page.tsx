@@ -15,15 +15,13 @@ import { DepartmentFinalType } from "@/app/panel/admin/org_management/department
 function AddNewTicket() {
   const { userProfile, token } = useSelector((state: any) => state.userData);
   const [departments, setDepartments] = useState([]);
-  const typedDepartments: DepartmentFinalType[] =
-    departments as DepartmentFinalType[];
+  const typedDepartments: DepartmentFinalType[] = departments as DepartmentFinalType[];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const localDepartments = JSON.parse(
         window.sessionStorage.getItem("departments") as string
       );
-
       setDepartments(localDepartments);
     }
   }, []);
@@ -41,7 +39,7 @@ function AddNewTicket() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", });
+  const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", departmentId: "" });
 
   const departmentId = typedDepartments
     ?.filter((item) => item.department.id === Number(ticket.dept_id))
@@ -50,7 +48,7 @@ function AddNewTicket() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
-    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id === "کم" ? 1 : 2, userProfile.id)
+    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, ticket.dept_id == "واحد مالی" ? 1 : 2)
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 

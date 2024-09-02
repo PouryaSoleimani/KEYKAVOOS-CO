@@ -2958,9 +2958,9 @@ export const getConsultationDetail = async (
 //   }
 // };
 
-export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number) => {
+export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, dept_id: number) => {
 
-  const newTicketInfos = { title, description }
+  const newTicketInfos = { title, description, status_id, priority_id, dept_id }
 
   axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
@@ -2970,7 +2970,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
       // window.location.replace('http://localhost:3000/panel/user/support')
     }
     ).catch(error => {
-      console.log(error);
+      console.log(error.response);
       console.log("%c ERROR ====>", "color:orange;font-weight:900", newTicketInfos);
       toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
@@ -2978,18 +2978,15 @@ export const CREATETICKET = (title: string, token: string, description: string, 
 }
 
 
-//^ GET ALL TICKETS =======================================================================================================================
+//* GET ALL TICKETS =======================================================================================================================
 export const getAllTickets = async (
   token: string,
   setAllTickets: React.Dispatch<React.SetStateAction<never[]>>,
-  setAllTicketsStatus: React.Dispatch<
-    React.SetStateAction<{ error: string; loading: boolean; }>>
+  setAllTicketsStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>>
 ) => {
   try {
     setAllTicketsStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app.get("/tickets", {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
+    const { data } = await app.get("/tickets", { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("%c ALL TICKETS", "color:yellow", data);
     setAllTickets(data.data);
   } catch (error: any) {
@@ -3001,6 +2998,8 @@ export const getAllTickets = async (
     setAllTicketsStatus((last) => ({ ...last, loading: false }));
   }
 };
+
+
 // delete ticket
 export const deleteTicket = async (
   ticketId: number,
