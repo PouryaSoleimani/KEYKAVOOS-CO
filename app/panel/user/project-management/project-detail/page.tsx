@@ -23,6 +23,7 @@ function ProjectDetail() {
   const params = useSearchParams();
   const id = params.get("id");
 
+
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getProjectDetail(token, id, setProjectDetail); }, []);
 
