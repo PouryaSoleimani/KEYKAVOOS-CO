@@ -3150,7 +3150,7 @@ export const createProjectSimilars = async (
         },
       }
     );
-    console.log(data);
+    // console.log(data);
   } catch (error: any) {
     console.log(error.response.data.message);
   }
