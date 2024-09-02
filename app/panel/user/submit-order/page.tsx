@@ -84,32 +84,32 @@ function SubmitOrder() {
     }
   }, [consultationId]);
 
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await createProject(
-      token,
-      projectFields.title,
-      projectFields.Description,
-      Number(projectFields.budget.replaceAll(",", "")),
-      projectFields.discount_code,
-      projectFields.priority === "کم" ? "low" : "high",
-      userProfile.id,
-      Number(plansId),
-      consultationId ? Number(consultationId) : null,
-      similarSiteData,
-      colorsData,
-      pluginData,
-      templatesData
-    );
-    // setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
-    // setSimilarSiteData([]);
-    // setColorsData([]);
-    // setPluginData([]);
-    // setTemplatesData([]);
-  };
+  // const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   await createProject(
+  //     token,
+  //     projectFields.title,
+  //     projectFields.Description,
+  //     Number(projectFields.budget.replaceAll(",", "")),
+  //     projectFields.discount_code,
+  //     projectFields.priority === "کم" ? "low" : "high",
+  //     userProfile.id,
+  //     Number(plansId),
+  //     consultationId ? Number(consultationId) : null,
+  //     similarSiteData,
+  //     colorsData,
+  //     pluginData,
+  //     templatesData
+  //   );
+  //   // setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
+  //   // setSimilarSiteData([]);
+  //   // setColorsData([]);
+  //   // setPluginData([]);
+  //   // setTemplatesData([]);
+  // };
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log("HELLO");
+    createProject(projectFields.title, projectFields.Description)
   }
   //^ RETURN ===========================================================================================================================================================
   return (
@@ -119,7 +119,7 @@ function SubmitOrder() {
           <IoArrowBack />
         </Link>
       </div>
-      <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
+      <form onSubmit={(e) => formSubmitHandler(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
         {/*^^^ MODALS ^^^^  */}
         {/* سایت مشابه مودال */}
         {showSimilarModal && (<OrdersubmissionModal showModal={showSimilarModal} data={similarSiteData} setData={setSimilarSiteData} modalInputValue={similarSiteModalInputValue} setModalInputValue={setSimilarSiteModalInputValue} setShowModal={setShowSimilarModal} />)}
