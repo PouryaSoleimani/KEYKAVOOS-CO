@@ -2912,7 +2912,52 @@ export const getConsultationDetail = async (
   }
 };
 // ^ CREATING NEW TICKET IN SUPPORT PAGE OF USER PANEL =========================================================================================
-export const createTicket = async (
+// export const createTicket = async (
+//   token: string,
+//   title: string,
+//   description: string,
+//   status_id: number,
+//   priority_id: number,
+//   register_user_id: number,
+//   dept_id: number,
+//   ticket_id: number | null
+// ) => {
+//   try {
+//     const { data } = await app.post(
+//       "/ticket/store",
+//       { title, description, status_id, priority_id, register_user_id, dept_id, ticket_id: null, },
+//       { headers: { Authorization: `Bearer ${token}`, }, }
+//     );
+//     console.log("new", data);
+//     toast.success("تیکت با موفقیت ایجاد شد", {
+//       position: "top-right",
+//       autoClose: 5000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//   } catch (error: any) {
+//     console.log(error.response.data.message);
+//     toast.error("خطا در ایجاد تیکت", {
+//       position: "top-right",
+//       autoClose: 5000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//   }
+// };
+export const CREATETICKET = (
   token: string,
   title: string,
   description: string,
@@ -2920,55 +2965,23 @@ export const createTicket = async (
   priority_id: number,
   register_user_id: number,
   dept_id: number,
-  ticket_id: number | null
-) => {
-  try {
-    const { data } = await app.post(
-      "/ticket/store",
-      {
-        title,
-        description,
-        status_id,
-        priority_id,
-        register_user_id,
-        dept_id,
-        ticket_id: null,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log("new", data);
-    toast.success("تیکت با موفقیت ایجاد شد", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
-  } catch (error: any) {
-    console.log(error.response.data.message);
-    toast.error("خطا در ایجاد تیکت", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
-  }
-};
+  ticket_id: number | null) => {
+
+  const newTicketInfos = { title, description, status_id, priority_id, register_user_id, dept_id, ticket_id: null, }
+
+  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}`, } }).
+    then(response => {
+      console.log(response);
+      toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      window.location.replace('http://localhost:3000/panel/user/support')
+    }
+    ).catch(error => {
+      console.log(error);
+      console.log(newTicketInfos);
+      toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    }
+    )
+}
 // get all tickets
 export const getAllTickets = async (
   token: string,

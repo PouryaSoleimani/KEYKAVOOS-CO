@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoArrowBack } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import SubmitOrderDropdown from "../../submit-order/components/submit-order-dropdown";
-import { createTicket } from "@/utils/utils";
+// import { createTicket } from "@/utils/utils";
+import { CREATETICKET } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
 
@@ -50,7 +51,8 @@ function AddNewTicket() {
 
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
+    // await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
+    CREATETICKET(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null)
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
