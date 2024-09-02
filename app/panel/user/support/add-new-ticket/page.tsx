@@ -37,10 +37,7 @@ function AddNewTicket() {
     }
   }, [typedDepartments]);
 
-  const departmentInfo = typedDepartments?.map(
-    (item) => String(item.department.id) + " - " + item.department.name_fa
-  );
-
+  const departmentInfo = typedDepartments?.map((item) => String(item.department.id) + " - " + item.department.name_fa);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -53,8 +50,8 @@ function AddNewTicket() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
-    CREATETICKET(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, ticket.dept_id == "مالی" ? 1 : 2, )
-    setTicket((last) => ({ ...last, title: "", description: "" }));
+    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id === "کم" ? 1 : 2,userProfile.id, Number(departmentId), null)
+    // setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
   //^ RETURN 

@@ -2957,19 +2957,21 @@ export const getConsultationDetail = async (
 //     });
 //   }
 // };
-export const CREATETICKET = (token: string, title: string, description: string, status_id: number, priority_id: number, register_user_id: number, dept_id: number) => {
+// export const CREATETICKET = (token: string, title: string, description: string, status_id: number, priority_id: number, register_user_id: number, dept_id: number) => {
+export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number, dept_id: number) => {
 
-  const newTicketInfos = { title, description, status_id, priority_id, register_user_id, dept_id, ticket_id: crypto.randomUUID(), }
+  const newTicketInfos = { title, description, status_id, priority_id, register_user_id, dept_id }
 
-  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` }}).
+  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
-      console.log(response);
+      console.log(response.data);
       toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
-      window.location.replace('http://localhost:3000/panel/user/support')
+      console.log("%c SUCCESS ====>", "color:lime;font-weight:900", newTicketInfos);
+      // window.location.replace('http://localhost:3000/panel/user/support')
     }
     ).catch(error => {
       console.log(error);
-      console.log(newTicketInfos);
+      console.log("%c ERROR ====>", "color:orange;font-weight:900", newTicketInfos);
       toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
     )
