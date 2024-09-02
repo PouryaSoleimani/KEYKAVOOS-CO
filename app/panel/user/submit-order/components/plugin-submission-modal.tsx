@@ -36,29 +36,23 @@ function PluginSubmissionModal({
     setModalInputValue({ plugin_name: "" });
   };
   return (
-    <div
-      id="default-modal"
-      tabIndex={-1}
-      aria-hidden="true"
-      className={`${showModal ? "block" : "hidden"}  absolute w-full text-center z-50 h-full backdrop-blur-sm`}
-    >
+    <div id="default-modal" tabIndex={-1} aria-hidden="true" className={`${showModal ? "block" : "hidden"}  absolute w-full text-center z-50 h-full backdrop-blur-sm`}>
       <div className="p-4 w-full flex justify-center">
         <div className="relative p-8 w-full max-w-2xl max-h-full">
           <div className="bg-white rounded-[25px] shadow border">
             <div className="md:p-5 text-black font-semibold grid grid-cols-1 gap-5">
               <input
                 type="text"
-                className="bg-[#EAEFF6] w-full rounded-[4px] p-2 outline-none"
+                className="bg-[#EAEFF6] w-full rounded-[4px] p-2 outline-none font-thin px-4 placeholder:font-extralight"
                 autoFocus={true}
                 value={modalInputValue.plugin_name}
-                onChange={(e) =>
-                  setModalInputValue((last) => ({ ...last, plugin_name: e.target.value, }))
-                }
+                onChange={(e) => setModalInputValue((last) => ({ ...last, plugin_name: e.target.value, }))}
+                placeholder="پلاگین مورد نظر"
               />
             </div>
             <div className="flex flex-row-reverse gap-5 md:p-5">
               {data.map((item) => (
-                <p key={item.plugin_name} className={`bg-[#EAEFF6] rounded-[4px] px-2 ${item.plugin_name ? "inline-block" : "hidden"}`}                >
+                <p key={item.plugin_name} className={`bg-[#EAEFF6] rounded-[4px] px-2 ${item.plugin_name ? "inline-block" : "hidden"}`}>
                   {item.plugin_name}
                 </p>
               ))}

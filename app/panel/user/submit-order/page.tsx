@@ -164,7 +164,7 @@ function SubmitOrder() {
         </div>
         <SubmitTemplateModalfield modalFieldTitle="قالب های مورد نیاز :" setShowModal={setShowTemplatesModal} data={templatesData} setData={setTemplatesData} />
         <SubmitPluginModalfield modalFieldTitle="پلاگین های مورد نیاز : " setShowModal={setShowPluginModal} data={pluginData} setData={setPluginData} />
-        <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} />
+        <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} showModal />
         <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
           <PanelFields label="کد تخفیف : " onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))} value={projectFields.discount_code} name="discount_code" flexDirection="flex-row" />
           <div className="flex justify-end">
