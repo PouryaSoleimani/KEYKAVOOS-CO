@@ -2959,9 +2959,9 @@ export const getConsultationDetail = async (
 //   }
 // };
 
-export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, dept_id: number, register_user_id: number) => {
+export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, dept_id: number, register_user_id: number, ticket_id: number | null) => {
 
-  const newTicketInfos = { title, description, status_id, priority_id, dept_id, register_user_id }
+  const newTicketInfos = { title, description, status_id, priority_id, dept_id, register_user_id, ticket_id }
 
   axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
