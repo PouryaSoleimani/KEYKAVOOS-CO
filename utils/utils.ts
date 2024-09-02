@@ -3060,31 +3060,17 @@ export const getTicektDetail = async (
   }
 };
 //^^^ CREATING A NEW PROJECT
-// export const createProject = async (
-//   token: string,
-//   title: string,
-//   description: string,
-//   budget_cost: number,
-//   discount_code: string | null,
-//   priority: string,
-//   register_user_id: number,
-//   planId: number,
-//   consultation_id: number | null,
-//   lookslike: SimilarSiteType[] | null,
-//   org_color: ColorType[] | null,
-//   plugin: PluginType[] | null,
-//   template: TemplateType[] | null
-// ) => {
+// export const createProject = async ( token: string, title: string, description: string, budget_cost: number, discount_code: string | null, priority: string, register_user_id: number, planId: number, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
 //   try {
 //     const { data } = await app.post("/project/store",
 //       {
 //         title,
 //         description,
-//         // budget_cost,
-//         // discount_code,
-//         // priority,
+//        budget_cost,
+//         discount_code,
+//         priority,
 //         register_user_id,
-//         // plan_id: planId,
+//          plan_id: planId,
 //         consultation_id: consultation_id || null,
 //         lookslike: lookslike || null,
 //         org_color: org_color || null,
@@ -3123,8 +3109,36 @@ export const getTicektDetail = async (
 //     });
 //   }
 // };
-export const CREATEPROJECT = (title: string, description: string, token: string) => {
-  const newProjectInfos = { title, description, token }
+export const CREATEPROJECT = (
+  token: string,
+  title: string,
+  description: string,
+  budget_cost: number,
+  discount_code: string | null,
+  priority: string,
+  register_user_id: number,
+  planId: number,
+  consultation_id: number | null,
+  lookslike: SimilarSiteType[] | null,
+  org_color: ColorType[] | null,
+  plugin: PluginType[] | null,
+  template: TemplateType[] | null
+) => {
+  const newProjectInfos = {
+    title,
+    description,
+    budget_cost,
+    discount_code,
+    priority,
+    register_user_id,
+    plan_id: planId,
+    consultation_id: consultation_id || null,
+    lookslike: lookslike || null,
+    org_color: org_color || null,
+    plugin: plugin || null,
+    template: template || null,
+
+  }
   axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos).then(response => console.log(response)).catch(error => console.log(error))
 }
 

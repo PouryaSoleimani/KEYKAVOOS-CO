@@ -109,7 +109,21 @@ function SubmitOrder() {
   // };
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    CREATEPROJECT(projectFields.title, projectFields.Description , token)
+    CREATEPROJECT(
+      token,
+      projectFields.title,
+      projectFields.Description,
+      Number(projectFields.budget.replaceAll(",", "")),
+      projectFields.discount_code,
+      projectFields.priority === "کم" ? "low" : "high",
+      userProfile.id,
+      Number(plansId),
+      consultationId ? Number(consultationId) : null,
+      similarSiteData,
+      colorsData,
+      pluginData,
+      templatesData
+    )
   }
   //^ RETURN ===========================================================================================================================================================
   return (
