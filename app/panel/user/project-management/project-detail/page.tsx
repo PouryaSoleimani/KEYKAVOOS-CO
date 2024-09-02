@@ -65,7 +65,7 @@ function ProjectDetail() {
               <p className="translate-x-4">{projectDetail.id}</p>
               <p>{projectDetail.title}</p>
               <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
-              <p>{projectDetail?.price.toLocaleString()} تومان</p>
+              {/* <p>{projectDetail.price.toLocaleString()} تومان</p> */}
               <p>{projectDetail.status == "processing" ? <p className="text-blue-600">در حال بررسی</p> : projectDetail.status == "verified" ? <p className="text-emerald-600">تایید شده</p> : projectDetail.status == "notVerified" ? <p className="text-red-600">رد شده</p> : "..."}</p>
             </div>
           </div>
