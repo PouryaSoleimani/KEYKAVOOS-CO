@@ -33,7 +33,7 @@ const Support = () => {
   //^ RETURN =================================================================================================================================== 
   return (
     <div className="flex flex-col gap-3">
-      <Link href="/panel/user/support/add-new-ticket" className="flex flex-row items-center justify-between gap-2 bg-[#4866CE] text-white p-2 rounded-[6px] w-[120px] hover:bg-blue-800 duration-300" >
+      <Link href="/panel/user/support/add-new-ticket" className="flex flex-row items-center justify-between gap-2 bg-[#4866CE] text-white p-2 rounded-[6px]   w-[120px] whitespace-nowrap hover:bg-blue-800 duration-300" >
         <span>تیکت جدید</span>
         <Image src={add} alt="add" />
       </Link>

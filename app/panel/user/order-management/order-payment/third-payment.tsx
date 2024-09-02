@@ -38,16 +38,12 @@ function ThirdPayment({
             <FinanceInput
               label="مبلغ کل پروژه:"
               disable={true}
-              value={`${handleBudegtChange(
-                String(thirdOrderPayment?.final_price)
-              )} ریال`}
+              value={`${handleBudegtChange(String(thirdOrderPayment?.final_price))} ریال`}
             />
             <FinanceInput
               label="مبلغ باقی مانده:"
               disable={true}
-              value={`${handleBudegtChange(
-                String(thirdOrderPayment?.debt)
-              )} ریال`}
+              value={`${handleBudegtChange(String(thirdOrderPayment?.debt))} ریال`}
             />
             <FinanceInput
               label="مبلغ پرداخت شده:"
@@ -56,9 +52,7 @@ function ThirdPayment({
             />
             <FinanceInput
               label="مبلغ پرداختی شما:"
-              value={`${handleBudegtChange(
-                String(thirdOrderPayment?.amount)
-              )} ریال`}
+              value={`${handleBudegtChange(String(thirdOrderPayment?.amount))} ریال`}
               setToBlue={true}
             />
             <div className="flex lg:flex-row flex-col gap-5">
@@ -68,18 +62,9 @@ function ThirdPayment({
               </p>
               <div className="flex flex-col bg-white border-[#D0DBEC] border-2 rounded-[8px] items-center justify-center w-full">
                 <div className="flex flex-col items-center gap-[5%] whitespace-nowrap">
-                  <input
-                    id="fileInput"
-                    type="file"
-                    style={{ display: "none" }}
-                    onChange={handleFileChange}
-                  />
+                  <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
                   <label className="text-[#68707A]">انتخاب فایل</label>
-                  <label
-                    htmlFor="fileInput"
-                    style={{ cursor: "pointer" }}
-                    className="flex flex-col items-center"
-                  >
+                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex flex-col items-center" >
                     {File ? (
                       File.name
                     ) : (

@@ -1,5 +1,5 @@
 .chatBubble {
-    /* max-width: 70%; */
+    max-width: 70%;
     padding: 10px;
     margin: 10px;
     border-radius: 15px;
@@ -11,7 +11,7 @@
 }
 
 .sender {
-    background-color: #4866CE;
+    background-color: #7a94f1;
     width: 50%;
     color: white;
     float: right;
@@ -33,7 +33,7 @@
     width: 0;
     height: 0;
     border: 10px solid transparent;
-    border-bottom-color: #4866CE;
+    border-bottom-color: #7a94f1;
 }
 
 .receiver::after {
@@ -45,4 +45,9 @@
     height: 0;
     border: 10px solid transparent;
     border-bottom-color: #EAEFF6;
+}
+
+#CHAT_FILE_UPLOAD:hover > #fileInput , #fileLabel{
+    background-color: #4866CF;
+    color: white;
 }
