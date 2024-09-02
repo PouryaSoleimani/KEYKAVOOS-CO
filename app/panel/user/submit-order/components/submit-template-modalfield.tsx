@@ -37,10 +37,7 @@ function SubmitTemplateModalfield({
               <div className="flex items-center bg-[#4866CE] text-white p-1 rounded-[4px]">
                 <span>{item.template_name}</span>
                 {
-                  <span
-                    className="text-red-600 cursor-pointer"
-                    onClick={() => deleteItem(index)}
-                  >
+                  <span className="text-red-600 cursor-pointer" onClick={() => deleteItem(index)}>
                     <MdDelete />
                   </span>
                 }

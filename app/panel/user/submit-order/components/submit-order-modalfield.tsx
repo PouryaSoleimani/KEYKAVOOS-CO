@@ -38,14 +38,11 @@ function SubmitOrderModalfield({
         <div className="flex justify-end gap-3 mx-2">
           {data.map((item, index) => (
             item.url && <div key={item.url}>
-              <div className="flex items-center bg-[#4866CE] text-white p-1 rounded-[4px]">
+              <div className="flex items-center bg-[#4866CE] text-white px-2 py-1 mx-2 rounded-[4px] justify-between space-x-1">
                 <span>{item.url}</span>
                 {
-                  <span
-                    className="text-red-600 cursor-pointer"
-                    onClick={() => deleteItem(index)}
-                  >
-                    <MdDelete />
+                  <span className="text-red-600 cursor-pointer" onClick={() => deleteItem(index)}>
+                    <MdDelete className="w-4 h-5 -translate-x-1" />
                   </span>
                 }
               </div>
