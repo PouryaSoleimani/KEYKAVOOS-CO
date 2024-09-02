@@ -27,18 +27,11 @@ const Support = () => {
   const { token, localUserId } = useSelector((state: any) => state.userData);
   const [ALLTICKETS, SETALLTICKETS] = useState([])
   const dispatch = useDispatch();
-  
-  useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); dispatch<any>(fetchUserProfile()); }, []);
 
+  useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); dispatch<any>(fetchUserProfile()); }, []);
   useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
 
-  // function GETALLTICKETS(token: string) {
-  //   axios.get('http://127.0.0.1:8000/api/v1/tickets', { headers: { Authorization: `Bearer ${token}` } })
-  //     .then(response => { console.log(response);SETALLTICKETS(response.data);console.log("%c ALL TICKETS ===>", "color:yellow", ALLTICKETS);})
-  // }
-  // useEffect(() => { GETALLTICKETS(token) }, [])
-
-
+  //^ RETURN =================================================================================================================================== 
   return (
     <div className="flex flex-col gap-3">
       <Link href="/panel/user/support/add-new-ticket" className="flex flex-row items-center justify-between gap-2 bg-[#4866CE] text-white p-2 rounded-[6px] w-[120px] hover:bg-blue-800 duration-300" >
