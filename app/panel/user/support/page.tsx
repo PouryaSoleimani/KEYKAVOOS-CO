@@ -25,6 +25,7 @@ const Support = () => {
   const [closeTicketId, setCloseTicketId] = useState("");
   const [supportStatus, setSupportStatus] = useState({ error: "", loading: false, });
   const { token, localUserId } = useSelector((state: any) => state.userData);
+  const [ALLTICKETS, SETALLTICKETS] = useState([])
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getIdFromLocal());
@@ -32,7 +33,12 @@ const Support = () => {
     dispatch<any>(fetchUserProfile());
   }, []);
 
-  useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
+  // useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
+  function GETALLTICKETS(token: string) {
+    axios.get('http://127.0.0.1:8000/api/v1/tickets', { headers: { Authorization: `Bearer ${token}` } })
+      .then(response => console.log(response))
+  }
+  useEffect(() => { GETALLTICKETS(token) }, [])
 
   return (
     <div className="flex flex-col gap-3">
