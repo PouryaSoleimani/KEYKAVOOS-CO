@@ -26,9 +26,9 @@ function ProjectDetail() {
 
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); }, []);
   useEffect(() => { getProjectDetail(token, id, setProjectDetail); }, []);
-  useEffect(() => { console.log("PROJECT DETAILS ====>", projectDetail); }, [projectDetail])
 
   const projectCurrentState = projectDetail.status;
+
   const returnStatus = (item: string) => {
     if (projectCurrentState) {
       if (item === projectCurrentState) {
@@ -54,11 +54,11 @@ function ProjectDetail() {
           <div className="flex flex-col gap-5 bg-white rounded-lg py-8 animate__animated animate__pulse">
             <div className="grid grid-cols-6 text-center tracking-tight">
               <p className="font-light py-1 text-zinc-800">ID پروژه</p>
-              <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
+              <p className="font-light py-1 text-zinc-800">عنوان  پروژه</p>
               <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
               <p className="font-light py-1 text-zinc-800">ارزش  پروژه</p>
               <p className="font-light py-1 text-zinc-800">اولویت  پروژه</p>
-              <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
+              <p className="font-light py-1 text-zinc-800">وضعیت  پروژه</p>
             </div>
 
             <div className="grid grid-cols-6 text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px] "  >
