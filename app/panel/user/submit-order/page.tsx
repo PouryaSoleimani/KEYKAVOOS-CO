@@ -107,6 +107,7 @@ function SubmitOrder() {
   //   // setPluginData([]);
   //   // setTemplatesData([]);
   // };
+
   // ^ FORM SUBMIT HANDLER
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -117,7 +118,7 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      projectFields.plan === "طلایی" ? 1 : projectFields.plan === "نقره ای" ? 2 : projectFields.plan === "برنزی" ? 3 : "",
+      projectFields.plan == "طلایی" ? "1" : projectFields.plan == "نقره ای" ? "2" : projectFields.plan == "برنزی" ? "3" : "",
       projectFields.discount_code,
       consultationId ? Number(consultationId) : null,
       similarSiteData,
@@ -125,6 +126,11 @@ function SubmitOrder() {
       pluginData,
       templatesData,
     )
+    setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
+    setSimilarSiteData([]);
+    setColorsData([]);
+    setPluginData([]);
+    setTemplatesData([]);
   }
 
   //^ RETURN ===========================================================================================================================================================
