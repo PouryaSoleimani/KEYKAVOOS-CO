@@ -23,7 +23,7 @@ const Support = () => {
   const [showModal, setShowModal] = useState(false);
   const [allTickets, setAllTickets] = useState([]);
   const [closeTicketId, setCloseTicketId] = useState("");
-  const [supportStatus, setSupportStatus] = useState({ error: "", loading: false, });
+  const [supportStatus, setSupportStatus] = useState({ error: "موردی یافت نشد", loading: false, });
   const { token, localUserId } = useSelector((state: any) => state.userData);
   const [ALLTICKETS, SETALLTICKETS] = useState([])
   const dispatch = useDispatch();
@@ -33,12 +33,14 @@ const Support = () => {
     dispatch<any>(fetchUserProfile());
   }, []);
 
-  // useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
-  function GETALLTICKETS(token: string) {
-    axios.get('http://127.0.0.1:8000/api/v1/tickets', { headers: { Authorization: `Bearer ${token}` } })
-      .then(response => console.log(response))
-  }
-  useEffect(() => { GETALLTICKETS(token) }, [])
+  useEffect(() => { getAllTickets(token, setAllTickets, setSupportStatus); }, []);
+
+  // function GETALLTICKETS(token: string) {
+  //   axios.get('http://127.0.0.1:8000/api/v1/tickets', { headers: { Authorization: `Bearer ${token}` } })
+  //     .then(response => { console.log(response);SETALLTICKETS(response.data);console.log("%c ALL TICKETS ===>", "color:yellow", ALLTICKETS);})
+  // }
+  // useEffect(() => { GETALLTICKETS(token) }, [])
+
 
   return (
     <div className="flex flex-col gap-3">
@@ -52,7 +54,7 @@ const Support = () => {
             <p className="col-span-1">شماره</p>
             <p className="col-span-2 lg:col-span-1">عنوان</p>
             <p className="col-span-2 lg:col-span-1">وضعیت</p>
-            <p className="col-span-2 lg:col-span-1">تاریخ به روزرسانی</p> 
+            <p className="col-span-2 lg:col-span-1">تاریخ به روزرسانی</p>
             <p>عملیات</p>
           </div>
           {supportStatus.loading ? (

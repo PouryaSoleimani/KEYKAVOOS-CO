@@ -2982,7 +2982,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
 
 
 
-// get all tickets
+//^ GET ALL TICKETS =======================================================================================================================
 export const getAllTickets = async (
   token: string,
   setAllTickets: React.Dispatch<React.SetStateAction<never[]>>,
@@ -2991,10 +2991,10 @@ export const getAllTickets = async (
 ) => {
   try {
     setAllTicketsStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app("/tickets", {
+    const { data } = await app.get("/tickets", {
       headers: { Authorization: `Bearer ${token}`, },
     });
-    console.log("tickets", data);
+    console.log("%c ALL TICKETS", "color:yellow", data);
     setAllTickets(data.data);
   } catch (error: any) {
     console.log(error.response.data.message);
