@@ -25,7 +25,6 @@ const Support = () => {
   const [closeTicketId, setCloseTicketId] = useState("");
   const [supportStatus, setSupportStatus] = useState({ error: "", loading: false, });
   const { token, localUserId } = useSelector((state: any) => state.userData);
-  const [ALLTICKETS, SETALLTICKETS] = useState([])
   const dispatch = useDispatch();
 
   useEffect(() => { dispatch(getIdFromLocal()); dispatch(getTokenFromLocal()); dispatch<any>(fetchUserProfile()); }, []);
