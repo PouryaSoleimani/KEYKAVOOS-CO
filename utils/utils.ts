@@ -3110,6 +3110,7 @@ export const getTicektDetail = async (
 //   }
 // };
 export const CREATEPROJECT = (
+  // TYPES
   token: string,
   title: string,
   description: string,
@@ -3117,32 +3118,27 @@ export const CREATEPROJECT = (
   priority: number,
   register_user_id: number,
   plan_id: string | number,
-  // discount_code: string | null,
-  // consultation_id: number | null,
-  // lookslike: SimilarSiteType[] | null,
-  // org_color: ColorType[] | null,
-  // plugin: PluginType[] | null,
-  // template: TemplateType[] | null
+  discount_code: string | null,
+  consultation_id: number | null,
+  lookslike: SimilarSiteType[] | null,
+  org_color: ColorType[] | null,
+  plugin: PluginType[] | null,
+  template: TemplateType[] | null
 ) => {
-  const newProjectInfos = {
-    title,
-    description,
-    budget_cost,
-    priority,
-    register_user_id,
-    plan_id : 1,
-    // discount_code,
-    // consultation_id: consultation_id || null,
-    // lookslike: lookslike || null,
-    // org_color: org_color || null,
-    // plugin: plugin || null,
-    // template: template || null,
-
-  }
-  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: 'Bearer "5|L6yN0WQJv2PCxZYcitQDeoZxpgIV7iExODIHhYzIf6d0ba60}"', } }).
-    then(response => console.log(response)).
-    catch(error => { console.log(error); console.log(newProjectInfos); }
+  const newProjectInfos = { title, description, budget_cost, priority, register_user_id, plan_id, discount_code, consultation_id: consultation_id || null, lookslike: lookslike || null, org_color: org_color || null, plugin: plugin || null, template: template || null, token }
+  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, } }).
+    then(response => {
+      console.log(response);
+      toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    }
+    ).
+    catch(error => {
+      console.log(error);
+      console.log(newProjectInfos);
+      toast.error("خطا در ثبت پروژه.", { position: "top-right", autoClose: 3000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    }
     )
+
 }
 
 // create project similar site

@@ -107,6 +107,7 @@ function SubmitOrder() {
   //   // setPluginData([]);
   //   // setTemplatesData([]);
   // };
+  // ^ FORM SUBMIT HANDLER
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     CREATEPROJECT(
@@ -117,15 +118,15 @@ function SubmitOrder() {
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
       projectFields.plan === "طلایی" ? 1 : projectFields.plan === "نقره ای" ? 2 : projectFields.plan === "برنزی" ? 3 : "",
-      // projectFields.discount_code,
-      // token,
-      // consultationId ? Number(consultationId) : null,
-      // similarSiteData,
-      // colorsData,
-      // pluginData,
-      // templatesData,
+      projectFields.discount_code,
+      consultationId ? Number(consultationId) : null,
+      similarSiteData,
+      colorsData,
+      pluginData,
+      templatesData,
     )
   }
+
   //^ RETURN ===========================================================================================================================================================
   return (
     <div className="relative">
@@ -145,7 +146,6 @@ function SubmitOrder() {
         {/* پلاگ این مودال */}
         {showPluginModal && (<PluginSubmissionModal showModal={showPluginModal} data={pluginData} setData={setPluginData} modalInputValue={pluginModalInputValue} setModalInputValue={setPluginModalInputValue} setShowModal={setShowPluginModal} />)}
 
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
             <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
@@ -163,7 +163,8 @@ function SubmitOrder() {
             <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["طلایی", "نقره ای", "برنزی"]} value={projectFields.plan} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
+            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["طلایی", "نقره ای", "برنزی"]} value={projectFields.plan}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
             <p className="absolute top-3 right-[5.5rem] text-red-800">*</p>
           </div>
         </div>
