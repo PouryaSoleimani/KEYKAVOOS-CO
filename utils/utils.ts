@@ -2911,7 +2911,7 @@ export const getConsultationDetail = async (
       setConsultDetailStatus((last) => ({ ...last, loading: false }));
   }
 };
-// create ticket
+// ^ CREATING NEW TICKET IN SUPPORT PAGE OF USER PANEL =========================================================================================
 export const createTicket = async (
   token: string,
   title: string,
