@@ -56,7 +56,7 @@ const Support = () => {
           ) : supportStatus.error ? (
             <NotFound text={supportStatus.error} />
           ) : (
-            allTickets.map((item: any, index) => (
+            allTickets?.map((item: any, index) => (
               <div key={item.id} className="grid lg:grid-cols-5 grid-cols-8 text-center py-1 bg-[#EAEFF6] rounded-[4px]"  >
                 <p className="font-faNum col-span-1">{index + 1}</p>
                 <p className="font-faNum col-span-2 lg:col-span-1">{item.title}</p>

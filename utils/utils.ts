@@ -2960,7 +2960,7 @@ export const getConsultationDetail = async (
 
 
 
-export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number, dept_id: number) => {
+export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number) => {
 
   const newTicketInfos = { title, description }
 
