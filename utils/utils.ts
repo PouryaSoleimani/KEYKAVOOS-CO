@@ -3123,10 +3123,13 @@ export const getTicektDetail = async (
 //     });
 //   }
 // };
-export const createProject = (title: string, description: string): void => {
-  const newProjectInfos = { title, description }
-  axios.post("http://localhost:8000/api/v1/project/store", newProjectInfos).then(response => console.log(response)).catch(error => console.log(error))
+export const CREATEPROJECT = (title: string, description: string, token: string) => {
+  const newProjectInfos = { title, description, token }
+  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos).then(response => console.log(response)).catch(error => console.log(error))
 }
+
+
+
 // create project similar site
 export const createProjectSimilars = async (
   token: string,
