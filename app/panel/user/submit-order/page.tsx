@@ -52,11 +52,22 @@ function SubmitOrder() {
   const [colorsData, setColorsData] = useState<ColorType[]>([{ title: "", color: "", },]);
   const [colorsModalInputValue, setColorsModalInputValue] = useState({ title: "", color: "", });
 
-  const [projectFields, setProjectFields] = useState({ title: "", type: "فروشگاهی", plan: "پلن پایه - فروشگاهی", budget: "", priority: "کم", Similar_Site: similarSiteData, Description: "", Templates: templatesData, Colors: colorsData, discount_code: "", });
+  const [projectFields, setProjectFields] = useState({
+    title: "",
+    type: "فروشگاهی",
+    plan: "پلن پایه - فروشگاهی",
+    budget: "",
+    priority: "کم",
+    Similar_Site: similarSiteData,
+    Description: "",
+    Templates: templatesData,
+    Colors: colorsData,
+    discount_code: "",
+  });
   // پلن /plans
   // نوع پروژه(طراحی) /types
-
   const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
+
   const siteTypeTitles = siteTypes?.map((item: SimilarSiteType) => item.title);
   const plansId = allPlans?.filter((item) => projectFields.plan.includes(item.plan.title))[0]?.plan.id;
 
@@ -96,8 +107,6 @@ function SubmitOrder() {
     setPluginData([]);
     setTemplatesData([]);
   };
-
-
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     console.log("HELLO");
@@ -110,7 +119,7 @@ function SubmitOrder() {
           <IoArrowBack />
         </Link>
       </div>
-      <form onSubmit={(e) => handleSubmission(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
+      <form onSubmit={(e) => formSubmitHandler(e)} className="py-[3%] w-[100%] shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative mt-10 lg:mt-0" >
         {/*^^^ MODALS ^^^^  */}
         {/* سایت مشابه مودال */}
         {showSimilarModal && (<OrdersubmissionModal showModal={showSimilarModal} data={similarSiteData} setData={setSimilarSiteData} modalInputValue={similarSiteModalInputValue} setModalInputValue={setSimilarSiteModalInputValue} setShowModal={setShowSimilarModal} />)}
