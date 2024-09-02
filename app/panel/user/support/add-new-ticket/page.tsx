@@ -50,8 +50,8 @@ function AddNewTicket() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
-    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id === "کم" ? 1 : 2,userProfile.id, Number(departmentId), null)
-    // setTicket((last) => ({ ...last, title: "", description: "" }));
+    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId))
+    setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
   //^ RETURN 

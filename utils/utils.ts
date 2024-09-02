@@ -2957,10 +2957,12 @@ export const getConsultationDetail = async (
 //     });
 //   }
 // };
-// export const CREATETICKET = (token: string, title: string, description: string, status_id: number, priority_id: number, register_user_id: number, dept_id: number) => {
+
+
+
 export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number, dept_id: number) => {
 
-  const newTicketInfos = { title, description, status_id, priority_id, register_user_id, dept_id }
+  const newTicketInfos = { title, description }
 
   axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
@@ -2976,23 +2978,21 @@ export const CREATETICKET = (title: string, token: string, description: string, 
     }
     )
 }
+
+
+
+
 // get all tickets
 export const getAllTickets = async (
   token: string,
   setAllTickets: React.Dispatch<React.SetStateAction<never[]>>,
   setAllTicketsStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
-  >
+    React.SetStateAction<{ error: string; loading: boolean; }>>
 ) => {
   try {
     setAllTicketsStatus((last) => ({ ...last, loading: true }));
     const { data } = await app("/tickets", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("tickets", data);
     setAllTickets(data.data);
@@ -3048,6 +3048,7 @@ export const deleteTicket = async (
     });
   }
 };
+
 // get ticket detail
 export const getTicektDetail = async (
   token: string,
