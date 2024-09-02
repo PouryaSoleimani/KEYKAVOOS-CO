@@ -2911,7 +2911,7 @@ export const getConsultationDetail = async (
       setConsultDetailStatus((last) => ({ ...last, loading: false }));
   }
 };
-// ^ CREATING NEW TICKET IN SUPPORT PAGE OF USER PANEL =========================================================================================
+// ^ ADD NEW TICKET =========================================================================================
 // export const createTicket = async (
 //   token: string,
 //   title: string,
@@ -2958,8 +2958,6 @@ export const getConsultationDetail = async (
 //   }
 // };
 
-
-
 export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, register_user_id: number) => {
 
   const newTicketInfos = { title, description }
@@ -2978,8 +2976,6 @@ export const CREATETICKET = (title: string, token: string, description: string, 
     }
     )
 }
-
-
 
 
 //^ GET ALL TICKETS =======================================================================================================================

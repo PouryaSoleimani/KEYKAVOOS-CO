@@ -63,7 +63,7 @@ function AddNewTicket() {
         </div>
       </div>
       <form onSubmit={(e) => handleSubmission(e)} className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10" >
-        <span className="absolute right-[7.5rem] text-red-800">*</span>
+        <span className="absolute right-[7.8rem] top-7 text-red-800 text-xl">*</span>
         <TicketFields label="عنوان تیکت:" width="w-[30%]" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
@@ -75,7 +75,7 @@ function AddNewTicket() {
         <div className="flex flex-col gap-2 -translate-y-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="">متن تیکت:</label>
-            <span className="absolute right-[4.7rem] text-red-800">*</span>
+            <span className="absolute right-[4.8rem] -top-1 text-red-800 text-xl">*</span>
             <textarea name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}>
             </textarea>
           </div>
