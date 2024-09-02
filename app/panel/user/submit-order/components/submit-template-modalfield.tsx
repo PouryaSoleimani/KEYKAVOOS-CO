@@ -34,7 +34,7 @@ function SubmitTemplateModalfield({
         <div className="flex justify-end gap-3 mx-2">
           {data.map((item, index) => (
             item.template_name && <div key={item.template_name}>
-              <div className="flex items-center bg-[#4866CE] text-white px-2 py-1.5 rounded-[4px] mx-2">
+              <div className="flex items-center bg-[#4866CE] text-white px-2 py-1.5 rounded-[4px] mx-2 hover:scale-110 duration-300">
                 <span>{item.template_name}</span>
                 {
                   <span className="text-red-600 cursor-pointer mr-1" onClick={() => deleteItem(index)}>
