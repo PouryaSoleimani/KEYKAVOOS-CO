@@ -45,6 +45,7 @@ function AddNewTicket() {
   const router = useRouter();
 
   const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", });
+
   const departmentId = typedDepartments
     ?.filter((item) => item.department.id === Number(ticket.dept_id))
     ?.map((item) => item.department.id)[0];
@@ -52,7 +53,7 @@ function AddNewTicket() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // await createTicket(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null);
-    CREATETICKET(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, Number(departmentId), null)
+    CREATETICKET(token, ticket.title, ticket.description, 1, ticket.priority_id === "کم" ? 1 : 2, userProfile.id, ticket.dept_id == "مالی" ? 1 : 2, )
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
