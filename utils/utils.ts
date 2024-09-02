@@ -3114,35 +3114,36 @@ export const CREATEPROJECT = (
   title: string,
   description: string,
   budget_cost: number,
-  discount_code: string | null,
-  priority: string,
+  priority: number,
   register_user_id: number,
-  planId: number,
-  consultation_id: number | null,
-  lookslike: SimilarSiteType[] | null,
-  org_color: ColorType[] | null,
-  plugin: PluginType[] | null,
-  template: TemplateType[] | null
+  plan_id: string | number,
+  // discount_code: string | null,
+  // consultation_id: number | null,
+  // lookslike: SimilarSiteType[] | null,
+  // org_color: ColorType[] | null,
+  // plugin: PluginType[] | null,
+  // template: TemplateType[] | null
 ) => {
   const newProjectInfos = {
     title,
     description,
     budget_cost,
-    discount_code,
     priority,
     register_user_id,
-    plan_id: planId,
-    consultation_id: consultation_id || null,
-    lookslike: lookslike || null,
-    org_color: org_color || null,
-    plugin: plugin || null,
-    template: template || null,
+    plan_id : 1,
+    // discount_code,
+    // consultation_id: consultation_id || null,
+    // lookslike: lookslike || null,
+    // org_color: org_color || null,
+    // plugin: plugin || null,
+    // template: template || null,
 
   }
-  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos).then(response => console.log(response)).catch(error => console.log(error))
+  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: 'Bearer "5|L6yN0WQJv2PCxZYcitQDeoZxpgIV7iExODIHhYzIf6d0ba60}"', } }).
+    then(response => console.log(response)).
+    catch(error => { console.log(error); console.log(newProjectInfos); }
+    )
 }
-
-
 
 // create project similar site
 export const createProjectSimilars = async (

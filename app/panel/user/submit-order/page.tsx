@@ -55,7 +55,7 @@ function SubmitOrder() {
   const [projectFields, setProjectFields] = useState({
     title: "",
     type: "فروشگاهی",
-    plan: "پلن پایه - فروشگاهی",
+    plan: "",
     budget: "",
     priority: "کم",
     Similar_Site: similarSiteData,
@@ -114,15 +114,16 @@ function SubmitOrder() {
       projectFields.title,
       projectFields.Description,
       Number(projectFields.budget.replaceAll(",", "")),
-      projectFields.discount_code,
-      projectFields.priority === "کم" ? "low" : "high",
+      projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      Number(plansId),
-      consultationId ? Number(consultationId) : null,
-      similarSiteData,
-      colorsData,
-      pluginData,
-      templatesData
+      projectFields.plan === "طلایی" ? 1 : projectFields.plan === "نقره ای" ? 2 : projectFields.plan === "برنزی" ? 3 : "",
+      // projectFields.discount_code,
+      // token,
+      // consultationId ? Number(consultationId) : null,
+      // similarSiteData,
+      // colorsData,
+      // pluginData,
+      // templatesData,
     )
   }
   //^ RETURN ===========================================================================================================================================================
@@ -162,7 +163,7 @@ function SubmitOrder() {
             <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["پلاتینیوم", "طلایی", "نقره ای", "برنزی"]} value={projectFields.plan} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
+            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["طلایی", "نقره ای", "برنزی"]} value={projectFields.plan} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
             <p className="absolute top-3 right-[5.5rem] text-red-800">*</p>
           </div>
         </div>
