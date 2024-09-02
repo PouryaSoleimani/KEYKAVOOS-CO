@@ -57,6 +57,7 @@ function ProjectDetail() {
               <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
               <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
               <p className="font-light py-1 text-zinc-800">ارزش  پروژه</p>
+              <p className="font-light py-1 text-zinc-800">اولویت  پروژه</p>
               <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
             </div>
 
@@ -65,7 +66,8 @@ function ProjectDetail() {
               <p>{projectDetail.title}</p>
               <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
               <p>{projectDetail.price} تومان</p>
-              <p>{projectDetail.status == "processing" ? <p className="text-blue-600">در حال بررسی</p> : projectDetail.status == "verified" ? <p className="text-emerald-600">تایید شده</p> : projectDetail.status == "notVerified" ? <p className="text-red-600">رد شده</p> : "..."}</p>
+              <p>{projectDetail.priority === "high" ? "زیاد" : "کم"}</p>
+              <p className="-translate-x-4">{projectDetail.status == "processing" ? <p className="text-blue-600">در حال بررسی</p> : projectDetail.status == "verified" ? <p className="text-emerald-600">تایید شده</p> : projectDetail.status == "notVerified" ? <p className="text-red-600">رد شده</p> : "..."}</p>
             </div>
           </div>
         ) : (
