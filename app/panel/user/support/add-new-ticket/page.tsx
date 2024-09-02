@@ -1,4 +1,5 @@
 "use client";
+//^ SUPPORT ==  ADD NEW TICKET  ================================================================================================================================ 
 import React, { useContext, useEffect, useState } from "react";
 import TicketFields from "./components/ticket-fields";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,14 +43,7 @@ function AddNewTicket() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const [ticket, setTicket] = useState({
-    title: "",
-    description: "",
-    status_id: "",
-    priority_id: "کم",
-    register_user_id: "",
-    dept_id: "",
-  });
+  const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", });
   const departmentId = typedDepartments
     ?.filter((item) => item.department.id === Number(ticket.dept_id))
     ?.map((item) => item.department.id)[0];
@@ -69,7 +63,7 @@ function AddNewTicket() {
         </div>
       </div>
       <form onSubmit={(e) => handleSubmission(e)} className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 lg:mt-0 mt-10" >
-          <span className="absolute right-[7.5rem] text-red-800">*</span>
+        <span className="absolute right-[7.5rem] text-red-800">*</span>
         <TicketFields label="عنوان تیکت:" width="w-[30%]" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
