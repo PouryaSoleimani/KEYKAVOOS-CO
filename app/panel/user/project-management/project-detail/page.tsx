@@ -28,6 +28,7 @@ function ProjectDetail() {
   useEffect(() => { getProjectDetail(token, id, setProjectDetail); }, []);
 
   console.log("PROJECT DETAILS ====>", projectDetail);
+
   const projectCurrentState = projectDetail.status;
   const returnStatus = (item: string) => {
     if (projectCurrentState) {
@@ -40,7 +41,7 @@ function ProjectDetail() {
       return "وضعیتی یافت نشد.";
     }
   };
-  console.log(projectCurrentState);
+
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
@@ -52,17 +53,19 @@ function ProjectDetail() {
       <div className="mt-10 lg:mt-0">
         {projectDetail ? (
           <div className="flex flex-col gap-5 bg-white rounded-lg py-8 animate__animated animate__pulse">
-            <div className="grid grid-cols-4 text-center tracking-tight">
+            <div className="grid grid-cols-6 text-center tracking-tight">
               <p className="font-light py-1 text-zinc-800">ID پروژه</p>
-              <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
               <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
+              <p className="font-light py-1 text-zinc-800">مالک  پروژه</p>
+              <p className="font-light py-1 text-zinc-800">ارزش  پروژه</p>
               <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
             </div>
 
-            <div className="grid grid-cols-4 text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px] "  >
+            <div className="grid grid-cols-6 text-center py-3 bg-[#eaeff6] mx-5 rounded-[4px] "  >
               <p className="translate-x-4">{projectDetail.id}</p>
-              <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
               <p>{projectDetail.title}</p>
+              <p>{projectDetail.register_user?.name.toString()} {projectDetail.register_user?.surname.toString()} </p>
+              <p>{projectDetail?.price.toLocaleString()} تومان</p>
               <p>{projectDetail.status == "processing" ? <p className="text-blue-600">در حال بررسی</p> : projectDetail.status == "verified" ? <p className="text-emerald-600">تایید شده</p> : projectDetail.status == "notVerified" ? <p className="text-red-600">رد شده</p> : "..."}</p>
             </div>
           </div>
