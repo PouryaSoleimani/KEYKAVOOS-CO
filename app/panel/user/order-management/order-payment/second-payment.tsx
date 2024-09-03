@@ -34,7 +34,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
             <FinanceInput label="مبلغ باقی مانده : " disable={true} value={secondOrderPayment ? `${handleBudegtChange(String(secondOrderPayment?.debt))} ریال` : "---"} />
             <FinanceInput label="مبلغ پرداخت شده : " disable={true} value={paidAmount ? `${handleBudegtChange(String(paidAmount))}` : "---"} />
             <FinanceInput label="مبلغ پرداختی شما : " value={secondOrderPayment ? `${handleBudegtChange(String(secondOrderPayment?.amount))} ریال` : "---"} setToBlue={true} />
-            {/* فایل آپلود */}
+            {/* FILE UPLOAD */}
             <div className="flex lg:flex-row flex-col gap-5">
               <p className="my-2 font-sm tracking-tight"> لطفا فایل چک قسط دوم را آپلود کنید : </p>
               <div className="flex text-black border-[#4866cf] bg-[#EAEFF6] border-2 rounded-[8px] items-center justify-between py-2 w-full px-2">
@@ -52,7 +52,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
                 </div>
               </div>
             </div>
-            {/* آپلود فایل */}
+
             <div className="flex justify-end items-center">
               <button className="bg-[#4866CE] text-white p-2 w-[30%] tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">
                 تایید
