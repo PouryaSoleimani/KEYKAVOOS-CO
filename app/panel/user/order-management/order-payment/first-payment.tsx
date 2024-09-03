@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
 import { getOrderDetail, handleBudegtChange, sendAmount } from "@/utils/utils";
 import { useRouter, useSearchParams } from "next/navigation";
+
 //^ COMPONENT ===========================================================================================================================
 function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { final_price: number; debt: number; amount: number; id: number; }; token: string; }) {
 

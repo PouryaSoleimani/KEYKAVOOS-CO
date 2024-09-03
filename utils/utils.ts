@@ -3750,25 +3750,12 @@ export const handlePaymentFileUpload = async (
   }
 };
 // pay
-export const sendAmount = async (
-  token: string,
-  amount: number,
-  paymentId: number,
-  setUrl: React.Dispatch<React.SetStateAction<string>>
-) => {
+export const sendAmount = async (token: string, amount: number, paymentId: number, setUrl: React.Dispatch<React.SetStateAction<string>>) => {
   console.log(paymentId);
   try {
-    const { data } = await app.post(
-      `/pay/post`,
-      {
-        amount,
-        payment_id: paymentId,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+    const { data } = await app.post(`/pay/post`,
+      { amount, payment_id: paymentId, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("paid", data.data.url);
     setUrl(data.data.url);
@@ -3776,6 +3763,6 @@ export const sendAmount = async (
       window.location.href = data.data.url;
     }
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log("%c PAYMENT ERROR ==>", "color : orangered", error.response.data.message);
   }
 };
