@@ -3241,7 +3241,7 @@ export const getProjectDetail = async (
   setProjectDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    setProjectDetailStatus &&setProjectDetailStatus((last) => ({ ...last, loading: true }));
+    setProjectDetailStatus && setProjectDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app.get(`/project/show/${projectId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("project detail", data);
     setProjectDetail(data.data);
@@ -3366,9 +3366,7 @@ export const getProjectStatus = async (token: string) => {
 export const getOrders = async (
   token: string,
   setOrders: React.Dispatch<React.SetStateAction<never[]>>,
-  setOrderStatus: React.Dispatch<
-    React.SetStateAction<{ error: string; loading: boolean; }>
-  >
+  setOrderStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>>
 ) => {
   try {
     setOrderStatus((last) => ({ ...last, loading: true }));

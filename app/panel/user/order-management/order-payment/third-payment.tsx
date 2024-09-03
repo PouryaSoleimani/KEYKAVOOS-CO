@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { ChangeEvent, useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
 import Image from "next/image";
