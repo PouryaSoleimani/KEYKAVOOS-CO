@@ -23,7 +23,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
     <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
       <div>
         <p className="font-semibold tracking-tight my-6 border-b-2 border-[#4866CE] text-[18px] max-w-[15rem]">
-          اطلاعات قسط اول:
+          اطلاعات قسط اول : 
         </p>
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">

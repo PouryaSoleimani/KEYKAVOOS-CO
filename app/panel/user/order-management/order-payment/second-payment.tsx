@@ -25,15 +25,15 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
     <form onSubmit={(e) => handleSubmission(e)}>
       {/* اطلاعات قسط دوم */}
       <div className="grid grid-cols-1 gap-5">
-        <p className="font-semibold my-4 border-b-2 border-[#4866CE] text-[18px] max-w-[15rem]">
-          اطلاعات قسط دوم:
+        <p className="font-semibold my-4 border-b-2 border-[#4866CE] text-[18px] max-w-[15rem] tracking-tight">
+          اطلاعات قسط دوم : 
         </p>
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
-            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail?.price.toLocaleString()}  ریال ` : "---"} />
-            <FinanceInput label="مبلغ باقی مانده:" disable={true} value={`${handleBudegtChange(String(secondOrderPayment?.debt))} ریال`} />
-            <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`${handleBudegtChange(String(paidAmount))}`} />
-            <FinanceInput label="مبلغ پرداختی شما:" value={`${handleBudegtChange(String(secondOrderPayment?.amount))} ریال`} setToBlue={true} />
+            <FinanceInput label="مبلغ کل پروژه : " disable={true} value={orderDetail ? ` ${orderDetail?.price?.toLocaleString()}  ریال ` : "---"} />
+            <FinanceInput label="مبلغ باقی مانده : " disable={true} value={`${handleBudegtChange(String(secondOrderPayment?.debt))} ریال`} />
+            <FinanceInput label="مبلغ پرداخت شده : " disable={true} value={`${handleBudegtChange(String(paidAmount))}`} />
+            <FinanceInput label="مبلغ پرداختی شما : " value={`${handleBudegtChange(String(secondOrderPayment?.amount))} ریال`} setToBlue={true} />
             {/* فایل آپلود */}
             <div className="flex lg:flex-row flex-col gap-5">
               <p className="my-2 font-medium">
