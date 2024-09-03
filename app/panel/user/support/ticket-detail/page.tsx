@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 // ^ SINGLE TICKET DETAILS ===================================================================================================================================
 import React, { useEffect, useState } from "react";
@@ -31,7 +32,7 @@ function TicketDetail() {
   const [File, setFile] = useState<any>(null);
   const handleFileChange = (file: File) => { setFile(file); setFileSelected(true); };
 
-  useEffect(() => { console.log(id); }, [])
+  useEffect(() => { console.log("%c ID ==>", "color:blue", id); }, [])
 
   const getTicketDetail = async () => {
     try {
