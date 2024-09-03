@@ -30,7 +30,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
   console.log(userProfile?.pic_path);
   const USER_PROFILE_PIC = userProfile.pic_path
 
-  
+
   //^ RETURN 
   return (
     <div className="flex flex-col lg:flex-row space-y-5 lg:gap-x-6 items-center justify-center w-full p-0">
@@ -53,7 +53,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
       </div>
       {USER_PROFILE_PIC ? (
         <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-          <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="" width={500} height={200} className="rounded-full lg:translate-x-4" />
+          <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={550} height={32} />
         </div>
       ) : (
         <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
@@ -65,7 +65,3 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
 }
 
 export default SettingsFileupload;
-
-// src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT}
-
-// users/1/profile_pic/1_917598_IMG_20230103_191248.jpg

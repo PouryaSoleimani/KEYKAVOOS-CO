@@ -35,6 +35,8 @@ function Genuine({ userId, token }: GenuineProps) {
       // check
       dispatch(updateUserProfile({ ...userProfile, pic_path: data.data.pic_path, }));
       notifySuccess()
+      setSelectedFile({ name: "آپلود فایل" })
+      location.reload()
     } catch (error) {
       notifyError()
       console.log(error);
