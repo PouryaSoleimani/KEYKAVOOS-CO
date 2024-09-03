@@ -3370,18 +3370,13 @@ export const getOrders = async (
   token: string,
   setOrders: React.Dispatch<React.SetStateAction<never[]>>,
   setOrderStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
+    React.SetStateAction<{ error: string; loading: boolean; }>
   >
 ) => {
   try {
     setOrderStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app("/orders", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const { data } = await app.get("/orders", {
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("orders", data);
     setOrders(data.data);
