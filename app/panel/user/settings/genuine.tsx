@@ -12,7 +12,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
 type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
-//^ COMPONENT 
+
+//^ COMPONENT ==========================================================================================================================================
 function Genuine({ userId, token }: GenuineProps) {
   const [selectedFile, setSelectedFile] = useState<any>(null);
   const handleFileChange = (file: File) => { setSelectedFile(file); };
