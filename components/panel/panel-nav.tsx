@@ -22,7 +22,11 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const [USER_INFOS, setUSER_INFOS] = useState(null)
   const { token } = useSelector((state: any) => state.userData);
   const clickHandler = (notif_id: number, read_at: string | null) => { if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } };
+
+  
   console.log(userProfile);
+
+
   // useEffect(() => {
   //   setTimeout(() => { setUSER_INFOS(userProfile); }, 1500);
   //   setTimeout(() => { console.log("%c USER___INFOS +++++++>>>>>", "color : yellow", USER_INFOS); }, 2000);
@@ -64,7 +68,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  <Image alt="profile" src={`/${userProfile?.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
+                  <Image alt="profile" src="http://127.0.0.1:8000/storage/app/public/users/1/profile_pic/1_221555_IMG_20230103_191248.jpg" className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
                 </div>
               ) : (
                 <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
@@ -79,3 +83,5 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   );
 };
 export default PanelNav;
+// storage\app\public\users\1\profile_pic\1_221555_IMG_20230103_191248.jpg
+// http://127.0.0.1:8000
