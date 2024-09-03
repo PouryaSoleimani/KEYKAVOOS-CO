@@ -23,7 +23,6 @@ function Genuine({ userId, token }: GenuineProps) {
   const notifySuccess = () => toast.success("آپلود فایل موفقیت آمیز بود", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
   const notifyError = () => toast.error("خطا در آپلود فایل، لطفا مجددا آپلود کنید", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
 
-  //^ COMPONENT 
   const handleAvatar = async () => {
     const formData = new FormData();
     formData.append("pic", selectedFile);
@@ -56,11 +55,11 @@ function Genuine({ userId, token }: GenuineProps) {
   const handleSubmission = async () => {
     Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile), await handleAvatar(),]);
   };
+
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
   return (
     <>
-
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">

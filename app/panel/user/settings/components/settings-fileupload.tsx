@@ -3,6 +3,7 @@ import React, { ChangeEvent } from "react";
 import uploadFile from "../../../../../public/Panel/uploadfile.svg";
 import { MdOutlineFileUpload } from "react-icons/md";
 import USER__DEFAULT from '@/public/USER__DEFAULT.png'
+import { useSelector } from "react-redux";
 type SettingsFileuploadProps = { handleChange: any; selectedFile: any; label: string; };
 
 
@@ -13,6 +14,10 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
     const file = event.target.files?.[0];
     if (file) { handleChange(file); }
   };
+
+  const { userProfile } = useSelector((state: any) => state.userData);
+  console.log("USER PROFILE ===>", userProfile);
+  console.log("PIC PATH ===>", userProfile.pic_path);
 
   //^ RETURN 
   return (
@@ -36,10 +41,12 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
       </div>
 
       <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-        <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+        <Image src={`http://localhost:8000/storage/${userProfile.pic_path}`} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
       </div>
     </div>
   );
 }
 
 export default SettingsFileupload;
+
+// src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT}

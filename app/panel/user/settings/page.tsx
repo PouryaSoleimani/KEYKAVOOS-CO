@@ -20,7 +20,7 @@ function PersonalInfo() {
       default: break;
     }
   };
-
+  // ^ RETURN ===========================================================================================================================
   return (
     <>
       <div className="py-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%] animate__animated animate__pulse">

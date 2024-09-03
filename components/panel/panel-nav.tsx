@@ -61,7 +61,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] rounded-full">
-                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-500" width={36} height={36} />
+                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-500" width={34} height={36} />
                 </div>
               ) : (
                 <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
