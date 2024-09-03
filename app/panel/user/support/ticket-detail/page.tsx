@@ -134,7 +134,9 @@ function TicketDetail() {
     setTicketId(prevId);
   }, [ticketDetail.SenderText]);
 
-  // console.log(ticketId);
+  console.log("%c TICKET ID ===>", "color : crimson", ticketId);
+  
+  //^ RETURN ======================================================================================================================================== 
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()}  >
