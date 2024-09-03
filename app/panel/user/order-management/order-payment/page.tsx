@@ -30,7 +30,7 @@ function OrderPayment() {
     if (file) { handleChangingFile(file); }
   };
 
-  useEffect(() => {  setTimeout(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, 1500);}, []);
+  useEffect(() => { setTimeout(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, 1500); }, []);
 
   console.log("%c ORDER DETAILS ===>", "color:yellow", orderDetail);
 
