@@ -37,10 +37,10 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
             {/* فایل آپلود */}
             <div className="flex lg:flex-row flex-col gap-5">
               <p className="my-2 font-sm tracking-tight"> لطفا فایل چک قسط دوم را آپلود کنید : </p>
-              <div className="flex bg-white border-[#D0DBEC] border-2 rounded-[8px] items-center justify-between py-1.5 w-full px-2">
+              <div className="flex text-black border-[#4866cf] bg-[#EAEFF6] border-2 rounded-[8px] items-center justify-between py-2 w-full px-2">
                 <div>
                   <input id="fileInput" type="file" multiple style={{ display: "none" }} onChange={handleFileChange} />
-                  <label htmlFor="fileInput" className="text-[#68707A] cursor-pointer hover:text-[#4866CF] hover:bg-zinc-200 p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
+                  <label htmlFor="fileInput" className="cursor-pointer hover:bg-[#4866cf] hover:text-white p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center"  >
