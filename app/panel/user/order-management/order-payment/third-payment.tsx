@@ -45,10 +45,10 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, to
                   <label htmlFor="fileInput" className="cursor-pointer hover:bg-[#4866cf] hover:text-white p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
-                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center"  >
+                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
                     {File ? (File.name) : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
                   </label>
-                  <span dir="rtl" className="text-[#4f647e] text-[.8rem] tracking-tighter">
+                  <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>
                   </span>
                 </div>
