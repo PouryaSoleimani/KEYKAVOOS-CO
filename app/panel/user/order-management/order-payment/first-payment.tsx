@@ -17,8 +17,8 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
     await sendAmount(token, 100000, firstOrderPayment.id, setUrl);
     // router.replace(url);
   };
-
   useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
+
   return (
     <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
       <div>
@@ -28,7 +28,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
             {/* value={`${handleBudegtChange(String(firstOrderPayment?.final_price))} ریال`} */}
-            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail.price}ریال ` : "---"} />
+            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail.price.toLocaleString()}  ریال ` : "---"} />
             <FinanceInput label="مبلغ باقی مانده:" disable={true} value={firstOrderPayment ? `${firstOrderPayment.debt} ریال` : "---"} />
             <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`0 ریال`} />
             <FinanceInput label="مبلغ پرداختی شما:" value={firstOrderPayment ? `${firstOrderPayment.amount} ریال` : "---"} setToBlue={true} />

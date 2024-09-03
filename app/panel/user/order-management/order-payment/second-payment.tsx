@@ -1,31 +1,25 @@
-import React, { ChangeEvent } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { ChangeEvent, useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
 import Image from "next/image";
-import { handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
+import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
 import uploadfile from "@/public/Panel/uploadfile.svg";
+import { useSearchParams } from "next/navigation";
 
-function SecondPayment({
-  secondOrderPayment,
-  paidAmount,
-  handleFileChange,
-  File,
-  token,
-}: {
-  secondOrderPayment: {
-    final_price: number;
-    debt: number;
-    amount: number;
-    id: number;
-  };
+// ^ COMPONENT ==========================================================================================================================================
+function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File, token, }: {
+  secondOrderPayment: { final_price: number; debt: number; amount: number; id: number; };
   paidAmount: number;
   handleFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   File: any;
   token: string;
 }) {
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await handlePaymentFileUpload(File, token, secondOrderPayment.id);
-  };
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id); };
+  const params = useSearchParams();
+  const orderId = params.get("id");
+  const [orderDetail, setOrderDetail] = useState<any>([]);
+  const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
+  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
 
   return (
     <form onSubmit={(e) => handleSubmission(e)}>
@@ -36,32 +30,10 @@ function SecondPayment({
         </p>
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
-            <FinanceInput
-              label="مبلغ کل پروژه:"
-              disable={true}
-              value={`${handleBudegtChange(
-                String(secondOrderPayment?.final_price)
-              )} ریال`}
-            />
-            <FinanceInput
-              label="مبلغ باقی مانده:"
-              disable={true}
-              value={`${handleBudegtChange(
-                String(secondOrderPayment?.debt)
-              )} ریال`}
-            />
-            <FinanceInput
-              label="مبلغ پرداخت شده:"
-              disable={true}
-              value={`${handleBudegtChange(String(paidAmount))}`}
-            />
-            <FinanceInput
-              label="مبلغ پرداختی شما:"
-              value={`${handleBudegtChange(
-                String(secondOrderPayment?.amount)
-              )} ریال`}
-              setToBlue={true}
-            />
+            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail?.price.toLocaleString()}  ریال ` : "---"} />
+            <FinanceInput label="مبلغ باقی مانده:" disable={true} value={`${handleBudegtChange(String(secondOrderPayment?.debt))} ریال`} />
+            <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`${handleBudegtChange(String(paidAmount))}`} />
+            <FinanceInput label="مبلغ پرداختی شما:" value={`${handleBudegtChange(String(secondOrderPayment?.amount))} ریال`} setToBlue={true} />
             {/* فایل آپلود */}
             <div className="flex lg:flex-row flex-col gap-5">
               <p className="my-2 font-medium">
@@ -95,7 +67,7 @@ function SecondPayment({
             </div>
             {/* آپلود فایل */}
             <div className="flex justify-end items-center">
-              <button className="bg-[#4866CE] text-white p-2 rounded-[4px] w-[40%]">
+              <button className="bg-[#4866CE] text-white p-2 rounded-[4px] w-[40%] hover:bg-blue-800 duration-300">
                 تایید
               </button>
             </div>
