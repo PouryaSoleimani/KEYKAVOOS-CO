@@ -120,33 +120,11 @@ function TicketDetail() {
         { formData, register_user_id: Number(id) },
         { headers: { Authorization: `Bearer ${token}`, }, }
       );
-      toast.success("آپلود فایل موفق بود.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
-      console.log(data);
+      toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      console.log("%c SUCCESS ===>", "color:green", data);
     } catch (error: any) {
-      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
-      console.log(error.response.data.message);
+      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      console.log("%c ERROR MESSAGE ===>", "color : orangered", error.response.data.message);
     }
   };
 
