@@ -1,24 +1,32 @@
 import Image from "next/image";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import uploadFile from "../../../../../public/Panel/uploadfile.svg";
 import { MdOutlineFileUpload } from "react-icons/md";
 import USER__DEFAULT from '@/public/USER__DEFAULT.png'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserProfile, getIdFromLocal, getTokenFromLocal } from "@/redux/features/user/userSlice";
+import axios from "axios";
+import store from "@/redux/store";
 type SettingsFileuploadProps = { handleChange: any; selectedFile: any; label: string; };
 
 
 //^ COMPONENT 
 function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFileuploadProps) {
-
+  const dispatch = useDispatch();
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) { handleChange(file); }
   };
 
-  const { userProfile } = useSelector((state: any) => state.userData);
-  console.log("USER PROFILE ===>", userProfile);
-  console.log("PIC PATH ===>", userProfile.pic_path);
+  useEffect(() => {
+    dispatch(getTokenFromLocal());
+    dispatch<any>(fetchUserProfile());
+    dispatch(getIdFromLocal());
+  }, []);
 
+  const { token, userProfile, status, numberOfAnnouncements, role, userId } = useSelector((store: any) => store.userData);
+  console.log(userProfile?.pic_path);
+  const USER_PROFILE_PIC = userProfile.pic_path
   //^ RETURN 
   return (
     <div className="flex flex-col lg:flex-row space-y-5 lg:gap-x-6 items-center justify-center w-full p-0">
@@ -39,10 +47,15 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
           انتخابی باید(200px*200px) باشد.
         </p>
       </div>
-
-      <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-        <Image src={`http://localhost:8000/storage/${userProfile.pic_path}`} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
-      </div>
+      {USER_PROFILE_PIC ? (
+        <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
+          <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="" width={500} height={200} className="rounded-full lg:translate-x-4" />
+        </div>
+      ) : (
+        <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
+          <Image src={USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+        </div>
+      )}
     </div>
   );
 }
@@ -50,3 +63,5 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
 export default SettingsFileupload;
 
 // src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT}
+
+// users/1/profile_pic/1_917598_IMG_20230103_191248.jpg
