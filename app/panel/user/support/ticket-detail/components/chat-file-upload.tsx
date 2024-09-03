@@ -1,12 +1,12 @@
+//^ CHAT FILE UPLOAD ====================================================================================================================== 
 import React, { ChangeEvent } from "react";
 import "./chat.module.css"
 type FileUploadProps = { handleChange: any; File: any; };
+//^ COMPONENT
 function ChatFileUpload({ handleChange, File }: FileUploadProps) {
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file) {
-      handleChange(file);
-    }
+    if (file) { handleChange(file); }
   };
   return (
     <div className="flex lg:flex-col flex-row gap-1 ">

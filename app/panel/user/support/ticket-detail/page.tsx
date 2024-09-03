@@ -135,7 +135,7 @@ function TicketDetail() {
   }, [ticketDetail.SenderText]);
 
   console.log("%c TICKET ID ===>", "color : crimson", ticketId);
-  
+
   //^ RETURN ======================================================================================================================================== 
   return (
     <div className="relative">

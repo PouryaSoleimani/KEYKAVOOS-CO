@@ -16,28 +16,16 @@ type ChatProps = {
   ticketId: string;
 };
 
-function Chat({
-  senderText,
-  textInput,
-  setTextInput,
-  File,
-  handleFileChange,
-  handleFileUpload,
-  sendResponseTicket,
-  fileSelected,
-  ticketId,
-}: ChatProps) {
-  console.log("sender text", senderText);
+function Chat({ senderText, textInput, setTextInput, File, handleFileChange, handleFileUpload, sendResponseTicket, fileSelected, ticketId, }: ChatProps) {
 
-  const userMsgs = senderText[0]?.messages?.filter(
-    (item: any) =>
-      item.register_user_id !== null && item.responser_user_id === null
-  );
+  console.log("%c SENDER TEXT", "color : lightgray", senderText);
+
+  const userMsgs = senderText[0]?.messages?.filter((item: any) => item.register_user_id !== null && item.responser_user_id === null);
+  
   const userMessages = userMsgs ? userMsgs : [];
 
-  const adminMsgs = senderText[0]?.messages.filter(
-    (item: any) => item.responser_user_id !== null
-  );
+  const adminMsgs = senderText[0]?.messages.filter((item: any) => item.responser_user_id !== null);
+
   const adminMessages = adminMsgs ? adminMsgs : [];
 
   // console.log("user messages", userMessages);
