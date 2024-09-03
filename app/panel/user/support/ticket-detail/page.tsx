@@ -111,23 +111,18 @@ function TicketDetail() {
     }
   };
 
-  // file upload in ticket
+  //* FILE UPLOAD
   const handleFileUpload = async () => {
     const formData = new FormData();
     formData.append("file", File);
     try {
-      const { data } = await app.post(
-        `/ticket/file/upload/${Number(id)}`,
+      const { data } = await app.post(`/ticket/file/upload/${Number(id)}`,
         { formData, register_user_id: Number(id) },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${token}`, }, }
       );
       toast.success("آپلود فایل موفق بود.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -141,8 +136,8 @@ function TicketDetail() {
     } catch (error: any) {
       toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
         position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
+        autoClose: 2000,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
