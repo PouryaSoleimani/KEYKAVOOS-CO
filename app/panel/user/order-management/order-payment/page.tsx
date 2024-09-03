@@ -9,7 +9,7 @@ import SecondPayment from "./second-payment";
 import ThirdPayment from "./third-payment";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "@/app/panel/admin/components/NotFound";
-
+//^ COMPONENT =========================================================================================================================================
 function OrderPayment() {
   const { token } = useSelector((state: any) => state.userData);
   const [orderDetail, setOrderDetail] = useState<any>([]);
@@ -20,16 +20,20 @@ function OrderPayment() {
   const [isUploaded, setIsUploaded] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
   const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
+
   const handleChangingFile = (file: File) => { setFile(file); setFileSelected(true); };
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) { handleChangingFile(file); }
   };
 
-  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
+  useEffect(() => {
+    setTimeout(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, 1500);
+  }, []);
 
   console.log("%c ORDER DETAILS ===>", "color:yellow", orderDetail);
-  
+
   const firstOrderPayment = orderDetail.payments?.[0];
   const secondOrderPayment = orderDetail.payments?.[1];
   const thirdOrderPayment = orderDetail.payments?.[2];
@@ -61,8 +65,8 @@ function OrderPayment() {
           </div>
           <div className="grid grid-cols-1 gap-8">
             <FirstPayment firstOrderPayment={firstOrderPayment} token={token} />
-            <SecondPayment paidAmount={firstOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} />
-            <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} />
+            {/* <SecondPayment paidAmount={firstOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} /> */}
+            {/* <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} /> */}
           </div>
         </div>
       )}
