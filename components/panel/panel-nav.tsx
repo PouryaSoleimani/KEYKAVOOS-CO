@@ -10,7 +10,7 @@ import exit from "../../public/Panel/exit.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { changeNotificationStatus } from "@/utils/utils";
 type NavProps = { userProfile: any; status: string; userType: string; numberOfAnnouncements: any; setShowAnnouncementDropdown: Dispatch<SetStateAction<boolean>>; showAnnouncementDropdown: boolean; };
-
+// ^ COMPONENT ====================================================================================================================================
 const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncementDropdown, showAnnouncementDropdown, }: NavProps) => {
 
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  <Image alt="profile" src={`http://127.0.0.1:8000/${userProfile?.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
+                  <Image alt="profile" src={userProfile.pic_path.toString()} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
                 </div>
               ) : (
                 <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
