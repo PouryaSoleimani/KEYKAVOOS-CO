@@ -3,18 +3,7 @@ import React, { useState } from "react";
 import styles from "./chat.module.css";
 import ChatFileUpload from "./chat-file-upload";
 const moment = require("moment-jalaali");
-type ChatProps = {
-  senderText: any;
-  recieverText: any;
-  textInput: string;
-  setTextInput: React.Dispatch<React.SetStateAction<string>>;
-  File: any;
-  handleFileChange: any;
-  handleFileUpload: any;
-  sendResponseTicket: any;
-  fileSelected: boolean;
-  ticketId: string;
-};
+type ChatProps = { senderText: any; recieverText: any; textInput: string; setTextInput: React.Dispatch<React.SetStateAction<string>>; File: any; handleFileChange: any; handleFileUpload: any; sendResponseTicket: any; fileSelected: boolean; ticketId: string; };
 
 //^ COMPONENT 
 function Chat({ senderText, textInput, setTextInput, File, handleFileChange, handleFileUpload, sendResponseTicket, fileSelected, ticketId, }: ChatProps) {
@@ -31,17 +20,14 @@ function Chat({ senderText, textInput, setTextInput, File, handleFileChange, han
 
   // console.log("user messages", userMessages);
   // console.log("admin Messages", adminMessages);
+  
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (File && textInput) {
-      Promise.all([
-        await handleFileUpload(),
-        await sendResponseTicket(textInput, ticketId),
-      ]);
+      Promise.all([await handleFileUpload(), await sendResponseTicket(textInput, ticketId),]);
       setTextInput("");
     } else if (textInput && !File) {
-      await sendResponseTicket(textInput, ticketId);
-      setTextInput("");
+      await sendResponseTicket(textInput, ticketId); setTextInput("");
     } else if (!textInput && File) {
       await handleFileUpload();
     }
