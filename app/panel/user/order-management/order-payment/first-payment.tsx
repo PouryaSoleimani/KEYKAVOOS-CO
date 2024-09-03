@@ -15,7 +15,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
 
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await sendAmount(token, 10000000, firstOrderPayment?.id, setUrl);
+    await sendAmount(token, 100000000, firstOrderPayment?.id, setUrl);
     // router.replace(url);
   };
   useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
