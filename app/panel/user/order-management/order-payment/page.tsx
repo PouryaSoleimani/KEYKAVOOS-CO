@@ -66,7 +66,7 @@ function OrderPayment() {
           <div className="grid grid-cols-1 gap-8">
             <FirstPayment firstOrderPayment={firstOrderPayment} token={token} />
             <SecondPayment paidAmount={firstOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} />
-            {/* <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} /> */}
+            <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} />
           </div>
         </div>
       )}

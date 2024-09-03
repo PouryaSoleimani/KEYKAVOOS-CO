@@ -35,51 +35,31 @@ function ThirdPayment({
         </p>
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
-            <FinanceInput
-              label="مبلغ کل پروژه:"
-              disable={true}
-              value={`${handleBudegtChange(String(thirdOrderPayment?.final_price))} ریال`}
-            />
-            <FinanceInput
-              label="مبلغ باقی مانده:"
-              disable={true}
-              value={`${handleBudegtChange(String(thirdOrderPayment?.debt))} ریال`}
-            />
-            <FinanceInput
-              label="مبلغ پرداخت شده:"
-              disable={true}
-              value={`${totalPaid}`}
-            />
-            <FinanceInput
-              label="مبلغ پرداختی شما:"
-              value={`${handleBudegtChange(String(thirdOrderPayment?.amount))} ریال`}
-              setToBlue={true}
-            />
+            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={thirdOrderPayment?.final_price ? `${handleBudegtChange(String(thirdOrderPayment?.final_price))} ریال` : "---"} />
+            <FinanceInput label="مبلغ باقی مانده:" disable={true} value={`${handleBudegtChange(String(thirdOrderPayment?.debt))} ریال`} />
+            <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`${totalPaid}`} />
+            <FinanceInput label="مبلغ پرداختی شما:" value={`${handleBudegtChange(String(thirdOrderPayment?.amount))} ریال`} setToBlue={true} />
+            {/* FILE UPLOAD */}
             <div className="flex lg:flex-row flex-col gap-5">
-              {/* فایل آپلود */}
-              <p className="my-2 font-medium">
-                لطفا فایل چک قسط سوم را آپلود کنید:
-              </p>
-              <div className="flex flex-col bg-white border-[#D0DBEC] border-2 rounded-[8px] items-center justify-center w-full">
-                <div className="flex flex-col items-center gap-[5%] whitespace-nowrap">
-                  <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
-                  <label className="text-[#68707A]">انتخاب فایل</label>
-                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex flex-col items-center" >
-                    {File ? (
-                      File.name
-                    ) : (
-                      <Image src={uploadfile} alt="انتخاب فایل" />
-                    )}
+              <p className="my-2 font-sm tracking-tight"> لطفا فایل چک قسط سوم را آپلود کنید : </p>
+              <div className="flex bg-white border-[#D0DBEC] border-2 rounded-[8px] items-center justify-between py-1.5 w-full px-2">
+                <div>
+                  <input id="fileInput" type="file" multiple style={{ display: "none" }} onChange={handleFileChange} />
+                  <label htmlFor="fileInput" className="text-[#68707A] cursor-pointer hover:text-[#4866CF] hover:bg-zinc-200 p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
+                </div>
+                <div className="flex flex-col items-center justify-end space-y-2">
+                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center"  >
+                    {File ? (File.name) : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
                   </label>
-                  <span dir="rtl" className="text-[#4f647e] text-[0.5rem]">
-                    فرمت های مورد قبول: zip, rar
+                  <span dir="rtl" className="text-[#4f647e] text-[.8rem] tracking-tighter">
+                    فرمت های مورد قبول:  <b>  zip, rar  </b>
                   </span>
                 </div>
               </div>
             </div>
-            {/* آپلود فایل */}
+
             <div className="flex justify-end items-center">
-              <button className="bg-[#4866CE] text-white p-2 rounded-[4px] w-[40%]">
+              <button className="bg-[#4866CE] text-white p-2 w-[30%] tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">
                 تایید
               </button>
             </div>
