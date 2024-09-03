@@ -23,7 +23,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const { token } = useSelector((state: any) => state.userData);
   const clickHandler = (notif_id: number, read_at: string | null) => { if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } };
 
-  
+
   console.log(userProfile);
 
 
