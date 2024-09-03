@@ -67,11 +67,11 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                   <Skeleton width={60} height={60} baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
-                <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  <Image alt="profile" src="http://127.0.0.1:8000/storage/app/public/users/1/profile_pic/1_221555_IMG_20230103_191248.jpg" className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
+                <div className="bg-[#EAEFF6] rounded-full">
+                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
                 </div>
               ) : (
-                <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
+                <Image src={USER__DEFAULT} alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
                 <Image src={exit} alt="exit" width={24} className="p-0.5 -translate-x-0.5 hover:scale-110 duration-300" />
               </div>
@@ -83,5 +83,3 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   );
 };
 export default PanelNav;
-// storage\app\public\users\1\profile_pic\1_221555_IMG_20230103_191248.jpg
-// http://127.0.0.1:8000

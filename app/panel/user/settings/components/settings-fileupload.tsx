@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import React, { ChangeEvent, useEffect } from "react";
 import uploadFile from "../../../../../public/Panel/uploadfile.svg";
@@ -24,9 +25,12 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
     dispatch(getIdFromLocal());
   }, []);
 
+
   const { token, userProfile, status, numberOfAnnouncements, role, userId } = useSelector((store: any) => store.userData);
   console.log(userProfile?.pic_path);
   const USER_PROFILE_PIC = userProfile.pic_path
+
+  
   //^ RETURN 
   return (
     <div className="flex flex-col lg:flex-row space-y-5 lg:gap-x-6 items-center justify-center w-full p-0">

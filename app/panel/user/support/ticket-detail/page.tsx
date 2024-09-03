@@ -103,14 +103,16 @@ function TicketDetail() {
     }
   };
 
-  //* FILE UPLOAD
+  //* FILE UPLOAD ===============================================================================================
   // const handleFileUpload = async () => {
   //   const formData = new FormData();
   //   formData.append("file", File);
   //   try {
-  //     const { data } = await app.post(`/ticket/file/upload/${Number(id)}`,
-  //       { formData, register_user_id: Number(id) },
-  //       { headers: { Authorization: `Bearer ${token}`, }, }
+  //     const { data } = await app.post(`/ticket/file/upload/${id}`,
+  //       { formData, uploader_user_id: id },
+  //       {
+  //         headers: { Authorization: `Bearer ${token}`, "Content-Type": 'multipart/form-data', },
+  //       }
   //     );
   //     toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
   //     console.log("%c SUCCESS ===>", "color:green", data);
@@ -123,8 +125,8 @@ function TicketDetail() {
   function FILEUPLOAD(id: number | string) {
     const formData = new FormData();
     formData.append("file", File);
-    const FILE_UPLOAD_INFO = { uploader_user_id: id, formData }
-    axios.post(`http://localhost:8000/api/v1/ticket/file/upload/${+id}`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
+    const FILE_UPLOAD_INFO = { uploader_user_id: 1, formData }
+    axios.post(`http://localhost:8000/api/v1/ticket/file/upload/1`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
       .then(response => console.log("%c SUCCESS ====>", "color : lime", response))
       .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response.data))
   }
