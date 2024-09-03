@@ -16,7 +16,6 @@ function OrderPayment() {
   const params = useSearchParams();
   const orderId = params.get("id");
   const [File, setFile] = useState<any>(null);
-
   const [fileSelected, setFileSelected] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
@@ -30,6 +29,7 @@ function OrderPayment() {
   useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
 
   console.log("%c ORDER DETAILS ===>", "color:yellow", orderDetail);
+  
   const firstOrderPayment = orderDetail.payments?.[0];
   const secondOrderPayment = orderDetail.payments?.[1];
   const thirdOrderPayment = orderDetail.payments?.[2];

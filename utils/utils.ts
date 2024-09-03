@@ -3238,13 +3238,10 @@ export const getProjectDetail = async (
   token: string,
   projectId: string | null,
   setProjectDetail: React.Dispatch<React.SetStateAction<any>>,
-  setProjectDetailStatus?: React.Dispatch<
-    React.SetStateAction<{ loading: boolean; error: string; }>
-  >
+  setProjectDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    setProjectDetailStatus &&
-      setProjectDetailStatus((last) => ({ ...last, loading: true }));
+    setProjectDetailStatus &&setProjectDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app.get(`/project/show/${projectId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("project detail", data);
     setProjectDetail(data.data);
@@ -3617,31 +3614,23 @@ export const changeOrderStatus = async (
     });
   }
 };
-// get order detail
+// ^ GET SINGLE ORDER DETAILS ===================================================================================================================
 export const getOrderDetail = async (
   token: string,
   orderId: number,
   setOrderDetail: React.Dispatch<React.SetStateAction<never[]>>,
-  seOrderDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+  seOrderDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    seOrderDetailStatus &&
-      seOrderDetailStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app(`/order/show/${orderId}`, {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
-    console.log("order detail", data);
+    seOrderDetailStatus && seOrderDetailStatus((last) => ({ ...last, loading: true }));
+    const { data } = await app.get(`/order/show/${orderId}`, { headers: { Authorization: `Bearer ${token}`, }, });
+    console.log("ORDER DETAILS ==>", data);
     setOrderDetail(data.data);
   } catch (error: any) {
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, error: "حطا در ردیافت اطلاعات" }));
-    // console.log(error.response.data.message);
-    console.log("ERROR =>", error);
+    console.log(error.response.data.message);
+    console.log("ERROR ==>", error);
   } finally {
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, loading: false }));
