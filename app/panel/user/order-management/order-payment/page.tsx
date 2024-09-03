@@ -9,6 +9,8 @@ import SecondPayment from "./second-payment";
 import ThirdPayment from "./third-payment";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "@/app/panel/admin/components/NotFound";
+import 'animate.css';
+
 //^ COMPONENT =========================================================================================================================================
 function OrderPayment() {
   const { token } = useSelector((state: any) => state.userData);
@@ -50,7 +52,7 @@ function OrderPayment() {
   // };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] grid grid-cols-1 gap-5">
+    <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] grid grid-cols-1 gap-5 animate__animated animate__pulse">
       {orderDetailStatus.loading ? (
         <SkeletonTheme>
           <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />

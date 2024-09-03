@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
 import uploadfile from "@/public/Panel/uploadfile.svg";
 import { useSearchParams } from "next/navigation";
+import 'animate.css';
 
 // ^ COMPONENT ==========================================================================================================================================
 function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File, token, }: {
