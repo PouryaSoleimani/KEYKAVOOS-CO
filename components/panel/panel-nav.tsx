@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Image from "next/image";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -18,13 +19,14 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const dispatch = useDispatch();
   const router = useRouter();
   const [isRead, setIsRead] = useState(null);
-  const [USER_INFOS, setUSER_INFOS] = useState([])
+  const [USER_INFOS, setUSER_INFOS] = useState(null)
   const { token } = useSelector((state: any) => state.userData);
-  const clickHandler = (notif_id: number, read_at: string | null) => {
-    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); }
-  };
-  
-  useEffect(() => { setUSER_INFOS(userProfile) }, [])
+  const clickHandler = (notif_id: number, read_at: string | null) => { if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } };
+  console.log(userProfile);
+  // useEffect(() => {
+  //   setTimeout(() => { setUSER_INFOS(userProfile); }, 1500);
+  //   setTimeout(() => { console.log("%c USER___INFOS +++++++>>>>>", "color : yellow", USER_INFOS); }, 2000);
+  // }, [])
 
   // ^ RETURN
   return (
@@ -39,11 +41,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
               </p>
             </div>
             {showAnnouncementDropdown && (
-              <div
-                className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"
-                  }  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`}
-                onMouseLeave={() => setShowAnnouncementDropdown(false)}
-              >
+              <div className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"}  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`} onMouseLeave={() => setShowAnnouncementDropdown(false)}  >
                 {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
                   (announce: { text: string; id: number; read_at: string | null; }) => (
                     <div key={announce.id} className="flex justify-between p-4"  >
@@ -66,7 +64,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] p-2 rounded-full">
-                  {/* <Image alt="profile" src={userProfile.pic_path.toString()} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} /> */}
+                  <Image alt="profile" src={`/${userProfile?.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600" width={26} height={26} />
                 </div>
               ) : (
                 <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
