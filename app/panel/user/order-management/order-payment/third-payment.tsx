@@ -1,31 +1,28 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
 import Image from "next/image";
-import { handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
+import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
 import uploadfile from "@/public/Panel/uploadfile.svg";
+import { useSearchParams } from "next/navigation";
 
-function ThirdPayment({
-  thirdOrderPayment,
-  handleFileChange,
-  totalPaid,
-  File,
-  token,
-}: {
-  thirdOrderPayment: {
-    final_price: number;
-    debt: number;
-    amount: number;
-    id: number;
-  };
+function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, token, }: {
+  thirdOrderPayment: { final_price: number; debt: number; amount: number; id: number; };
   totalPaid: number;
   handleFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   File: any;
   token: string;
 }) {
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await handlePaymentFileUpload(File, token, thirdOrderPayment.id);
-  };
+
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, thirdOrderPayment.id); };
+  const params = useSearchParams();
+  const orderId = params.get("id");
+  const [orderDetail, setOrderDetail] = useState<any>([]);
+  const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
+  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
+
+
+
+  // ^ RETURN ================================================================================================================================
   return (
     <form onSubmit={(e) => handleSubmission(e)}>
       {/* اطلاعات قسط سوم */}
@@ -35,7 +32,7 @@ function ThirdPayment({
         </p>
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
-            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={thirdOrderPayment?.final_price ? `${handleBudegtChange(String(thirdOrderPayment?.final_price))} ریال` : "---"} />
+            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail?.price?.toLocaleString()}  ریال ` : "---"} />
             <FinanceInput label="مبلغ باقی مانده:" disable={true} value={`${handleBudegtChange(String(thirdOrderPayment?.debt))} ریال`} />
             <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`${totalPaid}`} />
             <FinanceInput label="مبلغ پرداختی شما:" value={`${handleBudegtChange(String(thirdOrderPayment?.amount))} ریال`} setToBlue={true} />
