@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
-import { handleBudegtChange, sendAmount } from "@/utils/utils";
-import { useRouter } from "next/navigation";
-
+import { getOrderDetail, handleBudegtChange, sendAmount } from "@/utils/utils";
+import { useRouter, useSearchParams } from "next/navigation";
 function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { final_price: number; debt: number; amount: number; id: number; }; token: string; }) {
 
+  const params = useSearchParams();
+  const orderId = params.get("id");
+  const [orderDetail, setOrderDetail] = useState<any>([]);
+  const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
   const [url, setUrl] = useState("");
   const router = useRouter();
 
@@ -14,6 +18,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
     // router.replace(url);
   };
 
+  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
   return (
     <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
       <div>
@@ -23,7 +28,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
             {/* value={`${handleBudegtChange(String(firstOrderPayment?.final_price))} ریال`} */}
-            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={firstOrderPayment ? `${firstOrderPayment.final_price} ریال` : "---"} />
+            <FinanceInput label="مبلغ کل پروژه:" disable={true} value={orderDetail ? ` ${orderDetail.price}ریال ` : "---"} />
             <FinanceInput label="مبلغ باقی مانده:" disable={true} value={firstOrderPayment ? `${firstOrderPayment.debt} ریال` : "---"} />
             <FinanceInput label="مبلغ پرداخت شده:" disable={true} value={`0 ریال`} />
             <FinanceInput label="مبلغ پرداختی شما:" value={firstOrderPayment ? `${firstOrderPayment.amount} ریال` : "---"} setToBlue={true} />

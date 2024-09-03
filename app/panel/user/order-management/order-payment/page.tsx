@@ -33,8 +33,7 @@ function OrderPayment() {
   const firstOrderPayment = orderDetail.payments?.[0];
   const secondOrderPayment = orderDetail.payments?.[1];
   const thirdOrderPayment = orderDetail.payments?.[2];
-  const totalPaid =
-    Number(firstOrderPayment?.amount) + Number(secondOrderPayment?.amount);
+  const totalPaid = Number(firstOrderPayment?.amount) + Number(secondOrderPayment?.amount);
 
   // const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
