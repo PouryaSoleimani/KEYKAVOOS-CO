@@ -60,7 +60,7 @@ function Genuine({ userId, token }: GenuineProps) {
 
   return (
     <>
-      <Toaster position="top-left" reverseOrder={true} />
+
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">

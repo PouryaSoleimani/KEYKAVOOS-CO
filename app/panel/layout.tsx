@@ -19,6 +19,7 @@ import { OrderSubmissionContext } from "./context/order-submission-contexts/Orde
 import OrderSubmissionContextWrapper from "./context/order-submission-contexts/OrderSubmissionContextWrapper";
 import { DepartmentContext } from "./admin/context/department-context/DepartmentContext";
 import AttrIdContextWrapper from "./admin/plan-management/context/AttrIdContextWrapper";
+import { Toaster } from "react-hot-toast";
 
 // ^ COMPONENT
 const PanelLayout = ({ children }: { children: React.ReactNode }) => {
@@ -85,6 +86,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
           <PermissionContextWrapper>
             <AttrIdContextWrapper>
               <div className="font-YekanBakh flex w-full flex-row relative min-h-screen bg-white" style={{ boxShadow: "0px 0px 90px 2px rgba(0, 0, 0, 0.25)" }} dir="rtl" >
+                <Toaster position="top-left" reverseOrder={true} />
                 {localToken && (
                   <>
                     <div className="hidden lg:block">

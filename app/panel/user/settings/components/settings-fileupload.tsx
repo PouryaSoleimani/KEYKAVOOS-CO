@@ -29,7 +29,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
             </span>
           </label>
         </div>
-        <p className="text-justify w-full py-2 tracking-tight leading-7 text-[#858585] font-faNum ">
+        <p className="text-justify w-full py-2 tracking-tighter leading-7 text-[#858585] font-faNum ">
           فقط فایل های jpg / jpeg / png  حداکثر حجم 2MB حداقل سایز تصویر
           انتخابی باید(200px*200px) باشد.
         </p>
