@@ -32,7 +32,7 @@ function TicketDetail() {
   const [File, setFile] = useState<any>(null);
   const handleFileChange = (file: File) => { setFile(file); setFileSelected(true); };
 
-  useEffect(() => { console.log("%c ID ==>", "color:blue", id); }, [])
+  useEffect(() => { console.log("%c ID ==>", "color:hotpink", id); }, [])
 
   const getTicketDetail = async () => {
     try {
@@ -79,23 +79,14 @@ function TicketDetail() {
         RelavantUnit: data.data?.department?.name_fa,
         RelavantUnitId: data.data?.department?.id,
         Responser: "ادمین",
-        Sender:
-          data.data?.register_user.name +
-          " " +
-          data.data?.register_user.surname,
-        DateSend: moment(
-          data.data?.created_at,
-          "YYYY-MM-DDTHH:mm:ss.SSSZ"
-        ).format("jYYYY/jM/jD"),
+        Sender: data.data?.register_user.name + " " + data.data?.register_user.surname,
+        DateSend: moment(data.data?.created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD"),
         DateAnswered: "-",
         SenderText: newSenderTexts,
         Blocked: data.data?.status?.title_en,
       }));
-      setTicketDetailStatus((prevStatus) => ({
-        ...prevStatus,
-        loading: false,
-      }));
-      // console.log(data);
+      setTicketDetailStatus((prevStatus) => ({ ...prevStatus, loading: false, }));
+      console.log("%c DATA ==>", "color:yellow", data);
     } catch (error: any) {
       console.log(error.response.data.message);
       setTicketDetailStatus({ error: "", loading: false });
