@@ -18,7 +18,7 @@ function Genuine({ userId, token }: GenuineProps) {
   const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
-  // NOTIFICATIONS
+  //* NOTIFICATIONS
   const notifySuccess = () => toast.success("آپلود فایل موفقیت آمیز بود", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
   const notifyError = () => toast.error("خطا در آپلود فایل، لطفا مجددا آپلود کنید", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
 
@@ -31,7 +31,7 @@ function Genuine({ userId, token }: GenuineProps) {
         formData,
         { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, }, }
       );
-      console.log("success avatr", data);
+      console.log("%c AVATAR UPLOAD SUCCESS", "color : limegreen", data);
       // check
       dispatch(updateUserProfile({ ...userProfile, pic_path: data.data.pic_path, }));
       notifySuccess()
@@ -58,22 +58,24 @@ function Genuine({ userId, token }: GenuineProps) {
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
   return (
-    <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
+    <>
       <Toaster position="top-left" reverseOrder={true} />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
-        <div className="flex flex-col justify-between gap-2 px-2">
-          <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" />
-          <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" />
-          <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" />
+      <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
+          <div className="flex flex-col justify-between gap-2 px-2">
+            <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" />
+            <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" />
+            <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" />
+          </div>
+          <div className="flex flex-col gap-10">
+            <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />
+          </div>
         </div>
-        <div className="flex flex-col gap-10">
-          <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />
+        <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 mt-2">
+          <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" type="submit"> تایید  ویرایش</button>
         </div>
-      </div>
-      <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 mt-2">
-        <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" type="submit"> تایید  ویرایش</button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
 
