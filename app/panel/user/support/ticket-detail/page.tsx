@@ -119,11 +119,14 @@ function TicketDetail() {
   //     console.log("%c ERROR MESSAGE ===>", "color : orangered", error.response.data.message);
   //   }
   // };
+  // * FILE UPLOAD
   function FILEUPLOAD(id: number | string) {
-    const FILE_UPLOAD_INFO = { uploader_user_id: id, file: "C:/Users/DELL/Desktop/TEST2.rar" }
-    axios.post(`http://localhost:8000/api/v1/ticket/file/upload/${+id}`, FILE_UPLOAD_INFO, { headers: { Authorization: `Bearer ${token}` }, })
+    const formData = new FormData();
+    formData.append("file", File);
+    const FILE_UPLOAD_INFO = { uploader_user_id: id, formData }
+    axios.post(`http://localhost:8000/api/v1/ticket/file/upload/${+id}`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
       .then(response => console.log("%c SUCCESS ====>", "color : lime", response))
-      .catch(error => console.log("%c ERROR ===> ", "color : red", error.response))
+      .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response.data))
   }
 
   useEffect(() => { getTicketDetail(); }, []);
