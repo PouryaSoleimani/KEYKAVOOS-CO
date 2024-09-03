@@ -8,7 +8,7 @@ function ChatFileUpload({ handleChange, File }: FileUploadProps) {
     const file = event.target.files?.[0];
     if (file) { handleChange(file); }
   };
-  
+
   return (
     <div className="flex lg:flex-col flex-row gap-1 ">
       <div id="CHAT_FILE_UPLOAD" className="text-[#4866CE] bg-[#EAEFF6] p-2 rounded-[4px] hover:bg-blue-800 duration-300 hover:text-white">
