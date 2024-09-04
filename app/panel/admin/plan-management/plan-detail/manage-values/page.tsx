@@ -21,6 +21,8 @@ import { ValueType } from "../../components/value-component";
 import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { AttrIdContext } from "../../context/AttrIdContext";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 function ManageValues() {
   const [valueIsDeleted, setValueIsDeleted] = useState(false);
@@ -132,7 +134,7 @@ function ManageValues() {
                   restorePlanValues(item.id, token, setValueIsDeleted)
                 }
               >
-                <IoReloadCircle  className="text-yellow-600 text-lg" />
+                <IoReloadCircle  className="text-emerald-600 text-xl" />
               </span>
               {/* <span
                 onClick={() =>

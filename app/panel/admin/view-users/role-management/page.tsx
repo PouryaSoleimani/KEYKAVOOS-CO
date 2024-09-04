@@ -13,7 +13,7 @@ import { RoleContext } from "../../context/role-context/RoleContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type RoleType = { role: { name_en: string; name_fa: string; id: number; deleted_at: string; }; };
@@ -77,7 +77,7 @@ function RoleManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
-                  <IoReloadCircle  className="text-yellow-600 text-lg hover:scale-125 duration-300" />
+                  <IoReloadCircle className="text-emerald-600 text-lg hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

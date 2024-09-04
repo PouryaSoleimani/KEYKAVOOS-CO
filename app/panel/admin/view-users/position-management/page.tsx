@@ -10,7 +10,7 @@ import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type PositionType = {
@@ -96,7 +96,7 @@ function PositionManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restorePosition(item.position.id, token, setPositionIsDeleted)}>
-                  <IoReloadCircle  className="text-yellow-600 text-xl hover:scale-125 duration-300" />
+                  <IoReloadCircle  className="text-emerald-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

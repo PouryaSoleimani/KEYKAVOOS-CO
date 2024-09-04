@@ -17,7 +17,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 
 export type PermissionType = { name_en: string; name_fa: string; id: number; };
 
@@ -87,7 +87,7 @@ function PermissionManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePermission(item.id, token, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
-                  <IoReloadCircle  className="text-yellow-600 text-xl" />
+                  <IoReloadCircle  className="text-emerald-600 text-xl" />
                 </span>
               </div>
             </div>

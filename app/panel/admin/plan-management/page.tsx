@@ -12,6 +12,8 @@ import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
 import NewInfoOnEachPageBtn from "../../user/components/NewInfoOnEachPageBtn";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type PlanType = { plan: { title: string; description: string; id: number; deleted_at: string; }; };
 
@@ -77,19 +79,11 @@ function PlanManagement() {
                   <Link href={`/panel/admin/plan-management/plan-detail?id=${item.plan.id}`} className="flex justify-center" >
                     <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                   </Link>
-                  <span
-                    onClick={() => deletePlan(item.plan.id, token, setPlanIsDeleted, setAllPlans)}
-                    className="flex justify-center"
-                  >
+                  <span onClick={() => deletePlan(item.plan.id, token, setPlanIsDeleted, setAllPlans)} className="flex justify-center"  >
                     <RiDeleteBin7Fill className="text-red-600 text-lg" />
                   </span>
                   <span onClick={() => restorePlan(item.plan.id, token, setPlanIsDeleted)} >
-                    <IoReloadCircle 
-                      className={`${item.plan.deleted_at && planIsDeleted
-                        ? "text-green-600"
-                        : "text-yellow-600"
-                        }  text-lg`}
-                    />
+                    <IoReloadCircle className={`${item.plan.deleted_at && planIsDeleted ? "text-green-600" : "text-yellow-600"}  text-lg`} />
                   </span>
                 </div>
               </div>

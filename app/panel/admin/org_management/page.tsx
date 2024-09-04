@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 
 import Image from "next/image";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 
 function OrgManagement() {
@@ -90,7 +92,7 @@ function OrgManagement() {
                           restoreOrganization(item.id, token, setOrganIsDeleted)
                         }
                       >
-                        <IoReloadCircle  className="text-yellow-600 text-lg cursor-pointer" />
+                        <IoReloadCircle className="text-emerald-600 text-lg cursor-pointer" />
                       </span>
                     </div>
                   </div>
