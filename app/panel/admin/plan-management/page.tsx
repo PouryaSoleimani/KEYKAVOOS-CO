@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { deletePlan, getAllPlans, restorePlan, updatePlan, } from "@/utils/utils";
 import Image from "next/image";
