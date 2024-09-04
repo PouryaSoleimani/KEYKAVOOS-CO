@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Logo from "../authorization/components/logo";

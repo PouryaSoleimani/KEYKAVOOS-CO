@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
@@ -79,22 +80,13 @@ function ViewUsers() {
   return (
     <div className="grid grid-cols-1 gap-8">
       <div className="flex flex-row gap-5 flex-wrap justify-center md:justify-normal md:text-base text-sm">
-        <Link
-          href={"/panel/admin/view-users/permission-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[160px] whitespace-nowrap"
-        >
+        <Link href={"/panel/admin/view-users/permission-management"} className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[160px] whitespace-nowrap" >
           مدیریت دسترسی ها
         </Link>
-        <Link
-          href={"/panel/admin/view-users/role-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[130px] whitespace-nowrap"
-        >
+        <Link href={"/panel/admin/view-users/role-management"} className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[130px] whitespace-nowrap"  >
           مدیریت نقش ها
         </Link>
-        <Link
-          href={"/panel/admin/view-users/position-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[140px] whitespace-nowrap"
-        >
+        <Link href={"/panel/admin/view-users/position-management"} className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[140px] whitespace-nowrap" >
           مدیریت جایگاه ها
         </Link>
       </div>

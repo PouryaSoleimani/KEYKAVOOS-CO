@@ -39,13 +39,7 @@ function GenuineUsers({
 }: GenuineUsersProps) {
   return (
     <div className="flex flex-col gap-5">
-      <SearchInput
-        value={searchUsers}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setSearchUsers(e.target.value)
-        }
-        placeholder="جستجو بر اساس شماره موبایل"
-      />
+      <SearchInput value={searchUsers} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchUsers(e.target.value)} placeholder="جستجو بر اساس شماره موبایل" />
       <GenuineUserHeader />
       {usersStatus.loading ? (
         <SkeletonTheme>
@@ -60,10 +54,7 @@ function GenuineUsers({
             item: { id: number; mobile: string; name: string; email: string },
             index: number
           ) => (
-            <div
-              key={item.id}
-              className="grid md:grid-cols-5 grid-cols-9 text-center py-1 bg-[#EAEFF6] rounded-[4px] cursor-pointer"
-            >
+            <div key={item.id} className="grid md:grid-cols-5 grid-cols-9 text-center py-3 bg-[#EAEFF6] rounded-[4px] cursor-pointer">
               <p className="col-span-1">{index + 1}</p>
               <p className="font-faNum col-span-2 md:col-span-1">{item.mobile}</p>
               <p className="col-span-2 md:col-span-1">{item.name}</p>
@@ -74,7 +65,7 @@ function GenuineUsers({
                 }
                 className="flex justify-center col-span-1"
               >
-                <RxCross1 />
+                <RxCross1 className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5" />
                 {/* <Image src={vieweye} alt="مشاهده" width={20} height={20} /> */}
               </span>
             </div>

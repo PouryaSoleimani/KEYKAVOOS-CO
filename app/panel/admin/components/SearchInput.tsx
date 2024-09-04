@@ -14,7 +14,7 @@ function SearchInput({ value, onChange, placeholder }: SearchInputProps) {
       <input
         type="text"
         placeholder={placeholder}
-        className="w-full outline-none border border-[#4866CF] rounded-[8px] p-2 my-2 placeholder:text-[#68707A] md:placeholder:text-[18px] placeholder:text-sm"
+        className="w-full outline-none border border-[#4866CF] rounded-[8px] p-2 my-2 placeholder:text-[#68707A] md:placeholder:text-[15px] placeholder:text-sm placeholder:tracking-tight"
         value={value}
         onChange={onChange}
       />
