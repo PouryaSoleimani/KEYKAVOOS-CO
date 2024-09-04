@@ -43,9 +43,7 @@ function ConsultDetail() {
           <NotFound text={`${consultDetailStatus.erorr}`} />
         ) : (
           <div className="grid grid-cols-3 py-4 bg-[#EAEFF6] rounded-[4px]">
-            <p>
-              {consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
-            </p>
+            <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
             <p>{consultationDetail.description}</p>
           </div>

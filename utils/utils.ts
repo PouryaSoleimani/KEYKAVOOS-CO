@@ -2792,6 +2792,7 @@ export const deleteConsultation = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2802,12 +2803,14 @@ export const deleteConsultation = async (
     });
     setIsDeleted(true);
     console.log(data);
+    window.location.reload()
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف مشاوره", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
