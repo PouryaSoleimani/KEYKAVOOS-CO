@@ -3105,7 +3105,7 @@ export const getTicektDetail = async (
 //   }
 // };
 
-export const CREATEPROJECT = (token: string, title: string, description: string, budget_cost: number, priority: number, register_user_id: number, type: number, plan_id: number | string, discount_code: string | null, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
+export const CREATEPROJECT = (token: string, title: string, description: string, budget_cost: number, priority: number, register_user_id: number, type: number, plansId: number, discount_code: string | null, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
   const newProjectInfos = {
     title,
     description,
@@ -3113,7 +3113,7 @@ export const CREATEPROJECT = (token: string, title: string, description: string,
     priority,
     register_user_id,
     discount_code,
-    plan_id:plan_id,
+    plan_id: plansId,
     type,
     consultation_id: consultation_id || null,
     lookslike: lookslike || null,

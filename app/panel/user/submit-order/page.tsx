@@ -70,7 +70,7 @@ function SubmitOrder() {
   const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
 
   const siteTypeTitles = siteTypes?.map((item: SimilarSiteType) => item.title);
-  const plansId = allPlans?.filter((item) => projectFields.plan.includes(item.plan.title.trim()))[0]?.plan.id;
+  const plansId = allPlans?.filter((item) => projectFields.plan.includes(item.plan.title))[0]?.plan.id;
 
   const handleBudegtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/,/g, "");
@@ -123,7 +123,7 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      plansId ,
+      plansId,
       projectFields.discount_code,
       projectFields.type,
       consultationId ? Number(consultationId) : null,
