@@ -13,15 +13,11 @@ import { RoleContext } from "../../context/role-context/RoleContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
+import { IoArrowBack } from "react-icons/io5";
+import { useRouter } from "next/router";
 
-export type RoleType = {
-  role: {
-    name_en: string;
-    name_fa: string;
-    id: number;
-    deleted_at: string;
-  };
-};
+export type RoleType = { role: { name_en: string; name_fa: string; id: number; deleted_at: string; }; };
+
 function RoleManagement() {
   const [roles, setRoles] = useState<RoleType[]>([]);
   // const { setRoles, roles } = useContext(RoleContext);
@@ -34,9 +30,7 @@ function RoleManagement() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localRoles = JSON.parse(
-        window.sessionStorage.getItem("roles") as string
-      );
+      const localRoles = JSON.parse(window.sessionStorage.getItem("roles") as string);
       console.log(localRoles);
       setRoles(localRoles);
     }
@@ -45,21 +39,22 @@ function RoleManagement() {
   useEffect(() => {
     getAllRole(token, setRoles, setRoleLoading);
   }, []);
-
+  const router = useRouter()
+  function backHandler() { router.back() }
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <div className="flex">
-        <NewInfoOnEachPageBtn
-          btnText="ایجاد نقش"
-          src="/panel/admin/view-users/role-management/create-role"
-        />
+    <div className="grid grid-cols-1 gap-3">
+      <div className="flex items-center justify-between">
+        <NewInfoOnEachPageBtn btnText="ایجاد نقش" src="/panel/admin/view-users/role-management/create-role" />
+        <div className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300">
+          <IoArrowBack onClick={backHandler} />
+        </div>
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center space-y-3">
+      <div className="bg-white shadow mx-auto rounded-xl w-full p-[3%] text-center space-y-3">
         <div className="grid lg:grid-cols-4 grid-cols-10">
-          <div className="col-span-1 lg:col-span-1">ردیف</div>
-          <div className="col-span-3 lg:col-span-1">نام نقش به فارسی</div>
-          <div className="col-span-3 lg:col-span-1">نام نقش به انگلیسی</div>
-          <div className="col-span-3 lg:col-span-1">عملیات</div>
+          <div className="col-span-1 font-semibold tracking-tight lg:col-span-1">ردیف</div>
+          <div className="col-span-3 font-semibold tracking-tight lg:col-span-1">نام نقش به فارسی</div>
+          <div className="col-span-3 font-semibold tracking-tight lg:col-span-1">نام نقش به انگلیسی</div>
+          <div className="col-span-3 font-semibold tracking-tight lg:col-span-1">عملیات</div>
         </div>
 
         {roleLoading.loading ? (
@@ -70,12 +65,8 @@ function RoleManagement() {
           <NotFound text={`${roleLoading.error}`} />
         ) : (
           roles.map((item: any, index) => (
-            <div
-              className={`${
-                item.role.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"
-              } grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer items-center`}
-              key={index}
-            >
+            <div className={`${item.role.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-3 mt-2 rounded-[4px] cursor-pointer items-center`} key={index}>
+
               <p className="col-span-1">{index + 1}</p>
               <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1">
                 {item.role.name_fa}
@@ -84,30 +75,14 @@ function RoleManagement() {
                 {item.role.name_en}
               </p>
               <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
-                <Link
-                  href={`/panel/admin/view-users/role-management/role-detail?id=${item.role.id}`}
-                  className="flex justify-center"
-                >
-                  <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                <Link href={`/panel/admin/view-users/role-management/role-detail?id=${item.role.id}`} className="flex justify-center">
+                  <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-125 duration-300" />
                 </Link>
-                <span
-                  onClick={() =>
-                    deleteRole(
-                      item.role.id,
-                      token,
-                      setRoleIsDeleted,
-                    )
-                  }
-                  className="flex justify-center"
-                >
-                  <RxCross1 className="text-red-600 text-lg" />
+                <span onClick={() => deleteRole(item.role.id, token, setRoleIsDeleted,)} className="flex justify-center">
+                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
-                <span
-                  onClick={() =>
-                    restoreRole(item.role.id, token, setRoleIsDeleted)
-                  }
-                >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
+                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

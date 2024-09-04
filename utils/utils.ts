@@ -791,7 +791,8 @@ export const createNewRole = async (
     toast.success("نقش با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -801,11 +802,13 @@ export const createNewRole = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/view-users/role-management')
   } catch (error) {
     toast.error("خطا در ایجاد نقش", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
