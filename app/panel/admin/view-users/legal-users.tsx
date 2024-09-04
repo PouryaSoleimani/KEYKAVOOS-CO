@@ -7,7 +7,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
 import LegalUserHeader from "../components/LegalUserHeader";
 import { deleteUser } from "@/utils/utils";
-import { RxCross1 } from "react-icons/rx";
+
 import SearchInput from "../components/SearchInput";
 
 type LegalUsersProps = {
@@ -45,7 +45,7 @@ function LegalUsers({ LegalUsersData, usersStatus, token, setAllUsers, setDataSt
               <p className="col-span-3  py-2 md:col-span-1">{item.org_registration_Number ? item.org_registration_Number : "-"}</p>
 
               <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1 py-2"  >
-                <RxCross1 className="text-lg text-red-800" />
+                <RiDeleteBin7Fill className="text-lg text-red-800" />
               </span>
 
             </div>

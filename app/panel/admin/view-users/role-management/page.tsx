@@ -6,7 +6,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-import { RxCross1 } from "react-icons/rx";
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -15,6 +14,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type RoleType = { role: { name_en: string; name_fa: string; id: number; deleted_at: string; }; };
 
@@ -74,7 +74,7 @@ function RoleManagement() {
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-125 duration-300" />
                 </Link>
                 <span onClick={() => deleteRole(item.role.id, token, setRoleIsDeleted,)} className="flex justify-center">
-                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
                   <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg hover:scale-125 duration-300" />

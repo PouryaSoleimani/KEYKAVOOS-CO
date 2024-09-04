@@ -10,12 +10,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { PermissionContext } from "../../context/permission-context/PermissionContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
+import { RiDeleteBin7Fill } from "react-icons/ri";
+import { IoArrowBack } from "react-icons/io5";
 
 export type PermissionType = { name_en: string; name_fa: string; id: number; };
 
@@ -36,6 +38,11 @@ function PermissionManagement() {
 
   return (
     <div className="grid grid-cols-1 gap-5">
+      <div className="flex items-center justify-end">
+        <Link href='/panel/admin/view-users' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
+          <IoArrowBack />
+        </Link>
+      </div>
       <div className="flex lg:flex-row flex-col gap-5">
         <div className="w-[150px] lg:w-full">
           <NewInfoOnEachPageBtn btnText="ایجاد دسترسی" src="/panel/admin/view-users/permission-management/create-permission" />
@@ -77,7 +84,7 @@ function PermissionManagement() {
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link>
                 <span onClick={() => deletePermission(item.id, token, setPermissionIsDeleted)} className="flex justify-center hover:scale-125 duration-300" >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePermission(item.id, token, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
                   <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl" />

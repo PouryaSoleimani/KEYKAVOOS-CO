@@ -10,7 +10,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -88,7 +88,7 @@ function SiteTypes() {
                 }
                 className="flex justify-center"
               >
-                <RxCross1 className="text-red-600 text-lg" />
+                <RiDeleteBin7Fill className="text-red-600 text-lg" />
               </span>
               {/* <span
                 onClick={() =>

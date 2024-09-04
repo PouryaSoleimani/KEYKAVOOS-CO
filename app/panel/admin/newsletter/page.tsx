@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
-import { RxCross1 } from "react-icons/rx";
+
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../components/NotFound";
@@ -97,7 +97,7 @@ function NewsLetter() {
                   }
                   className="flex justify-center"
                 >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span
                   onClick={() =>

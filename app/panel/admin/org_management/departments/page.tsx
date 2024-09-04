@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -80,7 +80,7 @@ function Departments() {
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link>
                 <span onClick={() => deleteDepartment(item.department.id, token, setDepartmentIsDeleted)} className="flex justify-center"  >
-                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreDepartment(item.department.id, token, setDepartmentIsDeleted)}   >
                   <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />

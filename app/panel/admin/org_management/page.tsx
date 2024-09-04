@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import Image from "next/image";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-import { RxCross1 } from "react-icons/rx";
+
 
 function OrgManagement() {
   const { token } = useSelector((state: any) => state.userData);
@@ -83,7 +83,7 @@ function OrgManagement() {
                         }
                         className="flex justify-center cursor-pointer"
                       >
-                        <RxCross1 className="text-red-600 text-lg" />
+                        <RiDeleteBin7Fill className="text-red-600 text-lg" />
                       </span>
                       <span
                         onClick={() =>

@@ -1,20 +1,16 @@
 "use client";
-import {
-  deletePosition,
-  getAllPositions,
-  restorePosition,
-} from "@/utils/utils";
+import { deletePosition, getAllPositions, restorePosition, } from "@/utils/utils";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-import { RxCross1 } from "react-icons/rx";
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type PositionType = {
   position: {
@@ -95,27 +91,10 @@ function PositionManagement() {
                 >
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link> */}
-                <span
-                  onClick={() =>
-                    deletePosition(
-                      item.position.id,
-                      token,
-                      setPositionIsDeleted
-                    )
-                  }
-                  className="flex justify-center"
-                >
-                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
+                <span onClick={() => deletePosition(item.position.id, token, setPositionIsDeleted)} className="flex justify-center" >
+                  <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
-                <span
-                  onClick={() =>
-                    restorePosition(
-                      item.position.id,
-                      token,
-                      setPositionIsDeleted
-                    )
-                  }
-                >
+                <span onClick={() => restorePosition(item.position.id, token, setPositionIsDeleted)}>
                   <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>

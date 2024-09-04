@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { deletePlanAttr, getPlanAttrs, restorePlanAttr } from "@/utils/utils";
@@ -113,7 +113,7 @@ function AttrEdition({
                   }
                   className="flex justify-center"
                 >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span
                   onClick={() =>

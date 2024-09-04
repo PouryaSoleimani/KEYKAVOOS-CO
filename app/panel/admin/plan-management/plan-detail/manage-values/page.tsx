@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaCheck, FaPlus } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -125,7 +125,7 @@ function ManageValues() {
                 }
                 className="flex justify-center"
               >
-                <RxCross1 className="text-red-600 text-lg" />
+                <RiDeleteBin7Fill className="text-red-600 text-lg" />
               </span>
               <span
                 onClick={() =>

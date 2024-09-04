@@ -10,7 +10,7 @@ import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { RxCross1 } from "react-icons/rx";
+
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
@@ -102,7 +102,7 @@ function Brands() {
                       <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                     </Link>
                     <span onClick={() => deleteBrand(item.brand.id, token, setBrandIsDeleted)} className="flex justify-center" >
-                      <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
+                      <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                     </span>
                     <span onClick={() => restoreBrand(item.brand.id, token, setBrandIsDeleted)}>
                       <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />

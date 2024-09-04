@@ -6,7 +6,7 @@ import Link from "next/link";
 import NotFound from "../components/NotFound";
 import GenuineUserHeader from "../components/GenuineUserHeader";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { RxCross1 } from "react-icons/rx";
+
 import { deleteUser } from "@/utils/utils";
 import SearchInput from "../components/SearchInput";
 
@@ -65,7 +65,7 @@ function GenuineUsers({
                 }
                 className="flex justify-center col-span-1"
               >
-                <RxCross1 className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5" />
+                <RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5" />
                 {/* <Image src={vieweye} alt="مشاهده" width={20} height={20} /> */}
               </span>
             </div>
