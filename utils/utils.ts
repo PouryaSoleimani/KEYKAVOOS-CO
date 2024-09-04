@@ -817,23 +817,16 @@ export const createNewRole = async (
     console.log(error);
   }
 };
-// get all permissions
+// ^ GET ALL PERMISIONS
 export const getAllPermissions = async (
   token: string,
   setPermissions: React.Dispatch<React.SetStateAction<PermissionType[]>>,
-  setDataStatus: Dispatch<
-    SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+  setDataStatus: Dispatch<SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
     setDataStatus((last) => ({ ...last, loading: true }));
     const { data } = await app("/permissions", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     setPermissions(data.data);
     window.sessionStorage.setItem("permissions", JSON.stringify(data.data));
