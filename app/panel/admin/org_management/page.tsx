@@ -1,13 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
-import {
-  deleteOrgan,
-  getOrganizations,
-  restoreOrganization,
-} from "@/utils/utils";
+import { deleteOrgan, getOrganizations, restoreOrganization, } from "@/utils/utils";
 import { useSelector } from "react-redux";
 import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import Image from "next/image";
@@ -18,32 +15,21 @@ function OrgManagement() {
   const { token } = useSelector((state: any) => state.userData);
   const [organizations, setOrganizations] = useState([]);
   const [organIsDeleted, setOrganIsDeleted] = useState(false);
-  const [organizationsStatus, setOrganizationsStatus] = useState({
-    loading: false,
-    error: "",
-  });
+  const [organizationsStatus, setOrganizationsStatus] = useState({ loading: false, error: "", });
 
-  useEffect(() => {
-    getOrganizations(token, setOrganizations, setOrganizationsStatus);
-  }, []);
+  useEffect(() => { getOrganizations(token, setOrganizations, setOrganizationsStatus); }, []);
 
   return (
     <div className="grid grid-cols-1 gap-5">
       <div className="flex gap-5">
-        <Link
-          href={`/panel/admin/org_management/brands`}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px]"
-        >
+        <Link href={`/panel/admin/org_management/brands`} className="text-white bg-[#4866CF] py-3 px-6 hover:bg-blue-800 duration-300 rounded-[5px]" >
           برندها
         </Link>
-        <Link
-          href={`/panel/admin/org_management/departments`}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px]"
-        >
+        <Link href={`/panel/admin/org_management/departments`} className="text-white bg-[#4866CF] py-3 px-6 hover:bg-blue-800 duration-300 rounded-[5px]" >
           دپارتمان ها
         </Link>
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center space-y-3">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center space-y-3">
         <div className="grid lg:grid-cols-5 grid-cols-12">
           <div className="col-span-1">ردیف</div>
           <div className="col-span-2 lg:col-span-1">نام سازمان</div>
