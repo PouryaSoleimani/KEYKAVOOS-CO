@@ -3055,55 +3055,55 @@ export const getTicektDetail = async (
   }
 };
 //^^^ CREATING A NEW PROJECT IN USER PANEL 
-// export const createProject = async ( token: string, title: string, description: string, budget_cost: number, discount_code: string | null, priority: string, register_user_id: number, planId: number, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
-//   try {
-//     const { data } = await app.post("/project/store",
-//       {
-//         title,
-//         description,
-//        budget_cost,
-//         discount_code,
-//         priority,
-//         register_user_id,
-//          plan_id: planId,
-//         consultation_id: consultation_id || null,
-//         lookslike: lookslike || null,
-//         org_color: org_color || null,
-//         plugin: plugin || null,
-//         template: template || null,
-//       },
-//       { headers: { Authorization: `Bearer ${token}`, }, }
-//     );
-//     toast.success("پروژه با موفقیت ثبت شد.", {
-//       position: "top-right",
-//       autoClose: 3000,
-//       hideProgressBar: true,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       theme: "light",
-//       transition: Bounce,
-//       rtl: true,
-//     });
-//     window.sessionStorage.removeItem("consultation_id");
-//     console.log("CREATING PROJECT ---- DATA ==>", data);
-//   } catch (error: any) {
-//     // console.log(error.response.data.message);
-//     toast.error("خطا در ثبت پروژه.", {
-//       position: "top-right",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       theme: "light",
-//       transition: Bounce,
-//       rtl: true,
-//     });
-//   }
-// };
+export const createProject = async (token: string, title: string, description: string, budget_cost: number, discount_code: string | null, priority: string, register_user_id: number, planId: number, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
+  try {
+    const { data } = await app.post("/project/store",
+      {
+        title,
+        description,
+        budget_cost,
+        discount_code,
+        priority,
+        register_user_id,
+        plan_id: planId,
+        consultation_id: consultation_id || null,
+        lookslike: lookslike || null,
+        org_color: org_color || null,
+        plugin: plugin || null,
+        template: template || null,
+      },
+      { headers: { Authorization: `Bearer ${token}`, }, }
+    );
+    toast.success("پروژه با موفقیت ثبت شد.", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
+    });
+    window.sessionStorage.removeItem("consultation_id");
+    console.log("CREATING PROJECT ---- DATA ==>", data);
+  } catch (error: any) {
+    // console.log(error.response.data.message);
+    toast.error("خطا در ثبت پروژه.", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
+    });
+  }
+};
 export const CREATEPROJECT = (
   token: string,
   title: string,
@@ -3119,8 +3119,8 @@ export const CREATEPROJECT = (
   org_color: ColorType[] | null,
   plugin: PluginType[] | null,
   template: TemplateType[] | null
-) => {
 
+) => {
   const newProjectInfos = {
     title,
     description,
