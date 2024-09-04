@@ -8,7 +8,7 @@ import NotFound from "../../components/NotFound";
 import Link from "next/link";
 import Image from "next/image";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-import BackButton from "@/app/panel/admin/components/backButton";
+import BackButton from "@/app/panel/admin/components/BackButton";
 import { IoArrowBack } from "react-icons/io5";
 
 //^ COMPONENT ============================================================================================================================= 
