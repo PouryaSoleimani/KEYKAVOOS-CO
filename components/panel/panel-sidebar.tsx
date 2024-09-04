@@ -19,7 +19,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
         <div className="flex justify-center">
           <Logo />
         </div>
-        <Image src={sidebarpicbg} alt="sidebarbg" height={600} />
+        <Image src={sidebarpicbg} alt="sidebarbg" height={630} />
         <div className="absolute top-40 flex flex-col gap-10 py-2 pr-2 w-full">
           {sideOptions.map((item) => (
             <Link href={item.address} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >

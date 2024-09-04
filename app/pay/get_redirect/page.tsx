@@ -1,10 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Loading from "@/app/loading";
-import {
-  fetchUserProfile,
-  getIdFromLocal,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
+import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import app from "@/services/service";
 import axios from "axios";
 import Link from "next/link";
@@ -58,34 +55,32 @@ function WebService() {
     const factor_id = params.get("factorId");
     setFactorId(factor_id);
     // if (localToken) {
-      getPayRedirect(transId, idGet, factorId);
+    getPayRedirect(transId, idGet, factorId);
     // }
   }, []);
   return (
     <div>
       {/* {payMessage ? ( */}
-        <div
-          className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[500px] h-[200px] flex items-center justify-center flex-col rounded-2xl gap-3 ${
-            error ? "bg-emerald-500" : "bg-red-700"
+      <div
+        className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[500px] h-[200px] flex items-center justify-center flex-col rounded-2xl gap-3 ${error ? "bg-emerald-500" : "bg-red-700"
           }`}
+      >
+        <div
+          dir="rtl"
+          className="flex justify-center items-center text-white text-2xl"
         >
-          <div
-            dir="rtl"
-            className="flex justify-center items-center text-white text-2xl"
-          >
 
-            hi
-            {/* {payMessage} */}
-          </div>
-          <Link
-            href="/"
-            className={`flex justify-center items-center text-white p-2 rounded-lg ${
-              error ? "bg-indigo-500" : "bg-teal-600"
-            }`}
-          >
-            بازگشت به صفحه اصلی
-          </Link>
+          hi
+          {/* {payMessage} */}
         </div>
+        <Link
+          href="/"
+          className={`flex justify-center items-center text-white p-2 rounded-lg ${error ? "bg-indigo-500" : "bg-teal-600"
+            }`}
+        >
+          بازگشت به صفحه اصلی
+        </Link>
+      </div>
       {/* ) : (
         <Loading />
       )} */}
