@@ -21,6 +21,7 @@ export type ProjectDetailType = {
   Colors: { id: number; color: string }[];
   status?: string;
 };
+
 function ProjectDetail() {
   const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
   const params = useSearchParams();
