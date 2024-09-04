@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import { IoArrowBack } from "react-icons/io5";
+import { MdOutlinePayment } from "react-icons/md";
 
 //^ COMPONENT ============================================================================================================================= 
 function OrderManagement() {
@@ -51,12 +52,14 @@ function OrderManagement() {
                 {Number(item.project?.final_price).toLocaleString()}
               </p>
               <p>{item.status?.title ? item.status?.title : "نامعلوم"}</p>
-              <Link
-                href={`/panel/admin/project-management/order-management/order-detail?id=${item?.id}`}
-                className="flex justify-center"
-              >
-                <Image src={vieweye} alt="مشاهده" width={20} height={20} />
-              </Link>
+              <div className="flex flex-row gap-5 justify-center items-center">
+                <Link href={`/panel/admin/project-management/order-management/order-detail?id=${item?.id}`} className="flex justify-center" >
+                  <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                </Link>
+                <Link href={`/panel/user/order-management/order-payment?id=${item?.id}`} className="hover:scale-125 duration-300">
+                  <MdOutlinePayment className="text-xl text-green-800 font-semibold" />
+                </Link>
+              </div>
             </div>
           ))
         )}
