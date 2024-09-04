@@ -27,8 +27,8 @@ export type PluginType = { plugin_name: string };
 // ^ COMPONENT
 function SubmitOrder() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
-  const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
   const [consultationId, setConsultationId] = useState("");
+  const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
 
   // GETTING PLANS AND TYPES
   useEffect(() => {
@@ -119,9 +119,7 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      // projectFields.plan == "طلایی" ? "1" : projectFields.plan == "نقره ای" ? "2" : "3",
-      Number(projectFields.plan),
-      Number(plansId),
+      plansId,
       projectFields.discount_code,
       projectFields.type,
       consultationId ? Number(consultationId) : null,

@@ -3112,8 +3112,7 @@ export const CREATEPROJECT = (
   priority: number,
   register_user_id: number,
   type: number,
-  plan: string | number,
-  plan_id: string | number,
+  plansId: string | number,
   discount_code: string | null,
   consultation_id: number | null,
   lookslike: SimilarSiteType[] | null,
@@ -3122,7 +3121,22 @@ export const CREATEPROJECT = (
   template: TemplateType[] | null
 ) => {
 
-  const newProjectInfos = { title, description, budget_cost, priority, register_user_id, plan_id: plan_id, discount_code, type, consultation_id: consultation_id || null, lookslike: lookslike || null, org_color: org_color || null, plugin: plugin || null, template: template || null, token }
+  const newProjectInfos = {
+    title,
+    description,
+    budget_cost,
+    priority,
+    register_user_id,
+    plan_id : plansId ,
+    discount_code,
+    type,
+    consultation_id: consultation_id || null,
+    lookslike: lookslike || null,
+    org_color: org_color || null,
+    plugin: plugin || null,
+    template: template || null,
+    token
+  }
 
   axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, } }).
     then(response => {
