@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
 import uploadfile from "@/public/Panel/uploadfile.svg";
 import { useSearchParams } from "next/navigation";
+import { useSelector } from "react-redux";
 
 function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, token, }: {
   thirdOrderPayment: { final_price: number; debt: number; amount: number; id: number; };
@@ -13,8 +14,9 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, to
   File: any;
   token: string;
 }) {
-
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, thirdOrderPayment.id); };
+  const { userProfile } = useSelector((state: any) => state.userData);
+  const [isFileUploaded, setIsFileUploaded] = useState(false)
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, thirdOrderPayment.id, userProfile.id, isFileUploaded, setIsFileUploaded); };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
