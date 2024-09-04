@@ -8,29 +8,18 @@ function CreatePosition() {
   const { token } = useSelector((state: any) => state.userData);
   const [usersInfo, setUsersInfo] = useState([]);
   const [departmentsInfo, setDepartmentsInfo] = useState([]);
-  const [createPosition, setCreatePosition] = useState({
-    title_en: "",
-    title_fa: "",
-    dept_id: "",
-    user_id: "",
-  });
+  const [createPosition, setCreatePosition] = useState({ title_en: "", title_fa: "", dept_id: "", user_id: "", });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localUsers = JSON.parse(
-        window.sessionStorage.getItem("users") as string
-      );
+      const localUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
       setUsersInfo(localUsers);
 
-      const localDepartments = JSON.parse(
-        window.sessionStorage.getItem("departments") as string
-      );
+      const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
 
       setDepartmentsInfo(localDepartments);
 
-      if (localUsers.length === 1) {
-        setCreatePosition((prev) => ({ ...prev, user_id: localUsers[0].name }));
-      }
+      if (localUsers.length === 1) { setCreatePosition((prev) => ({ ...prev, user_id: localUsers[0].name })); }
       if (localDepartments.length === 1) {
         const departments = localDepartments.map(
           (item: { department: { name_fa: string } }) => item.department.name_fa
