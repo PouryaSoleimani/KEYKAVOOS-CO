@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import { PermissionContext } from "../../context/permission-context/PermissionContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
@@ -87,7 +87,7 @@ function PermissionManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePermission(item.id, token, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl" />
+                  <IoReloadCircle  className="text-yellow-600 text-xl" />
                 </span>
               </div>
             </div>

@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
@@ -95,7 +95,7 @@ function SiteTypes() {
                   restoreSiteType(item.id, token, setSiteTypeIsDeleted)
                 }
               >
-                <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <IoReloadCircle  className="text-yellow-600 text-lg" />
               </span> */}
             </div>
           </div>

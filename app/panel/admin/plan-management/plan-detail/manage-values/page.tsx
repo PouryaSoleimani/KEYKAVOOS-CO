@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import { FaCheck, FaPlus } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import {
@@ -132,7 +132,7 @@ function ManageValues() {
                   restorePlanValues(item.id, token, setValueIsDeleted)
                 }
               >
-                <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <IoReloadCircle  className="text-yellow-600 text-lg" />
               </span>
               {/* <span
                 onClick={() =>

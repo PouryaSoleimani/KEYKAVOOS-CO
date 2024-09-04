@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
 const moment = require("moment-jalaali");
@@ -91,7 +91,7 @@ function Consultations() {
                       restoreConsultation(item.id, token, setConsultIsDeleted)
                     }
                   >
-                    <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                    <IoReloadCircle  className="text-yellow-600 text-lg" />
                   </span>
                 </div>
               </div>

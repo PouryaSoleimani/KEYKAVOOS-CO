@@ -6,15 +6,14 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import { DepartmentContext } from "../../context/department-context/DepartmentContext";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type DepartmentType = { id: number; name_en: string; name_fa: string; deleted_at: string; };
 export type DepartmentFinalType = { department: { id: number; name_en: string; name_fa: string; deleted_at: string; }; };
@@ -83,7 +82,7 @@ function Departments() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreDepartment(item.department.id, token, setDepartmentIsDeleted)}   >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />
+                  <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

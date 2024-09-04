@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
@@ -84,7 +84,7 @@ function PlanManagement() {
                     <RiDeleteBin7Fill className="text-red-600 text-lg" />
                   </span>
                   <span onClick={() => restorePlan(item.plan.id, token, setPlanIsDeleted)} >
-                    <MdOutlineSettingsBackupRestore
+                    <IoReloadCircle 
                       className={`${item.plan.deleted_at && planIsDeleted
                         ? "text-green-600"
                         : "text-yellow-600"

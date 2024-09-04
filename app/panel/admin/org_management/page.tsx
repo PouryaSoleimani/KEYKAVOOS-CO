@@ -6,7 +6,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
 import { deleteOrgan, getOrganizations, restoreOrganization, } from "@/utils/utils";
 import { useSelector } from "react-redux";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import Image from "next/image";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 
@@ -90,7 +90,7 @@ function OrgManagement() {
                           restoreOrganization(item.id, token, setOrganIsDeleted)
                         }
                       >
-                        <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg cursor-pointer" />
+                        <IoReloadCircle  className="text-yellow-600 text-lg cursor-pointer" />
                       </span>
                     </div>
                   </div>

@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import { RoleContext } from "../../context/role-context/RoleContext";
@@ -77,7 +77,7 @@ function RoleManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg hover:scale-125 duration-300" />
+                  <IoReloadCircle  className="text-yellow-600 text-lg hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

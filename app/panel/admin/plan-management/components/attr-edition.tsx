@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 import { FaPlus } from "react-icons/fa6";
 import { deletePlanAttr, getPlanAttrs, restorePlanAttr } from "@/utils/utils";
 import { PlanAttrType } from "../plan-detail/page";
@@ -120,7 +120,7 @@ function AttrEdition({
                     restorePlanAttr(item.id, token, setAttrIsDeleted)
                   }
                 >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                  <IoReloadCircle  className="text-yellow-600 text-lg" />
                 </span>
                 <span onClick={() => handleAddingValue(item?.id)}>
                   <FaPlus />

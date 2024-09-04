@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
@@ -109,7 +109,7 @@ function NewsLetter() {
                     )
                   }
                 >
-                  <MdOutlineSettingsBackupRestore
+                  <IoReloadCircle 
                     className={`${
                       item.deleted_at ? "text-green-600" : "text-yellow-600 "
                     } text-lg`}

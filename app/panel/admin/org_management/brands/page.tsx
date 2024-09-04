@@ -1,23 +1,17 @@
 "use client";
-import {
-  deleteBrand,
-  getAllBrands,
-  restoreBrand,
-  updateBrand,
-} from "@/utils/utils";
+import { deleteBrand, getAllBrands, restoreBrand, updateBrand, } from "@/utils/utils";
 import React, { useEffect, useState } from "react";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
 import NotFound from "../../components/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 export type BrandType = { brand: { title: string; description: string; id: number; deleted_at: string; }; };
 function Brands() {
@@ -105,7 +99,7 @@ function Brands() {
                       <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                     </span>
                     <span onClick={() => restoreBrand(item.brand.id, token, setBrandIsDeleted)}>
-                      <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />
+                      <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
                     </span>
                   </div>
                 </div>
