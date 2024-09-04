@@ -19,9 +19,15 @@ function ConsultDetail() {
   const [consultDetailStatus, setConsultDetailStatus] = useState({ loading: false, erorr: "", });
 
   useEffect(() => { getConsultationDetail(token, id, setConsultationDetail, setConsultDetailStatus); }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("%c DETAILS =====>", "color:lightpink", consultationDetail);
+    }, 2000);
+  }, [])
+
   return (
     <>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end py-2">
         <Link href='/panel/admin/consultations' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
           <IoArrowBack />
         </Link>
@@ -40,14 +46,9 @@ function ConsultDetail() {
         ) : consultDetailStatus.erorr ? (
           <NotFound text={`${consultDetailStatus.erorr}`} />
         ) : (
-          <div className="grid grid-cols-3 py-1 bg-[#EAEFF6] rounded-[4px]">
+          <div className="grid grid-cols-3 py-4 bg-[#EAEFF6] rounded-[4px]">
             <p>
-              {consultationDetail.date
-                ? moment(
-                  consultationDetail.date,
-                  "YYYY-MM-DDTHH:mm:ss.SSSZ"
-                ).format("jYYYY/jM/jD")
-                : "-"}
+              {consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
             </p>
             <p>{consultationDetail.title}</p>
             <p>{consultationDetail.description}</p>
