@@ -32,7 +32,7 @@ function OrderPayment() {
 
   useEffect(() => { setTimeout(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, 1500); }, []);
 
-  console.log("%c ORDER DETAILS ===>", "color:yellow", orderDetail);
+  // console.log("%c ORDER DETAILS ===>", "color:yellow", orderDetail);
 
   const firstOrderPayment = orderDetail.payments?.[0];
   const secondOrderPayment = orderDetail.payments?.[1];

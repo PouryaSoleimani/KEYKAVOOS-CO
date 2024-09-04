@@ -3622,7 +3622,7 @@ export const getOrderDetail = async (
   try {
     seOrderDetailStatus && seOrderDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app.get(`/order/show/${orderId}`, { headers: { Authorization: `Bearer ${token}`, }, });
-    console.log("ORDER DETAILS ==>", data);
+    // console.log("ORDER DETAILS ==>", data);
     setOrderDetail(data.data);
   } catch (error: any) {
     seOrderDetailStatus &&
@@ -3701,13 +3701,14 @@ export const closeTicket = async (
     });
   }
 };
-// payment file upload
+//^ PAYMENT FILE UPLOAD =========================================================================================================
 export const handlePaymentFileUpload = async (
   File: File,
   token: string,
   paymentId: number,
   id: number,
-  setIsFileUploaded: any
+  isFileUploaded: boolean,
+  setIsFileUploaded: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   const formData = new FormData();
   formData.append("file", File);
@@ -3724,6 +3725,8 @@ export const handlePaymentFileUpload = async (
       }
     );
     console.log("payment file", data);
+    setIsFileUploaded(true)
+    console.log("IS FILE UPLOADED ? ==>", isFileUploaded);
     toast.success("آپلود فایل موفق بود.", {
       position: "top-right",
       autoClose: 3000,
@@ -3736,7 +3739,6 @@ export const handlePaymentFileUpload = async (
       transition: Bounce,
       rtl: true,
     });
-    setIsFileUploaded(true)
   } catch (error: any) {
     toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
       position: "top-right",

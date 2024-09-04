@@ -18,7 +18,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
 }) {
   const { userProfile } = useSelector((state: any) => state.userData);
   const [isFileUploaded, setIsFileUploaded] = useState(false)
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id, userProfile.id, setIsFileUploaded); };
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id, userProfile.id, isFileUploaded, setIsFileUploaded); };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
@@ -48,7 +48,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
-                    {File ? (File.name) : isFileUploaded ? "انتخاب فایل" : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
+                    {File ? (File.name) : isFileUploaded === true ? " آپلود مجدد" : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>
@@ -58,7 +58,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
             </div>
 
             <div className="flex justify-end items-center">
-              <button className="bg-[#4866CE] text-white p-2 w-[30%] tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">
+              <button className="bg-[#4866CE] text-white p-3 w-[30%] tracking-tight rounded-[6px] text-lg hover:bg-blue-800 duration-300">
                 تایید
               </button>
             </div>
