@@ -2958,14 +2958,14 @@ export const CREATETICKET = (title: string, token: string, description: string, 
   axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
       console.log(response.data);
-      toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log("%c SUCCESS ====>", "color:lime;font-weight:900", newTicketInfos);
       setTimeout(() => { window.location.replace('http://localhost:3000/panel/user/support') }, 500);
     }
     ).catch(error => {
       console.log(error.response);
       console.log("%c ERROR ====>", "color:orange;font-weight:900", newTicketInfos);
-      toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
     )
 }
@@ -2999,40 +2999,14 @@ export const deleteTicket = async (
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/ticket/delete/${ticketId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/ticket/delete/${ticketId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log(data);
-    toast.success("تیکت با موفقیت حذف شد", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
+    toast.success("تیکت با موفقیت حذف شد", { position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     setIsDeleted(true);
     console.log(data);
   } catch (error) {
     console.log(error);
-    toast.error("خطا در حذف تیکت", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
+    toast.error("خطا در حذف تیکت", { position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
   }
 };
 
@@ -3113,7 +3087,7 @@ export const CREATEPROJECT = async (token: string, title: string, description: s
     priority,
     register_user_id,
     discount_code,
-    plan_id: plansId ? plansId : 1 ,
+    plan_id: plansId ? plansId : 1,
     type,
     consultation_id: consultation_id || null,
     lookslike: lookslike || null,
