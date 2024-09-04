@@ -21,16 +21,12 @@ function ViewUsers() {
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      getAllUsers(token, setAllUsersData, setUsersStatus);
-    }
+    if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }
   }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const allUsers = JSON.parse(
-        window.sessionStorage.getItem("users") as string
-      );
+      const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
       setAllUsersData(allUsers);
     }
   }, [setAllUsersData]);
