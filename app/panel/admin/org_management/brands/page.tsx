@@ -18,31 +18,16 @@ import NotFound from "../../components/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 
-export type BrandType = {
-  brand: {
-    title: string;
-    description: string;
-    id: number;
-    deleted_at: string;
-  };
-};
+export type BrandType = { brand: { title: string; description: string; id: number; deleted_at: string; }; };
 function Brands() {
   const [brands, setBrands] = useState<BrandType[]>([]);
   const { token } = useSelector((state: any) => state.userData);
   const [brandIsDeleted, setBrandIsDeleted] = useState(false);
-  const [brandStatus, setBrandStatus] = useState({
-    loading: false,
-    error: "",
-  });
-  useEffect(() => {
-    getAllBrands(setBrands, setBrandStatus);
-  }, []);
+  const [brandStatus, setBrandStatus] = useState({ loading: false, error: "", });
+  const [editField, setEditField] = useState({ showEditField: false, editTitle: "", editDesc: "", });
 
-  const [editField, setEditField] = useState({
-    showEditField: false,
-    editTitle: "",
-    editDesc: "",
-  });
+  useEffect(() => { getAllBrands(setBrands, setBrandStatus); }, []);
+
 
   const handleBrandEdit = async (id: number) => {
     const selectedBrand = brands.find(
@@ -54,19 +39,19 @@ function Brands() {
         last.map((item: BrandType) =>
           item.brand.id === id
             ? {
-                ...item,
-                brand: {
-                  ...item.brand,
-                  title:
-                    editField.editTitle !== ""
-                      ? editField.editTitle
-                      : item.brand.title,
-                  description:
-                    editField.editDesc !== ""
-                      ? editField.editDesc
-                      : item.brand.description,
-                },
-              }
+              ...item,
+              brand: {
+                ...item.brand,
+                title:
+                  editField.editTitle !== ""
+                    ? editField.editTitle
+                    : item.brand.title,
+                description:
+                  editField.editDesc !== ""
+                    ? editField.editDesc
+                    : item.brand.description,
+              },
+            }
             : item
         )
       );
@@ -110,11 +95,10 @@ function Brands() {
                 index
               ) => (
                 <div
-                  className={`${
-                    item.brand.deleted_at
-                      ? "bg-red-300"
-                      : "bg-[#EAEFF6]"
-                  } grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer items-center`}
+                  className={`${item.brand.deleted_at
+                    ? "bg-red-300"
+                    : "bg-[#EAEFF6]"
+                    } grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer items-center`}
                   key={index}
                 >
                   <p className="col-span-1">{index + 1}</p>
