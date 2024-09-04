@@ -3105,7 +3105,7 @@ export const getTicektDetail = async (
 //   }
 // };
 
-export const CREATEPROJECT = (token: string, title: string, description: string, budget_cost: number, priority: number, register_user_id: number, type: number, plansId: number, discount_code: string | null, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
+export const CREATEPROJECT = async (token: string, title: string, description: string, budget_cost: number, priority: number, register_user_id: number, type: number, plansId: number | string, discount_code: string | null, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
   const newProjectInfos = {
     title,
     description,
@@ -3113,7 +3113,7 @@ export const CREATEPROJECT = (token: string, title: string, description: string,
     priority,
     register_user_id,
     discount_code,
-    plan_id: plansId,
+    plan_id: plansId ? plansId : 1 ,
     type,
     consultation_id: consultation_id || null,
     lookslike: lookslike || null,
@@ -3122,8 +3122,7 @@ export const CREATEPROJECT = (token: string, title: string, description: string,
     template: template || null,
     token
   }
-
-  axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, } }).
+  await axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
     then(response => {
       console.log(response);
       toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", style: { fontSize: "14px" }, autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });

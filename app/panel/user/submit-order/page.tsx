@@ -28,6 +28,7 @@ export type PluginType = { plugin_name: string };
 function SubmitOrder() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
   const [consultationId, setConsultationId] = useState("");
+
   const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
 
   // GETTING PLANS AND TYPES
@@ -56,21 +57,23 @@ function SubmitOrder() {
   const [projectFields, setProjectFields] = useState({
     title: "",
     type: "",
-    plan: "",
+    plan: "فروشگاهی",
     budget: "",
     priority: "کم",
     Similar_Site: similarSiteData,
     Description: "",
     Templates: templatesData,
     Colors: colorsData,
-    discount_code: "",
+    discount_code: "---",
   });
-  // پلن /plans
+
+  // plans: ""
   // نوع پروژه(طراحی) /types
   const planTitlesAndDescs = allPlans?.filter((item) => item.plan.title.includes(projectFields.type)).map((item) => item.plan.title);
 
   const siteTypeTitles = siteTypes?.map((item: SimilarSiteType) => item.title);
   const plansId = allPlans?.filter((item) => projectFields.plan.includes(item.plan.title))[0]?.plan.id;
+  const PLANSID = Number(allPlans?.find(item => item.plan.title.includes(projectFields.plan))?.plan.id)
 
   const handleBudegtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/,/g, "");
@@ -123,8 +126,8 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      plansId,
-      projectFields.discount_code,
+      Number(plansId),
+      projectFields.discount_code ? Number(projectFields.discount_code) : 0,
       projectFields.type,
       consultationId ? Number(consultationId) : null,
       similarSiteData,
@@ -132,7 +135,7 @@ function SubmitOrder() {
       pluginData,
       templatesData,
     )
-    console.log(plansId);
+    console.log(plansId)
     // setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
     // setSimilarSiteData([]);
     // setColorsData([]);
