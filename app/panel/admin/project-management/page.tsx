@@ -4,12 +4,9 @@ import Link from "next/link";
 
 function ProjectMangement() {
   return (
-    <div className="grid grid-cols-1 gap-8">
+    <div className="grid grid-cols-1 gap-2">
       <div className="flex">
-        <Link
-          href={`/panel/admin/project-management/order-management`}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px]"
-        >
+        <Link href={`/panel/admin/project-management/order-management`} className="text-white bg-[#4866CF] p-3 rounded-[5px]"  >
           مدیریت سفارشات
         </Link>
       </div>

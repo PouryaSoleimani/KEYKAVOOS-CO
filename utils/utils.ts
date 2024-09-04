@@ -2775,7 +2775,7 @@ export const submitConsultation = async (
     console.log(error.response.data.message);
   }
 };
-// delete consult by admin
+//! DELETE CONSULTATION BY ADMIN 
 export const deleteConsultation = async (
   consultId: number,
   token: string,
