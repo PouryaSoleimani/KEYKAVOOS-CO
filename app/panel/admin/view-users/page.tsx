@@ -16,9 +16,7 @@ function ViewUsers() {
   const [searchUsers, setSearchUsers] = useState("");
   const [legalUsers, setLegalUsers] = useState<never[]>([]);
   const [genuineUsers, setGenuineUsers] = useState<never[]>([]);
-  const [usersStatus, setUsersStatus] = useState({
-    loading: false,
-  });
+  const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
   useEffect(() => {
     if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }

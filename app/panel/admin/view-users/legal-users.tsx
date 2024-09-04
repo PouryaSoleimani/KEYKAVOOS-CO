@@ -11,18 +11,7 @@ import { deleteUser } from "@/utils/utils";
 import SearchInput from "../components/SearchInput";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 
-type LegalUsersProps = {
-  LegalUsersData: any[];
-  usersStatus: { loading: boolean; };
-  token: string;
-  setAllUsers: React.Dispatch<any>;
-  setDataStatus: React.Dispatch<
-    React.SetStateAction<{ loading: boolean; }>
-  >;
-  AllUsersData: [];
-  searchUsers: string;
-  setSearchUsers: React.Dispatch<React.SetStateAction<string>>;
-};
+type LegalUsersProps = { LegalUsersData: any[]; usersStatus: { loading: boolean; }; token: string; setAllUsers: React.Dispatch<any>; setDataStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; }>>; AllUsersData: never[]; searchUsers: string; setSearchUsers: React.Dispatch<React.SetStateAction<string>>; };
 
 function LegalUsers({ LegalUsersData, usersStatus, token, setAllUsers, setDataStatus, AllUsersData, searchUsers, setSearchUsers, }: LegalUsersProps) {
 
