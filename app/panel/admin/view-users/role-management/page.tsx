@@ -60,7 +60,7 @@ function RoleManagement() {
           <NotFound text={`${roleLoading.error}`} />
         ) : (
           roles.map((item: any, index) => (
-            <div className={`${item.role.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-3 mt-2 rounded-[4px] cursor-pointer items-center`} key={index}>
+            <div className={`${item.role.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 mt-2 rounded-[4px] cursor-pointer items-center`} key={index}>
 
               <p className="col-span-1">{index + 1}</p>
               <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1">

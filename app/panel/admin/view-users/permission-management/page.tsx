@@ -40,7 +40,7 @@ function PermissionManagement() {
         <div className="w-[150px] lg:w-full">
           <NewInfoOnEachPageBtn btnText="ایجاد دسترسی" src="/panel/admin/view-users/permission-management/create-permission" />
         </div>
-        <Link href={`/panel/admin/view-users/permission-management/change-permission`} className="text-white bg-[#4866CF] hover:bg-blue-800 duration-300 p-3 rounded-[5px] w-[210px] lg:w-full" >
+        <Link href={`/panel/admin/view-users/permission-management/change-permission`} className="text-white bg-[#4866CF] hover:bg-blue-800 duration-300 p-4 rounded-[5px] w-[210px] lg:w-full" >
           تغییر و مدیریت دسترسی ها
         </Link>
       </div>
@@ -62,7 +62,7 @@ function PermissionManagement() {
         ) : (
           permissions?.map((item: any, index) => (
             <div
-              className={`${permissionIsDeleted ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-3 rounded-[4px] cursor-pointer`}
+              className={`${permissionIsDeleted ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer`}
               key={index}
             >
               <p className="col-span-1">{index + 1}</p>
@@ -80,7 +80,7 @@ function PermissionManagement() {
                   <RxCross1 className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePermission(item.id, token, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl" />
                 </span>
               </div>
             </div>

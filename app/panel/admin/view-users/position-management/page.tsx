@@ -65,10 +65,10 @@ function PositionManagement() {
       </div>
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center space-y-3">
         <div className="grid lg:grid-cols-4 grid-cols-9 tracking-tight my-4">
-          <div className="col-span-1">ردیف</div>
-          <div className="col-span-3 lg:col-span-1">نام موقعیت به فارسی</div>
-          <div className="col-span-3 lg:col-span-1">نام موقعیت به انگلیسی</div>
-          <div className="col-span-2 lg:col-span-1">عملیات</div>
+          <div className="col-span-1 font-semibold">ردیف</div>
+          <div className="col-span-3 font-semibold lg:col-span-1">نام موقعیت به فارسی</div>
+          <div className="col-span-3 font-semibold lg:col-span-1">نام موقعیت به انگلیسی</div>
+          <div className="col-span-2 font-semibold lg:col-span-1">عملیات</div>
         </div>
 
         {positionsStatus.loading ? (
@@ -79,7 +79,7 @@ function PositionManagement() {
           <NotFound text={`${positionsStatus.error}`} />
         ) : (
           positions.map((item: any, index) => (
-            <div className={`${item.position.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`} key={index}  >
+            <div className={`${item.position.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-4 tracking-tight rounded-[4px] cursor-pointer`} key={index}  >
               <p className="col-span-1">{index + 1}</p>
               <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center   outline-none col-span-3 lg:col-span-1" >
                 {item.position.title_en}
@@ -105,7 +105,7 @@ function PositionManagement() {
                   }
                   className="flex justify-center"
                 >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span
                   onClick={() =>
@@ -116,7 +116,7 @@ function PositionManagement() {
                     )
                   }
                 >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

@@ -542,22 +542,14 @@ export const createNewPosition = async (
   try {
     const { data } = await app.post(
       "/position/store",
-      {
-        title_en,
-        title_fa,
-        dept_id,
-        user_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { title_en, title_fa, dept_id, user_id, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     toast.success("موقعیت با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -566,12 +558,14 @@ export const createNewPosition = async (
       transition: Bounce,
       rtl: true,
     });
+    window.location.replace('/panel/admin/view-users/position-management')
     // console.log(data);
   } catch (error: any) {
     toast.error("خطا در ایجاد موقعیت", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -580,7 +574,7 @@ export const createNewPosition = async (
       transition: Bounce,
       rtl: true,
     });
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
 // get all roles
