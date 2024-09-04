@@ -2783,9 +2783,7 @@ export const deleteConsultation = async (
 ) => {
   try {
     const { data } = await app.get(`/consult/delete/${consultId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log(data);
     toast.success("مشاوره با موفقیت حذف شد", {
