@@ -109,6 +109,10 @@ function SubmitOrder() {
   //   // setTemplatesData([]);
   // };
 
+
+
+
+
   // ^ FORM SUBMIT HANDLER
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -120,7 +124,7 @@ function SubmitOrder() {
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
       plansId,
-      projectFields.discount_code,
+      Number(projectFields.discount_code),
       projectFields.type,
       consultationId ? Number(consultationId) : null,
       similarSiteData,
