@@ -18,6 +18,7 @@ function OrderManagement() {
   const [orderStatus, setOrderStatus] = useState({ loading: false, error: "", });
 
   useEffect(() => { getOrders(token, setOrders, setOrderStatus); }, []);
+
   return (
     <>
       <div className="flex items-center justify-end py-2" >
