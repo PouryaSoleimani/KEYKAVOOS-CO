@@ -49,54 +49,30 @@ function OrgManagement() {
             <NotFound text={`${organizationsStatus.error}`} />
           ) : (
             <div>
-              {organizations?.map(
-                (
-                  item: {
-                    name: string;
-                    phone: number;
-                    address: string;
-                    id: number;
-                  },
-                  index
-                ) => (
-                  <div
-                    className="grid lg:grid-cols-5 grid-cols-12 bg-[#EAEFF6] caret-transparent cursor-default text-center gap-x-5 py-1 rounded-[4px]"
-                    key={item.id}
-                  >
-                    <p className="col-span-1">{index + 1}</p>
-                    <p className="col-span-2 lg:col-span-1">{item.name}</p>
-                    <p className="col-span-3 lg:col-span-1">{item.phone}</p>
-                    <p className="col-span-3 lg:col-span-1">{item.address}</p>
-                    <div className="flex flex-row items-center justify-center lg:gap-3 col-span-3 gap-1 lg:col-span-1">
-                      <Link
-                        href={`/panel/admin/org_management/org-detail?id=${item.id}`}
-                        className="flex justify-center"
-                      >
-                        <Image
-                          src={vieweye}
-                          alt="مشاهده"
-                          width={20}
-                          height={20}
-                        />
-                      </Link>
-                      <span
-                        onClick={() =>
-                          deleteOrgan(item.id, token, setOrganIsDeleted)
-                        }
-                        className="flex justify-center cursor-pointer"
-                      >
-                        <RiDeleteBin7Fill className="text-red-600 text-lg" />
-                      </span>
-                      <span
-                        onClick={() =>
-                          restoreOrganization(item.id, token, setOrganIsDeleted)
-                        }
-                      >
-                        <IoReloadCircle className="text-emerald-600 text-xl cursor-pointer" />
-                      </span>
-                    </div>
+              {organizations?.map((item: { name: string; phone: number; address: string; id: number; }, index) => (
+
+                <div className="grid lg:grid-cols-5 grid-cols-12 bg-[#EAEFF6] caret-transparent cursor-default text-center gap-x-5 py-1 rounded-[4px]" key={item.id}>
+                  <p className="col-span-1">{index + 1}</p>
+                  <p className="col-span-2 lg:col-span-1">{item.name}</p>
+                  <p className="col-span-3 lg:col-span-1">{item.phone}</p>
+                  <p className="col-span-3 lg:col-span-1">{item.address}</p>
+
+                  <div className="flex flex-row items-center justify-center lg:gap-3 col-span-3 gap-1 lg:col-span-1">
+                    <Link href={`/panel/admin/org_management/org-detail?id=${item.id}`} className="flex justify-center">
+                      <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                    </Link>
+
+                    <span onClick={() => deleteOrgan(item.id, token, setOrganIsDeleted)} className="flex justify-center cursor-pointer" >
+                      <RiDeleteBin7Fill className="text-red-600 text-lg" />
+                    </span>
+
+                    <span onClick={() => restoreOrganization(item.id, token, setOrganIsDeleted)} >
+                      <IoReloadCircle className="text-emerald-600 text-xl cursor-pointer" />
+                    </span>
+
                   </div>
-                )
+                </div>
+              )
               )}
             </div>
           )}

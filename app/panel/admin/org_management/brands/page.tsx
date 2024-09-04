@@ -25,28 +25,18 @@ function Brands() {
 
 
   const handleBrandEdit = async (id: number) => {
-    const selectedBrand = brands.find(
-      (item: BrandType) => item.brand.id === id
-    );
+    const selectedBrand = brands.find((item: BrandType) => item.brand.id === id);
 
     if (selectedBrand) {
       setBrands((last) =>
         last.map((item: BrandType) =>
-          item.brand.id === id
-            ? {
-              ...item,
-              brand: {
-                ...item.brand,
-                title:
-                  editField.editTitle !== ""
-                    ? editField.editTitle
-                    : item.brand.title,
-                description:
-                  editField.editDesc !== ""
-                    ? editField.editDesc
-                    : item.brand.description,
-              },
-            }
+          item.brand.id === id ? {
+            ...item, brand: {
+              ...item.brand,
+              title: editField.editTitle !== "" ? editField.editTitle : item.brand.title,
+              description: editField.editDesc !== "" ? editField.editDesc : item.brand.description,
+            },
+          }
             : item
         )
       );
