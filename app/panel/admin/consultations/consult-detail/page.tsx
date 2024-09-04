@@ -19,11 +19,7 @@ function ConsultDetail() {
   const [consultDetailStatus, setConsultDetailStatus] = useState({ loading: false, erorr: "", });
 
   useEffect(() => { getConsultationDetail(token, id, setConsultationDetail, setConsultDetailStatus); }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      console.log("%c DETAILS =====>", "color:lightpink", consultationDetail);
-    }, 2000);
-  }, [])
+
 
   return (
     <>
