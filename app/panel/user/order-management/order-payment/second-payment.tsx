@@ -6,6 +6,7 @@ import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/u
 import uploadfile from "@/public/Panel/uploadfile.svg";
 import { useSearchParams } from "next/navigation";
 import 'animate.css';
+import { useSelector } from "react-redux";
 
 // ^ COMPONENT ==========================================================================================================================================
 function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File, token, }: {
@@ -15,7 +16,9 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
   File: any;
   token: string;
 }) {
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id); };
+  const { userProfile } = useSelector((state: any) => state.userData);
+  const [isFileUploaded, setIsFileUploaded] = useState(false)
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id, userProfile.id, setIsFileUploaded); };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
@@ -45,7 +48,7 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
-                    {File ? (File.name) : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
+                    {File ? (File.name) : isFileUploaded ? "انتخاب فایل" : (<Image src={uploadfile} alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>

@@ -3705,14 +3705,17 @@ export const closeTicket = async (
 export const handlePaymentFileUpload = async (
   File: File,
   token: string,
-  paymentId: number
+  paymentId: number,
+  id: number,
+  setIsFileUploaded: any
 ) => {
   const formData = new FormData();
   formData.append("file", File);
+  const UPLOADINFOS = { file: File, uploader_user_id: id }
   try {
     const { data } = await app.post(
       `/payment/file/upload/${paymentId}`,
-      formData,
+      UPLOADINFOS,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3733,11 +3736,12 @@ export const handlePaymentFileUpload = async (
       transition: Bounce,
       rtl: true,
     });
+    setIsFileUploaded(true)
   } catch (error: any) {
     toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
