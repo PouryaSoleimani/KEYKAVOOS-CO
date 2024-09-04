@@ -14,6 +14,7 @@ import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
+import { IoArrowBack } from "react-icons/io5";
 
 export type PositionType = {
   position: {
@@ -56,14 +57,14 @@ function PositionManagement() {
 
   return (
     <div className="grid grid-cols-1 gap-5">
-      <div className="flex">
-        <NewInfoOnEachPageBtn
-          btnText="ایجاد موقعیت"
-          src="/panel/admin/view-users/position-management/create-position"
-        />
+      <div className="flex items-center justify-between">
+        <NewInfoOnEachPageBtn btnText="ایجاد جایگاه جدید" src="/panel/admin/view-users/position-management/create-position" />
+        <Link href='/panel/admin/view-users' className="bg-white rounded-lg p-3.5 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
+          <IoArrowBack />
+        </Link>
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center space-y-3">
-        <div className="grid lg:grid-cols-4 grid-cols-9">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center space-y-3">
+        <div className="grid lg:grid-cols-4 grid-cols-9 tracking-tight my-4">
           <div className="col-span-1">ردیف</div>
           <div className="col-span-3 lg:col-span-1">نام موقعیت به فارسی</div>
           <div className="col-span-3 lg:col-span-1">نام موقعیت به انگلیسی</div>
@@ -78,25 +79,12 @@ function PositionManagement() {
           <NotFound text={`${positionsStatus.error}`} />
         ) : (
           positions.map((item: any, index) => (
-            <div
-              className={`${
-                item.position.deleted_at
-                  ? "bg-red-300"
-                  : "bg-[#EAEFF6]"
-              } grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`}
-              key={index}
-            >
+            <div className={`${item.position.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`} key={index}  >
               <p className="col-span-1">{index + 1}</p>
-              <p
-                className="bg-[#EAEFF6] caret-transparent cursor-default text-center
-                outline-none col-span-3 lg:col-span-1"
-              >
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center   outline-none col-span-3 lg:col-span-1" >
                 {item.position.title_en}
               </p>
-              <p
-                className="bg-[#EAEFF6] caret-transparent cursor-default text-center
-                outline-none col-span-3 lg:col-span-1"
-              >
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center   outline-none col-span-3 lg:col-span-1" >
                 {item.position.title_fa}
               </p>
 

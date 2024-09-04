@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { deleteRole, getAllRole, restoreRole, updateRole } from "@/utils/utils";
 import Link from "next/link";
@@ -14,17 +15,13 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack } from "react-icons/io5";
-import { useRouter } from "next/router";
 
 export type RoleType = { role: { name_en: string; name_fa: string; id: number; deleted_at: string; }; };
 
 function RoleManagement() {
   const [roles, setRoles] = useState<RoleType[]>([]);
   // const { setRoles, roles } = useContext(RoleContext);
-  const [roleLoading, setRoleLoading] = useState({
-    loading: false,
-    error: "",
-  });
+  const [roleLoading, setRoleLoading] = useState({ loading: false, error: "", });
   const { token } = useSelector((state: any) => state.userData);
   const [roleIsDeleted, setRoleIsDeleted] = useState(false);
 
@@ -36,18 +33,16 @@ function RoleManagement() {
     }
   }, []);
 
-  useEffect(() => {
-    getAllRole(token, setRoles, setRoleLoading);
-  }, []);
-  const router = useRouter()
-  function backHandler() { router.back() }
+  useEffect(() => { getAllRole(token, setRoles, setRoleLoading); }, []);
+
+
   return (
     <div className="grid grid-cols-1 gap-3">
       <div className="flex items-center justify-between">
         <NewInfoOnEachPageBtn btnText="ایجاد نقش" src="/panel/admin/view-users/role-management/create-role" />
-        <div className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300">
-          <IoArrowBack onClick={backHandler} />
-        </div>
+        <Link href='/panel/admin/view-users' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
+          <IoArrowBack />
+        </Link>
       </div>
       <div className="bg-white shadow mx-auto rounded-xl w-full p-[3%] text-center space-y-3">
         <div className="grid lg:grid-cols-4 grid-cols-10">
