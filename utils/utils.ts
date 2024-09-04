@@ -1204,7 +1204,8 @@ export const createNewBrand = async (
     toast.success("برند با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1214,11 +1215,13 @@ export const createNewBrand = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/org_management/brands')
   } catch (error) {
     toast.error("خطا در ایجاد برند", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,

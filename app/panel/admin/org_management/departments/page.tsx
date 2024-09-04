@@ -1,10 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import {
-  deleteDepartment,
-  getAllDepartments,
-  restoreDepartment,
-  updateBrand,
-} from "@/utils/utils";
+import { deleteDepartment, getAllDepartments, restoreDepartment, updateBrand, } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
@@ -18,36 +14,18 @@ import { DepartmentContext } from "../../context/department-context/DepartmentCo
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
+import { IoArrowBack } from "react-icons/io5";
 
-export type DepartmentType = {
-  id: number;
-  name_en: string;
-  name_fa: string;
-  deleted_at: string;
-};
-export type DepartmentFinalType = {
-  department: {
-    id: number;
-    name_en: string;
-    name_fa: string;
-    deleted_at: string;
-  };
-};
+export type DepartmentType = { id: number; name_en: string; name_fa: string; deleted_at: string; };
+export type DepartmentFinalType = { department: { id: number; name_en: string; name_fa: string; deleted_at: string; }; };
 function Departments() {
   const [departments, setDepartments] = useState<
     DepartmentType[] | DepartmentFinalType[]
   >([]);
-  const [departmentLoading, setDepartmentLoading] = useState({
-    loading: false,
-    error: "",
-  });
+  const [departmentLoading, setDepartmentLoading] = useState({ loading: false, error: "", });
   const { token } = useSelector((state: any) => state.userData);
   const [departmentIsDeleted, setDepartmentIsDeleted] = useState(false);
-  const [editField, setEditField] = useState({
-    showEditField: false,
-    name_en: "",
-    name_fa: "",
-  });
+  const [editField, setEditField] = useState({ showEditField: false, name_en: "", name_fa: "", });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -63,14 +41,14 @@ function Departments() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 gap-8">
-      <div className="flex">
-        <NewInfoOnEachPageBtn
-          btnText="ایجاد دپارتمان"
-          src="/panel/admin/org_management/departments/create-department"
-        />
+    <div className="grid grid-cols-1 gap-2">
+      <div className="flex items-center justify-between">
+        <NewInfoOnEachPageBtn btnText="ایجاد دپارتمان" src="/panel/admin/org_management/departments/create-department" />
+        <Link href='/panel/admin/org_management' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
+          <IoArrowBack />
+        </Link>
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center grid grid-cols-1 gap-5">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-5">
         <div className="grid lg:grid-cols-4 grid-cols-10 items-center">
           <div className="col-span-1">ردیف</div>
           <div className="col-span-3 lg:col-span-1">نام دپارتمان به انگلیسی</div>
@@ -87,11 +65,7 @@ function Departments() {
         ) : (
           departments.map((item: any, index) => (
             <div
-              className={`${
-                item.department.deleted_at
-                  ? "bg-red-300"
-                  : "bg-[#EAEFF6]"
-              } grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer items-center`}
+              className={`${item.department.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`}
               key={index}
             >
               <p className="col-span-1">{index + 1}</p>
@@ -102,34 +76,14 @@ function Departments() {
                 {item.department.name_fa}
               </p>
               <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
-                <Link
-                  href={`/panel/admin/org_management/departments/department-detail?id=${item.department.id}`}
-                  className="flex justify-center"
-                >
+                <Link href={`/panel/admin/org_management/departments/department-detail?id=${item.department.id}`} className="flex justify-center hover:scale-125 duration-300"  >
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link>
-                <span
-                  onClick={() =>
-                    deleteDepartment(
-                      item.department.id,
-                      token,
-                      setDepartmentIsDeleted
-                    )
-                  }
-                  className="flex justify-center"
-                >
-                  <RxCross1 className="text-red-600 text-lg" />
+                <span onClick={() => deleteDepartment(item.department.id, token, setDepartmentIsDeleted)} className="flex justify-center"  >
+                  <RxCross1 className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
-                <span
-                  onClick={() =>
-                    restoreDepartment(
-                      item.department.id,
-                      token,
-                      setDepartmentIsDeleted
-                    )
-                  }
-                >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <span onClick={() => restoreDepartment(item.department.id, token, setDepartmentIsDeleted)}   >
+                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>
