@@ -115,7 +115,7 @@ function AttrEdition({
                   <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePlanAttr(item.id, token, setAttrIsDeleted)}>
-                  <IoReloadCircle className="text-emerald-600 text-lg" />
+                  <IoReloadCircle className="text-emerald-600 text-xl" />
                 </span>
                 <span onClick={() => handleAddingValue(item?.id)}>
                   <FaPlus />

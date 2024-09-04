@@ -77,7 +77,7 @@ function RoleManagement() {
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
                 <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
-                  <IoReloadCircle className="text-emerald-600 text-lg hover:scale-125 duration-300" />
+                  <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>
             </div>

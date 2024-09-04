@@ -92,7 +92,7 @@ function OrgManagement() {
                           restoreOrganization(item.id, token, setOrganIsDeleted)
                         }
                       >
-                        <IoReloadCircle className="text-emerald-600 text-lg cursor-pointer" />
+                        <IoReloadCircle className="text-emerald-600 text-xl cursor-pointer" />
                       </span>
                     </div>
                   </div>
