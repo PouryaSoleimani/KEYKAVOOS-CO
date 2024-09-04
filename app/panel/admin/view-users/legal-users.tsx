@@ -9,6 +9,7 @@ import LegalUserHeader from "../components/LegalUserHeader";
 import { deleteUser } from "@/utils/utils";
 
 import SearchInput from "../components/SearchInput";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 type LegalUsersProps = {
   LegalUsersData: any[];

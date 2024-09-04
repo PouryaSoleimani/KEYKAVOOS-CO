@@ -76,13 +76,13 @@ function ViewUsers() {
   return (
     <div className="grid grid-cols-1 gap-8">
       <div className="flex flex-row gap-5 flex-wrap justify-center md:justify-normal md:text-base text-sm">
-        <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 p-2 rounded-[5px] md:w-[155px] whitespace-nowrap" >
+        <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[155px] whitespace-nowrap" >
           مدیریت دسترسی ها
         </Link>
-        <Link href={"/panel/admin/view-users/role-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 p-2 rounded-[5px] md:w-[125px] whitespace-nowrap"  >
+        <Link href={"/panel/admin/view-users/role-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[125px] whitespace-nowrap"  >
           مدیریت نقش ها
         </Link>
-        <Link href={"/panel/admin/view-users/position-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 p-2 rounded-[5px] md:w-[135px] whitespace-nowrap" >
+        <Link href={"/panel/admin/view-users/position-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[135px] whitespace-nowrap" >
           مدیریت جایگاه ها
         </Link>
       </div>

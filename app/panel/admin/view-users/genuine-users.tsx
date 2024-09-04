@@ -9,6 +9,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import { deleteUser } from "@/utils/utils";
 import SearchInput from "../components/SearchInput";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 type GenuineUsersProps = {
   GenuineUsersData: never[];
@@ -59,12 +60,7 @@ function GenuineUsers({
               <p className="font-faNum col-span-2 md:col-span-1">{item.mobile}</p>
               <p className="col-span-2 md:col-span-1">{item.name}</p>
               <p className="col-span-3 md:col-span-1">{item.email ? item.email : "-"}</p>
-              <span
-                onClick={() =>
-                  deleteUser(item.id, token, setAllUsers, AllUsersData)
-                }
-                className="flex justify-center col-span-1"
-              >
+              <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1" >
                 <RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5" />
                 {/* <Image src={vieweye} alt="مشاهده" width={20} height={20} /> */}
               </span>
