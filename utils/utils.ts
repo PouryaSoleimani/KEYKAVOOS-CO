@@ -37,7 +37,7 @@ export const createNotification = async (token: string, dept_id: number, brand_i
     toast.success("نوتیفیکیشن با موفقیت ارسال شد.", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -50,7 +50,7 @@ export const createNotification = async (token: string, dept_id: number, brand_i
     toast.error("خطا در ارسال نوتیفیکیشن", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -215,7 +215,7 @@ export const sendOTPCodeMain = async (
     toast.success("کد با موفقیت ارسال شد.", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -229,7 +229,7 @@ export const sendOTPCodeMain = async (
     toast.error("خطا در ارسال کد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -307,7 +307,7 @@ export const deleteUser = async (
     toast.success("کاربر با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -325,7 +325,7 @@ export const deleteUser = async (
     toast.error("خطا در حذف کاربر", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -394,7 +394,7 @@ export const updatePosition = async (
     toast.success("موقعیت با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -409,7 +409,7 @@ export const updatePosition = async (
     toast.error("خطا در به روزرسانی موقعیت", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -436,7 +436,7 @@ export const deletePosition = async (
     toast.success("موقعیت با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -452,7 +452,7 @@ export const deletePosition = async (
     toast.error("خطا در حذف موقعیت", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -478,7 +478,7 @@ export const restorePosition = async (
     toast.success("موقعیت با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -494,7 +494,7 @@ export const restorePosition = async (
     toast.error("خطا در بازگردانی موقعیت", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -629,7 +629,7 @@ export const updateRole = async (
     toast.success("نقش با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -644,7 +644,7 @@ export const updateRole = async (
     toast.error("خطا در به روزرسانی نقش", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -671,7 +671,7 @@ export const deleteRole = async (
     toast.success("نقش با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -687,7 +687,7 @@ export const deleteRole = async (
     toast.error("خطا در حذف نقش", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -713,7 +713,7 @@ export const restoreRole = async (
     toast.success("نقش با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -729,7 +729,7 @@ export const restoreRole = async (
     toast.error("خطا در بازگردانی نقش", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -887,7 +887,7 @@ export const createNewPermission = async (
     toast.success("دسترسی با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -901,7 +901,7 @@ export const createNewPermission = async (
     toast.error("خطا در ایجاد دسترسی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -936,7 +936,7 @@ export const updatePermission = async (
     toast.success("دسترسی با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -951,7 +951,7 @@ export const updatePermission = async (
     toast.error("خطا در به روزرسانی دسترسی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -978,7 +978,7 @@ export const deletePermission = async (
     toast.success("دسترسی با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -994,7 +994,7 @@ export const deletePermission = async (
     toast.error("خطا در حذف دسترسی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1020,7 +1020,7 @@ export const restorePermission = async (
     toast.success("دسترسی با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1036,7 +1036,7 @@ export const restorePermission = async (
     toast.error("خطا در بازگردانی دسترسی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1113,7 +1113,7 @@ export const deleteBrand = async (
     toast.success("برند با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1129,7 +1129,7 @@ export const deleteBrand = async (
     toast.error("خطا در حذف برند", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1155,7 +1155,7 @@ export const restoreBrand = async (
     toast.success("برند با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1171,7 +1171,7 @@ export const restoreBrand = async (
     toast.error("خطا در بازگردانی برند", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1256,7 +1256,7 @@ export const updateBrand = async (
     toast.success("برند با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1271,7 +1271,7 @@ export const updateBrand = async (
     toast.error("خطا در به روزرسانی برند", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1347,7 +1347,7 @@ export const uploadProjectFile = async (
     toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1381,7 +1381,7 @@ export const createNewplan = async (
     toast.success("پلن با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1395,7 +1395,7 @@ export const createNewplan = async (
     toast.error("خطا در ایجاد پلن", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1459,7 +1459,7 @@ export const updatePlan = async (
     toast.success("پلن با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1474,7 +1474,7 @@ export const updatePlan = async (
     toast.error("خطا در به روزرسانی پلن", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1502,7 +1502,7 @@ export const deletePlan = async (
     toast.success("پلن با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1519,7 +1519,7 @@ export const deletePlan = async (
     toast.error("خطا در حذف پلن", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1545,7 +1545,7 @@ export const restorePlan = async (
     toast.success("پلن با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1561,7 +1561,7 @@ export const restorePlan = async (
     toast.error("خطا در بازگردانی پلن", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1627,7 +1627,7 @@ export const createNewPlanAttr = async (
     toast.success("ویژگی برای پلن مدنظر با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1642,7 +1642,7 @@ export const createNewPlanAttr = async (
     toast.error("خطا در ایجاد ویژگی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1670,7 +1670,7 @@ export const deletePlanAttr = async (
     toast.success("ویژگی موردنظر با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1686,7 +1686,7 @@ export const deletePlanAttr = async (
     toast.error("خطا در حذف ویژگی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1712,7 +1712,7 @@ export const restorePlanAttr = async (
     toast.success("ویژگی مدنظر با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1728,7 +1728,7 @@ export const restorePlanAttr = async (
     toast.error("خطا در بازگردانی ویژگی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1764,7 +1764,7 @@ export const updatePlanAttr = async (
     toast.success("ویژگی با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1779,7 +1779,7 @@ export const updatePlanAttr = async (
     toast.error("خطا در به روزرسانی ویژگی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1818,7 +1818,7 @@ export const createNewPlanValue = async (
     toast.success("مقدار مدنظر با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1833,7 +1833,7 @@ export const createNewPlanValue = async (
     toast.error("خطا در ایجاد مقدار", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1877,7 +1877,7 @@ export const restorePlanValues = async (
     toast.success("مقدار با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1893,7 +1893,7 @@ export const restorePlanValues = async (
     toast.error("خطا در بازگردانی مقدار", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1948,7 +1948,7 @@ export const updatePlanValue = async (
     toast.success("مقدار با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1963,7 +1963,7 @@ export const updatePlanValue = async (
     toast.error("خطا در به روزرسانی مقدار", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1990,7 +1990,7 @@ export const deletePlanValue = async (
     toast.success("مقدار با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2006,7 +2006,7 @@ export const deletePlanValue = async (
     toast.error("خطا در حذف مقدار", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2039,7 +2039,7 @@ export const CreateNewSiteType = async (
     toast.success("طراحی جدید با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2053,7 +2053,7 @@ export const CreateNewSiteType = async (
     toast.error("خطا در ایجاد طراحی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2102,7 +2102,7 @@ export const updateSiteType = async (
     toast.success("طراحی با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2117,7 +2117,7 @@ export const updateSiteType = async (
     toast.error("خطا در به روزرسانی طراحی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2144,7 +2144,7 @@ export const deleteSiteType = async (
     toast.success("طراحی با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2160,7 +2160,7 @@ export const deleteSiteType = async (
     toast.error("خطا در حذف طراحی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2186,7 +2186,7 @@ export const restoreSiteType = async (
     toast.success("طراحی با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2202,7 +2202,7 @@ export const restoreSiteType = async (
     toast.error("خطا در بازگردانی طراحی", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2275,7 +2275,7 @@ export const updateNewsLetter = async (
     toast.success("خبرنامه با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2290,7 +2290,7 @@ export const updateNewsLetter = async (
     toast.error("خطا در به روزرسانی خبرنامه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2327,7 +2327,7 @@ export const createNewsLetter = async (
     toast.success("خبرنامه با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2341,7 +2341,7 @@ export const createNewsLetter = async (
     toast.error("خطا در ایجاد خبرنامه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2369,7 +2369,7 @@ export const deleteNewsLetter = async (
     toast.success("خبرنامه موردنظر با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2384,7 +2384,7 @@ export const deleteNewsLetter = async (
     toast.error("خطا در حذف خبرنامه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2411,7 +2411,7 @@ export const restoreNewsletter = async (
     toast.success("خبرنامه مدنظر با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2426,7 +2426,7 @@ export const restoreNewsletter = async (
     toast.error("خطا در بازگردانی خبرنامه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2514,7 +2514,7 @@ export const updateDepartment = async (
     toast.success("دپارتمان با موفقیت به روزرسانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2529,7 +2529,7 @@ export const updateDepartment = async (
     toast.error("خطا در به روزرسانی دپارتمان", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2556,7 +2556,7 @@ export const deleteDepartment = async (
     toast.success("دپارتمان با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2567,12 +2567,13 @@ export const deleteDepartment = async (
     });
     setIsDeleted(true);
     console.log(data);
+    window.location.reload()
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف دپارتمان", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2598,7 +2599,8 @@ export const restoreDepartment = async (
     toast.success("دپارتمان با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2614,7 +2616,8 @@ export const restoreDepartment = async (
     toast.error("خطا در بازگردانی دپارتمان", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2666,7 +2669,7 @@ export const createNewDepartment = async (
       position: "top-right",
       autoClose: 2000,
       style: { fontSize: "12px" },
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2676,12 +2679,13 @@ export const createNewDepartment = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/org_management/departments')
   } catch (error) {
     toast.error("خطا در ایجاد دپارتمان", {
       position: "top-right",
       autoClose: 2000,
       style: { fontSize: "12px" },
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2787,7 +2791,7 @@ export const deleteConsultation = async (
     toast.success("مشاوره با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2803,7 +2807,7 @@ export const deleteConsultation = async (
     toast.error("خطا در حذف مشاوره", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2829,7 +2833,7 @@ export const restoreConsultation = async (
     toast.success("مشاوره با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2845,7 +2849,7 @@ export const restoreConsultation = async (
     toast.error("خطا در بازگردانی مشاوره", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2918,7 +2922,7 @@ export const getConsultationDetail = async (
 //     toast.success("تیکت با موفقیت ایجاد شد", {
 //       position: "top-right",
 //       autoClose: 2000,
-//       hideProgressBar: false,
+//       hideProgressBar: true,
 //       closeOnClick: true,
 //       pauseOnHover: true,
 //       draggable: true,
@@ -2932,7 +2936,7 @@ export const getConsultationDetail = async (
 //     toast.error("خطا در ایجاد تیکت", {
 //       position: "top-right",
 //       autoClose: 2000,
-//       hideProgressBar: false,
+//       hideProgressBar: true,
 //       closeOnClick: true,
 //       pauseOnHover: true,
 //       draggable: true,
@@ -2994,12 +2998,12 @@ export const deleteTicket = async (
   try {
     const { data } = await app.get(`/ticket/delete/${ticketId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log(data);
-    toast.success("تیکت با موفقیت حذف شد", { position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    toast.success("تیکت با موفقیت حذف شد", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     setIsDeleted(true);
     console.log(data);
   } catch (error) {
     console.log(error);
-    toast.error("خطا در حذف تیکت", { position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    toast.error("خطا در حذف تیکت", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
   }
 };
 
@@ -3060,7 +3064,7 @@ export const getTicektDetail = async (
 //     toast.error("خطا در ثبت پروژه.", {
 //       position: "top-right",
 //       autoClose: 2000,
-//       hideProgressBar: false,
+//       hideProgressBar: true,
 //       closeOnClick: true,
 //       pauseOnHover: true,
 //       draggable: true,
@@ -3305,7 +3309,7 @@ export const rejectProject = async (
     toast.success("پروژه با موفقیت رد شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3318,7 +3322,7 @@ export const rejectProject = async (
     toast.error("خطا در رد پروژه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3397,7 +3401,7 @@ export const restoreOrganization = async (
     toast.success("سازمان با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3413,7 +3417,7 @@ export const restoreOrganization = async (
     toast.error("خطا در بازگردانی سازمان", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3440,7 +3444,7 @@ export const deleteOrgan = async (
     toast.success("سازمان با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3456,7 +3460,7 @@ export const deleteOrgan = async (
     toast.error("خطا در حذف سازمان", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3515,7 +3519,7 @@ export const confirmProjectByAdmin = async (
     toast.success("پروژه با موفقیت تایید شد", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3529,7 +3533,7 @@ export const confirmProjectByAdmin = async (
     toast.error("خطا در تایید پروژه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3560,7 +3564,7 @@ export const changeOrderStatus = async (
     toast.success("وضعیت پروژه با موفقیت تغییر داده شد.", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3574,7 +3578,7 @@ export const changeOrderStatus = async (
     toast.error("خطا در تغییر وضعیت پروژه", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3647,7 +3651,7 @@ export const closeTicket = async (
     toast.success("تیکت با موفقیت بسته شد.", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3663,7 +3667,7 @@ export const closeTicket = async (
     toast.error("خطا در بستن تیکت", {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
