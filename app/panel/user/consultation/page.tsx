@@ -32,7 +32,7 @@ function Consultation() {
           <p>ارتباط از طریق شماره تماس 91691650</p>
           <Image src={PhoneIcon} alt="phone-icon" width={30} />
         </div>
-        <Link href="/panel/user/submit-order/consultation/submit-consultation" className="bg-[#4866CF] hover:bg-blue-800 tracking-tight duration-300 p-4 cursor-pointer rounded-[12px] flex flex-row items-center justify-between lg:w-[50%] w-full" >
+        <Link href="/panel/user/consultation/submit-consultation" className="bg-[#4866CF] hover:bg-blue-800 tracking-tight duration-300 p-4 cursor-pointer rounded-[12px] flex flex-row items-center justify-between lg:w-[50%] w-full" >
           <p>ثبت مشاوره از طریق تیکت</p>
           <Image src={TicketIcon} alt="phone-icon" width={30} />
         </Link>
