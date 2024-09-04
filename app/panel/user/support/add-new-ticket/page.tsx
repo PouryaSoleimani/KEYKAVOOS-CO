@@ -19,18 +19,14 @@ function AddNewTicket() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localDepartments = JSON.parse(
-        window.sessionStorage.getItem("departments") as string
-      );
+      const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
       setDepartments(localDepartments);
     }
   }, []);
 
   useEffect(() => {
     if (typedDepartments?.length > 0) {
-      const firstDepId = typedDepartments?.map(
-        (item) => item?.department.id
-      )?.[0];
+      const firstDepId = typedDepartments?.map((item) => item?.department.id)?.[0];
       setTicket((last) => ({ ...last, dept_id: String(firstDepId) }));
     }
   }, [typedDepartments]);
@@ -41,10 +37,9 @@ function AddNewTicket() {
 
   const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", departmentId: "" });
 
-  const departmentId = typedDepartments
-    ?.filter((item) => item.department.id === Number(ticket.dept_id))
-    ?.map((item) => item.department.id)[0];
+  const departmentId = typedDepartments?.filter((item) => item.department.id === Number(ticket.dept_id))?.map((item) => item.department.id)[0];
 
+  // * HANDLE SUMBISSION
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, ticket.dept_id == "واحد مالی" ? 1 : 2, userProfile.id, null)
@@ -63,7 +58,7 @@ function AddNewTicket() {
         <span className="absolute right-[7.8rem] top-7 text-red-800 text-xl">*</span>
         <TicketFields label="عنوان تیکت:" width="w-[30%]" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
         <div className="lg:w-[30%] w-full">
-          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id === "واحد مالی" ? "1" : "2"} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
         </div>
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, priority_id: e.target.value }))} value={ticket.priority_id} dropDownTitle="اولویت تیکت:" dropdownItems={["عادی", "فوری"]} />

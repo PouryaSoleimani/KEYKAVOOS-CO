@@ -2968,7 +2968,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
       console.log(response.data);
       toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log("%c SUCCESS ====>", "color:lime;font-weight:900", newTicketInfos);
-      window.location.replace('http://localhost:3000/panel/user/support')
+      setTimeout(() => { window.location.replace('http://localhost:3000/panel/user/support') }, 500);
     }
     ).catch(error => {
       console.log(error.response);
