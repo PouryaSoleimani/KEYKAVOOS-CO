@@ -30,12 +30,13 @@ function SubmitOrder() {
   const { allPlans, setAllPlans, siteTypes, setSiteTypes } = useContext(OrderSubmissionContext);
   const [consultationId, setConsultationId] = useState("");
 
+  // GETTING PLANS AND TYPES
   useEffect(() => {
     if (typeof window !== "undefined") {
       const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
       const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
-      setSiteTypes(localSiteTypes);
       setAllPlans(localPlans);
+      setSiteTypes(localSiteTypes);
     }
   }, []);
 
@@ -118,15 +119,18 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      projectFields.plan === "طلایی" ? 1 : projectFields.plan == "نقره ای" ? 2 : 3,
+      // projectFields.plan == "طلایی" ? "1" : projectFields.plan == "نقره ای" ? "2" : "3",
+      Number(projectFields.plan),
+      Number(plansId),
       projectFields.discount_code,
-      projectFields.type == "فروشگاهی" ? "1" : projectFields.type == "شرکتی" ? "2" : projectFields.type == "گردشگری" ? "3" : projectFields.type == "پزشکی" ? "4" : projectFields.type == "شخصی" ? "5" : "7",
+      projectFields.type,
       consultationId ? Number(consultationId) : null,
       similarSiteData,
       colorsData,
       pluginData,
       templatesData,
     )
+    console.log(plansId);
     // setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
     // setSimilarSiteData([]);
     // setColorsData([]);
@@ -166,11 +170,11 @@ function SubmitOrder() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "گردشگری", "پزشکی", "شخصی", "پورتال", "خبری"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
+            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={siteTypes.map(item => item.title)} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
             <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={["طلایی", "نقره ای", "برنزی"]} value={projectFields.plan}
+            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={allPlans.map(item => item.plan.title)} value={projectFields.plan}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
             <p className="absolute top-3 right-[5.5rem] text-red-800">*</p>
           </div>
