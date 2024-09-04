@@ -65,9 +65,9 @@ function Genuine({ userId, token }: GenuineProps) {
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">
-            <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" />
-            <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" />
-            <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" />
+            <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" placeholder={userProfile?.name} />
+            <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" placeholder={userProfile?.surname} />
+            <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" placeholder={userProfile?.email ? userProfile.email : "---"} />
           </div>
           <div className="flex flex-col gap-10">
             <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" />

@@ -1,7 +1,7 @@
 import React from "react";
-type PanelFieldsProps = { label: string; value: string | undefined; onChange?: React.ChangeEventHandler<HTMLInputElement>; disable?: boolean; name?: string; readonly?: boolean; flexDirection?: string; };
+type PanelFieldsProps = { label: string; value: string | undefined; onChange?: React.ChangeEventHandler<HTMLInputElement>; disable?: boolean; name?: string; readonly?: boolean; flexDirection?: string; placeholder: string };
 
-function PanelFields({ label, onChange, value, disable, name, readonly, flexDirection }: PanelFieldsProps) {
+function PanelFields({ label, onChange, value, disable, name, readonly, flexDirection, placeholder }: PanelFieldsProps) {
   // ^ RETURN
   return (
     <div className={`flex ${flexDirection ? `${flexDirection} items-center` : "flex-col"}  gap-1`}>
@@ -12,6 +12,7 @@ function PanelFields({ label, onChange, value, disable, name, readonly, flexDire
         disabled={disable}
         name={name}
         readOnly={readonly}
+        placeholder={placeholder}
       />
     </div>
   );
