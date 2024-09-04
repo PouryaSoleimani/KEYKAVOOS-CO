@@ -18,7 +18,7 @@ import SubmitTemplateModalfield from "./components/submit-template-modalfield";
 import { OrderSubmissionContext } from "../../context/order-submission-contexts/OrderSubmissionContext";
 import { IoArrowBack } from "react-icons/io5";
 
-export type PlanType = { plan: { id?: number; title: string; description: string; price: number }; };
+export type PlanType = { plan: { id?: number | string; title: string; description: string; price: number }; };
 export type SimilarSiteType = { title: string; url: string; id?: number };
 export type ColorType = { title: string; color: string };
 export type TemplateType = { template_name: string };
@@ -118,19 +118,20 @@ function SubmitOrder() {
       Number(projectFields.budget.replaceAll(",", "")),
       projectFields.priority === "کم" ? 1 : 2,
       userProfile.id,
-      projectFields.plan == "طلایی" ? "1" : projectFields.plan == "نقره ای" ? "2" : projectFields.plan == "برنزی" ? "3" : "",
+      projectFields.plan === "طلایی" ? 1 : projectFields.plan == "نقره ای" ? 2 : 3,
       projectFields.discount_code,
+      projectFields.type == "فروشگاهی" ? "1" : projectFields.type == "شرکتی" ? "2" : projectFields.type == "گردشگری" ? "3" : projectFields.type == "پزشکی" ? "4" : projectFields.type == "شخصی" ? "5" : "7",
       consultationId ? Number(consultationId) : null,
       similarSiteData,
       colorsData,
       pluginData,
       templatesData,
     )
-    setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
-    setSimilarSiteData([]);
-    setColorsData([]);
-    setPluginData([]);
-    setTemplatesData([]);
+    // setProjectFields((last) => ({ ...last, budget: "", Description: "", discount_code: "", title: "", }));
+    // setSimilarSiteData([]);
+    // setColorsData([]);
+    // setPluginData([]);
+    // setTemplatesData([]);
   }
 
   //^ RETURN ===========================================================================================================================================================
@@ -154,7 +155,7 @@ function SubmitOrder() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" />
+            <PanelFields label="عنوان پروژه:" onChange={(e) => setProjectFields((last) => ({ ...last, title: e.target.value }))} value={projectFields.title} name="title" placeholder="" />
             <p className="absolute top-3 right-[5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
@@ -165,7 +166,7 @@ function SubmitOrder() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "آموزشی"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
+            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={["شخصی", "فروشگاهی", "شرکتی", "گردشگری", "پزشکی", "شخصی", "پورتال", "خبری"]} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
             <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
@@ -176,7 +177,7 @@ function SubmitOrder() {
         </div>
 
         <div className="relative pt-3">
-          <PanelFields label="بودجه مورد نظر: (برحسب تومان)" onChange={handleBudegtChange} value={projectFields.budget} name="budget" />
+          <PanelFields label="بودجه مورد نظر: (برحسب تومان)" onChange={handleBudegtChange} value={projectFields.budget} name="budget" placeholder="" />
           <p className="absolute top-2 right-[12.5rem] text-red-800">*</p>
         </div>
         <SubmitOrderModalfield modalFieldTitle="سایت مشابه مورد نظر شما:" setShowModal={setShowSimilarModal} data={similarSiteData} setData={setSimilarSiteData} />
@@ -187,8 +188,8 @@ function SubmitOrder() {
         <SubmitTemplateModalfield modalFieldTitle="قالب های مورد نیاز :" setShowModal={setShowTemplatesModal} data={templatesData} setData={setTemplatesData} />
         <SubmitPluginModalfield modalFieldTitle="پلاگین های مورد نیاز : " setShowModal={setShowPluginModal} data={pluginData} setData={setPluginData} />
         <SubmitColorModalfield modalFieldTitle="رنگ سازمانی : " setShowModal={setShowColorsModal} data={colorsData} setData={setColorsData} showModal />
-        <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between">
-          <PanelFields label="کد تخفیف : " onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))} value={projectFields.discount_code} name="discount_code" flexDirection="flex-row" />
+        <div className="flex lg:flex-row flex-col gap-5 lg:items-center lg:justify-between whitespace-nowrap space-x-2">
+          <PanelFields label="کد تخفیف  :  " onChange={(e) => setProjectFields((last) => ({ ...last, discount_code: e.target.value, }))} value={projectFields.discount_code} name="discount_code" flexDirection="flex-row" placeholder="*************" />
           <div className="flex justify-end">
             <div className="flex gap-5">
 
