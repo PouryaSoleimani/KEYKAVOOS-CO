@@ -53,11 +53,11 @@ function OrderManagement() {
               </p>
               <p>{item.status?.title ? item.status?.title : "نامعلوم"}</p>
               <div className="flex flex-row gap-5 justify-center items-center">
-                <Link href={`/panel/admin/project-management/order-management/order-detail?id=${item?.id}`} className="flex justify-center" >
-                  <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                <Link href={`/panel/admin/project-management/order-management/order-detail?id=${item?.id}`} className="flex justify-center hover:scale-125 duration-300" >
+                  <Image src={vieweye} alt="مشاهده" width={25} height={25} />
                 </Link>
-                <Link href={`/panel/user/order-management/order-payment?id=${item?.id}`} className="hover:scale-125 duration-300">
-                  <MdOutlinePayment className="text-xl text-green-800 font-semibold" />
+                <Link href={`panel/admin/project-management/order-management`} className="hover:scale-125 duration-300">
+                  <MdOutlinePayment className="text-2xl text-green-800 font-semibold" />
                 </Link>
               </div>
             </div>
