@@ -16,7 +16,7 @@ export type NotificationDetailType = {
     text: string,
     brand: { id: number, title: string, description: string, } | null,
     user: { id: number, name: string, surname: string, mobile: string, type: "haghighi" | "hoghooghi", email: string | null }
-};
+}[];
 
 function NotificationDetail() {
     const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
@@ -27,10 +27,10 @@ function NotificationDetail() {
     const [notificationDetailStatus, setNotificationDetailStatus] = useState({ loading: false, error: "", });
 
     useEffect(() => { getUserNotification(token, id, setUserNotification, setNotificationDetailStatus); }, []);
-
+    useEffect(() => { console.log("USER NOTIF =====>", userNotification); }, [userNotification])
     return (
         <div>
-            <div className="w-[210px] z-10">
+            <div className="w-fit z-10 whitespace-nowrap">
                 <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
                     <span>شماره اعلان:</span>
                     <p className="font-faNum">{id}</p>
@@ -45,6 +45,7 @@ function NotificationDetail() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-5">
+
                     <div className="grid grid-cols-2 gap-3">
                         <div className="flex flex-col gap-3">
                             <p className="tracking-tight">عنوان اعلان : </p>
@@ -54,7 +55,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.text ? userNotification?.text : "---"}
+                                    {userNotification?.[0].text ? userNotification?.[0].text : "---"}
                                 </div>
                             )}
                         </div>
@@ -66,7 +67,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.user.name ? `${userNotification?.user?.name} ${userNotification.user.surname}` : "---"}
+                                    {userNotification?.[0]?.user?.name ? `${userNotification?.[0].user?.name} ${userNotification?.[0].user?.surname}` : "---"}
                                 </div>
                             )}
                         </div>
@@ -80,7 +81,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.brand?.title ? userNotification?.brand?.title : userNotification?.dept?.title ? userNotification.dept.title : "---"}
+                                    {userNotification?.[0].brand?.title ? userNotification?.[0].brand?.title : userNotification?.[0].dept?.title ? userNotification?.[0].dept.title : "---"}
                                 </div>
                             )}
                         </div>

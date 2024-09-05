@@ -66,7 +66,7 @@ const NotificationManagement = () => {
                                 </p>
                                 <div>
                                     <div className="flex flex-row justify-center gap-4">
-                                        <Link href={`/panel/admin/notification-management/notification-details?id=${item.id}`} className="hover:scale-125 duration-300">
+                                        <Link href={`/panel/admin/notifications-management/notification-details?id=${item.id}`} className="hover:scale-125 duration-300">
                                             <Image src={vieweye} alt="مشاهده" width={20} />
                                         </Link>
                                         {item.status_id !== 2 && !isClosed && (
