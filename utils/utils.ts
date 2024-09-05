@@ -15,6 +15,7 @@ import { Bounce, toast } from "react-toastify";
 import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
 import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
+import { NotificationDetailType } from "@/app/panel/admin/notifications-management/notification-details/page";
 
 // create notification
 export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
@@ -63,9 +64,14 @@ export const createNotification = async (token: string, dept_id: number, brand_i
   }
 };
 //* GET USER NOTIFICATIONS
-export const getUserNotification = async (token: string, userId: number, setUserNotifications: React.Dispatch<React.SetStateAction<never[]>>) => {
+export const getUserNotification = async (
+  token: string,
+  userId: number | string,
+  setUserNotifications: React.Dispatch<NotificationDetailType>,
+  setNotificationDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
+) => {
   try {
-    // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
+    console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
     const { data } = await app(`/notification/getUserNotification`, {
       headers: { Authorization: `Bearer ${token}`, },
     });
