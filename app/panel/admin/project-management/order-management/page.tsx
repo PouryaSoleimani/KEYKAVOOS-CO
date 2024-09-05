@@ -27,7 +27,7 @@ function OrderManagement() {
           <IoArrowBack />
         </Link>
       </div >
-      
+
       <div className="flex flex-col gap-5 bg-white shadow mx-auto rounded-lg w-full p-[3%]">
         <div className="grid grid-cols-6 text-center">
           <p>ردیف</p>
