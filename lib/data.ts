@@ -848,11 +848,8 @@ export const mainAdminSidebarOptions = [
   {
     text: "مدیریت اعلان ها",
     imgSrc: Images.SupportIcon,
-    address: "/panel/admin/support",
-    path: [
-      "/panel/admin/support/add-new-placard",
-      "/panel/admin/support/ticket-detail",
-    ],
+    address: "/panel/admin/notifications-management",
+    path: ["/panel/admin/notifications-management"],
   },
   {
     text: "خبرنامه",
