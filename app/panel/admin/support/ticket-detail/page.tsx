@@ -61,37 +61,37 @@ function TicketDetail() {
       const newSenderTexts =
         data.data?.children.length === 0
           ? [
-              {
-                mainDescription: data.data?.description,
-                register_user_id: data.data?.register_user_id,
-                responser_user_id: data.data?.responser_user_id,
-                created_at: data.data.created_at,
-                messages: [],
-              },
-            ]
+            {
+              mainDescription: data.data?.description,
+              register_user_id: data.data?.register_user_id,
+              responser_user_id: data.data?.responser_user_id,
+              created_at: data.data.created_at,
+              messages: [],
+            },
+          ]
           : [
-              {
-                mainDescription: data.data?.description,
-                register_user_id: data.data?.register_user_id,
-                responser_user_id: data.data?.responser_user_id,
-                created_at: data.data.created_at,
-                messages: data.data.children.map(
-                  (child: {
-                    id: number;
-                    description: string;
-                    register_user_id: string;
-                    responser_user_id: string;
-                    created_at: string;
-                  }) => ({
-                    childId: child.id,
-                    description: child.description,
-                    register_user_id: child?.register_user_id,
-                    responser_user_id: child?.responser_user_id,
-                    created_at: child.created_at,
-                  })
-                ),
-              },
-            ];
+            {
+              mainDescription: data.data?.description,
+              register_user_id: data.data?.register_user_id,
+              responser_user_id: data.data?.responser_user_id,
+              created_at: data.data.created_at,
+              messages: data.data.children.map(
+                (child: {
+                  id: number;
+                  description: string;
+                  register_user_id: string;
+                  responser_user_id: string;
+                  created_at: string;
+                }) => ({
+                  childId: child.id,
+                  description: child.description,
+                  register_user_id: child?.register_user_id,
+                  responser_user_id: child?.responser_user_id,
+                  created_at: child.created_at,
+                })
+              ),
+            },
+          ];
 
       setTicketDetail((last: any) => ({
         ...last,
@@ -109,7 +109,7 @@ function TicketDetail() {
         ).format("jYYYY/jM/jD"),
         DateAnswered: "-",
         SenderText: newSenderTexts,
-        Blocked: data.data?.status.title_en,
+        Blocked: data.data?.status?.title_en,
       }));
 
       // console.log(data);
@@ -162,8 +162,9 @@ function TicketDetail() {
       );
       toast.success("آپلود فایل موفق بود.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: true,
+        style: { fontSize: "14px" },
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -177,7 +178,8 @@ function TicketDetail() {
       toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
+        hideProgressBar: true,
+        style: { fontSize: "14px" },
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -205,16 +207,13 @@ function TicketDetail() {
 
   // console.log(ticketId);
   return (
-    <div className="relative">
-      <div
-        className="flex justify-end w-full text-xl cursor-pointer absolute -top-12"
-        onClick={() => router.back()}
-      >
-        <div className="rounded-full p-2 bg-white">
+    <div className="relative top-6">
+      <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-14 " onClick={() => router.back()} >
+        <div className="rounded-md p-3 bg-white hover:bg-[#4866CF] hover:text-white duration-300">
           <IoArrowBack />
         </div>
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl py-[3%] px-[3%] w-full relative">
+      <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] w-full relative my-2">
         {ticketDetailStatus.loading ? (
           <SkeletonTheme>
             <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
@@ -223,36 +222,19 @@ function TicketDetail() {
           <NotFound text={`${ticketDetailStatus.error}`} />
         ) : (
           <div className="grid grid-cols-2 gap-5">
-            <TicketInfoField
-              label="عنوان تیکت:"
-              text={ticketDetail.Title}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
-            <TicketInfoField
-              label="مسئول پاسخگویی:"
-              text={ticketDetail.Responser}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
-            <TicketInfoField
-              label="واحد مربوطه تیکت:"
-              text={ticketDetail.RelavantUnit ? ticketDetail.RelavantUnit : "-"}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
-            <TicketInfoField
-              label="فرستنده تیکت:"
-              text={ticketDetail.Sender}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
-            <TicketInfoField
-              label="تاریخ ارسال تیکت:"
-              text={ticketDetail.DateSend}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
-            <TicketInfoField
-              label="تاریخ پاسخگویی:"
-              text={ticketDetail.DateAnswered}
-              ticketDetailStatus={ticketDetailStatus.loading}
-            />
+
+            <TicketInfoField label="عنوان تیکت : " text={ticketDetail.Title} ticketDetailStatus={ticketDetailStatus.loading} />
+
+            <TicketInfoField label="مسئول پاسخگویی : " text={ticketDetail.Responser} ticketDetailStatus={ticketDetailStatus.loading} />
+
+            <TicketInfoField label="واحد مربوطه تیکت : " text={ticketDetail.RelavantUnit ? ticketDetail.RelavantUnit : "-"} ticketDetailStatus={ticketDetailStatus.loading} />
+
+            <TicketInfoField label="فرستنده تیکت : " text={ticketDetail.Sender} ticketDetailStatus={ticketDetailStatus.loading} />
+
+            <TicketInfoField label="تاریخ ارسال تیکت : " text={ticketDetail.DateSend} ticketDetailStatus={ticketDetailStatus.loading} />
+
+            <TicketInfoField label="تاریخ پاسخگویی : " text={ticketDetail.DateAnswered} ticketDetailStatus={ticketDetailStatus.loading} />
+
           </div>
         )}
         <div
