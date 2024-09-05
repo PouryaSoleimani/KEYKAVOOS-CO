@@ -836,7 +836,7 @@ export const mainAdminSidebarOptions = [
     ],
   },
   {
-    text: "پشتیبانی",
+    text: "مدیریت اعلان ها",
     imgSrc: Images.SupportIcon,
     address: "/panel/admin/support",
     path: [
