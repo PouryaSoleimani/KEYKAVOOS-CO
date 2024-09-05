@@ -95,10 +95,7 @@ function TicketDetail() {
         RelavantUnit: data.data?.department?.name_fa,
         RelavantUnitId: data.data?.department?.id,
         Responser: "ادمین",
-        Sender:
-          data.data?.register_user.name +
-          " " +
-          data.data?.register_user.surname,
+        Sender: data.data?.register_user.name + " " + data.data?.register_user.surname,
         DateSend: moment(
           data.data?.created_at,
           "YYYY-MM-DDTHH:mm:ss.SSSZ"
@@ -108,7 +105,7 @@ function TicketDetail() {
         Blocked: data.data?.status?.title_en,
       }));
 
-      console.log("SINGLE TICKET DATA ===>", data);
+      console.log("SINGLE TICKET DATA ===>", data.data.id);
     } catch (error: any) {
       // console.log(error.response.data.message);
       setTicketDetailStatus({ error: "", loading: false });
@@ -142,47 +139,23 @@ function TicketDetail() {
     }
   };
 
-  // file upload in ticket
-  const handleFileUpload = async () => {
+  //* FILE UPLOAD IN SINGLE TICKET
+  const handleFileUpload = () => {
     const formData = new FormData();
     formData.append("file", File);
-    try {
-      const { data } = await app.post(
-        `/ticket/file/upload/${Number(id)}`,
-        { formData, responser_user_id: Number(id) },
-        { headers: { Authorization: `Bearer ${token}`, }, }
-      );
-      toast.success("آپلود فایل موفق بود.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        style: { fontSize: "14px" },
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
-      console.log(data);
-    } catch (error: any) {
-      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        style: { fontSize: "14px" },
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        rtl: true,
-      });
-      console.log(error.response.data.message);
+    app.post(`/ticket/file/upload/${id}`,
+      { file: FormData, responser_user_id: id },
+      { headers: { Authorization: `Bearer ${token}`, }, }
+    ).then((response) => {
+      console.log(response.data)
+      toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 2000, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
-  };
+    ).catch((error: any) => {
+      toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", { position: "top-right", autoClose: 2000, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      console.log(formData);
+      console.log(error.response.data.message);
+    })
+  }
 
   useEffect(() => {
     getTicketDetail();

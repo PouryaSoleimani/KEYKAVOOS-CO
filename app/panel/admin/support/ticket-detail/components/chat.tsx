@@ -50,7 +50,7 @@ function Chat({
         await sendResponseTicket(textInput, ticketId),
       ]);
       setTextInput("");
-      File.name = "";
+      File.name = File.name;
     } else if (textInput && !File) {
       await sendResponseTicket(textInput, ticketId);
       setTextInput("");
