@@ -18,7 +18,7 @@ function TicketInfoField({
           <Skeleton count={1} baseColor="#EAEFF6" />
         </SkeletonTheme>
       ) : (
-        <p className="bg-[#EAEFF6] flex items-center rounded-[4px] w-[75%] p-2 font-faNum">
+        <p className="bg-[#EAEFF6] flex items-center rounded-[4px] w-[75%] p-3 tracking-tight font-faNum">
           {text}
         </p>
       )}
