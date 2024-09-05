@@ -76,7 +76,7 @@ export const getUserNotification = async (
       headers: { Authorization: `Bearer ${token}`, },
     });
     setUserNotifications(data.data);
-    console.log("notif", data);
+    // console.log("notif", data);
   } catch (error: any) {
     console.log(error.response.data.message);
   }
