@@ -73,9 +73,8 @@ function Chat({
       <div className="grid grid-cols-1">
         <div className="flex flex-col items-end">
           <div
-            className={`${
-              styles.chatBubble
-            } ${`${styles.sender}`} flex flex-col gap-5`}
+            className={`${styles.chatBubble
+              } ${`${styles.sender}`} flex flex-col gap-5`}
           >
             <p className="justify-start">{senderText[0]?.mainDescription}</p>
             <span className={`flex justify-end`}>
@@ -87,17 +86,15 @@ function Chat({
           {sortedCombinedMessages.map((item, index) => (
             <div
               key={index}
-              className={`${styles.chatBubble} ${
-                item.responser_user_id
+              className={`${styles.chatBubble} ${item.responser_user_id
                   ? `${styles.receiver} items-start`
                   : styles.sender
-              }`}
+                }`}
             >
               <p>{item.description}</p>
               <span
-                className={`flex ${
-                  item.responser_user_id ? "justify-end" : "justify-end"
-                }`}
+                className={`flex ${item.responser_user_id ? "justify-end" : "justify-end"
+                  }`}
               >
                 {timestampConversion(item.created_at)}
               </span>
@@ -164,7 +161,7 @@ function Chat({
         </span>
         <div className="grid grid-cols-1 justify-center items-center w-[15%] px-3">
           <button
-            className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6]"
+            className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6] hover:bg-blue-800 duration-300 hover:text-white"
             type="submit"
           >
             ارسال پیام
