@@ -6,7 +6,7 @@ import add from "@/public/Panel/addticket.svg";
 //^ COMPONENT
 const NewInfoOnEachPageBtn = ({ btnText, src, }: { btnText: string; src: string; }) => {
   return (
-    <Link href={src} className="text-white bg-[#4866CF] p-2 rounded-[5px] flex flex-row gap-3 items-center hover:bg-blue-800 duration-300 tracking-tight" >
+    <Link href={src} className="text-white bg-[#4866CF] p-4 rounded-[5px] flex flex-row gap-3 items-center hover:bg-blue-800 duration-300 tracking-tight" >
       {btnText}
       <Image src={add} alt="add" />
     </Link>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Logo from "../authorization/components/logo";
@@ -11,11 +12,7 @@ import OtpLoginMain from "./components/OtpLoginMain";
 import { useStoreNumInLocal } from "@/hooks/useStoreNumInLocal";
 import { useDispatch, useSelector } from "react-redux";
 import FormInput from "../contact-us/components/form/form-inputs";
-import {
-  fetchUserInLoginWithPassword,
-  openModal,
-  updateStatus,
-} from "@/redux/features/user/userSlice";
+import { fetchUserInLoginWithPassword, openModal, updateStatus, } from "@/redux/features/user/userSlice";
 import { sendOTPCodeMain } from "@/utils/utils";
 import { useDebounce } from "use-debounce";
 

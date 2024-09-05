@@ -61,36 +61,22 @@ function RolePermission() {
   };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3">
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="grid grid-cols-1 gap-8"
-      >
+    <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] space-y-3">
+      <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-8" >
         <SubmitOrderDropdown
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setRolePerId((last) => ({ ...last, perId: e.target.value }))
-          }
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setRolePerId((last) => ({ ...last, perId: e.target.value }))}
           value={rolePerId.perId}
           dropdownItems={permissionInfos}
           dropDownTitle="دسترسی ها:"
         />
         <SubmitOrderDropdown
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setRolePerId((last) => ({ ...last, roleId: e.target.value }))
-          }
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setRolePerId((last) => ({ ...last, roleId: e.target.value }))}
           value={rolePerId.roleId}
           dropdownItems={roleInfos}
           dropDownTitle="نقش ها:"
         />
-        <button
-          className="flex gap-3 items-center justify-end"
-          onClick={() => setIsAttaching(!isAttaching)}
-        >
-          <p
-            className={`appearance-none border-2 border-black rounded-sm w-4 h-4 ${
-              isAttaching ? "bg-[#4866CF]" : "bg-white"
-            }`}
-          />
+        <button className="flex gap-3 items-center justify-end" onClick={() => setIsAttaching(!isAttaching)}>
+          <p className={`appearance-none border-2 border-black rounded-sm w-4 h-4 ${isAttaching ? "bg-[#4866CF]" : "bg-white"}`} />
           <span>
             {isAttaching ? "دادن دسترسی به نقش" : "گرفتن دسترسی از نقش"}
           </span>

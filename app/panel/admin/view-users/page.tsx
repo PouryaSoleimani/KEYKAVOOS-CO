@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
@@ -15,21 +16,15 @@ function ViewUsers() {
   const [searchUsers, setSearchUsers] = useState("");
   const [legalUsers, setLegalUsers] = useState<never[]>([]);
   const [genuineUsers, setGenuineUsers] = useState<never[]>([]);
-  const [usersStatus, setUsersStatus] = useState({
-    loading: false,
-  });
+  const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      getAllUsers(token, setAllUsersData, setUsersStatus);
-    }
+    if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }
   }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const allUsers = JSON.parse(
-        window.sessionStorage.getItem("users") as string
-      );
+      const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
       setAllUsersData(allUsers);
     }
   }, [setAllUsersData]);
@@ -78,23 +73,14 @@ function ViewUsers() {
   };
   return (
     <div className="grid grid-cols-1 gap-8">
-      <div className="flex flex-row gap-5 flex-wrap justify-center md:justify-normal md:text-base text-sm">
-        <Link
-          href={"/panel/admin/view-users/permission-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[160px] whitespace-nowrap"
-        >
+      <div className="flex flex-row gap-2 justify-center md:justify-normal md:text-base text-sm">
+        <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[155px] whitespace-nowrap" >
           مدیریت دسترسی ها
         </Link>
-        <Link
-          href={"/panel/admin/view-users/role-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[130px] whitespace-nowrap"
-        >
+        <Link href={"/panel/admin/view-users/role-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[125px] whitespace-nowrap"  >
           مدیریت نقش ها
         </Link>
-        <Link
-          href={"/panel/admin/view-users/position-management"}
-          className="text-white bg-[#4866CF] p-2 rounded-[5px] md:w-[140px] whitespace-nowrap"
-        >
+        <Link href={"/panel/admin/view-users/position-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[135px] whitespace-nowrap" >
           مدیریت جایگاه ها
         </Link>
       </div>

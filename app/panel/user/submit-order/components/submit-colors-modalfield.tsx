@@ -4,31 +4,22 @@ import plus from "../../../../../public/Panel/plus.svg";
 import Image from "next/image";
 import { MdDelete } from "react-icons/md";
 import OrdersubmissionModal from "./odersubmission-modal";
+
 type SubmitOrderDropdownProps = {
-  modalFieldTitle: string;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  // showModal: boolean;
-  data: { title: string; color: string }[];
-  setData: React.Dispatch<
-    React.SetStateAction<{ title: string; color: string }[]>
-  >;
+  modalFieldTitle: string; setShowModal: React.Dispatch<React.SetStateAction<boolean>>; showModal: boolean; data: { title: string; color: string }[];
+  setData: React.Dispatch<React.SetStateAction<{ title: string; color: string }[]>>;
   // modalInputValue: string;
   // setModalInputValue: React.Dispatch<React.SetStateAction<string>>;
 };
-function SubmitColorModalfield({
-  modalFieldTitle,
-  setShowModal,
-  // showModal,
-  setData,
-  data,
-}: // modalInputValue,
-  // setModalInputValue,
+function SubmitColorModalfield({ modalFieldTitle, setShowModal, showModal, setData, data, }: // modalInputValue, // setModalInputValue,
   SubmitOrderDropdownProps) {
+
   const deleteItem = (index: number) => {
     const newData = [...data];
     newData.splice(index, 1);
     setData(newData);
   };
+  //^ RETURN 
   return (
     <div className="flex flex-col gap-3 relative">
       <label>{modalFieldTitle}</label>

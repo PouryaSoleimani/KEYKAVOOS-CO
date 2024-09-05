@@ -14,9 +14,7 @@ function LoginVia() {
   const [profile, setProfile] = useState([]);
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => (
-      setAccessToken(codeResponse.access_token), console.log(codeResponse)
-    ),
+    onSuccess: (codeResponse) => (setAccessToken(codeResponse.access_token), console.log(codeResponse)),
     onError: (error) => console.log("Login Failed:", error),
   });
 
@@ -26,9 +24,7 @@ function LoginVia() {
         const { data } = await axios(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
           {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
+            headers: { Authorization: `Bearer ${accessToken}`, },
           }
         );
         sessionStorage.setItem("name", data.name);
@@ -52,18 +48,8 @@ function LoginVia() {
         </p>
       </div>
       <div className="flex flex-row justify-around">
-        <Image
-          src={github}
-          alt="github"
-          onClick={() => signIn("github")}
-          className="cursor-pointer"
-        />
-        <Image
-          src={google}
-          alt="google"
-          onClick={() => login()}
-          className="cursor-pointer"
-        />
+        <Image src={github} alt="github" onClick={() => signIn("github")} className="cursor-pointer" />
+        <Image src={google} alt="google" onClick={() => login()} className="cursor-pointer" />
         {/* <Image
           src={microsoft}
           alt="microsoft"

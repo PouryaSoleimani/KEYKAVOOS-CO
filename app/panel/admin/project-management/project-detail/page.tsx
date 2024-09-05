@@ -1,10 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import FileUpload from "@/app/panel/user/submit-order/components/file-upload";
-import {
-  confirmProjectByAdmin,
-  getProjectDetail,
-  rejectProject,
-} from "@/utils/utils";
+import { confirmProjectByAdmin, getProjectDetail, rejectProject, } from "@/utils/utils";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -24,23 +21,16 @@ export type ProjectDetailType = {
   Colors: { id: number; color: string }[];
   status?: string;
 };
+
 function ProjectDetail() {
-  const [rejection, setRejection] = useState({
-    isRejected: false,
-    rejection_reason: "",
-  });
+  const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
   const params = useSearchParams();
   const id = params.get("id");
   const { token, userProfile } = useSelector((state: any) => state.userData);
-  const [projectDetail, setProjectDetail] = useState<ProjectDetailType>([]);
-  const [projectDetailStatus, setProjectDetailStatus] = useState({
-    loading: false,
-    error: "",
-  });
+  const [projectDetail, setProjectDetail] = useState<ProjectDetailType>();
+  const [projectDetailStatus, setProjectDetailStatus] = useState({ loading: false, error: "", });
 
-  useEffect(() => {
-    getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus);
-  }, []);
+  useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
 
   return (
     <div>
@@ -50,12 +40,10 @@ function ProjectDetail() {
           <p className="font-faNum">{id}</p>
         </div>
       </div>
-      <div className="py-[3%] w-full shadow mx-auto bg-white rounded-xl px-[3%] grid grid-cols-1 gap-5 relative">
+      <div className="py-[3%] w-full shadow mx-auto bg-white rounded-lg px-[3%] grid grid-cols-1 gap-5 relative">
+
         <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-          <Link
-            href="/panel/admin/project-management"
-            className="bg-white rounded-full p-2"
-          >
+          <Link href="/panel/admin/project-management" className="bg-white rounded-lg p-3 hover:bg-[#4866CF] hover:text-white duration-300"   >
             <IoArrowBack />
           </Link>
         </div>
@@ -63,72 +51,67 @@ function ProjectDetail() {
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-3">
-              <p>عنوان پروژه:</p>
+              <p className="tracking-tight">عنوان پروژه : </p>
               {projectDetailStatus.loading ? (
                 <SkeletonTheme>
-                  <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                  {projectDetail.title ? projectDetail.title : "-"}
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.title ? projectDetail?.title : "-"}
                 </div>
               )}
             </div>
             <div className="flex flex-col gap-3">
-              <label htmlFor="">نوع پروژه:</label>
+              <label htmlFor="" className="tracking-tight">نوع پروژه : </label>
               {projectDetailStatus.loading ? (
                 <SkeletonTheme>
-                  <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                  {projectDetail.plan?.title ? projectDetail.plan?.title : "-"}
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
                 </div>
               )}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-3">
-              <label htmlFor="">پلن انتخابی:</label>
+              <label htmlFor="" className="tracking-tight">پلن انتخابی : </label>
               {projectDetailStatus.loading ? (
                 <SkeletonTheme>
-                  <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                  {projectDetail.plan?.title ? projectDetail.plan?.title : "-"}
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
                 </div>
               )}
             </div>
             <div className="flex flex-col gap-3">
-              <label htmlFor="">بودجه مورد نظر:</label>
+              <label htmlFor="" className="tracking-tight">بودجه مورد نظر : </label>
               {projectDetailStatus.loading ? (
                 <SkeletonTheme>
-                  <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-2 rounded-[4px] font-faNum">
-                  {projectDetail.budget_cost
-                    ? Number(projectDetail.budget_cost).toLocaleString()
-                    : ""}
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px] font-faNum">
+                  {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
                 </div>
               )}
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <label htmlFor="">سایت مشابه مورد نظر شماست:</label>
+            <label htmlFor="" className="tracking-tight">سایت مشابه مورد نظر شما : </label>
             {projectDetailStatus.loading ? (
               <SkeletonTheme>
-                <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
               </SkeletonTheme>
             ) : (
-              <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                {projectDetail.Similar_Site ? (
-                  projectDetail.Similar_Site.map((item, index) => (
-                    <p
-                      key={item.id}
-                      className="bg-[#4866CE] text-white p-1 rounded-sm"
-                    >
+              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                {projectDetail?.Similar_Site ? (
+                  projectDetail?.Similar_Site.map((item, index) => (
+                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
                       {item.url ? item.url : "سایتی توسط کاربر ثبت نشده است."}
                     </p>
                   ))
@@ -140,35 +123,30 @@ function ProjectDetail() {
           </div>
           <div>
             <div className="flex flex-col gap-3">
-              <label>توضیحات پروژه:</label>
+              <label className="tracking-tight">توضیحات پروژه : </label>
               {projectDetailStatus.loading ? (
                 <SkeletonTheme>
-                  <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                  {projectDetail.description}
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.description}
                 </div>
               )}
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <label htmlFor="">قالب و افزونه های مورد نیاز:</label>
+            <label htmlFor="" className="tracking-tight">قالب و افزونه های مورد نیاز  : </label>
             {projectDetailStatus.loading ? (
               <SkeletonTheme>
-                <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
               </SkeletonTheme>
             ) : (
-              <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                {projectDetail.Templates ? (
-                  projectDetail.Templates.map((item, index) => (
-                    <p
-                      key={item.id}
-                      className="bg-[#4866CE] text-white p-1 rounded-sm"
-                    >
-                      {item.template_name
-                        ? item.template_name
-                        : "تمپلیتی توسط کاربر ثبت نشده است"}
+              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                {projectDetail?.Templates ? (
+                  projectDetail?.Templates.map((item, index) => (
+                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
+                      {item.template_name ? item.template_name : "تمپلیتی توسط کاربر ثبت نشده است"}
                     </p>
                   ))
                 ) : (
@@ -178,19 +156,17 @@ function ProjectDetail() {
             )}
           </div>
           <div className="flex flex-col gap-3">
-            <label htmlFor="">رنگ سازمانی:</label>
+            <label htmlFor="" className="tracking-tight">رنگ سازمانی : </label>
             {projectDetailStatus.loading ? (
               <SkeletonTheme>
-                <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
               </SkeletonTheme>
             ) : (
-              <div className="bg-[#EAEFF6] p-2 rounded-[4px]">
-                {projectDetail.Colors ? (
-                  projectDetail.Colors.map((item, index) => (
+              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                {projectDetail?.Colors ? (
+                  projectDetail?.Colors.map((item, index) => (
                     <p key={item.id}>
-                      {item.color
-                        ? item.color
-                        : "رنگی توسط کاربر ثبت نشده است."}
+                      {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
                     </p>
                   ))
                 ) : (
@@ -200,7 +176,7 @@ function ProjectDetail() {
             )}
           </div>
           <div className="grid grid-cols-2">
-            <div className="bg-[#4866CE] text-white rounded-lg p-1 flex justify-start items-center gap-2 w-[40%]">
+            <div className="bg-[#4866CE] text-white rounded-lg p-4 flex justify-start items-center gap-2 w-[40%]">
               <label className="whitespace-nowrap">
                 {rejection.isRejected ? "شماره درخواست:" : "مبلغ نهایی:"}
               </label>
@@ -209,26 +185,16 @@ function ProjectDetail() {
               )}
               {!rejection.isRejected && (
                 <div className="font-faNum bg-[#4866CE] text-white">
-                  {projectDetail.budget_cost
-                    ? Number(projectDetail.budget_cost).toLocaleString()
-                    : ""}
+                  {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
                 </div>
               )}
             </div>
-            {projectDetail.status === "processing" && (
+            {projectDetail?.status === "processing" && (
               <div className="w-full flex justify-end items-center gap-3">
-                <button
-                  className="bg-[#EAEFF6] text-[#4866CE] rounded-lg py-1 px-3"
-                  onClick={() =>
-                    setRejection((last) => ({ ...last, isRejected: true }))
-                  }
-                >
+                <button className="bg-[#EAEFF6] text-[#4866CE] rounded-lg py-1 px-3" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
                   رد پروژه
                 </button>
-                <button
-                  className="bg-[#4866CE] text-white rounded-lg p-1"
-                  onClick={() => confirmProjectByAdmin(token, Number(id))}
-                >
+                <button className="bg-[#4866CE] text-white rounded-lg p-1" onClick={() => confirmProjectByAdmin(token, Number(id))}>
                   تایید پروژه
                 </button>
               </div>
@@ -236,29 +202,8 @@ function ProjectDetail() {
           </div>
           {rejection.isRejected && (
             <div className="relative">
-              <textarea
-                className="p-[1%] bg-[#EAEFF6] rounded-[4px] w-full placeholder:text-[#4866CE]"
-                rows={4}
-                placeholder="علت رد پروژه"
-                onChange={(e) =>
-                  setRejection((last) => ({
-                    ...last,
-                    rejection_reason: e.target.value,
-                  }))
-                }
-                value={rejection.rejection_reason}
-              ></textarea>
-              <button
-                className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] p-2"
-                onClick={() =>
-                  rejectProject(
-                    token,
-                    rejection.rejection_reason,
-                    Number(id),
-                    userProfile.id
-                  )
-                }
-              >
+              <textarea className="p-[1%] bg-[#EAEFF6] rounded-[4px] w-full placeholder:text-[#4866CE]" rows={4} placeholder="علت رد پروژه" onChange={(e) => setRejection((last) => ({ ...last, rejection_reason: e.target.value, }))} value={rejection.rejection_reason}></textarea>
+              <button className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] p-2" onClick={() => rejectProject(token, rejection.rejection_reason, Number(id), userProfile.id)} >
                 تایید و ارسال به کارفرما
               </button>
             </div>

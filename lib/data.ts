@@ -758,7 +758,7 @@ export const userSidebarOptions = [
     imgSrc: Images.ConsultationIcon,
     address: "/panel/user/consultation",
     path: "/panel/user/consultation",
-    
+
   },
 ];
 export const mainAdminSidebarOptions = [
@@ -811,7 +811,16 @@ export const mainAdminSidebarOptions = [
     path: [
       "/panel/admin/project-management",
       "/panel/admin/project-management/project-detail",
+      // "/panel/admin/project-management/order-management",
+    ],
+  },
+  {
+    text: "مدیریت سفارش ها",
+    imgSrc: Images.OrderSubmissionIcon,
+    address: "/panel/admin/project-management/order-management",
+    path: [
       "/panel/admin/project-management/order-management",
+      // "/panel/admin/project-management/project-payment",
     ],
   },
   {

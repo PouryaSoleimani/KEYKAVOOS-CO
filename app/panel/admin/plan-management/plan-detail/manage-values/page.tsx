@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { RxCross1 } from "react-icons/rx";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+
+
 import { FaCheck, FaPlus } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import {
@@ -21,6 +22,8 @@ import { ValueType } from "../../components/value-component";
 import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { AttrIdContext } from "../../context/AttrIdContext";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 function ManageValues() {
   const [valueIsDeleted, setValueIsDeleted] = useState(false);
@@ -125,14 +128,14 @@ function ManageValues() {
                 }
                 className="flex justify-center"
               >
-                <RxCross1 className="text-red-600 text-lg" />
+                <RiDeleteBin7Fill className="text-red-600 text-lg" />
               </span>
               <span
                 onClick={() =>
                   restorePlanValues(item.id, token, setValueIsDeleted)
                 }
               >
-                <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <IoReloadCircle  className="text-emerald-600 text-xl" />
               </span>
               {/* <span
                 onClick={() =>

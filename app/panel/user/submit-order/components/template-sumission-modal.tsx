@@ -41,9 +41,8 @@ function TemplateSubmissionModal({
       id="default-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className={`${
-        showModal ? "block" : "hidden"
-      }  absolute w-full text-center z-50 h-full backdrop-blur-sm`}
+      className={`${showModal ? "block" : "hidden"
+        }  absolute w-full text-center z-50 h-full backdrop-blur-sm`}
     >
       <div className="p-4 w-full flex justify-center">
         <div className="relative p-8 w-full max-w-2xl max-h-full">
@@ -51,46 +50,26 @@ function TemplateSubmissionModal({
             <div className="md:p-5 text-black font-semibold">
               <input
                 type="text"
-                className="bg-[#EAEFF6] w-full rounded-[4px] p-2 outline-none"
+                className="bg-[#EAEFF6] w-full rounded-[4px] p-2 outline-none placeholder:font-extralight "
                 autoFocus={true}
                 value={modalInputValue.template_name}
-                onChange={(e) =>
-                  setModalInputValue((last) => ({
-                    ...last,
-                    template_name: e.target.value,
-                  }))
-                }
+                onChange={(e) => setModalInputValue((last) => ({ ...last, template_name: e.target.value, }))}
                 placeholder="نام تمپلیت"
               />
             </div>
             <div className="flex flex-row-reverse gap-5 md:p-5">
               {data.map((item) => (
-                <p
-                  key={item.template_name}
-                  className={`bg-[#EAEFF6] rounded-[4px] px-2 ${
-                    item.template_name ? "inline-block" : "hidden"
-                  }`}
-                >
+                <p key={item.template_name} className={`bg-[#EAEFF6] rounded-[4px] px-2 py-1.5 ${item.template_name ? "inline-block" : "hidden"}`}>
                   {item.template_name}
                 </p>
               ))}
             </div>
             <div className="flex items-center justify-between p-4 md:p-5 rounded-b">
-              <button
-                type="button"
-                className="text-white bg-[#4866CF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-5 md:py-2.5 text-center"
-                onClick={() => handleSave()}
-              >
+              <button type="button" className="text-white bg-[#4866CF] hover:bg-blue-800 duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-5 md:py-2.5 text-center" onClick={() => handleSave()} >
                 ذخیره
               </button>
               <div>
-                <button
-                  onClick={() => {
-                    setShowModal(false);
-                  }}
-                  type="button"
-                  className={`md:py-2.5 md:px-5 ms-3 px-5 text-sm font-medium focus:outline-none rounded-lg border border-[#4866CF]  bg-white text-[#4866CF]`}
-                >
+                <button onClick={() => { setShowModal(false); }} type="button" className={`md:py-2.5 md:px-5 ms-3 px-5 text-sm font-medium focus:outline-none rounded-lg border border-[#4866CF]  bg-white text-[#4866CF] hover:bg-[#4866CF] hover:text-white duration-300`}  >
                   بستن
                 </button>
               </div>

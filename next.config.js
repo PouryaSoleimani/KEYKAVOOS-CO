@@ -7,16 +7,21 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["keykavoos.liara.run", "localhost", "localhost:8000/storage","localhost:3000"],
+    domains: ["keykavoos.liara.run", "localhost", "localhost:8000/storage", "localhost:3000"],
   },
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: "http",
-  //       hostname: "**",
-  //     },
-  //   ],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        port: "3000",
+        hostname: "***"
+      }
+    ],
+  },
 };
 
 module.exports = nextConfig;

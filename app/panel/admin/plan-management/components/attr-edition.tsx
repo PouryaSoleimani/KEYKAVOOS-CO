@@ -1,11 +1,11 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { RxCross1 } from "react-icons/rx";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { deletePlanAttr, getPlanAttrs, restorePlanAttr } from "@/utils/utils";
 import { PlanAttrType } from "../plan-detail/page";
 import { AttrIdContext } from "../context/AttrIdContext";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 type AttrEditionProps = {
   token: string;
@@ -81,9 +81,8 @@ function AttrEdition({
             description: string;
           }) => (
             <div
-              className={`${
-                attrIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"
-              } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`}
+              className={`${attrIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"
+                } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`}
               key={item.id}
             >
               <input
@@ -99,11 +98,11 @@ function AttrEdition({
               <p>
                 {item.values?.length > 0
                   ? item.values
-                      .filter(
-                        (val: { plan_id: number }) =>
-                          val.plan_id === Number(planId)
-                      )
-                      .map((item: { title: string }) => item.title)[0]
+                    .filter(
+                      (val: { plan_id: number }) =>
+                        val.plan_id === Number(planId)
+                    )
+                    .map((item: { title: string }) => item.title)[0]
                   : "-"}
               </p>
               <div className="flex flex-row items-center justify-center gap-3">
@@ -113,14 +112,10 @@ function AttrEdition({
                   }
                   className="flex justify-center"
                 >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
-                <span
-                  onClick={() =>
-                    restorePlanAttr(item.id, token, setAttrIsDeleted)
-                  }
-                >
-                  <MdOutlineSettingsBackupRestore className="text-yellow-600 text-lg" />
+                <span onClick={() => restorePlanAttr(item.id, token, setAttrIsDeleted)}>
+                  <IoReloadCircle className="text-emerald-600 text-xl" />
                 </span>
                 <span onClick={() => handleAddingValue(item?.id)}>
                   <FaPlus />

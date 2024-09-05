@@ -27,18 +27,13 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
   };
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file) {
-      handleChangingFile(file);
-    }
+    if (file) { handleChangingFile(file); }
   };
   const handleFileUpload = async () => {
     const formData = new FormData();
     formData.append("File", File);
     try {
-      const { data } = await axios.post(
-        `https://keykavoos.liara.run/Client/UploadFile_req`,
-        formData
-      );
+      const { data } = await axios.post(`https://keykavoos.liara.run/Client/UploadFile_req`, formData);
       setFileId(data.data);
       toast.success("آپلود فایل موفق بود.", {
         position: "top-right",
@@ -75,19 +70,12 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
     id: string
   ) => {
     try {
-      const { data } = await axios.post(
-        `https://keykavoos.liara.run/Client/FormReq`,
-        {
-          FullName,
-          PhoneNumber,
-          email,
-          Description,
-          _id: id,
-        }
+      const { data } = await axios.post(`https://keykavoos.liara.run/Client/FormReq`,
+        { FullName, PhoneNumber, email, Description, _id: id, }
       );
       toast.success("اطلاعات با موفقیت ثبت شد.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -100,7 +88,7 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
     } catch (error) {
       toast.error("خطا در ثبت اطلاعات.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

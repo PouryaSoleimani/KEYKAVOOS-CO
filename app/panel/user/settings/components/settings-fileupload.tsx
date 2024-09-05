@@ -1,18 +1,35 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import uploadFile from "../../../../../public/Panel/uploadfile.svg";
 import { MdOutlineFileUpload } from "react-icons/md";
 import USER__DEFAULT from '@/public/USER__DEFAULT.png'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserProfile, getIdFromLocal, getTokenFromLocal } from "@/redux/features/user/userSlice";
+import axios from "axios";
+import store from "@/redux/store";
 type SettingsFileuploadProps = { handleChange: any; selectedFile: any; label: string; };
 
 
 //^ COMPONENT 
 function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFileuploadProps) {
-
+  const dispatch = useDispatch();
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) { handleChange(file); }
   };
+
+  useEffect(() => {
+    dispatch(getTokenFromLocal());
+    dispatch<any>(fetchUserProfile());
+    dispatch(getIdFromLocal());
+  }, []);
+
+
+  const { token, userProfile, status, numberOfAnnouncements, role, userId } = useSelector((store: any) => store.userData);
+  console.log(userProfile?.pic_path);
+  const USER_PROFILE_PIC = userProfile.pic_path
+
 
   //^ RETURN 
   return (
@@ -29,15 +46,20 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
             </span>
           </label>
         </div>
-        <p className="text-justify w-full py-2 tracking-tight leading-7 text-[#858585] font-faNum ">
+        <p className="text-justify w-full py-2 tracking-tighter leading-7 text-[#858585] font-faNum ">
           فقط فایل های jpg / jpeg / png  حداکثر حجم 2MB حداقل سایز تصویر
           انتخابی باید(200px*200px) باشد.
         </p>
       </div>
-
-      <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-        <Image src={selectedFile && selectedFile.type.startsWith("/image/") ? URL.createObjectURL(selectedFile) : USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
-      </div>
+      {USER_PROFILE_PIC ? (
+        <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
+          <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={550} height={32} />
+        </div>
+      ) : (
+        <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
+          <Image src={USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+        </div>
+      )}
     </div>
   );
 }

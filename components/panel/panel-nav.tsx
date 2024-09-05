@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "@/redux/features/user/userSlice";
 import { useRouter } from "next/navigation";
@@ -11,16 +12,26 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { changeNotificationStatus } from "@/utils/utils";
 type NavProps = { userProfile: any; status: string; userType: string; numberOfAnnouncements: any; setShowAnnouncementDropdown: Dispatch<SetStateAction<boolean>>; showAnnouncementDropdown: boolean; };
 
+
+// ^ COMPONENT ====================================================================================================================================
 const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncementDropdown, showAnnouncementDropdown, }: NavProps) => {
 
   const dispatch = useDispatch();
   const router = useRouter();
   const [isRead, setIsRead] = useState(null);
+  const [USER_INFOS, setUSER_INFOS] = useState(null)
   const { token } = useSelector((state: any) => state.userData);
+  const clickHandler = (notif_id: number, read_at: string | null) => { if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } };
 
-  const clickHandler = (notif_id: number, read_at: string | null) => {
-    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); }
-  };
+
+  console.log(userProfile);
+
+
+  // useEffect(() => {
+  //   setTimeout(() => { setUSER_INFOS(userProfile); }, 1500);
+  //   setTimeout(() => { console.log("%c USER___INFOS +++++++>>>>>", "color : yellow", USER_INFOS); }, 2000);
+  // }, [])
+
   // ^ RETURN
   return (
     <div className="flex flex-col items-end relative justify-center" dir="rtl" onMouseLeave={() => setShowAnnouncementDropdown(false)}>
@@ -34,11 +45,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
               </p>
             </div>
             {showAnnouncementDropdown && (
-              <div
-                className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"
-                  }  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`}
-                onMouseLeave={() => setShowAnnouncementDropdown(false)}
-              >
+              <div className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"}  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`} onMouseLeave={() => setShowAnnouncementDropdown(false)}  >
                 {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
                   (announce: { text: string; id: number; read_at: string | null; }) => (
                     <div key={announce.id} className="flex justify-between p-4"  >
@@ -61,10 +68,10 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] rounded-full">
-                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-500" width={36} height={36} />
+                  <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
                 </div>
               ) : (
-                <Image src={USER__DEFAULT} alt="default-pic" width={52} className="hover:scale-110 duration-300" />)}
+                <Image src={USER__DEFAULT} alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
                 <Image src={exit} alt="exit" width={24} className="p-0.5 -translate-x-0.5 hover:scale-110 duration-300" />
               </div>

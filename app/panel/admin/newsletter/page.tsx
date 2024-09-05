@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import {
@@ -11,12 +12,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
-import { RxCross1 } from "react-icons/rx";
+
+
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../components/NotFound";
 import NewInfoOnEachPageBtn from "../../user/components/NewInfoOnEachPageBtn";
+import { IoReloadCircle } from "react-icons/io5";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 function NewsLetter() {
   const [newsLetters, setNewsLetters] = useState([]);
@@ -61,29 +64,26 @@ function NewsLetter() {
         ) : (
           newsLetters.map((item: any, index) => (
             <div
-              className={`${
-                item.deleted_at ? "bg-red-100" : "bg-[#EAEFF6]"
-              } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px]`}
+              className={`${item.deleted_at ? "bg-red-100" : "bg-[#EAEFF6]"
+                } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px]`}
               key={index}
             >
               <p>{index + 1}</p>
               <input
                 value={item.title}
                 readOnly={true}
-                className={`${
-                  item.deleted_at
-                    ? "bg-transparent caret-transparent cursor-default text-center"
-                    : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                } outline-none`}
+                className={`${item.deleted_at
+                  ? "bg-transparent caret-transparent cursor-default text-center"
+                  : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
+                  } outline-none`}
               />
               <input
                 value={item.description}
                 readOnly={true}
-                className={`${
-                  item.deleted_at
-                    ? "bg-transparent caret-transparent cursor-default text-center"
-                    : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                } outline-none`}
+                className={`${item.deleted_at
+                  ? "bg-transparent caret-transparent cursor-default text-center"
+                  : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
+                  } outline-none`}
               />
               <div className="flex flex-row items-center justify-center gap-3">
                 <span
@@ -97,23 +97,10 @@ function NewsLetter() {
                   }
                   className="flex justify-center"
                 >
-                  <RxCross1 className="text-red-600 text-lg" />
+                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
-                <span
-                  onClick={() =>
-                    restoreNewsletter(
-                      token,
-                      item.id,
-                      setNewsLetterIsDeleted,
-                      setNewsLetters
-                    )
-                  }
-                >
-                  <MdOutlineSettingsBackupRestore
-                    className={`${
-                      item.deleted_at ? "text-green-600" : "text-yellow-600 "
-                    } text-lg`}
-                  />
+                <span onClick={() => restoreNewsletter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)}>
+                  <IoReloadCircle className={`${item.deleted_at ? "text-green-600" : "text-yellow-600 "} text-lg`} />
                 </span>
               </div>
             </div>

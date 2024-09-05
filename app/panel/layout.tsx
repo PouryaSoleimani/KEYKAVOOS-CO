@@ -19,6 +19,8 @@ import { OrderSubmissionContext } from "./context/order-submission-contexts/Orde
 import OrderSubmissionContextWrapper from "./context/order-submission-contexts/OrderSubmissionContextWrapper";
 import { DepartmentContext } from "./admin/context/department-context/DepartmentContext";
 import AttrIdContextWrapper from "./admin/plan-management/context/AttrIdContextWrapper";
+import { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 // ^ COMPONENT
 const PanelLayout = ({ children }: { children: React.ReactNode }) => {
@@ -36,8 +38,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const displayedItems =
-    role === "Admin" ? mainAdminSidebarOptions.slice(startIndex, endIndex) : userSidebarOptions.slice(startIndex, endIndex);
+  const displayedItems = role === "Admin" ? mainAdminSidebarOptions.slice(startIndex, endIndex) : userSidebarOptions.slice(startIndex, endIndex);
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) =>
@@ -47,9 +48,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
-  const handlePrevClick = () => {
-    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage));
-  };
+  const handlePrevClick = () => { setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage)); };
 
   useEffect(() => {
     dispatch(getTokenFromLocal());
@@ -85,6 +84,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
           <PermissionContextWrapper>
             <AttrIdContextWrapper>
               <div className="font-YekanBakh flex w-full flex-row relative min-h-screen bg-white" style={{ boxShadow: "0px 0px 90px 2px rgba(0, 0, 0, 0.25)" }} dir="rtl" >
+                <Toaster position="top-left" reverseOrder={true} />
                 {localToken && (
                   <>
                     <div className="hidden lg:block">

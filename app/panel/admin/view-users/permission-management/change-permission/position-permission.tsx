@@ -63,7 +63,7 @@ function PositionPermission() {
   };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3">
+    <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] space-y-3">
       <form
         onSubmit={(e) => handleSubmission(e)}
         className="grid grid-cols-1 gap-8"
@@ -77,9 +77,7 @@ function PositionPermission() {
           dropDownTitle="دسترسی ها:"
         />
         <SubmitOrderDropdown
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setPositionPerId((last) => ({ ...last, positionId: e.target.value }))
-          }
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setPositionPerId((last) => ({ ...last, positionId: e.target.value }))}
           value={positionPerId.perId}
           dropdownItems={positionInfos}
           dropDownTitle="جایگاه ها:"

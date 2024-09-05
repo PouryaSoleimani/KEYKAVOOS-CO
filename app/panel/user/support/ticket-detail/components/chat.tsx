@@ -3,56 +3,31 @@ import React, { useState } from "react";
 import styles from "./chat.module.css";
 import ChatFileUpload from "./chat-file-upload";
 const moment = require("moment-jalaali");
-type ChatProps = {
-  senderText: any;
-  recieverText: any;
-  textInput: string;
-  setTextInput: React.Dispatch<React.SetStateAction<string>>;
-  File: any;
-  handleFileChange: any;
-  handleFileUpload: any;
-  sendResponseTicket: any;
-  fileSelected: boolean;
-  ticketId: string;
-};
+type ChatProps = { senderText: any; recieverText: any; textInput: string; setTextInput: React.Dispatch<React.SetStateAction<string>>; File: any; handleFileChange: any; handleFileUpload: any; sendResponseTicket: any; fileSelected: boolean; ticketId: string; };
 
-function Chat({
-  senderText,
-  textInput,
-  setTextInput,
-  File,
-  handleFileChange,
-  handleFileUpload,
-  sendResponseTicket,
-  fileSelected,
-  ticketId,
-}: ChatProps) {
-  console.log("sender text", senderText);
+//^ COMPONENT 
+function Chat({ senderText, textInput, setTextInput, File, handleFileChange, handleFileUpload, sendResponseTicket, fileSelected, ticketId, }: ChatProps) {
 
-  const userMsgs = senderText[0]?.messages?.filter(
-    (item: any) =>
-      item.register_user_id !== null && item.responser_user_id === null
-  );
+  console.log("%c SENDER TEXT", "color : lightgray", senderText);
+
+  const userMsgs = senderText[0]?.messages?.filter((item: any) => item.register_user_id !== null && item.responser_user_id === null);
+
   const userMessages = userMsgs ? userMsgs : [];
 
-  const adminMsgs = senderText[0]?.messages.filter(
-    (item: any) => item.responser_user_id !== null
-  );
+  const adminMsgs = senderText[0]?.messages.filter((item: any) => item.responser_user_id !== null);
+
   const adminMessages = adminMsgs ? adminMsgs : [];
 
   // console.log("user messages", userMessages);
   // console.log("admin Messages", adminMessages);
+  
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (File && textInput) {
-      Promise.all([
-        await handleFileUpload(),
-        await sendResponseTicket(textInput, ticketId),
-      ]);
+      Promise.all([await handleFileUpload(), await sendResponseTicket(textInput, ticketId),]);
       setTextInput("");
     } else if (textInput && !File) {
-      await sendResponseTicket(textInput, ticketId);
-      setTextInput("");
+      await sendResponseTicket(textInput, ticketId); setTextInput("");
     } else if (!textInput && File) {
       await handleFileUpload();
     }
@@ -70,11 +45,7 @@ function Chat({
   return (
     <div className="grid grid-cols-1">
       <div className="grid grid-cols-1 mt-10">
-        <div
-          className={`${
-            styles.chatBubble
-          } ${`${styles.sender}`} flex flex-col gap-5`}
-        >
+        <div className={`${styles.chatBubble} ${`${styles.sender}`} flex flex-col gap-5`}>
           <p className="justify-end">{senderText[0]?.mainDescription}</p>
           <span className={`flex justify-end`}>
             {timestampConversion(senderText[0]?.created_at)}
@@ -83,20 +54,10 @@ function Chat({
         {/* Render all messages */}
         <div className={`flex flex-col gap-5`}>
           {sortedCombinedMessages.map((item, index) => (
-            <div key={index} className={`${
-              item.responser_user_id ? `flex justify-end` : "flex justify-start"
-            }`}>
-              <div
-                className={`${styles.chatBubble} ${
-                  item.responser_user_id ? `${styles.receiver}` : styles.sender
-                }`}
-              >
+            <div key={index} className={`${item.responser_user_id ? `flex justify-end` : "flex justify-start"}`}>
+              <div className={`${styles.chatBubble} ${item.responser_user_id ? `${styles.receiver}` : styles.sender}`}>
                 <p>{item.description}</p>
-                <span
-                  className={`flex ${
-                    item.responser_user_id ? "justify-start" : "justify-end"
-                  }`}
-                >
+                <span className={`flex ${item.responser_user_id ? "justify-start" : "justify-end"}`}>
                   {timestampConversion(item.created_at)}
                 </span>
               </div>
@@ -145,10 +106,7 @@ function Chat({
           ))}
         </div>
       </div> */}
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="bg-[#4866CE] rounded-[4px] flex flex-row"
-      >
+      <form onSubmit={(e) => handleSubmission(e)} className="bg-[#4866CE] p-2 rounded-[4px] flex flex-row " >
         <textarea
           cols={30}
           rows={4}
@@ -161,11 +119,8 @@ function Chat({
         <span className="font-faNum flex flex-col self-end p-4 text-[#EAEFF6A1]">
           0/150
         </span>
-        <div className="grid grid-cols-1 justify-center items-center lg:w-[15%] px-3">
-          <button
-            className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6]"
-            type="submit"
-          >
+        <div className="grid grid-cols-1 justify-center space-y-2 items-center lg:w-[20%] px-3">
+          <button className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6] hover:bg-blue-800 duration-300 hover:text-white" type="submit"  >
             ارسال پیام
           </button>
           <ChatFileUpload File={File} handleChange={handleFileChange} />

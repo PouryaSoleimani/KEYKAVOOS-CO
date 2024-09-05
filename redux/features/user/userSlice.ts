@@ -125,14 +125,13 @@ const fetchUserProfile = createAsyncThunk<
     if (getState().userData.token || getState().userData.localToken) {
       const { data } = await app.get(`/user/show`, {
         headers: {
-          authorization: `Bearer ${
-            getState().userData.token
+          authorization: `Bearer ${getState().userData.token
               ? getState().userData.token
               : getState().userData.localToken
-          }`,
+            }`,
         },
       });
-      console.log("userprofile", data);
+      // console.log("userprofile", data);
       return {
         data: data.data,
         FirstName: data.data.name,
@@ -272,9 +271,8 @@ const userSlice = createSlice({
         localStorage.setItem("role", JSON.stringify(state.role));
         state.userId = action.payload.userId;
         sessionStorage.setItem("userId", state.userId);
-        state.successMessage = `${
-          state.FirstName + " " + state.LastName
-        } عزیز با موفقیت وارد پنل کاربری خود شدید.`;
+        state.successMessage = `${state.FirstName + " " + state.LastName
+          } عزیز با موفقیت وارد پنل کاربری خود شدید.`;
         state.errorMessage = "";
         state.isLoggedIn = action.payload.isLoggedIn;
       }
@@ -306,9 +304,8 @@ const userSlice = createSlice({
       state.isLoggedIn = action.payload.isLoggedIn;
       state.errorMessage = "";
       sessionStorage.setItem("userId", state.userId);
-      state.successMessage = `${
-        state?.FirstName + " " + state?.LastName
-      } عزیز با موفقیت وارد پنل کاربری خود شدید.`;
+      state.successMessage = `${state?.FirstName + " " + state?.LastName
+        } عزیز با موفقیت وارد پنل کاربری خود شدید.`;
       state.errorMessage = "";
       state.type = action.payload.type;
       state.role = state.userType?.find(

@@ -1,9 +1,7 @@
+// import { createProject } from './utils';
 import { BrandDetailType } from "@/app/panel/admin/org_management/departments/department-detail/page";
 import { BrandType } from "@/app/panel/admin/org_management/brands/page";
-import {
-  DepartmentFinalType,
-  DepartmentType,
-} from "@/app/panel/admin/org_management/departments/page";
+import { DepartmentFinalType, DepartmentType, } from "@/app/panel/admin/org_management/departments/page";
 import { ValueType } from "@/app/panel/admin/plan-management/components/value-component";
 import { PlanType } from "@/app/panel/admin/plan-management/page";
 import { PlanAttrType } from "@/app/panel/admin/plan-management/plan-detail/page";
@@ -16,21 +14,10 @@ import { Dispatch, SetStateAction } from "react";
 import { Bounce, toast } from "react-toastify";
 import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
-import {
-  ColorType,
-  PluginType,
-  SimilarSiteType,
-  TemplateType,
-} from "@/app/panel/user/submit-order/page";
+import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
 
 // create notification
-export const createNotification = async (
-  token: string,
-  dept_id: number,
-  brand_id: number,
-  user_id: number,
-  text: string
-) => {
+export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
   try {
     console.log("user_id", user_id);
     // console.log("text", text);
@@ -43,17 +30,14 @@ export const createNotification = async (
         text,
       },
       {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`, },
       }
     );
     // console.log(data);
     toast.success("نوتیفیکیشن با موفقیت ارسال شد.", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -65,8 +49,8 @@ export const createNotification = async (
   } catch (error: any) {
     toast.error("خطا در ارسال نوتیفیکیشن", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -230,8 +214,8 @@ export const sendOTPCodeMain = async (
     console.log(data);
     toast.success("کد با موفقیت ارسال شد.", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -244,8 +228,8 @@ export const sendOTPCodeMain = async (
   } catch (error: any) {
     toast.error("خطا در ارسال کد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -322,8 +306,8 @@ export const deleteUser = async (
     console.log(data);
     toast.success("کاربر با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -340,8 +324,8 @@ export const deleteUser = async (
     console.log(error);
     toast.error("خطا در حذف کاربر", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -409,8 +393,8 @@ export const updatePosition = async (
     );
     toast.success("موقعیت با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -424,8 +408,8 @@ export const updatePosition = async (
     console.log(error);
     toast.error("خطا در به روزرسانی موقعیت", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -451,8 +435,8 @@ export const deletePosition = async (
     console.log(data);
     toast.success("موقعیت با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -467,8 +451,8 @@ export const deletePosition = async (
     console.log(error);
     toast.error("خطا در حذف موقعیت", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -493,8 +477,8 @@ export const restorePosition = async (
     });
     toast.success("موقعیت با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -509,8 +493,8 @@ export const restorePosition = async (
     console.log(error);
     toast.error("خطا در بازگردانی موقعیت", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -558,22 +542,14 @@ export const createNewPosition = async (
   try {
     const { data } = await app.post(
       "/position/store",
-      {
-        title_en,
-        title_fa,
-        dept_id,
-        user_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { title_en, title_fa, dept_id, user_id, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     toast.success("موقعیت با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -582,12 +558,14 @@ export const createNewPosition = async (
       transition: Bounce,
       rtl: true,
     });
+    window.location.replace('/panel/admin/view-users/position-management')
     // console.log(data);
   } catch (error: any) {
     toast.error("خطا در ایجاد موقعیت", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -596,7 +574,7 @@ export const createNewPosition = async (
       transition: Bounce,
       rtl: true,
     });
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
 // get all roles
@@ -650,8 +628,8 @@ export const updateRole = async (
     );
     toast.success("نقش با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -665,8 +643,8 @@ export const updateRole = async (
     console.log(error);
     toast.error("خطا در به روزرسانی نقش", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -692,8 +670,8 @@ export const deleteRole = async (
     console.log(data);
     toast.success("نقش با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -708,8 +686,8 @@ export const deleteRole = async (
     console.log(error);
     toast.error("خطا در حذف نقش", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -734,8 +712,8 @@ export const restoreRole = async (
     });
     toast.success("نقش با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -750,8 +728,8 @@ export const restoreRole = async (
     console.log(error);
     toast.error("خطا در بازگردانی نقش", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -806,8 +784,9 @@ export const createNewRole = async (
     );
     toast.success("نقش با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -817,11 +796,13 @@ export const createNewRole = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/view-users/role-management')
   } catch (error) {
     toast.error("خطا در ایجاد نقش", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -833,23 +814,16 @@ export const createNewRole = async (
     console.log(error);
   }
 };
-// get all permissions
+// ^ GET ALL PERMISIONS
 export const getAllPermissions = async (
   token: string,
   setPermissions: React.Dispatch<React.SetStateAction<PermissionType[]>>,
-  setDataStatus: Dispatch<
-    SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+  setDataStatus: Dispatch<SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
     setDataStatus((last) => ({ ...last, loading: true }));
     const { data } = await app("/permissions", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     setPermissions(data.data);
     window.sessionStorage.setItem("permissions", JSON.stringify(data.data));
@@ -912,8 +886,8 @@ export const createNewPermission = async (
     );
     toast.success("دسترسی با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -926,8 +900,8 @@ export const createNewPermission = async (
   } catch (error) {
     toast.error("خطا در ایجاد دسترسی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -961,8 +935,8 @@ export const updatePermission = async (
     );
     toast.success("دسترسی با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -976,8 +950,8 @@ export const updatePermission = async (
     console.log(error);
     toast.error("خطا در به روزرسانی دسترسی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1003,8 +977,8 @@ export const deletePermission = async (
     // console.log(data);
     toast.success("دسترسی با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1019,8 +993,8 @@ export const deletePermission = async (
     // console.log(error);
     toast.error("خطا در حذف دسترسی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1045,8 +1019,8 @@ export const restorePermission = async (
     });
     toast.success("دسترسی با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1061,8 +1035,8 @@ export const restorePermission = async (
     console.log(error);
     toast.error("خطا در بازگردانی دسترسی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1138,8 +1112,8 @@ export const deleteBrand = async (
     console.log(data);
     toast.success("برند با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1154,8 +1128,8 @@ export const deleteBrand = async (
     console.log(error);
     toast.error("خطا در حذف برند", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1180,8 +1154,8 @@ export const restoreBrand = async (
     });
     toast.success("برند با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1196,8 +1170,8 @@ export const restoreBrand = async (
     console.log(error);
     toast.error("خطا در بازگردانی برند", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1229,8 +1203,9 @@ export const createNewBrand = async (
     );
     toast.success("برند با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1240,11 +1215,13 @@ export const createNewBrand = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/org_management/brands')
   } catch (error) {
     toast.error("خطا در ایجاد برند", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1278,8 +1255,8 @@ export const updateBrand = async (
     );
     toast.success("برند با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1293,8 +1270,8 @@ export const updateBrand = async (
     console.log(error);
     toast.error("خطا در به روزرسانی برند", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1309,11 +1286,7 @@ export const updateBrand = async (
 export const getAllProjects = async (
   token: string,
   setAllProjects: React.Dispatch<React.SetStateAction<never[]>>,
-  setProjectStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
+  setProjectStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>
   >
 ) => {
   try {
@@ -1374,7 +1347,7 @@ export const uploadProjectFile = async (
     toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1407,8 +1380,8 @@ export const createNewplan = async (
     );
     toast.success("پلن با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1421,8 +1394,8 @@ export const createNewplan = async (
   } catch (error) {
     toast.error("خطا در ایجاد پلن", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1485,8 +1458,8 @@ export const updatePlan = async (
     );
     toast.success("پلن با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1500,8 +1473,8 @@ export const updatePlan = async (
     console.log(error);
     toast.error("خطا در به روزرسانی پلن", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1528,8 +1501,8 @@ export const deletePlan = async (
     console.log(data);
     toast.success("پلن با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1545,8 +1518,8 @@ export const deletePlan = async (
     console.log(error);
     toast.error("خطا در حذف پلن", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1571,8 +1544,8 @@ export const restorePlan = async (
     });
     toast.success("پلن با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1587,8 +1560,8 @@ export const restorePlan = async (
     console.log(error);
     toast.error("خطا در بازگردانی پلن", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1653,8 +1626,8 @@ export const createNewPlanAttr = async (
     );
     toast.success("ویژگی برای پلن مدنظر با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1668,8 +1641,8 @@ export const createNewPlanAttr = async (
   } catch (error) {
     toast.error("خطا در ایجاد ویژگی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1696,8 +1669,8 @@ export const deletePlanAttr = async (
     console.log(data);
     toast.success("ویژگی موردنظر با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1712,8 +1685,8 @@ export const deletePlanAttr = async (
     console.log(error);
     toast.error("خطا در حذف ویژگی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1738,8 +1711,8 @@ export const restorePlanAttr = async (
     });
     toast.success("ویژگی مدنظر با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1754,8 +1727,8 @@ export const restorePlanAttr = async (
     console.log(error);
     toast.error("خطا در بازگردانی ویژگی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1790,8 +1763,8 @@ export const updatePlanAttr = async (
     );
     toast.success("ویژگی با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1805,8 +1778,8 @@ export const updatePlanAttr = async (
     console.log(error);
     toast.error("خطا در به روزرسانی ویژگی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1844,8 +1817,8 @@ export const createNewPlanValue = async (
     );
     toast.success("مقدار مدنظر با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1859,8 +1832,8 @@ export const createNewPlanValue = async (
   } catch (error: any) {
     toast.error("خطا در ایجاد مقدار", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1903,8 +1876,8 @@ export const restorePlanValues = async (
     });
     toast.success("مقدار با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1919,8 +1892,8 @@ export const restorePlanValues = async (
     console.log(error);
     toast.error("خطا در بازگردانی مقدار", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1974,8 +1947,8 @@ export const updatePlanValue = async (
     );
     toast.success("مقدار با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1989,8 +1962,8 @@ export const updatePlanValue = async (
     console.log(error);
     toast.error("خطا در به روزرسانی مقدار", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2016,8 +1989,8 @@ export const deletePlanValue = async (
     console.log(data);
     toast.success("مقدار با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2032,8 +2005,8 @@ export const deletePlanValue = async (
     console.log(error);
     toast.error("خطا در حذف مقدار", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2065,8 +2038,8 @@ export const CreateNewSiteType = async (
     );
     toast.success("طراحی جدید با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2079,8 +2052,8 @@ export const CreateNewSiteType = async (
   } catch (error: any) {
     toast.error("خطا در ایجاد طراحی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2128,8 +2101,8 @@ export const updateSiteType = async (
     );
     toast.success("طراحی با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2143,8 +2116,8 @@ export const updateSiteType = async (
     console.log(error);
     toast.error("خطا در به روزرسانی طراحی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2170,8 +2143,8 @@ export const deleteSiteType = async (
     console.log(data);
     toast.success("طراحی با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2186,8 +2159,8 @@ export const deleteSiteType = async (
     console.log(error);
     toast.error("خطا در حذف طراحی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2212,8 +2185,8 @@ export const restoreSiteType = async (
     });
     toast.success("طراحی با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2228,8 +2201,8 @@ export const restoreSiteType = async (
     console.log(error);
     toast.error("خطا در بازگردانی طراحی", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2301,8 +2274,8 @@ export const updateNewsLetter = async (
     );
     toast.success("خبرنامه با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2316,8 +2289,8 @@ export const updateNewsLetter = async (
     console.log(error);
     toast.error("خطا در به روزرسانی خبرنامه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2353,8 +2326,8 @@ export const createNewsLetter = async (
     );
     toast.success("خبرنامه با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2367,8 +2340,8 @@ export const createNewsLetter = async (
   } catch (error) {
     toast.error("خطا در ایجاد خبرنامه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2395,8 +2368,8 @@ export const deleteNewsLetter = async (
     });
     toast.success("خبرنامه موردنظر با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2410,8 +2383,8 @@ export const deleteNewsLetter = async (
   } catch (error) {
     toast.error("خطا در حذف خبرنامه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2437,8 +2410,8 @@ export const restoreNewsletter = async (
     });
     toast.success("خبرنامه مدنظر با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2452,8 +2425,8 @@ export const restoreNewsletter = async (
   } catch (error) {
     toast.error("خطا در بازگردانی خبرنامه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2540,8 +2513,8 @@ export const updateDepartment = async (
     );
     toast.success("دپارتمان با موفقیت به روزرسانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2555,8 +2528,8 @@ export const updateDepartment = async (
     console.log(error);
     toast.error("خطا در به روزرسانی دپارتمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2582,8 +2555,8 @@ export const deleteDepartment = async (
     console.log(data);
     toast.success("دپارتمان با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2594,12 +2567,13 @@ export const deleteDepartment = async (
     });
     setIsDeleted(true);
     console.log(data);
+    window.location.reload()
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف دپارتمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2624,8 +2598,9 @@ export const restoreDepartment = async (
     });
     toast.success("دپارتمان با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2640,8 +2615,9 @@ export const restoreDepartment = async (
     console.log(error);
     toast.error("خطا در بازگردانی دپارتمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2691,8 +2667,9 @@ export const createNewDepartment = async (
     );
     toast.success("دپارتمان با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      style: { fontSize: "12px" },
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2702,11 +2679,13 @@ export const createNewDepartment = async (
       rtl: true,
     });
     console.log(data);
+    window.location.replace('/panel/admin/org_management/departments')
   } catch (error) {
     toast.error("خطا در ایجاد دپارتمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      style: { fontSize: "12px" },
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2760,28 +2739,16 @@ export const submitConsultation = async (
   try {
     const { data } = await app.post(
       "/consult/store",
-      {
-        title,
-        description,
-        date,
-        type,
-        register_user_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { title, description, date, type, register_user_id, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("consultation created", data);
-    window.sessionStorage.setItem(
-      "consultation_id",
-      JSON.stringify(data.data.id)
-    );
+    window.sessionStorage.setItem("consultation_id", JSON.stringify(data.data.id));
     toast.success("درخواست مشاوره با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      style: { fontSize: "14px" },
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2790,11 +2757,13 @@ export const submitConsultation = async (
       transition: Bounce,
       rtl: true,
     });
+    window.location.replace('/panel/user/consultation')
   } catch (error: any) {
     toast.error("خطا در ایجاد مشاوره", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      style: { fontSize: "14px" },
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2806,7 +2775,7 @@ export const submitConsultation = async (
     console.log(error.response.data.message);
   }
 };
-// delete consult by admin
+//! DELETE CONSULTATION BY ADMIN 
 export const deleteConsultation = async (
   consultId: number,
   token: string,
@@ -2814,15 +2783,14 @@ export const deleteConsultation = async (
 ) => {
   try {
     const { data } = await app.get(`/consult/delete/${consultId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log(data);
     toast.success("مشاوره با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2833,12 +2801,14 @@ export const deleteConsultation = async (
     });
     setIsDeleted(true);
     console.log(data);
+    window.location.reload()
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف مشاوره", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2863,8 +2833,8 @@ export const restoreConsultation = async (
     });
     toast.success("مشاوره با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2879,8 +2849,8 @@ export const restoreConsultation = async (
     console.log(error);
     toast.error("خطا در بازگردانی مشاوره", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2931,83 +2901,83 @@ export const getConsultationDetail = async (
       setConsultDetailStatus((last) => ({ ...last, loading: false }));
   }
 };
-// create ticket
-export const createTicket = async (
-  token: string,
-  title: string,
-  description: string,
-  status_id: number,
-  priority_id: number,
-  register_user_id: number,
-  dept_id: number,
-  ticket_id: number | null
-) => {
-  try {
-    const { data } = await app.post(
-      "/ticket/store",
-      {
-        title,
-        description,
-        status_id,
-        priority_id,
-        register_user_id,
-        dept_id,
-        ticket_id: null,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log("new", data);
-    toast.success("تیکت با موفقیت ایجاد شد", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
-  } catch (error: any) {
-    console.log(error.response.data.message);
-    toast.error("خطا در ایجاد تیکت", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
-  }
-};
-// get all tickets
+// ^ ADD NEW TICKET =========================================================================================
+
+// export const createTicket = async (
+//   token: string,
+//   title: string,
+//   description: string,
+//   status_id: number,
+//   priority_id: number,
+//   register_user_id: number,
+//   dept_id: number,
+//   ticket_id: number | null
+// ) => {
+//   try {
+//     const { data } = await app.post(
+//       "/ticket/store",
+//       { title, description, status_id, priority_id, register_user_id, dept_id, ticket_id: null, },
+//       { headers: { Authorization: `Bearer ${token}`, }, }
+//     );
+//     console.log("new", data);
+//     toast.success("تیکت با موفقیت ایجاد شد", {
+//       position: "top-right",
+//       autoClose: 2000,
+//       hideProgressBar: true,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//   } catch (error: any) {
+//     console.log(error.response.data.message);
+//     toast.error("خطا در ایجاد تیکت", {
+//       position: "top-right",
+//       autoClose: 2000,
+//       hideProgressBar: true,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//   }
+// };
+
+export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, dept_id: number, register_user_id: number, ticket_id: number | null) => {
+
+  const newTicketInfos = { title, description, status_id, priority_id, dept_id, register_user_id, ticket_id }
+
+  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
+    then(response => {
+      console.log(response.data);
+      toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      console.log("%c SUCCESS ====>", "color:lime;font-weight:900", newTicketInfos);
+      setTimeout(() => { window.location.replace('http://localhost:3000/panel/user/support') }, 500);
+    }
+    ).catch(error => {
+      console.log(error.response);
+      console.log("%c ERROR ====>", "color:orange;font-weight:900", newTicketInfos);
+      toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    }
+    )
+}
+
+//* GET ALL TICKETS =======================================================================================================================
 export const getAllTickets = async (
   token: string,
   setAllTickets: React.Dispatch<React.SetStateAction<never[]>>,
-  setAllTicketsStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
-  >
+  setAllTicketsStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>>
 ) => {
   try {
     setAllTicketsStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app("/tickets", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log("tickets", data);
+    const { data } = await app.get("/tickets", { headers: { Authorization: `Bearer ${token}`, }, });
+    console.log("%c ALL TICKETS", "color:yellow", data);
     setAllTickets(data.data);
   } catch (error: any) {
     console.log(error.response.data.message);
@@ -3018,6 +2988,8 @@ export const getAllTickets = async (
     setAllTicketsStatus((last) => ({ ...last, loading: false }));
   }
 };
+
+
 // delete ticket
 export const deleteTicket = async (
   ticketId: number,
@@ -3025,42 +2997,17 @@ export const deleteTicket = async (
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/ticket/delete/${ticketId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/ticket/delete/${ticketId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log(data);
-    toast.success("تیکت با موفقیت حذف شد", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
+    toast.success("تیکت با موفقیت حذف شد", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     setIsDeleted(true);
     console.log(data);
   } catch (error) {
     console.log(error);
-    toast.error("خطا در حذف تیکت", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
+    toast.error("خطا در حذف تیکت", { position: "top-right", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
   }
 };
+
 // get ticket detail
 export const getTicektDetail = async (
   token: string,
@@ -3079,75 +3026,90 @@ export const getTicektDetail = async (
     console.log(error.response.data.message);
   }
 };
-// create new project
-export const createProject = async (
-  token: string,
-  title: string,
-  description: string,
-  budget_cost: number,
-  discount_code: string | null,
-  priority: string,
-  register_user_id: number,
-  planId: number,
-  consultation_id: number | null,
-  lookslike: SimilarSiteType[] | null,
-  org_color: ColorType[] | null,
-  plugin: PluginType[] | null,
-  template: TemplateType[] | null
-) => {
-  try {
-    const { data } = await app.post(
-      "/project/store",
-      {
-        title,
-        description,
-        budget_cost,
-        discount_code,
-        priority,
-        register_user_id,
-        plan_id: planId,
-        consultation_id: consultation_id || null,
-        lookslike: lookslike || null,
-        org_color: org_color || null,
-        plugin: plugin || null,
-        template: template || null,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    toast.success("پروژه با موفقیت ثبت شد.", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
-    window.sessionStorage.removeItem("consultation_id");
-    console.log(data);
-  } catch (error: any) {
-    console.log(error.response.data.message);
-    toast.error("خطا در ثبت پروژه.", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      rtl: true,
-    });
+//^^^ CREATING A NEW PROJECT IN USER PANEL 
+// export const createProject = async (token: string, title: string, description: string, budget_cost: number, discount_code: string | null, priority: string, register_user_id: number, planId: number, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
+//   try {
+//     const { data } = await app.post("/project/store",
+//       {
+//         title,
+//         description,
+//         budget_cost,
+//         discount_code,
+//         priority,
+//         register_user_id,
+//         planId,
+//         consultation_id: consultation_id || null,
+//         lookslike: lookslike || null,
+//         org_color: org_color || null,
+//         plugin: plugin || null,
+//         template: template || null,
+//       },
+//       { headers: { Authorization: `Bearer ${token}`, }, }
+//     );
+//     toast.success("پروژه با موفقیت ثبت شد.", {
+//       position: "top-right",
+//       autoClose: 3000,
+//       hideProgressBar: true,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//     window.sessionStorage.removeItem("consultation_id");
+//     console.log("CREATING PROJECT ---- DATA ==>", data);
+//   } catch (error: any) {
+//     // console.log(error.response.data.message);
+//     toast.error("خطا در ثبت پروژه.", {
+//       position: "top-right",
+//       autoClose: 2000,
+//       hideProgressBar: true,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       transition: Bounce,
+//       rtl: true,
+//     });
+//   }
+// };
+
+export const CREATEPROJECT = async (token: string, title: string, description: string, budget_cost: number, priority: number, register_user_id: number, type: number, plansId: number | string, discount_code: string | null, consultation_id: number | null, lookslike: SimilarSiteType[] | null, org_color: ColorType[] | null, plugin: PluginType[] | null, template: TemplateType[] | null) => {
+  const newProjectInfos = {
+    title,
+    description,
+    budget_cost,
+    priority,
+    register_user_id,
+    discount_code,
+    plan_id: plansId ? plansId : 1,
+    type,
+    consultation_id: consultation_id || null,
+    lookslike: lookslike || null,
+    org_color: org_color || null,
+    plugin: plugin || null,
+    template: template || null,
+    token
   }
-};
+  await axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
+    then(response => {
+      console.log(response);
+      toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", style: { fontSize: "14px" }, autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      window.location.replace('http://localhost:3000/panel/user/project-management')
+    }
+    ).catch(error => {
+      console.log(error.response.data);
+      console.log(newProjectInfos);
+      toast.error("خطا در ثبت پروژه.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+    }
+    )
+}
+
+
+
 // create project similar site
 export const createProjectSimilars = async (
   token: string,
@@ -3169,7 +3131,7 @@ export const createProjectSimilars = async (
         },
       }
     );
-    console.log(data);
+    // console.log(data);
   } catch (error: any) {
     console.log(error.response.data.message);
   }
@@ -3254,21 +3216,11 @@ export const getProjectDetail = async (
   token: string,
   projectId: string | null,
   setProjectDetail: React.Dispatch<React.SetStateAction<any>>,
-  setProjectDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+  setProjectDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    setProjectDetailStatus &&
-      setProjectDetailStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app.get(`/project/show/${projectId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    setProjectDetailStatus && setProjectDetailStatus((last) => ({ ...last, loading: true }));
+    const { data } = await app.get(`/project/show/${projectId}`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("project detail", data);
     setProjectDetail(data.data);
   } catch (error: any) {
@@ -3357,8 +3309,8 @@ export const rejectProject = async (
     console.log(data);
     toast.success("پروژه با موفقیت رد شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3370,8 +3322,8 @@ export const rejectProject = async (
   } catch (error: any) {
     toast.error("خطا در رد پروژه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3392,19 +3344,12 @@ export const getProjectStatus = async (token: string) => {
 export const getOrders = async (
   token: string,
   setOrders: React.Dispatch<React.SetStateAction<never[]>>,
-  setOrderStatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
-  >
+  setOrderStatus: React.Dispatch<React.SetStateAction<{ error: string; loading: boolean; }>>
 ) => {
   try {
     setOrderStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app("/orders", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const { data } = await app.get("/orders", {
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("orders", data);
     setOrders(data.data);
@@ -3456,8 +3401,8 @@ export const restoreOrganization = async (
     });
     toast.success("سازمان با موفقیت بازگردانی شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3472,8 +3417,8 @@ export const restoreOrganization = async (
     console.log(error);
     toast.error("خطا در بازگردانی سازمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3499,8 +3444,8 @@ export const deleteOrgan = async (
     console.log(data);
     toast.success("سازمان با موفقیت حذف شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3515,8 +3460,8 @@ export const deleteOrgan = async (
     console.log(error);
     toast.error("خطا در حذف سازمان", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3574,8 +3519,8 @@ export const confirmProjectByAdmin = async (
     console.log("pro verification", data);
     toast.success("پروژه با موفقیت تایید شد", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3588,8 +3533,8 @@ export const confirmProjectByAdmin = async (
     console.log(error.response.data.message);
     toast.error("خطا در تایید پروژه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3619,8 +3564,8 @@ export const changeOrderStatus = async (
     console.log("status change verification", data);
     toast.success("وضعیت پروژه با موفقیت تغییر داده شد.", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3633,8 +3578,8 @@ export const changeOrderStatus = async (
     console.log(error.response.data.message);
     toast.error("خطا در تغییر وضعیت پروژه", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3645,35 +3590,23 @@ export const changeOrderStatus = async (
     });
   }
 };
-// get order detail
+// ^ GET SINGLE ORDER DETAILS ===================================================================================================================
 export const getOrderDetail = async (
   token: string,
   orderId: number,
   setOrderDetail: React.Dispatch<React.SetStateAction<never[]>>,
-  seOrderDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+  seOrderDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    seOrderDetailStatus &&
-      seOrderDetailStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app(`/order/show/${orderId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log("order detail", data);
+    seOrderDetailStatus && seOrderDetailStatus((last) => ({ ...last, loading: true }));
+    const { data } = await app.get(`/order/show/${orderId}`, { headers: { Authorization: `Bearer ${token}`, }, });
+    // console.log("ORDER DETAILS ==>", data);
     setOrderDetail(data.data);
   } catch (error: any) {
     seOrderDetailStatus &&
-      seOrderDetailStatus((last) => ({
-        ...last,
-        error: "حطا در ردیافت اطلاعات",
-      }));
+      seOrderDetailStatus((last) => ({ ...last, error: "حطا در ردیافت اطلاعات" }));
     console.log(error.response.data.message);
+    console.log("ERROR ==>", error);
   } finally {
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, loading: false }));
@@ -3687,9 +3620,7 @@ export const getAllOrderStatuses = async (
 ) => {
   try {
     const { data } = await app(`/order/get_all_status/${orderId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}`, },
     });
     console.log("all order statuses", data);
     setOrderStatuses(data.data);
@@ -3720,8 +3651,8 @@ export const closeTicket = async (
     console.log("closed ticket", data);
     toast.success("تیکت با موفقیت بسته شد.", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3736,8 +3667,8 @@ export const closeTicket = async (
     console.log(error.response.data.message);
     toast.error("خطا در بستن تیکت", {
       position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3748,18 +3679,22 @@ export const closeTicket = async (
     });
   }
 };
-// payment file upload
+//^ PAYMENT FILE UPLOAD =========================================================================================================
 export const handlePaymentFileUpload = async (
   File: File,
   token: string,
-  paymentId: number
+  paymentId: number,
+  id: number,
+  isFileUploaded: boolean,
+  setIsFileUploaded: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   const formData = new FormData();
   formData.append("file", File);
+  const UPLOADINFOS = { file: File, uploader_user_id: id }
   try {
     const { data } = await app.post(
       `/payment/file/upload/${paymentId}`,
-      formData,
+      UPLOADINFOS,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3768,6 +3703,8 @@ export const handlePaymentFileUpload = async (
       }
     );
     console.log("payment file", data);
+    setIsFileUploaded(true)
+    console.log("IS FILE UPLOADED ? ==>", isFileUploaded);
     toast.success("آپلود فایل موفق بود.", {
       position: "top-right",
       autoClose: 3000,
@@ -3784,7 +3721,7 @@ export const handlePaymentFileUpload = async (
     toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3797,25 +3734,12 @@ export const handlePaymentFileUpload = async (
   }
 };
 // pay
-export const sendAmount = async (
-  token: string,
-  amount: number,
-  paymentId: number,
-  setUrl: React.Dispatch<React.SetStateAction<string>>
-) => {
+export const sendAmount = async (token: string, amount: number, paymentId: number, setUrl: React.Dispatch<React.SetStateAction<string>>) => {
   console.log(paymentId);
   try {
-    const { data } = await app.post(
-      `/pay/post`,
-      {
-        amount,
-        payment_id: paymentId,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+    const { data } = await app.post(`/pay/post`,
+      { amount, payment_id: paymentId, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("paid", data.data.url);
     setUrl(data.data.url);
@@ -3823,6 +3747,6 @@ export const sendAmount = async (
       window.location.href = data.data.url;
     }
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log("%c PAYMENT ERROR ==>", "color : orangered", error.response.data.message);
   }
 };
