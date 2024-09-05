@@ -44,19 +44,15 @@ function TicketDetail() {
   const id = params.get("id");
   const router = useRouter();
   const [ticketId, setTicketId] = useState("");
+
   const [File, setFile] = useState<any>(null);
-  const handleFileChange = (file: File) => {
-    setFile(file);
-    setFileSelected(true);
-  };
+  const handleFileChange = (file: File) => { setFile(file); setFileSelected(true); };
 
   const getTicketDetail = async () => {
     try {
       setTicketDetailStatus((prevStatus) => ({ ...prevStatus, loading: true }));
       const { data } = await app(`/ticket/show/${id}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
+        headers: { authorization: `Bearer ${token}`, },
       });
       const newSenderTexts =
         data.data?.children.length === 0
@@ -112,7 +108,7 @@ function TicketDetail() {
         Blocked: data.data?.status?.title_en,
       }));
 
-      // console.log(data);
+      console.log("SINGLE TICKET DATA ===>", data);
     } catch (error: any) {
       // console.log(error.response.data.message);
       setTicketDetailStatus({ error: "", loading: false });
@@ -154,11 +150,7 @@ function TicketDetail() {
       const { data } = await app.post(
         `/ticket/file/upload/${Number(id)}`,
         { formData, responser_user_id: Number(id) },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${token}`, }, }
       );
       toast.success("آپلود فایل موفق بود.", {
         position: "top-right",
@@ -177,7 +169,7 @@ function TicketDetail() {
     } catch (error: any) {
       toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: true,
         style: { fontSize: "14px" },
         closeOnClick: true,
