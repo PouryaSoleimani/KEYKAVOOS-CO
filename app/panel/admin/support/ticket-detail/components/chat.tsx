@@ -40,8 +40,8 @@ function Chat({
   );
   const adminMessages = adminMsgs ? adminMsgs : [];
 
-  // console.log("user messages", userMessages);
-  // console.log("admin Messages", adminMessages);
+  console.log("user messages", userMessages);
+  console.log("admin Messages", adminMessages);
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (File && textInput) {
@@ -87,8 +87,8 @@ function Chat({
             <div
               key={index}
               className={`${styles.chatBubble} ${item.responser_user_id
-                  ? `${styles.receiver} items-start`
-                  : styles.sender
+                ? `${styles.receiver} items-start`
+                : styles.sender
                 }`}
             >
               <p>{item.description}</p>
