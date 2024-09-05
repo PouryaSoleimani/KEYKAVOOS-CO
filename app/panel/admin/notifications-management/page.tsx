@@ -14,26 +14,18 @@ import NotFound from "../components/NotFound";
 import { closeTicket, getAllTickets } from "@/utils/utils";
 const moment = require("moment-jalaali");
 
-const Support = () => {
+const NotificationManagement = () => {
+    
     const { token } = useSelector((state: any) => state.userData);
     const [allTickets, setAllTickets] = useState([]);
     const [allTicketsStatus, setAllTicketsStatus] = useState({ error: "", loading: false, });
     const [isClosed, setIsClosed] = useState(false);
-    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => { getAllTickets(token, setAllTickets, setAllTicketsStatus); }, []);
 
     return (
         <div className="flex flex-col gap-3">
-            {/* {showModal && (
-        <CloseTicketModal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          text={`آیا از بستن تیکت مطمئنید؟`}
-          setAllTickets={setAllTickets}
-          closeTicketId={closeTicketId}
-        />
-      )} */}
+
             <Link href="/panel/admin/support/add-new-placard" className="flex flex-row gap-2 bg-[#4866CE] text-white p-3 rounded-[4px] w-[125px] hover:bg-blue-800 duration-300"  >
                 <span>اعلان جدید</span>
                 <Image src={add} alt="add" />
@@ -83,7 +75,7 @@ const Support = () => {
                             </div>
                         ))
                     ) : (
-                        <NotFound text="تیکتی یافت نشد" />
+                        <NotFound text="اعلانی یافت نشد" />
                     )}
                 </div>
             </div>
@@ -91,4 +83,4 @@ const Support = () => {
     );
 };
 
-export default Support;
+export default NotificationManagement;
