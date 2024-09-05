@@ -1,15 +1,11 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-type TicketInfoFieldProps = {
-  label: string;
-  text: any;
-  ticketDetailStatus: boolean;
-};
-function TicketInfoField({
-  label,
-  text,
-  ticketDetailStatus,
-}: TicketInfoFieldProps) {
+type TicketInfoFieldProps = { label: string; text: any; ticketDetailStatus: boolean; };
+
+
+//^ COMPONENT ===============================================================================================================================================
+function TicketInfoField({ label, text, ticketDetailStatus, }: TicketInfoFieldProps) {
+
   return (
     <div className="flex flex-row gap-3 items-center">
       <p className="w-[25%] whitespace-nowrap tracking-tight ">{label}</p>
