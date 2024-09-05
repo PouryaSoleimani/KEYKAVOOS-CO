@@ -9,19 +9,19 @@ import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/fe
 import checkmark from "../../../../public/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
-import CloseTicketModal from "./components/close-ticket-modal";
 import NotFound from "../components/NotFound";
-import { closeTicket, getAllTickets } from "@/utils/utils";
+import { getAllNotifications } from "@/utils/utils";
 const moment = require("moment-jalaali");
 
 const NotificationManagement = () => {
-    
+
     const { token } = useSelector((state: any) => state.userData);
-    const [allTickets, setAllTickets] = useState([]);
+    const [allNotifs, setAllNotifs] = useState([]);
     const [allTicketsStatus, setAllTicketsStatus] = useState({ error: "", loading: false, });
     const [isClosed, setIsClosed] = useState(false);
 
-    useEffect(() => { getAllTickets(token, setAllTickets, setAllTicketsStatus); }, []);
+    useEffect(() => { getAllNotifications(token, setAllNotifs) }, []);
+
 
     return (
         <div className="flex flex-col gap-3">
@@ -32,9 +32,11 @@ const NotificationManagement = () => {
             </Link>
             <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] w-full">
                 <div className="flex flex-col gap-5">
-                    <div className="grid grid-cols-5 text-center">
+                    <div className="grid grid-cols-7 text-center">
                         <p>شماره</p>
-                        <p>عنوان</p>
+                        <p>نام کاربر</p>
+                        <p>برند / سازمان </p>
+                        <p>متن اعلان</p>
                         <p>وضعیت</p>
                         <p>تاریخ به روزرسانی</p>
                         <p>عملیات</p>
@@ -45,11 +47,13 @@ const NotificationManagement = () => {
                         </SkeletonTheme>
                     ) : allTicketsStatus.error ? (
                         <NotFound text={`${allTicketsStatus.error}`} />
-                    ) : allTickets.length !== 0 ? (
-                        allTickets?.map((item: any, index) => (
-                            <div key={item.id} className="grid grid-cols-5 text-center py-4 bg-[#EAEFF6] rounded-[4px]"  >
+                    ) : allNotifs.length !== 0 ? (
+                        allNotifs?.map((item: any, index) => (
+                            <div key={item.id} className="grid grid-cols-7 text-center py-4 bg-[#EAEFF6] rounded-[4px]"  >
                                 <p>{index + 1}</p>
-                                <p>{item.title}</p>
+                                <p>{item.user.name} {item.user.surname}</p>
+                                <p>{item.brand?.title ? item.brand.title : "---"} </p>
+                                <p className="tracking-tighter font-extralight text-zinc-700">{item.text.slice(0, 10)} ... </p>
                                 <div>
                                     {item.status_id === 2 || isClosed ? (
                                         <p> بسته{" "} <span className="text-emerald-600 font-semibold">شده</span> </p>
@@ -66,8 +70,11 @@ const NotificationManagement = () => {
                                             <Image src={vieweye} alt="مشاهده" width={20} />
                                         </Link>
                                         {item.status_id !== 2 && !isClosed && (
-                                            <div onClick={() => closeTicket(token, 2, item.id, setAllTickets, setIsClosed)} className="cursor-pointer hover:scale-125 duration-300">
-                                                <Image src={checkmark} alt="بستن" width={20} />
+                                            <div
+                                                // onClick={() => closeTicket(token, 2, item.id, setAllTickets, setIsClosed)}
+                                                className="cursor-pointer hover:scale-125 duration-300">
+                                                <Image src={checkmark} alt="بستن" width={20}
+                                                />
                                             </div>
                                         )}
                                     </div>

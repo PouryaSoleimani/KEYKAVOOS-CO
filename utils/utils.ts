@@ -63,10 +63,10 @@ export const createNotification = async (token: string, dept_id: number, brand_i
   }
 };
 //* GET USER NOTIFICATIONS
-export const getUserNotification = async (token: string, userId: number, setUserNotifications: Dispatch<SetStateAction<never[]>>) => {
+export const getUserNotification = async (token: string, userId: number, setUserNotifications: React.Dispatch<React.SetStateAction<never[]>>) => {
   try {
-    console.log("%c NOTIFICATION ==> ", "color:yellow", "user_id", token);
-    const { data } = await app(`/notification/getUserNotification/${userId}`, {
+    // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
+    const { data } = await app(`/notification/getUserNotification`, {
       headers: { Authorization: `Bearer ${token}`, },
     });
     setUserNotifications(data.data);
@@ -76,12 +76,14 @@ export const getUserNotification = async (token: string, userId: number, setUser
   }
 };
 //* GET ALL NOTIFICATIONS
-export const getAllNotifications = async (token: string) => {
+export const getAllNotifications = async (
+  token: string,
+  setAllNotifs: React.Dispatch<React.SetStateAction<never[]>>
+) => {
   try {
-    const { data } = await app(`/notifications`, {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
+    const { data } = await app.get(`/notifications`, { headers: { Authorization: `Bearer ${token}`, }, });
     console.log("notifs", data);
+    setAllNotifs(data.data)
   } catch (error: any) {
     console.log(error.response.data.message);
   }
