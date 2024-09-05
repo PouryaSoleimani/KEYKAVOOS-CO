@@ -3639,19 +3639,14 @@ export const closeTicket = async (
   try {
     const { data } = await app.post(
       `/ticket/update/${ticketId}`,
-      {
-        status_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { status_id, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("closed ticket", data);
     toast.success("تیکت با موفقیت بسته شد.", {
       position: "top-right",
       autoClose: 2000,
+      style: { fontSize: "14px" },
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -3669,6 +3664,7 @@ export const closeTicket = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
