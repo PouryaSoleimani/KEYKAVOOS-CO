@@ -12,7 +12,7 @@ function TicketInfoField({
 }: TicketInfoFieldProps) {
   return (
     <div className="flex flex-row gap-3 items-center">
-      <p className="w-[25%] whitespace-nowrap">{label}</p>
+      <p className="w-[25%] whitespace-nowrap tracking-tight ">{label}</p>
       {ticketDetailStatus ? (
         <SkeletonTheme>
           <Skeleton count={1} baseColor="#EAEFF6" />

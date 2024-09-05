@@ -240,15 +240,7 @@ function TicketDetail() {
         <div
           className={`${ticketDetail.Blocked === "close" ? "hidden" : "grid grid-cols-1 gap-5"}`}
         >
-          <div
-            style={{
-              border: "none",
-              borderTop: "3px solid",
-              borderImage:
-                "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
-              margin: "5% 0",
-            }}
-          ></div>
+          <div style={{ border: "none", borderTop: "3px solid", borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1", margin: "5% 0", }}></div>
           {ticketDetailStatus.loading ? (
             <SkeletonTheme>
               <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
