@@ -569,14 +569,14 @@ export const TechnologyData = [
     imgUrl: Images.back,
     technologies: [
       {
-        id: 1,
-        techImgUrl: [Images.ExpressLogo],
-        tech: ["Express"],
+        id: 2,
+        techImgUrl: [Images.NodeLogo,],
+        tech: ["Node.js"],
       },
       {
-        id: 2,
-        techImgUrl: [Images.NodeLogo, Images.NestLogo],
-        tech: ["Node", "Nest"],
+        id: 1,
+        techImgUrl: [Images.ExpressLogo, Images.NestLogo],
+        tech: ["Express.js", "Nest.js"],
       },
       {
         id: 3,
@@ -591,20 +591,21 @@ export const TechnologyData = [
     imgUrl: Images.front,
     technologies: [
       {
-        id: 4,
-        techImgUrl: [Images.JSLogo, Images.TypescriptLogo],
-        tech: ["JS", "TS"],
-      },
-      {
-        id: 5,
-        techImgUrl: [Images.ReactLogo, Images.NextLogo],
-        tech: ["React", "Next"],
-      },
-      {
         id: 6,
         techImgUrl: [Images.HtmlLogo, Images.CssLogo],
         tech: ["HTML", "CSS"],
       },
+      {
+        id: 4,
+        techImgUrl: [Images.JSLogo, Images.TypescriptLogo],
+        tech: ["Javascript", "Typescript"],
+      },
+      {
+        id: 5,
+        techImgUrl: [Images.ReactLogo, Images.NextLogo],
+        tech: ["React.js", "Next.js"],
+      },
+
     ],
   },
   {
@@ -620,19 +621,19 @@ export const TechnologyData = [
       {
         id: 8,
         techImgUrl: [Images.PhotoshopLogo],
-        tech: ["PS"],
+        tech: ["Photoshop"],
       },
       {
         id: 9,
         techImgUrl: [Images.AdobeIllus],
-        tech: ["AI"],
+        tech: ["Adone Illustrator"],
       },
     ],
   },
 
   {
     id: 5,
-    title: "پنل",
+    title: "پنل ها",
     imgUrl: Images.ServerMangamenetLogo,
     technologies: [
       {
@@ -665,7 +666,7 @@ export const TechnologyData = [
       {
         id: 14,
         techImgUrl: [Images.CloudLogo],
-        tech: ["Cloud"],
+        tech: ["Google Cloud"],
       },
       {
         id: 15,
