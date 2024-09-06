@@ -4,12 +4,11 @@ import NewPlacard from "./new-placard";
 
 function AddNewTicket() {
   const [steps, setSteps] = useState(0);
+
   const renderSteps = () => {
     switch (steps) {
-      case 0:
-        return <NewPlacard setSteps={setSteps} />;
-      default:
-        break;
+      case 0: return <NewPlacard setSteps={setSteps} />;
+      default: break;
     }
   };
   return (

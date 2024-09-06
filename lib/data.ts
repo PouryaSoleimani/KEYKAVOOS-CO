@@ -841,7 +841,7 @@ export const mainAdminSidebarOptions = [
     address: "/panel/admin/support",
     path: [
       "/panel/admin/support",
-      "/panel/admin/support/add-new-placard",
+      // "/panel/admin/support/add-new-placard",
       "/panel/admin/support/ticket-detail",
     ],
   },
@@ -849,7 +849,12 @@ export const mainAdminSidebarOptions = [
     text: "مدیریت اعلان ها",
     imgSrc: Images.SupportIcon,
     address: "/panel/admin/notifications-management",
-    path: ["/panel/admin/notifications-management"],
+    path: [
+      "/panel/admin/notifications-management",
+      "/panel/admin/notifications-management/add-new-placard",
+      "/panel/admin/notifications-management/add-new-placard/new-placard",
+      "/panel/admin/notifications-management/notification-details",
+    ],
   },
   {
     text: "خبرنامه",

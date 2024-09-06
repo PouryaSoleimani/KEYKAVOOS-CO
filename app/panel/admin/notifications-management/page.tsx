@@ -26,7 +26,7 @@ const NotificationManagement = () => {
     return (
         <div className="flex flex-col gap-3">
 
-            <Link href="/panel/admin/support/add-new-placard" className="flex flex-row gap-2 bg-[#4866CE] text-white p-3 rounded-[4px] w-[125px] hover:bg-blue-800 duration-300"  >
+            <Link href="/panel/admin/notifications-management/add-new-placard/new-placard" className="flex flex-row gap-2 bg-[#4866CE] text-white p-3 rounded-[4px] w-[125px] hover:bg-blue-800 duration-300"  >
                 <span>اعلان جدید</span>
                 <Image src={add} alt="add" />
             </Link>

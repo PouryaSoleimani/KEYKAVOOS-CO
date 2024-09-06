@@ -63,7 +63,7 @@ export const createNotification = async (token: string, dept_id: number, brand_i
     // console.log(error.response.data.message);
   }
 };
-//* GET USER NOTIFICATIONS
+//^ GET USER NOTIFICATIONS
 export const getUserNotification = async (
   token: string,
   userId: number | string,
@@ -71,7 +71,7 @@ export const getUserNotification = async (
   setNotificationDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
+    // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
     const { data } = await app(`/notification/getUserNotification`, {
       headers: { Authorization: `Bearer ${token}`, },
     });

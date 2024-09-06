@@ -16,6 +16,9 @@ export type NotificationDetailType = {
     text: string,
     brand: { id: number, title: string, description: string, } | null,
     user: { id: number, name: string, surname: string, mobile: string, type: "haghighi" | "hoghooghi", email: string | null }
+    created_at: string,
+    read_at: string,
+    updated_at: string
 }[];
 
 function NotificationDetail() {
@@ -25,9 +28,10 @@ function NotificationDetail() {
     const { token, userProfile } = useSelector((state: any) => state.userData);
     const [userNotification, setUserNotification] = useState<NotificationDetailType>();
     const [notificationDetailStatus, setNotificationDetailStatus] = useState({ loading: false, error: "", });
+    const moment = require("moment-jalaali");
 
     useEffect(() => { getUserNotification(token, id, setUserNotification, setNotificationDetailStatus); }, []);
-    useEffect(() => { console.log("USER NOTIF =====>", userNotification); }, [userNotification])
+    useEffect(() => { console.log("%c USER NOTIF DETAILS =====>", "color : yellow", userNotification); }, [userNotification])
     return (
         <div>
             <div className="w-fit z-10 whitespace-nowrap">
@@ -45,10 +49,9 @@ function NotificationDetail() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-5">
-
                     <div className="grid grid-cols-2 gap-3">
                         <div className="flex flex-col gap-3">
-                            <p className="tracking-tight">عنوان اعلان : </p>
+                            <p className="tracking-tighter font-semibold">متن اعلان : </p>
                             {notificationDetailStatus.loading ? (
                                 <SkeletonTheme>
                                     <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
@@ -60,7 +63,7 @@ function NotificationDetail() {
                             )}
                         </div>
                         <div className="flex flex-col gap-3">
-                            <label htmlFor="" className="tracking-tight">نام کاربر : </label>
+                            <label htmlFor="" className="tracking-tighter font-semibold">نام کاربر : </label>
                             {notificationDetailStatus.loading ? (
                                 <SkeletonTheme>
                                     <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
@@ -72,9 +75,10 @@ function NotificationDetail() {
                             )}
                         </div>
                     </div>
+
                     <div className="grid grid-cols-2 gap-3">
                         <div className="flex flex-col gap-3">
-                            <label htmlFor="" className="tracking-tight"> برند  / سازمان : </label>
+                            <label htmlFor="" className="tracking-tighter font-semibold"> برند  / سازمان : </label>
                             {notificationDetailStatus.loading ? (
                                 <SkeletonTheme>
                                     <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
@@ -85,7 +89,47 @@ function NotificationDetail() {
                                 </div>
                             )}
                         </div>
+                        <div className="flex flex-col gap-3">
+                            <label htmlFor="" className="tracking-tighter font-semibold">   تاریخ ارسال اعلان  : </label>
+                            {notificationDetailStatus.loading ? (
+                                <SkeletonTheme>
+                                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                                </SkeletonTheme>
+                            ) : (
+                                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                                    <p>{userNotification?.[0].created_at ? moment(userNotification?.[0].created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                        <div className="flex flex-col gap-3">
+                            <label htmlFor="" className="tracking-tighter font-semibold">   تاریخ خوانده شدن  اعلان  : </label>
+                            {notificationDetailStatus.loading ? (
+                                <SkeletonTheme>
+                                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                                </SkeletonTheme>
+                            ) : (
+                                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                                    <p>{userNotification?.[0].read_at ? moment(userNotification?.[0].read_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                </div>
+                            )}
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <label htmlFor="" className="tracking-tighter font-semibold">   تاریخ بروزرسانی  اعلان  : </label>
+                            {notificationDetailStatus.loading ? (
+                                <SkeletonTheme>
+                                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                                </SkeletonTheme>
+                            ) : (
+                                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                                    <p>{userNotification?.[0].updated_at ? moment(userNotification?.[0].updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
