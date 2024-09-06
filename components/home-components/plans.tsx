@@ -4,12 +4,13 @@ import SectionHeader from "./section-header";
 import { PlanData } from "@/lib/data";
 import 'animate.css';
 
+
 //^ COMPONENT
 function Plans() {
   return (
-    <div className="flex flex-col animate__animated animate__fadeInUp animate__delay-3s animate__slow" >
+    <div className="relative flex flex-col animate__animated animate__delay-3s animate__fadeInUp animate__slow" id="PLANS__CONTAINER" >
       <SectionHeader mainTitle="جدول خدمات طراحی سایت" subTitle="کدام طرح مناسب کسب و کار شماست؟" width="28%" />
-      <div className="flex sm:flex-row-reverse sm:justify-between sm:max-lg:flex-wrap flex-col items-center lg:gap-0 gap-5">
+      <div className="flex sm:flex-row-reverse flex-col sm:max-lg:flex-wrap sm:justify-between items-center gap-5 lg:gap-0">
         {PlanData.map((item) => (
           <div
             key={item.id}

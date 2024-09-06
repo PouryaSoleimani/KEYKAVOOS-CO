@@ -59,7 +59,7 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-white/50 backdrop-blur-3xl rounded-xl"}`}
+      className={`w-full font-thin mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[7px] rounded-xl"}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
@@ -67,7 +67,7 @@ const Nav = () => {
         setShowFour(false)
       )}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] rounded-b-lg backdrop-blur-3xl bg-white/50">
+      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] backdrop-blur-[7px] bg-transparent font-thin">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -86,17 +86,17 @@ const Nav = () => {
         {/* Large Screen */}
 
         {status === "loading" ? (
-          <SkeletonTheme width={140}>
+          <SkeletonTheme width={140} >
             <Skeleton count={1} className="p-2" baseColor="#4866CF" />
           </SkeletonTheme>
         ) : (
-          <Link href={route}>
-            <button className="hidden lg:inline-block bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-4 text-base hover:bg-blue-800 duration-300">
+          <Link href={route} className="flex items-center justify-center space-x-2">
+            <button className="hidden lg:inline-block bg-[#4866CF] text-white tracking-tight rounded-[4px]  py-2 px-4 text-base hover:bg-blue-800 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && console.log(localToken)}
               {localToken && (<p className="flex items-center justify-between "> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
-                <Skeleton width={100} baseColor="#4866CF" />
+                <Skeleton width={100} baseColor="#4866CF" className="flex item-center justify-center space-x-2" />
               )}
             </button>
           </Link>
