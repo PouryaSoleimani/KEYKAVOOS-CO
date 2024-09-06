@@ -159,3 +159,10 @@ select {
   outline: none;
   padding: 0 5px;
 }
+
+.leftWordPress{
+  background-image: url("/WEB_DESIGN_PLANS/WORDPRESS__BG.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
