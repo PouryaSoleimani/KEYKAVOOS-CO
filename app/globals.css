@@ -218,17 +218,9 @@ select {
 }
 
 @keyframes shine {
-  0% {
-    left: -100px;
-  }
-
-  60% {
-    left: 100%;
-  }
-
-  to {
-    left: 100%;
-  }
+  0% { left: -100px;}
+  60% {left: 100%;}
+  to {   left: 100%;}
 }
 
 .leftWordPress{
@@ -237,14 +229,12 @@ select {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 @keyframes bounce3dIcons{
   0% {transform: translateY(0);}
   25% {transform: translateY(-5%);}
   50% {transform: translateY(0);}
   75% {transform: translateY(5%);}
   100%{ transform:translateY(0) ;}
-
 }
-.wordPress3D{
-animation: bounce3dIcons infinite 4s linear ;
-}
+.wordPress3D{ animation: bounce3dIcons infinite 4s linear ;}

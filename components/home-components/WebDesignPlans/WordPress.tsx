@@ -10,7 +10,7 @@ const WordPress: NextPage<Props> = ({ }) => {
         <div className='flex flex-col-reverse bg-slate-900/10 px-4 py-4 backdrop-blur-lg rounded-xl lg:flex-row justify-between items-center my-16 w-full h-full lg:h-[400px] animate__animated animate__delay-3s animate__fadeInUp animate__slow'>
 
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress relative z-30`}>
-                <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={150} height={150} className='wordPress3D ' />
+                <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={150} height={150} className='wordPress3D' />
                 <Image src='/3D_ICONS/PAINT__BRUSH.png' alt='paint_brush' width={100} height={100} className='wordPress3D' />
                 <Image src='/3D_ICONS/AT.png' alt='at_sign' width={80} height={80} className='wordPress3D' />
                 <Image src='/3D_ICONS/HEART.png' alt='heart' width={120} height={120} className='wordPress3D' />

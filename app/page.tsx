@@ -43,7 +43,7 @@ export default function Home() {
         <main className="flex flex-col mx-auto my-[3%] w-[80%]">
           <Intro />
           {/* <IntroStatistics /> */}
-          {/* <Plans /> */}
+          <Plans />
           <WordPress />
           <Technology />
           <Reason />
