@@ -126,7 +126,7 @@ function TicketDetail() {
     const formData = new FormData();
     formData.append("file", File);
     const FILE_UPLOAD_INFO = { uploader_user_id: 1, formData }
-    axios.post(`http://localhost:8000/api/v1/ticket/file/upload/1`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
+    app.post(`/ticket/file/upload/1`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
       .then(response => console.log("%c SUCCESS ====>", "color : lime", response))
       .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response.data))
   }

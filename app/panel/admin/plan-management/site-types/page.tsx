@@ -17,15 +17,9 @@ function SiteTypes() {
   const { token } = useSelector((state: any) => state.userData);
   const [siteTypeIsDeleted, setSiteTypeIsDeleted] = useState(false);
 
-  useEffect(() => {
-    getAllSiteTypes(token, setSiteTypes);
-  }, []);
+  useEffect(() => { getAllSiteTypes(token, setSiteTypes) }, []);
 
-  const [editField, setEditField] = useState({
-    showEditField: false,
-    editTitle: "",
-    editDesc: "",
-  });
+  const [editField, setEditField] = useState({ showEditField: false, editTitle: "", editDesc: "", });
 
   return (
     <div className="grid grid-cols-1 gap-5">

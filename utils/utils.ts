@@ -2074,10 +2074,10 @@ export const getAllSiteTypes = async (
   try {
     const { data } = await app("/types");
     setSiteTypes(data.data);
-    // console.log(data);
+    console.log("SITE TYPES", data);
     window.sessionStorage.setItem("site-types", JSON.stringify(data.data));
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
 // update site type by admin
@@ -2954,7 +2954,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
 
   const newTicketInfos = { title, description, status_id, priority_id, dept_id, register_user_id, ticket_id }
 
-  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
+  app.post("/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
       console.log(response.data);
       toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
@@ -3095,11 +3095,11 @@ export const CREATEPROJECT = async (token: string, title: string, description: s
     template: template || null,
     token
   }
-  await axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
+  await app.post("/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
     then(response => {
       console.log(response);
       toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", style: { fontSize: "14px" }, autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
-      window.location.replace('http://localhost:3000/panel/user/project-management')
+      window.location.replace('/panel/user/project-management')
     }
     ).catch(error => {
       console.log(error.response.data);

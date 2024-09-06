@@ -6,7 +6,8 @@ import uploadfile from "../../public/Panel/uploadfile.svg";
 import { Bounce, toast } from "react-toastify";
 import axios from "axios";
 import { useFormik } from "formik";
-import { HomeFormSubmissionSchema } from "@/schemas/userpanel-profile-schema";
+// import { HomeFormSubmissionSchema } from "@/schemas/userpanel-profile-schema";
+
 type OrdersubmissionFormProps = {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -123,7 +124,7 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
   } = useFormik({
     initialValues,
     onSubmit: handleSubmission,
-    validationSchema: HomeFormSubmissionSchema,
+    // validationSchema: HomeFormSubmissionSchema,
     validateOnMount: true,
   });
   return (
