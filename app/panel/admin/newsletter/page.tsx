@@ -25,29 +25,21 @@ function NewsLetter() {
   const [newsLetters, setNewsLetters] = useState([]);
   const { token } = useSelector((state: any) => state.userData);
   const [newsletterIsDeleted, setNewsLetterIsDeleted] = useState(false);
-  const [newLetterStatus, setNewsLetterStatus] = useState({
-    loading: false,
-    erorr: "",
-  });
-  useEffect(() => {
-    getAllNewsletters(token, setNewsLetters, setNewsLetterStatus);
-  }, []);
+  const [newLetterStatus, setNewsLetterStatus] = useState({ loading: false, erorr: "", });
 
-  const [editField, setEditField] = useState({
-    showEditField: false,
-    editTitle: "",
-    editDesc: "",
-  });
+  useEffect(() => { getAllNewsletters(token, setNewsLetters, setNewsLetterStatus); }, []);
+
+  const [editField, setEditField] = useState({ showEditField: false, editTitle: "", editDesc: "", });
 
   return (
-    <div className="grid grid-cols-1 gap-5">
+    <div className="gap-5 grid grid-cols-1">
       <div className="flex">
         <NewInfoOnEachPageBtn
           btnText="ایجاد خبرنامه جدید"
           src="/panel/admin/newsletter/create-newsletter"
         />
       </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center space-y-3">
+      <div className="space-y-3 bg-white shadow mx-auto p-[3%] rounded-2xl w-full text-center">
         <div className="grid grid-cols-4">
           <div>ردیف</div>
           <div>عنوان خبرنامه</div>
@@ -65,7 +57,7 @@ function NewsLetter() {
           newsLetters.map((item: any, index) => (
             <div
               className={`${item.deleted_at ? "bg-red-100" : "bg-[#EAEFF6]"
-                } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px]`}
+                } grid grid-cols-4 gap-x-5 text-center py-4 rounded-[4px]`}
               key={index}
             >
               <p>{index + 1}</p>
@@ -85,22 +77,12 @@ function NewsLetter() {
                   : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
                   } outline-none`}
               />
-              <div className="flex flex-row items-center justify-center gap-3">
-                <span
-                  onClick={() =>
-                    deleteNewsLetter(
-                      token,
-                      item.id,
-                      setNewsLetterIsDeleted,
-                      setNewsLetters
-                    )
-                  }
-                  className="flex justify-center"
-                >
-                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
+              <div className="flex flex-row justify-center items-center gap-5">
+                <span onClick={() => deleteNewsLetter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)} className="flex justify-center"  >
+                  <RiDeleteBin7Fill className="text-red-600 text-xl hover:scale-125 duration-300 cursor-pointer" />
                 </span>
                 <span onClick={() => restoreNewsletter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)}>
-                  <IoReloadCircle className={`${item.deleted_at ? "text-green-600" : "text-yellow-600 "} text-lg`} />
+                  <IoReloadCircle className={`${item.deleted_at ? "text-green-600" : "text-yellow-600 "} text-2xl hover:scale-125 duration-300 cursor-pointer`} />
                 </span>
               </div>
             </div>

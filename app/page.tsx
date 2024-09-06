@@ -38,7 +38,7 @@ export default function Home() {
       <div className="bg-[#EAEFF6]">
         <Script src="/navachat.js" async />
         <Nav />
-        <main className="flex flex-col w-[80%] mx-auto my-[3%]">
+        <main className="flex flex-col mx-auto my-[3%] w-[80%]">
           <Intro />
           {/* <IntroStatistics /> */}
           <Plans />

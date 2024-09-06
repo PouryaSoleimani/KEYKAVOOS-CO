@@ -80,20 +80,6 @@ export const PlanData = [
     imgSrc: Images.news,
     route: "/designs/tourism",
   },
-  {
-    id: 4,
-    type: "پزشکی",
-    title: "لورم ایپسوم متن ساختگی",
-    planInfo: [
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-    ],
-    price: "10",
-    imgSrc: Images.news,
-    route: "/designs/medical",
-  },
 ];
 export const ReasonData = [
   {

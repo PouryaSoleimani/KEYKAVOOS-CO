@@ -16,8 +16,8 @@
   .plansContainer::before {
     content: "";
     width: 100%;
-    height: 110px;
-    background: linear-gradient(to bottom , #EAEFF6 , transparent) ;
+    height: 130px;
+    background: linear-gradient(to bottom , #EAEFF6  , transparent) ;
     /* background: red; */
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@
     content: "";
     width: 100%;
     height: 70px;
-    background: linear-gradient(to bottom , transparent , #EAEFF6) ;
+    background: linear-gradient(to bottom , transparent , #EAEFF6 ) ;
     position: absolute;
     bottom: 0;
   } 
