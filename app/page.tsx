@@ -15,6 +15,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Loading from "./loading";
 import WordPress from "@/components/home-components/WebDesignPlans/WordPress";
+import OurServices from "@/components/home-components/OurServices";
 
 //^ COMPONENT
 export default function Home() {
@@ -43,11 +44,12 @@ export default function Home() {
         <main className="flex flex-col mx-auto my-[3%] w-[80%]">
           <Intro />
           {/* <IntroStatistics /> */}
-          <Plans />
-          <div className="web-container relative px-6">
-          <WordPress />
-          <WordPress />
-          <WordPress />
+          {/* <Plans /> */}
+          <OurServices />
+          <div className="relative px-6 web-container">
+            <WordPress />
+            <WordPress />
+            <WordPress />
           </div>
           <Technology />
           <Reason />

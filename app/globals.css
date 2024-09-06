@@ -127,15 +127,9 @@ td {
 }
 
 @keyframes l5 {
-  0% {
-    box-shadow: 20px 0 #000, -20px 0 #0002;
-    background: #000;
-  }
+  0% {   box-shadow: 20px 0 #000, -20px 0 #0002;   background: #000; }
 
-  33% {
-    box-shadow: 20px 0 #000, -20px 0 #0002;
-    background: #0002;
-  }
+  33% {    box-shadow: 20px 0 #000, -20px 0 #0002;    background: #0002;  }
 
   66% {
     box-shadow: 20px 0 #0002, -20px 0 #000;
@@ -168,7 +162,7 @@ select {
   padding-block: 0.5rem;
   padding-inline: 1.25rem;
   background-color: #4866cf;
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +170,7 @@ select {
   letter-spacing: -.3px;
   width: 100%;
   color: #ffff;
-  gap: 10px;
+  gap: 15px;
   font-weight: 500;
   outline: none;
   overflow: hidden;
@@ -261,4 +255,12 @@ select {
   height: 50px;
   position: absolute;
   bottom: 0;
+}
+
+.PLANCARD{
+  backdrop-filter: blur(8px) saturate(200%);
+  -webkit-backdrop-filter: blur(8px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
