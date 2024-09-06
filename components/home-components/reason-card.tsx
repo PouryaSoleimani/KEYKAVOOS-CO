@@ -11,7 +11,7 @@ function ReasonCard({ data }: ReasonCardProps) {
   const handleMouseEnter = () => { setIsHovered(true); };
 
   const handleMouseLeave = () => { setIsHovered(false); };
-  
+
   //^ RETURN
   return (
     <div className="flex flex-col items-center gap-2 justify-around bg-transparent shadow-md shadow-zinc-700 backdrop-blur-[1px] px-2 py-6 rounded-lg lg:h-[220px] text-center duration-500 cursor-pointer hover:scale-105"

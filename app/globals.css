@@ -238,3 +238,27 @@ select {
   100%{ transform:translateY(0) ;}
 }
 .wordPress3D{ animation: bounce3dIcons infinite 4s linear ;}
+
+.web-container {
+  width: 100%;
+  height: 100%;
+  background: #EAEFF6 radial-gradient(#4866cf 10%, transparent 1%); background-size: 22px 22px;
+}
+
+.web-container::before{
+  content: "";
+  background: linear-gradient(to bottom ,#EAEFF6 , transparent );
+  /* background: red; */
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+}
+.web-container::after{
+  content: "";
+  background: linear-gradient(to bottom ,transparent ,#EAEFF6  );
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+}
