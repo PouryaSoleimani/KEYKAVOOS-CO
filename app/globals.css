@@ -233,7 +233,7 @@ select {
 
 .leftWordPress{
   background-image: url("/WEB_DESIGN_PLANS/WORDPRESS__BG.webp");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
