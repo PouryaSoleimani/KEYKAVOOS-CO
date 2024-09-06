@@ -44,7 +44,9 @@ export default function Home() {
           <Intro />
           {/* <IntroStatistics /> */}
           <Plans />
-          <div className="web-container relative">
+          <div className="web-container relative px-6">
+          <WordPress />
+          <WordPress />
           <WordPress />
           </div>
           <Technology />
