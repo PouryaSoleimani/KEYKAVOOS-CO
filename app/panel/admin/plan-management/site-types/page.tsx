@@ -17,7 +17,7 @@ function SiteTypes() {
   const { token } = useSelector((state: any) => state.userData);
   const [siteTypeIsDeleted, setSiteTypeIsDeleted] = useState(false);
 
-  useEffect(() => { getAllSiteTypes(token, setSiteTypes) }, []);
+  useEffect(() => { getAllSiteTypes(token, setSiteTypes as any) }, []);
 
   const [editField, setEditField] = useState({ showEditField: false, editTitle: "", editDesc: "", });
 
