@@ -21,18 +21,13 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const dispatch = useDispatch();
   const router = useRouter();
   const [isRead, setIsRead] = useState(null);
-  const [USER_INFOS, setUSER_INFOS] = useState(null)
-  const [userNotifs, setUserNotifs] = useState([userProfile.notifications])
+  const [userNotifs, setUserNotifs] = useState(numberOfAnnouncements)
   const { token } = useSelector((state: any) => state.userData);
 
   const clickHandler = (notif_id: number, read_at: string | null) => {
     if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } else { }
   };
-
-  useEffect(() => {
-    console.log("user profile", userProfile);
-  }, [])
-
+  console.log(userNotifs);
   // ^ RETURN
   return (
     <div className="flex flex-col items-end relative justify-center" dir="rtl" onMouseLeave={() => setShowAnnouncementDropdown(false)}>

@@ -35,7 +35,7 @@ function AllProjects() {
         <NotFound text={projectStatus.error} />
       ) : (
         allProjects.map((item: any, index) => (
-          <div key={item.id} className="grid grid-cols-4 text-center py-2 bg-[#EAEFF6] rounded-[4px]"  >
+          <div key={item.id} className="grid grid-cols-4 text-center py-4 bg-[#EAEFF6] rounded-[4px]"  >
             <p>{index + 1}</p>
             <p className="text-zinc-900">{item.title ? item.title : "-"}</p>
             <p>
