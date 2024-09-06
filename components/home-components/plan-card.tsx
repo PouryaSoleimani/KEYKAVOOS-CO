@@ -16,8 +16,8 @@ function PlanCard({ data }: PlanCardProps) {
 
   return (
     <>
-      <div className="relative bg-transparent shadow-lg shadow-zinc-400 backdrop-blur-[1px] p-[3%] rounded-xl w-[250px] md:max-lg:w-[260px] cursor-pointer hover:scale-105 duration-300">
-        <div className="-top-[0.04rem] left-1/2 z-10 absolute bg-[#4866CF] mx-auto p-2 rounded-t-xl w-[99%] font-semibold text-[18px] text-center text-white tracking-tighter -translate-x-1/2">
+      <div className="relative bg-transparent shadow-lg shadow-zinc-700 backdrop-blur-[2px] p-[3%] rounded-xl w-[250px] md:max-lg:w-[260px] cursor-pointer hover:scale-105 duration-300">
+        <div className="-top-[0.04rem] left-1/2 z-10 absolute bg-[#4866CF] mx-auto p-2 rounded-t-xl w-full font-semibold text-[18px] text-center text-white tracking-tighter -translate-x-1/2">
           {data.type}
         </div>
         <div className="border-[#4866CF] border rounded-xl">
