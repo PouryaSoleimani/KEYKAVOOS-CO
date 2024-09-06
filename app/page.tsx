@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Loading from "./loading";
+import WordPress from "@/components/home-components/WebDesignPlans/WordPress";
+
 
 //^ COMPONENT
 export default function Home() {
@@ -41,7 +43,8 @@ export default function Home() {
         <main className="flex flex-col mx-auto my-[3%] w-[80%]">
           <Intro />
           {/* <IntroStatistics /> */}
-          <Plans />
+          <WordPress />
+          {/* <Plans /> */}
           <Technology />
           <Reason />
           <Order />
