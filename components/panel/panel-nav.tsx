@@ -22,19 +22,16 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const router = useRouter();
   const [isRead, setIsRead] = useState(null);
   const [USER_INFOS, setUSER_INFOS] = useState(null)
+  const [userNotifs, setUserNotifs] = useState([userProfile.notifications])
   const { token } = useSelector((state: any) => state.userData);
+
   const clickHandler = (notif_id: number, read_at: string | null) => {
-    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); }
+    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } else { }
   };
 
-
-  // console.log(userProfile);
-
-
-  // useEffect(() => {
-  //   setTimeout(() => { setUSER_INFOS(userProfile); }, 1500);
-  //   setTimeout(() => { console.log("%c USER___INFOS +++++++>>>>>", "color : yellow", USER_INFOS); }, 2000);
-  // }, [])
+  useEffect(() => {
+    console.log("user profile", userProfile);
+  }, [])
 
   // ^ RETURN
   return (
@@ -53,7 +50,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
                   (announce: { text: string; id: number; read_at: string | null; }) => (
                     <div key={announce.id} className="flex items-center justify-between p-4"  >
-                      <p className="text-md leading-4">{announce.text}</p>
+                      <p className="text-md leading-4 pt-1">{announce.text}</p>
                       <div>
                         <p className={`${announce.read_at ? "text-red-800 cursor-default text-lg  flex items-center justify-center leading-10" : "opacity-0"}`} >
                           <RiDeleteBin7Fill onClick={() => clickHandler(announce.id, announce.read_at)} />
