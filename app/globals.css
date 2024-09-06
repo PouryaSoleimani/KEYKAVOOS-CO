@@ -233,34 +233,22 @@ select {
 }
 .wordPress3D{ animation: bounce3dIcons infinite 4s linear ;}
 
-.web-container {
-  width: 100%;
-  height: 100%;
-  background: #EAEFF6 radial-gradient(#4866cf 10%, transparent 1%); background-size: 22px 22px;
-}
+.web-container { width: 100%; height: 100%; background: #EAEFF6 radial-gradient(#4866cf 10%, transparent 1%); background-size: 22px 22px;}
 
-.web-container::before{
-  content: "";
-  background: linear-gradient(to bottom ,#EAEFF6 , transparent );
-  /* background: red; */
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  top: 0;
-}
-.web-container::after{
-  content: "";
-  background: linear-gradient(to bottom ,transparent ,#EAEFF6  );
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-}
+.web-container::before{ content: ""; background: linear-gradient(to bottom ,#EAEFF6 , transparent ); width: 100%; height: 50px; position: absolute; top: 0;}
 
-.PLANCARD{
-  backdrop-filter: blur(8px) saturate(200%);
-  -webkit-backdrop-filter: blur(8px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+.web-container::after{ content: ""; background: linear-gradient(to bottom ,transparent ,#EAEFF6  ); width: 100%; height: 50px; position: absolute; bottom: 0;}
+
+.PLANCARD{  backdrop-filter: blur(8px) saturate(200%);  -webkit-backdrop-filter: blur(8px) saturate(200%);  background-color: rgba(255, 255, 255, 0);  border-radius: 12px;  border: 1px solid rgba(209, 213, 219, 0.3);}
+
+/* OUR SERVICES ******************************************************************************************************************************** */
+.servicecard {--bg: #e8e8e8; --contrast: #e2e0e0; --grey: #93a1a1; position: relative; padding: 9px; background-color: var(--bg); border-radius: 15px; box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
+
+.servicecard-overlay { position: absolute; inset: 0; pointer-events: none; background: repeating-conic-gradient(var(--bg) 0.0000001%, var(--grey) 0.000104%) 60% 60%/600% 600%; filter: opacity(10%) contrast(105%);}
+
+.servicecard-inner { display: -webkit-box; display: -ms-flexbox; display: flex; justify-content: center; align-items: center; overflow: hidden; width: 184px; height: 184px; background-color: var(--contrast); border-radius: 12px; /* Content style */ font-size: 24px; font-weight: 900; background: linear-gradient(45deg , #4d62ad , rgb(2, 2, 54)); background-clip: text; color: transparent; text-align: center;}
+
+@media only screen and (max-width : 640px){
+  .servicecard-inner { display: -webkit-box; display: -ms-flexbox; display: flex; justify-content: center; align-items: center; overflow: hidden; width: 124px; height: 124px; background-color: var(--contrast); border-radius: 12px; /* Content style */ font-size: 17px; font-weight: 700; background: linear-gradient(45deg , #4d62ad , rgb(2, 2, 54)); background-clip: text; color: transparent; text-align: center;}
+
 }
