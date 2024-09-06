@@ -44,10 +44,7 @@ function SiteTypes() {
         </div>
 
         {siteTypes.map((item: any, index) => (
-          <div
-            className={`${siteTypeIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`}
-            key={index}
-          >
+          <div className={`${siteTypeIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`} key={index}>
             <p>{index + 1}</p>
             <input
               value={item.title ? item.title : "-"}
