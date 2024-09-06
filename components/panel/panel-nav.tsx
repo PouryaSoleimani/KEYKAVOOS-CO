@@ -10,6 +10,8 @@ import USER__DEFAULT from '@/public/USER__DEFAULT.png'
 import exit from "../../public/Panel/exit.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { changeNotificationStatus } from "@/utils/utils";
+import { RiCrosshair2Fill, RiDeleteBin7Fill } from "react-icons/ri";
+import { ImCross, ImEyePlus } from "react-icons/im";
 type NavProps = { userProfile: any; status: string; userType: string; numberOfAnnouncements: any; setShowAnnouncementDropdown: Dispatch<SetStateAction<boolean>>; showAnnouncementDropdown: boolean; };
 
 
@@ -21,7 +23,9 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const [isRead, setIsRead] = useState(null);
   const [USER_INFOS, setUSER_INFOS] = useState(null)
   const { token } = useSelector((state: any) => state.userData);
-  const clickHandler = (notif_id: number, read_at: string | null) => { if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } };
+  const clickHandler = (notif_id: number, read_at: string | null) => {
+    if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); }
+  };
 
 
   // console.log(userProfile);
@@ -45,14 +49,14 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
               </p>
             </div>
             {showAnnouncementDropdown && (
-              <div className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.5rem] p-1" : "-bottom-[1.25rem]"}  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`} onMouseLeave={() => setShowAnnouncementDropdown(false)}  >
+              <div className={`absolute ${numberOfAnnouncements.length !== 0 ? "-bottom-[2.9rem] p-1 left-10" : "-bottom-[1.25rem] left-10"}  bg-[#eaeaea] w-[200px] rounded-[5px] px-2 py-1 translate-x-4 text-sm text-[#4866CF] border border-[#4866CF] font-extralight`} onMouseLeave={() => setShowAnnouncementDropdown(false)}  >
                 {numberOfAnnouncements.length === 0 ? "اعلانی وجود ندارد." : numberOfAnnouncements.map(
                   (announce: { text: string; id: number; read_at: string | null; }) => (
-                    <div key={announce.id} className="flex justify-between p-4"  >
-                      <p>{announce.text}</p>
+                    <div key={announce.id} className="flex items-center justify-between p-4"  >
+                      <p className="text-md leading-4">{announce.text}</p>
                       <div>
-                        <p className={`w-[20px] h-[20px] rounded-full ${announce.read_at ? "bg-green-800 cursor-default" : "bg-red-800 cursor-pointer"}`}
-                          onClick={() => clickHandler(announce.id, announce.read_at)}>
+                        <p className={`${announce.read_at ? "text-red-800 cursor-default text-lg  flex items-center justify-center leading-10" : "opacity-0"}`} >
+                          <RiDeleteBin7Fill onClick={() => clickHandler(announce.id, announce.read_at)} />
                         </p>
                       </div>
                     </div>
