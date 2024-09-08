@@ -7,9 +7,10 @@ interface Props { }
 
 const WordPressSpecial: NextPage<Props> = ({ }) => {
     return (
-        <div className='flex flex-col-reverse  px-4 py-16 backdrop-blur-[2px] shadow-lg shadow-zinc-400 border border-blue-800/30 rounded-lg lg:flex-row justify-between items-center my-16 w-full h-full lg:h-[500px] bg-transparent'>
+        <div className='flex flex-col-reverse  px-4 py-16 backdrop-blur-[5px] shadow-lg shadow-zinc-400 border border-blue-800/30 rounded-lg lg:flex-row-reverse justify-between items-center my-16 w-full h-full lg:h-[500px] bg-transparent'>
 
-            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full space-y-4 leftWordPressSpecial z-30`} data-aos="fade-right" data-aos-duration="1500">
+            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full space-y-4 leftWordPressSpecial z-30 rounded-3xl `} data-aos="fade-right" data-aos-duration="1500">
+                {/* <Image src="/WEB_DESIGN_PLANS/WORDPRESS__SPECIAL__BG.jpg" width={100} height={100} alt='web-design' className='w-full h-full'/> */}
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
                 <Image src='/Technology/elementor.png' alt='wordpress-logo' width={100} height={100} className='wordPress3D ml-2' />
                 {/* <Image src='/3D_ICONS/PAINT__BRUSH.png' alt='paint_brush' width={100} height={100} className='wordPress3D absolute top-[50rem] left-[50rem]' /> */}
@@ -18,8 +19,8 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
                 {/* <Image src='/3D_ICONS/TEXT.png' alt='text' width={80} height={80} className='-rotate-12 wordPress3D' /> */}
                 {/* <Image src='/3D_ICONS/CHART.png' alt='chart' width={100} height={100} className='wordPress3D' /> */}
             </div>
-            <div id="RIGHT" className='flex flex-col justify-start items-start space-y-12 px-6 py-8 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
-                <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>وب سایت وردپرسی با قالب اختصاصی</h2>
+            <div id="RIGHT" className='flex flex-col justify-start items-end space-y-12 px-6 py-8 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
+                <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-3xl font-extrabold bg-clip-text text-transparent whitespace-nowrap'>وب سایت وردپرسی با قالب اختصاصی</h2>
                 <p className='text-zinc-700 tracking-tighter text-justify text-xl font-extralight'>Lorem ipadasdasdasdadadassdasdsum dolor sit amet, consectetur adipisicing elit. Eaque earum vero ab maxime eius libero, quae provident ipsa modi delectus id odit sit consequatur corporis impedit ipsam optio? Nesciunt, quod?</p>
                 <button className='bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 flex px-2 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                     توضیحات بیشتر
