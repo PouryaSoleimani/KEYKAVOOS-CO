@@ -235,7 +235,12 @@ select {
   background-repeat: no-repeat;
   background-position: center;
 }
-
+.leftWordPressSpecial {
+  background-image: url("/WEB_DESIGN_PLANS/WORDPRESS__SPECIAL__BG.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 @keyframes bounce3dIcons {
   0% {
     transform: translateY(0);

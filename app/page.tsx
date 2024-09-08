@@ -16,6 +16,7 @@ import "aos/dist/aos.css";
 import Loading from "./loading";
 import WordPress from "@/components/home-components/WebDesignPlans/WordPress";
 import OurServices from "@/components/home-components/OurServices";
+import WordPressSpecial from "@/components/home-components/WebDesignPlans/WordPressSpecial";
 
 //^ COMPONENT
 export default function Home() {
@@ -49,7 +50,7 @@ export default function Home() {
           <div className="relative px-6 web-container">
             <h2 className='mb-10 relative -top-16 text-center font-[1000] py-1 bg-gradient-to-tr from-[#4866CF] via-blue-500 to-slate-700 bg-clip-text text-transparent text-4xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> طراحی و اجرای سایت </h2>
             <WordPress />
-            <WordPress />
+            <WordPressSpecial />
             <WordPress />
           </div>
           <Technology />
