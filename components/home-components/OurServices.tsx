@@ -26,7 +26,7 @@ const OurServices = () => {
                 <div className="servicecard hover:scale-110 duration-500 cursor-pointer z-10 bg-[#d8e2e2e8] ">
                     <div className="servicecard-overlay backdrop-blur-sm z-0 bg-transparent"></div>
                     <div className="servicecard-inner z-30 backdrop-blur-sm"> طراحی <br /> گرافیک</div>
-                    <Image src='/3D_ICONS/PAINT__BRUSH.png' alt='at_sign' width={170} height={170} className='wordPress3D absolute top-[4.5rem] left-[-2rem] -z-10' />
+                    <Image src='/3D_ICONS/PAINT__BRUSH.png' alt='brush' width={170} height={170} className='wordPress3D absolute top-[6rem] left-[-2rem] -z-10' />
                 </div>
                 <div className="servicecard hover:scale-110 duration-500 cursor-pointer z-10 bg-[#d8e2e2e8] ">
                     <div className="servicecard-overlay backdrop-blur-sm z-0 bg-transparent"></div>

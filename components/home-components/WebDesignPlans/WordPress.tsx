@@ -7,7 +7,7 @@ interface Props { }
 
 const WordPress: NextPage<Props> = ({ }) => {
     return (
-        <div className='flex flex-col-reverse bg-transparent px-4 py-16 backdrop-blur-[2px] shadow-lg shadow-zinc-400 border border-blue-800/30 rounded-lg lg:flex-row justify-between items-center my-16 w-full h-full lg:h-[500px]'>
+        <div className='flex flex-col-reverse  px-4 py-16 backdrop-blur-[2px] shadow-lg shadow-zinc-400 border border-blue-800/30 rounded-lg lg:flex-row justify-between items-center my-16 w-full h-full lg:h-[500px] bg-transparent'>
 
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
