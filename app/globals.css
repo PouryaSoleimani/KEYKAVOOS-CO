@@ -272,11 +272,11 @@ select {
 .web-container {
   width: 100%;
   height: 100%;
-  background: transparent radial-gradient(#4866cf50 7%, transparent 1%);
-  background-size: 11px 11px;
+  background: transparent radial-gradient(#4866cf50 11%, transparent 1%);
+  background-size: 20px 20px;
 }
 
-.web-container::before {
+/* .web-container::before {
   content: "";
   background: linear-gradient(to bottom, #2e2e2e, transparent);
   width: 100%;
@@ -292,7 +292,7 @@ select {
   height: 60px;
   position: absolute;
   bottom: 0;
-}
+} */
 
 .PLANCARD {
   backdrop-filter: blur(8px) saturate(200%);

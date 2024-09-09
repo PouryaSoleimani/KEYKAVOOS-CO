@@ -7,7 +7,7 @@ const OurServices = () => {
     return (
         <>
             <h2 className='mt-32 mb-10 text-center font-[1000] py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> خدمات ما </h2>
-            <div className='grid grid-cols-2 place-items-center lg:flex justify-around items-start py-16 gap-4 web-container w-full lg:h-[500px] text-zinc-200' dir='rtl' data-aos="fade-up" data-aos-duration="1500">
+            <div className='grid grid-cols-2 place-items-center lg:flex justify-around items-start py-16 gap-4 web-container px-[4vw]  w-full lg:h-[500px] text-zinc-200' dir='rtl' data-aos="fade-up" data-aos-duration="1500">
                 <div className="servicecard hover:scale-110 duration-500 cursor-pointer z-10 bg-zinc-600 ">
                     <div className="servicecard-overlay backdrop-blur-sm z-0 bg-transparent"></div>
                     <div className="servicecard-inner z-30 backdrop-blur-sm ">طراحی<br /><br /><br />وب اپلیکیشن</div>
