@@ -26,7 +26,7 @@ function IntroBtns() {
 
   return (
     <div className="flex md:justify-end justify-center w-full gap-3">
-      <Link href={routeForBtn} className="bg-[#4866CF] flex justify-center items-center text-white h-[40px] w-[135px] rounded-[4px] hover:bg-blue-800 duration-300"  >
+      <Link href={routeForBtn} className="bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 flex justify-center items-center text-white h-[50px] w-[155px] rounded-2xl hover:scale-110 duration-300"  >
         ثبت سفارش
       </Link>
     </div>
