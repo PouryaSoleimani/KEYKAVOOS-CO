@@ -43,7 +43,7 @@ function Intro() {
             تجربه ای متفاوت در<br /> دنیای دیجیتال
           </div>
         </div>
-        <p className="text-zinc-400 md:max-w-[35rem] text-[16px] text-justify" dir="rtl"   >
+        <p className="text-zinc-400 md:max-w-[35rem] text-[16px] text-justify leading-9" dir="rtl"   >
           شرکت بین المللی کیکاووس زمان با تکیه بر دانش فنی وتخصصی بابهترین روش
           هااز متخصصان برای توسعه ی نرم افزار های نوآورانه استفاده می کند و به
           ارائه خدمات با کیفیت در زمینه های برنامه نویسی، بازرگانی وتولید قطعات
