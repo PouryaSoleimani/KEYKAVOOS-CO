@@ -60,7 +60,7 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[7px] rounded-2xl"} ${scrollTop ? "absolute top-3 border-zinc-500 w-[90vw] rounded-2xl shadow-md shadow-zinc-950 border" : ""}`}
+      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[7px] rounded-2xl"} ${scrollTop ? "absolute top-3 border-zinc-500 w-[95vw] rounded-2xl shadow-md shadow-zinc-950 border" : ""}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
