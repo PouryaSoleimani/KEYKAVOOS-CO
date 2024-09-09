@@ -272,8 +272,8 @@ select {
 .web-container {
   width: 100%;
   height: 100%;
-  background: #272727 radial-gradient(#4866cf 10%, transparent 1%);
-  background-size: 22px 22px;
+  background: transparent radial-gradient(#4866cf50 7%, transparent 1%);
+  background-size: 11px 11px;
 }
 
 .web-container::before {
