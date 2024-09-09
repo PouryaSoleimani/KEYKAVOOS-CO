@@ -19,14 +19,15 @@ const Nav = () => {
   const [navlocaltoken, setnavlocaltoken] = useState(null);
   const dispatch = useDispatch();
   const { FirstName, userProfile, role, status, token, localToken } = useSelector((state: any) => state.userData);
+  const [scrollTop, setScrollTop] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      window.scrollY > 60
-        ? setActiveColorChange(true)
-        : setActiveColorChange(false);
+      window.scrollY > 60 ? setActiveColorChange(true) : setActiveColorChange(false);
+      window.scrollY > 120 ? setScrollTop(true) : setScrollTop(false);
     });
   });
+  useEffect(() => { console.log("SCROLL TOP"); }, [scrollTop])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -67,7 +68,7 @@ const Nav = () => {
         setShowFour(false)
       )}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] backdrop-blur-[7px] bg-transparent font-thin">
+      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] bg-transparent backdrop-blur-[10px]  font-thin">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -91,7 +92,7 @@ const Nav = () => {
           </SkeletonTheme>
         ) : (
           <Link href={route} className="flex items-center justify-center space-x-2">
-            <button className="hidden lg:inline-block bg-[#4866CF] text-white tracking-tight rounded-[4px]  py-2 px-4 text-base hover:bg-blue-800 duration-300">
+            <button className="hidden lg:inline-block bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 rounded-2xl text-zinc-100 tracking-tight hover:scale-110 duration-300 py-3 px-6 text-base ">
               {!localToken && "ثبت نام / ورود"}
               {localToken && console.log(localToken)}
               {localToken && (<p className="flex items-center justify-between "> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
@@ -104,7 +105,7 @@ const Nav = () => {
 
         <div className="lg:flex gap-6 hidden">
           <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6">
-            <li className="bg-[#C9D6E9] text-[#4866CF] py-2 px-4 rounded-[4px] hover:bg-[#4866CF] hover:text-[#C9D6E9] duration-300">
+            <li className="bg-blue-950 text-white  backdrop-blur-md py-3 px-6 rounded-2xl hover:scale-110 duration-300">
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
