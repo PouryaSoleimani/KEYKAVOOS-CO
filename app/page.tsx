@@ -39,8 +39,8 @@ export default function Home() {
         <main className="flex flex-col mx-auto my-[3%] w-full">
           <Intro />
           <OurServices />
-          <div className="relative px-6">
-            <h2 className='mb-10 relative -top-16 text-center font-[1000] py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> طراحی و اجرای سایت </h2>
+          <div className="relative px-[4vw]">
+            <h2 className='relative -top-16 text-center font-black py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> طراحی و اجرای سایت </h2>
             <WordPress />
             <WordPressSpecial />
             <CodingWebDevelopment />
