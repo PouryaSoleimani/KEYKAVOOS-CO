@@ -60,7 +60,7 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[7px] rounded-2xl"} ${scrollTop ? "absolute top-3 border-zinc-500 w-[95vw] rounded-2xl shadow-md shadow-zinc-950 " : ""}`}
+      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-[93vw] rounded-2xl shadow-md shadow-zinc-950 " : ""}`}
       onMouseLeave={() => (
         setShowOne(false),
         setShowTwo(false),
@@ -121,7 +121,7 @@ const Nav = () => {
 
               {showTwo && (
                 <>
-                  <ul className="list-none absolute bg-zinc-900/50 -translate-x-5 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10 " onMouseEnter={() => setShowTwo(true)}  >
+                  <ul className="navUL list-none absolute bg-zinc-900/50 -translate-x-5 lg:top-[55px] backdrop-blur-sm rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10 " onMouseEnter={() => setShowTwo(true)}  >
                     <Link href="/in-hand">
                       <li className="text-sm pt-1 hover:text-[#4866CF] duration-300 ">طراحی سایت</li>
                     </Link>
@@ -146,7 +146,7 @@ const Nav = () => {
 
               {showFour && (
                 <React.Fragment>
-                  <ul className="list-none absolute bg-zinc-900/50 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 translate-x-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10" onMouseLeave={() => setShowFour(false)}  >
+                  <ul className="navUL list-none absolute bg-zinc-900/50 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 translate-x-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10" onMouseLeave={() => setShowFour(false)}  >
                     <Link href="/weblog/back-end ">
                       <li className="text-sm pt-1 hover:text-[#4866CF] duration-300">بک اند</li>
                     </Link>
@@ -183,7 +183,7 @@ const Nav = () => {
               </div>
               {showThree && (
                 <React.Fragment>
-                  <ul className="list-none absolute bg-zinc-900/50 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10"
+                  <ul className="navUL list-none absolute bg-zinc-900/50 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10"
                     onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
                       <li className="text-sm pt-2  hover:text-[#4866CF] duration-300">مجوزها</li>
