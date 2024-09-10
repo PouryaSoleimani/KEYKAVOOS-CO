@@ -9,7 +9,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
     return (
         <div className='flex bg-zinc-900/50 flex-col-reverse px-4 py-16 backdrop-blur-[3px] shadow-md shadow-zinc-950 rounded-2xl lg:flex-row justify-between items-center my-16 w-full h-full lg:h-[650px]'>
 
-            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30`} data-aos="fade-right" data-aos-duration="1500">
+            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPressSpecial z-30`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
             </div>
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4 px-6 py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
