@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="fa">
       {/* <body className="4xl:w-[60%] 4xxl:w-[55%] 4xxxl:max-5xl:w-[55%] 5xl:w-[50%] 6xl:w-[50%] 3xl:w-[70%] mx-auto 7xl:w-[45%] 8xl:w-[25%] font-YekanBakh bg-[#eaeff5]"> */}
-      <body className="w-screen font-YekanBakh bg-zinc-800 overflow-x-hidden">
+      <body className="w-screen font-YekanBakh bg-[#eaeff5] overflow-x-hidden">
         {/* <GoogleOAuthWrapper> */}
         {/* <NextAuthProviderWrapper> */}
         <ToastProvider>
@@ -38,6 +38,6 @@ export default function RootLayout({
         {/* </NextAuthProviderWrapper> */}
         {/* </GoogleOAuthWrapper> */}
       </body>
-    </html>
+    </html >
   );
 }
