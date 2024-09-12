@@ -23,7 +23,10 @@ import CodingWebDevelopment from "@/components/home-components/WebDesignPlans/Co
 export default function Home() {
   const [mainLoading, setMainLoading] = useState(true);
 
-  useEffect(() => { const timer = setTimeout(() => { setMainLoading(false); }, 1000); return () => clearTimeout(timer); }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => { setMainLoading(false); }, 1000); return () => clearTimeout(timer);
+  }, []);
+
   // AOS
   useEffect(() => { AOS.init(); AOS.refresh(); }, []);
 
