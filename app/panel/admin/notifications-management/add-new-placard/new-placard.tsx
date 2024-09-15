@@ -53,13 +53,13 @@ function NewPlacard({ setSteps }: NewPlacardProps) {
   //   }
   // }, [departments]);
 
-  // const departmentInfo = departments?.map(
-  //   (item: { department: { id: number; name_fa: string } }) => item.department.id + "-" + item.department.name_fa
-  // );
+  const departmentInfo = departments?.map(
+    (item: { department: { id: number; name_fa: string } }) => item.department.id + "-" + item.department.name_fa
+  );
 
-  // const usersInfo = users?.map((item: { name: string; surname: string }) => item.name + " " + item.surname);
+  const usersInfo = users?.map((item: { name: string; surname: string }) => item.name + " " + item.surname);
 
-  // const brandInfo = brands?.map((item: { brand: { title: string } }) => item.brand?.title);
+  const brandInfo = brands?.map((item: { brand: { title: string } }) => item.brand?.title);
 
   // const depId = departments
   //   .filter((item: { department: { name_fa: string } }) => annonceInfo?.dept_id?.includes(item.department.name_fa))
@@ -67,7 +67,7 @@ function NewPlacard({ setSteps }: NewPlacardProps) {
 
   // const userId = users?.filter((item: { name: string }) => annonceInfo?.user_id?.includes(item.name))?.map((item: { id: number }) => item.id)[0];
 
-  // const brandId = brands?.filter((item: { brand: { title: string } }) => item.brand?.title.includes(annonceInfo.brand_id))?.map((item: { brand: { id: number } }) => item.brand?.id)?.[0];
+  const brandId = brands?.filter((item: { brand: { title: string } }) => item.brand?.title.includes(annonceInfo.brand_id))?.map((item: { brand: { id: number } }) => item.brand?.id)?.[0];
 
   // const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();

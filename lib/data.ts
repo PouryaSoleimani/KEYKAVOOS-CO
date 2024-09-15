@@ -87,7 +87,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.data,
+    imgSrc: Images.RESPONSIVE,
     hoveredImgSrc: Images.hoveredData,
   },
   {
@@ -95,7 +95,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.time,
+    imgSrc: Images.ROCKET,
     hoveredImgSrc: Images.hoveredTime,
   },
   {
@@ -103,7 +103,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.mail,
+    imgSrc: Images.WEB__SEARCH,
     hoveredImgSrc: Images.hoveredMail,
   },
   {
@@ -111,7 +111,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.book,
+    imgSrc: Images.APPLICATION,
     hoveredImgSrc: Images.hoveredBook,
   },
 ];
@@ -552,7 +552,7 @@ export const TechnologyData = [
   {
     id: 2,
     title: "بک اند",
-    imgUrl: Images.back,
+    imgUrl: Images.BACKEND,
     technologies: [
       {
         id: 2,
@@ -574,7 +574,7 @@ export const TechnologyData = [
   {
     id: 1,
     title: "فرانت اند",
-    imgUrl: Images.front,
+    imgUrl: Images.FRONTEND,
     technologies: [
       {
         id: 6,
@@ -597,7 +597,7 @@ export const TechnologyData = [
   {
     id: 0,
     title: "گرافیک",
-    imgUrl: Images.Graphics,
+    imgUrl: Images.GRAPHIC,
     technologies: [
       {
         id: 7,
@@ -620,7 +620,7 @@ export const TechnologyData = [
   {
     id: 5,
     title: "پنل ها",
-    imgUrl: Images.ServerMangamenetLogo,
+    imgUrl: Images.PANELS,
     technologies: [
       {
         id: 10,
@@ -642,7 +642,7 @@ export const TechnologyData = [
   {
     id: 3,
     title: "سرور",
-    imgUrl: Images.server,
+    imgUrl: Images.SERVER,
     technologies: [
       {
         id: 13,
@@ -664,7 +664,7 @@ export const TechnologyData = [
   {
     id: 4,
     title: "دیتابیس",
-    imgUrl: Images.Database,
+    imgUrl: Images.DATABASE,
     technologies: [
       {
         id: 16,

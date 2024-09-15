@@ -1,11 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 
-type TechnologyCardProps = {
-  technologyInfo: { id: number; title: string; imgUrl: string; technologies: { id: number; techImgUrl: string[]; tech: string[]; }[]; };
-};
+type TechnologyCardProps = { technologyInfo: { id: number; title: string; imgUrl: StaticImageData; technologies: { id: number; techImgUrl: string[]; tech: string[]; }[]; }; };
 
 //^ COMPONENT
 function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
@@ -14,8 +12,8 @@ function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
 
 
   return (
-    <div className="flex flex-col items-center gap-3 bg-transparent shadow-md shadow-zinc-700 hover:shadow-xl backdrop-blur-[2px] mx-auto mb-6 rounded-[15px] w-[260px] lg:w-full h-[400px] md:max-lg:h-[300px] duration-200 cursor-pointer hover:scale-105" >
-      <div className="bg-[#4866CF] mb-3 p-2 rounded-t-lg w-full font-bold text-[20px] text-center text-white tracking-tighter">
+    <div className="TECH-CARD flex flex-col items-center  gap-3 bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 hover:shadow-xl  mx-auto mb-6 rounded-3xl w-[260px] lg:w-[390px] h-[400px] md:max-lg:h-[300px] duration-200 cursor-pointer hover:scale-105" >
+      <div className="bg-[#4866CF] mb-3 p-2 rounded-t-3xl w-full font-bold text-[20px] text-center text-white tracking-tighter">
         {technologyInfo.title}
       </div>
       <Image src={technologyInfo.imgUrl} alt={technologyInfo.title} className="w-16 h-16" />

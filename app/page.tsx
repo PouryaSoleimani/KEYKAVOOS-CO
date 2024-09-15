@@ -18,18 +18,20 @@ import WordPress from "@/components/home-components/WebDesignPlans/WordPress";
 import OurServices from "@/components/home-components/OurServices";
 import WordPressSpecial from "@/components/home-components/WebDesignPlans/WordPressSpecial";
 import CodingWebDevelopment from "@/components/home-components/WebDesignPlans/CodingWebDevelopment";
+import 'animate.css';
+
 
 //^ COMPONENT
 export default function Home() {
   const [mainLoading, setMainLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => { setMainLoading(false); }, 1000); return () => clearTimeout(timer);
+    const timer = setTimeout(() => { setMainLoading(false); }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   // AOS
   useEffect(() => { AOS.init(); AOS.refresh(); }, []);
-
 
   if (mainLoading) {
     return <Loading />;
@@ -39,11 +41,13 @@ export default function Home() {
       <div className="bg-[#eaeff5] web-container">
         <Script src="/navachat.js" async />
         <Nav />
-        <main className="flex flex-col mx-auto my-[3%] w-full">
+        <main className="flex flex-col mx-auto mt-10 w-full">
           <Intro />
           <OurServices />
-          <div className="relative px-[4vw]">
-            <h2 className='relative -top-16 text-center font-black py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> طراحی و اجرای سایت </h2>
+          <div className="relative px-[4vw] space-y-10">
+            <h2 className="relative -top-16 text-center font-black py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s">
+              {" "}طراحی و اجرای وبسایت{" "}
+            </h2>
             <WordPress />
             <WordPressSpecial />
             <CodingWebDevelopment />

@@ -59,6 +59,16 @@ import NewsletterIcon from "../public/Panel/newsletter.svg";
 import OrderSubmissionIcon from "../public/Panel/orders.svg";
 import FinancialStatusIcon from "../public/Panel/financialstatus.svg";
 import SettingsIcon from "../public/Panel/settings.svg";
+import BACKEND from '../public/NEW__TECH__ICONS/BACKEND.png';
+import FRONTEND from '../public/NEW__TECH__ICONS/FRONTEND.png';
+import DATABASE from '../public/NEW__TECH__ICONS/DATABASE.png';
+import PANELS from '../public/NEW__TECH__ICONS/PANELS.png';
+import GRAPHIC from '../public/NEW__TECH__ICONS/GRAPHIC.png';
+import SERVER from '../public/NEW__TECH__ICONS/SERVER.png'
+import ROCKET from '../public/NEW__TECH__ICONS/ROCKET.png'
+import WEB__SEARCH from '../public/NEW__TECH__ICONS/WEB__SEARCH.png'
+import RESPONSIVE from '../public/NEW__TECH__ICONS/RESPONSIVE.png'
+import APPLICATION from '../public/NEW__TECH__ICONS/APPLICATION.png'
 
 export const Images = {
   NewsletterIcon,
@@ -122,4 +132,14 @@ export const Images = {
   CPanelLogo,
   DirectAdminLogo,
   PleskLogo,
+  BACKEND,
+  FRONTEND,
+  SERVER,
+  GRAPHIC,
+  DATABASE,
+  PANELS,
+  ROCKET,
+  WEB__SEARCH,
+  RESPONSIVE,
+  APPLICATION,
 };

@@ -128,10 +128,7 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
     validateOnMount: true,
   });
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-[#F8FAFC] rounded-2xl grid grid-cols-1 gap-3 px-[5%] py-[2%] w-full"
-    >
+    <form onSubmit={handleSubmit} className="bg-white/30 rounded-2xl grid grid-cols-1 gap-3 px-[5%] py-[2%] w-full" >
       <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter ">
         فرم ثبت درخواست
       </label>
