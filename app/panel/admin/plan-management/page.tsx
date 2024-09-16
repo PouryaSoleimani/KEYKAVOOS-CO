@@ -32,7 +32,7 @@ function PlanManagement() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-row items-center gap-5 whitespace-nowrap">
         <NewInfoOnEachPageBtn btnText="ایجاد پلن" src="/panel/admin/plan-management/create-plan" />
-        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-2 rounded-[5px] w-[230px]" >
+        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-3 tracking-tight rounded-[5px] w-[220px] hover:bg-blue-800 duration-300" >
           مدیریت سایت های قابل طراحی
         </Link>
       </div>
@@ -56,7 +56,7 @@ function PlanManagement() {
                 className={`${planIsDeleted && item.plan.deleted_at
                   ? "bg-red-100"
                   : "bg-[#EAEFF6]"
-                  } grid grid-cols-4 text-center py-1 rounded-[4px] cursor-pointer`}
+                  } grid grid-cols-4 text-center py-4 rounded-[4px] cursor-pointer`}
                 key={index}
               >
                 <p>{index + 1}</p>
@@ -76,15 +76,15 @@ function PlanManagement() {
                     } outline-none`}
                   readOnly={true}
                 />
-                <div className="flex flex-row items-center justify-center gap-3">
-                  <Link href={`/panel/admin/plan-management/plan-detail?id=${item.plan.id}`} className="flex justify-center" >
-                    <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                <div className="flex flex-row items-center justify-center gap-5">
+                  <Link href={`/panel/admin/plan-management/plan-detail?id=${item.plan.id}`} className="flex justify-center hover:scale-125 duration-300" >
+                    <Image src={vieweye} alt="مشاهده" width={25} height={20} />
                   </Link>
-                  <span onClick={() => deletePlan(item.plan.id, token, setPlanIsDeleted, setAllPlans)} className="flex justify-center"  >
-                    <RiDeleteBin7Fill className="text-red-600 text-lg" />
+                  <span onClick={() => deletePlan(item.plan.id, token, setPlanIsDeleted, setAllPlans)} className="flex justify-center hover:scale-125 duration-300"  >
+                    <RiDeleteBin7Fill className="text-red-600 text-2xl" />
                   </span>
                   <span onClick={() => restorePlan(item.plan.id, token, setPlanIsDeleted)} >
-                    <IoReloadCircle className={`${item.plan.deleted_at && planIsDeleted ? "text-green-600" : "text-yellow-600"}  text-lg`} />
+                    <IoReloadCircle className={`${item.plan.deleted_at && planIsDeleted ? "text-green-600" : "text-yellow-600"}  text-2xl hover:scale-125 duration-300`} />
                   </span>
                 </div>
               </div>

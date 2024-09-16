@@ -35,7 +35,7 @@ function LegalUsers({ LegalUsersData, usersStatus, token, setAllUsers, setDataSt
               <p className="col-span-3  py-2 md:col-span-1">{item.org_registration_Number ? item.org_registration_Number : "-"}</p>
 
               <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1 py-2"  >
-                <RiDeleteBin7Fill className="text-lg text-red-800" />
+                <RiDeleteBin7Fill className="text-lg text-red-800 hover:scale-125 duration-300" />
               </span>
 
             </div>

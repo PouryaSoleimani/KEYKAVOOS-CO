@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile, setLocalStorageToken, } from "@/redux/features/user/userSlice";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { FaUser } from "react-icons/fa";
+import { FaChevronDown, FaUser } from "react-icons/fa";
 import NavMobile from "./nav-mobile";
 
 const Nav = () => {
@@ -19,14 +19,15 @@ const Nav = () => {
   const [navlocaltoken, setnavlocaltoken] = useState(null);
   const dispatch = useDispatch();
   const { FirstName, userProfile, role, status, token, localToken } = useSelector((state: any) => state.userData);
+  const [scrollTop, setScrollTop] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      window.scrollY > 60
-        ? setActiveColorChange(true)
-        : setActiveColorChange(false);
+      window.scrollY > 60 ? setActiveColorChange(true) : setActiveColorChange(false);
+      window.scrollY > 200 ? setScrollTop(true) : setScrollTop(false);
     });
   });
+  useEffect(() => { console.log("SCROLL TOP"); }, [scrollTop])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -59,15 +60,10 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full mx-auto top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-white/50 backdrop-blur-3xl rounded-xl"}`}
-      onMouseLeave={() => (
-        setShowOne(false),
-        setShowTwo(false),
-        setShowThree(false),
-        setShowFour(false)
-      )}
+      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-[90vw] rounded-2xl shadow-md shadow-zinc-400 " : ""}`}
+      onMouseLeave={() => (setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] rounded-b-lg backdrop-blur-3xl bg-white/50">
+      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] bg-transparent backdrop-blur-[10px] font-thin">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -86,41 +82,41 @@ const Nav = () => {
         {/* Large Screen */}
 
         {status === "loading" ? (
-          <SkeletonTheme width={140}>
+          <SkeletonTheme width={140} >
             <Skeleton count={1} className="p-2" baseColor="#4866CF" />
           </SkeletonTheme>
         ) : (
-          <Link href={route}>
-            <button className="hidden lg:inline-block bg-[#4866CF] text-white tracking-tight rounded-[4px] py-2 px-4 text-base hover:bg-blue-800 duration-300">
+          <Link href={route} className="flex items-center justify-center space-x-2">
+            <button className="hidden lg:inline-block bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 rounded-2xl text-zinc-100 tracking-tight hover:scale-110 duration-300 py-3 px-6 text-base ">
               {!localToken && "ثبت نام / ورود"}
               {localToken && console.log(localToken)}
               {localToken && (<p className="flex items-center justify-between "> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
-                <Skeleton width={100} baseColor="#4866CF" />
+                <Skeleton width={100} baseColor="#4866CF" className="flex item-center justify-center space-x-2" />
               )}
             </button>
           </Link>
         )}
 
         <div className="lg:flex gap-6 hidden">
-          <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6">
-            <li className="bg-[#C9D6E9] text-[#4866CF] py-2 px-4 rounded-[4px] hover:bg-[#4866CF] hover:text-[#C9D6E9] duration-300">
+          <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6 text-zinc-200">
+            <li className="bg-blue-950 text-white  backdrop-blur-md py-3 px-6 rounded-2xl hover:scale-110 duration-300">
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
             <li className="flex flex-col" onMouseEnter={() => (setShowTwo(true), setShowOne(false), setShowThree(false), setShowFour(false))}>
               <div className="flex gap-2 cursor-pointer">
                 <span>
-                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
+                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
                 </span>
-                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold hover:text-[#4866CF] text-[14px]" >
+                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold hover:text-[#4866CF] text-[14px] text-zinc-700" >
                   خدمات ما
                 </Link>
               </div>
 
               {showTwo && (
                 <>
-                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-4 py-3 mt-2 text-right flex flex-col gap-4 z-10 " onMouseEnter={() => setShowTwo(true)}  >
+                  <ul className="navUL list-none absolute bg-white -translate-x-5 lg:top-[55px] backdrop-blur-sm rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10 text-zinc-700 " onMouseEnter={() => setShowTwo(true)}  >
                     <Link href="/in-hand">
                       <li className="text-sm pt-1 hover:text-[#4866CF] duration-300 ">طراحی سایت</li>
                     </Link>
@@ -138,14 +134,14 @@ const Nav = () => {
             <li className="flex flex-col justify-center items-end" onMouseEnter={() => (setShowFour(true), setShowOne(false), setShowTwo(false), setShowThree(false))}  >
               <div className="flex gap-2 hover:text-[#4866CF] cursor-pointer">
                 <span>
-                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
+                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
                 </span>
-                <span className={`font-semibold text-[14px]`}>وبلاگ</span>
+                <span className={`font-semibold text-[14px] text-zinc-700 hover:text-blue-800`}>وبلاگ</span>
               </div>
 
               {showFour && (
                 <React.Fragment>
-                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-3 py-2 mt-2 text-right flex flex-col gap-4 z-10" onMouseLeave={() => setShowFour(false)}  >
+                  <ul className="navUL list-none absolute bg-white text-zinc-700 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 translate-x-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10" onMouseLeave={() => setShowFour(false)}  >
                     <Link href="/weblog/back-end ">
                       <li className="text-sm pt-1 hover:text-[#4866CF] duration-300">بک اند</li>
                     </Link>
@@ -176,13 +172,13 @@ const Nav = () => {
             >
               <div className="flex gap-2 cursor-default hover:text-[#4866CF]">
                 <span>
-                  <Image src="/navarrow.svg" alt="arrow" width={11} height={11} className="mt-1 cursor-pointer" />
+                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
                 </span>
-                <span className="font-semibold text-[14px] cursor-pointer">درباره ما</span>
+                <span className="font-semibold text-[14px] cursor-pointer text-zinc-700 hover:text-blue-800">درباره ما</span>
               </div>
               {showThree && (
                 <React.Fragment>
-                  <ul className="list-none absolute lg:top-[55px] bg-white rounded-lg border-b-8  border-b-[#4866CF] px-3 py-2 mt-2 text-right flex flex-col gap-6 z-10"
+                  <ul className="navUL list-none absolute bg-white text-zinc-700 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10"
                     onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
                       <li className="text-sm pt-2  hover:text-[#4866CF] duration-300">مجوزها</li>

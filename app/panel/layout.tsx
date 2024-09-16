@@ -21,13 +21,14 @@ import { DepartmentContext } from "./admin/context/department-context/Department
 import AttrIdContextWrapper from "./admin/plan-management/context/AttrIdContextWrapper";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { NotificationDetailType } from "./admin/notifications-management/notification-details/page";
 
 // ^ COMPONENT
 const PanelLayout = ({ children }: { children: React.ReactNode }) => {
 
   const { token, userProfile, status, numberOfAnnouncements, role, userId } = useSelector((store: any) => store.userData);
   const [localToken, setLocalToken] = useState("");
-  const [userNotifications, setUserNotifications] = useState([]);
+  const [userNotifications, setUserNotifications] = useState<NotificationDetailType>([]);
   const { setAllPlans, setSiteTypes } = useContext(OrderSubmissionContext);
   const { setDepartments } = useContext(DepartmentContext);
   const [showAnnouncementDropdown, setShowAnnouncementDropdown] = useState(false);

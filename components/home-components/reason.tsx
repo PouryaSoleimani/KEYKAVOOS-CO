@@ -5,9 +5,9 @@ import { ReasonData } from "@/lib/data";
 
 function Reason() {
   return (
-    <div className="flex flex-col" data-aos="fade-up" data-aos-duration="1500">
+    <div className="flex flex-col px-12" data-aos="fade-up" data-aos-duration="1500">
       <SectionHeader mainTitle="چرا کیکاووس زمان را انتخاب کنیم؟" subTitle="دلایل انتخاب کیکاووس زمان چه چیزهایی است؟" width="24%" />
-      <div className="lg:flex lg:flex-row-reverse lg:justify-between grid grid-cols-2 gap-5 lg:gap-0">
+      <div className="lg:flex lg:flex-row-reverse lg:justify-around items-center grid grid-cols-2 gap-5 lg:gap-4">
         {ReasonData.map((item) => (
           <div key={item.id}>
             <ReasonCard data={item} />

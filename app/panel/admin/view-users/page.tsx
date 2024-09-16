@@ -71,6 +71,8 @@ function ViewUsers() {
         return;
     }
   };
+
+  // ^ RETURN
   return (
     <div className="grid grid-cols-1 gap-8">
       <div className="flex flex-row gap-2 justify-center md:justify-normal md:text-base text-sm">

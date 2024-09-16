@@ -21,43 +21,26 @@ function SocialMedia() {
   });
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-[18.5px] whitespace-nowrap text-[#4866CF] font-semibold text-center tracking-tighter">
+      <p className="text-[18.5px] whitespace-nowrap text-zinc-100 font-semibold text-center tracking-tighter">
         ما را در شبکه های اجتماعی دنبال کنید
       </p>
       <div className="flex flex-col text-center justify-center items-center gap-3">
-        <div className="flex justify-center items-center gap-8">
+        <div className="flex justify-center items-center gap-6">
 
           <SocialMediaIconsContainer
-            mouseEnterHandler={() =>
-              setHoverLogo((last) => ({ ...last, hoverOne: true }))
-            }
-            mouseLeaveHandler={() =>
-              setHoverLogo((last) => ({ ...last, hoverOne: false }))
-            }
+            mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: true }))}
+            mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: false }))}
             isHovered={hoverLogo.hoverOne}
           >
-            <Image
-              src={hoverLogo.hoverOne ? InstagramLogo : InstagramColoredLogo}
-              alt="instagram"
-              className={styles["social-media-icon"]}
-            />
+            <Image src={hoverLogo.hoverOne ? InstagramLogo : InstagramColoredLogo} alt="instagram" className={styles["social-media-icon"]} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer
-            mouseEnterHandler={() =>
-              setHoverLogo((last) => ({ ...last, hoverTwo: true }))
-            }
-            mouseLeaveHandler={() =>
-              setHoverLogo((last) => ({ ...last, hoverTwo: false }))
-            }
+            mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: true }))}
+            mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: false }))}
             isHovered={hoverLogo.hoverTwo}
           >
-            <Image
-              src={hoverLogo.hoverTwo ? WhatsappLogo : WhatsappColoredLogo}
-              alt="whatsapp"
-              width={55}
-              className={styles["social-media-icon"]}
-            />
+            <Image src={hoverLogo.hoverTwo ? WhatsappLogo : WhatsappColoredLogo} alt="whatsapp" width={55} className={styles["social-media-icon"]} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer

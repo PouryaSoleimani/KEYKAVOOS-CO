@@ -36,7 +36,7 @@ function GenuineUsers({ GenuineUsersData, usersStatus, token, setAllUsers, setDa
             <p className="col-span-2 md:col-span-1">{item.name}</p>
             <p className="col-span-3 md:col-span-1">{item.email ? item.email : "-"}</p>
             <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1" >
-              <RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5" />
+              <RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" />
               {/* <Image src={vieweye} alt="مشاهده" width={20} height={20} /> */}
             </span>
           </div>

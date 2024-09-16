@@ -1,41 +1,34 @@
-import Image from "next/image";
-import React from "react";
+import Image, { StaticImageData } from "next/image";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
-type TechnologyCardProps = {
-  technologyInfo: {
-    id: number;
-    title: string;
-    imgUrl: string;
-    technologies: { id: number; techImgUrl: string[]; tech: string[]; }[];
-  };
-};
+type TechnologyCardProps = { technologyInfo: { id: number; title: string; imgUrl: StaticImageData; technologies: { id: number; techImgUrl: string[]; tech: string[]; }[]; }; };
 
 //^ COMPONENT
 function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
+
+  useEffect(() => { AOS.init(); }, [])
+
+
   return (
-    <div className="bg-white h-[400px] md:max-lg:h-[300px] w-[260px] lg:w-full mx-auto shadow-md hover:shadow-xl rounded-[15px] flex flex-col items-center gap-3 hover:scale-105 duration-300 cursor-pointer mb-6 ">
-      <div className="bg-[#4866CF] text-center text-white rounded-t-lg font-bold w-full p-2 text-[20px] tracking-tighter mb-3">
+    <div className="TECH-CARD flex flex-col items-center  gap-3 bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 hover:shadow-xl  mx-auto mb-6 rounded-3xl w-[260px] lg:w-[390px] h-[400px] md:max-lg:h-[300px] duration-200 cursor-pointer hover:scale-105" >
+      <div className="bg-[#4866CF] mb-3 p-2 rounded-t-3xl w-full font-bold text-[20px] text-center text-white tracking-tighter">
         {technologyInfo.title}
       </div>
       <Image src={technologyInfo.imgUrl} alt={technologyInfo.title} className="w-16 h-16" />
       <div
-        style={{
-          borderTop: "2.5px solid",
-          borderImage:
-            "linear-gradient(270deg,  #EAEFF6 0%, #4866CF 50%,#EAEFF6 100%) 1",
-          width: "80%",
-          height: "2.5px",
-        }}
+        style={{ borderTop: "2.5px solid", borderImage: "linear-gradient(270deg,  #EAEFF6 0%, #4866CF 50%,#EAEFF6 100%) 1", width: "80%", height: "2.5px", }}
       ></div>
-      <ul className="flex flex-col items-center w-full gap-5 py-4">
+      <ul className="flex flex-col items-center gap-5 py-4 w-full overflow-auto" data-aos="zoom-in" data-aos-duration="1500">
         {technologyInfo.technologies.map(
           (tech: { id: number; techImgUrl: string[]; tech: string[] }, index) => (
-            <li key={tech.id} className="flex flex-row items-center gap-3 w-full px-6 py-2 text-center">
+            <li key={tech.id} className="flex flex-row items-center gap-3 px-6 py-2 w-full text-center" >
               {tech.techImgUrl.map((url, index) => (
                 <Image key={index} src={url} alt={""} width={34} height={34} />
               ))}
-              <span className="text-xl tracking-tighter text-zinc-900">
-                {tech.tech.length > 1 ? tech.tech.join(",") : tech.tech}
+              <span className="text-base text-zinc-900 lg:text-lg tracking-tighter whitespace-nowrap">
+                {tech.tech.length > 1 ? tech.tech.join(" - ") : tech.tech}
               </span>
             </li>
           )

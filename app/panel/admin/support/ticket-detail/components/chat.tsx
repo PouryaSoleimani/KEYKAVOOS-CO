@@ -42,15 +42,14 @@ function Chat({
 
   // console.log("user messages", userMessages);
   // console.log("admin Messages", adminMessages);
+
+
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (File && textInput) {
-      Promise.all([
-        await handleFileUpload(),
-        await sendResponseTicket(textInput, ticketId),
-      ]);
+      Promise.all([await handleFileUpload(), await sendResponseTicket(textInput, ticketId),]);
       setTextInput("");
-      File.name = "";
+      File.name = File.name;
     } else if (textInput && !File) {
       await sendResponseTicket(textInput, ticketId);
       setTextInput("");
@@ -73,9 +72,8 @@ function Chat({
       <div className="grid grid-cols-1">
         <div className="flex flex-col items-end">
           <div
-            className={`${
-              styles.chatBubble
-            } ${`${styles.sender}`} flex flex-col gap-5`}
+            className={`${styles.chatBubble
+              } ${`${styles.sender}`} flex flex-col gap-5`}
           >
             <p className="justify-start">{senderText[0]?.mainDescription}</p>
             <span className={`flex justify-end`}>
@@ -87,18 +85,13 @@ function Chat({
           {sortedCombinedMessages.map((item, index) => (
             <div
               key={index}
-              className={`${styles.chatBubble} ${
-                item.responser_user_id
-                  ? `${styles.receiver} items-start`
-                  : styles.sender
-              }`}
+              className={`${styles.chatBubble} ${item.responser_user_id
+                ? `${styles.receiver} items-start`
+                : styles.sender
+                }`}
             >
               <p>{item.description}</p>
-              <span
-                className={`flex ${
-                  item.responser_user_id ? "justify-end" : "justify-end"
-                }`}
-              >
+              <span className={`flex ${item.responser_user_id ? "justify-end" : "justify-end"}`}>
                 {timestampConversion(item.created_at)}
               </span>
             </div>
@@ -146,30 +139,16 @@ function Chat({
           ))}
         </div>
       </div> */}
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="bg-[#4866CE] rounded-[4px] flex"
-      >
-        <textarea
-          cols={30}
-          rows={4}
-          className="p-[1%] text-white w-[85%] placeholder:text-[#EAEFF6A1]"
-          maxLength={150}
-          placeholder="متن مورد نظر خود را تایپ کنید"
-          value={textInput}
-          onChange={(e) => setTextInput(e.target.value)}
-        ></textarea>
+      <form onSubmit={(e) => handleSubmission(e)} className="bg-[#4866CE] rounded-[4px] flex" >
+        <textarea cols={30} rows={4} className="p-[1%] text-white w-[85%] placeholder:text-[#EAEFF6A1]" maxLength={150} placeholder="متن مورد نظر خود را تایپ کنید" value={textInput} onChange={(e) => setTextInput(e.target.value)} ></textarea>
         <span className="font-faNum flex flex-col self-end p-4 text-[#EAEFF6A1]">
           0/150
         </span>
         <div className="grid grid-cols-1 justify-center items-center w-[15%] px-3">
-          <button
-            className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6]"
-            type="submit"
-          >
+          <button className="p-2 rounded-[4px] text-[#4866CE] bg-[#EAEFF6] hover:bg-blue-800 duration-300 hover:text-white" type="submit" >
             ارسال پیام
           </button>
-          <ChatFileUpload File={File} handleChange={handleFileChange} />
+          {/* <ChatFileUpload File={File} handleChange={handleFileChange} /> */}
         </div>
       </form>
     </div>

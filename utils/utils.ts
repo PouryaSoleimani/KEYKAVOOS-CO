@@ -15,6 +15,7 @@ import { Bounce, toast } from "react-toastify";
 import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
 import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
+import { NotificationDetailType } from "@/app/panel/admin/notifications-management/notification-details/page";
 
 // create notification
 export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
@@ -62,38 +63,38 @@ export const createNotification = async (token: string, dept_id: number, brand_i
     // console.log(error.response.data.message);
   }
 };
-// get user notification
+//^ GET USER NOTIFICATIONS
 export const getUserNotification = async (
   token: string,
-  userId: number,
-  setUserNotifications: Dispatch<SetStateAction<never[]>>
+  userId: number | string,
+  setUserNotifications: React.Dispatch<NotificationDetailType>,
+  setNotificationDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    // console.log("user_id", token);
-    const { data } = await app(`/notification/getUserNotification/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
+    const { data } = await app(`/notification/getUserNotification`, {
+      headers: { Authorization: `Bearer ${token}`, },
     });
     setUserNotifications(data.data);
     // console.log("notif", data);
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
-// get all notifs
-export const getAllNotifications = async (token: string) => {
+//* GET ALL NOTIFICATIONS
+export const getAllNotifications = async (
+  token: string,
+  setAllNotifs: React.Dispatch<React.SetStateAction<never[]>>
+) => {
   try {
-    const { data } = await app(`/notifications`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    // console.log("notifs", data);
+    const { data } = await app.get(`/notifications`, { headers: { Authorization: `Bearer ${token}`, }, });
+    console.log("notifs", data);
+    setAllNotifs(data.data)
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
+
 export const changeNotificationStatus = async (
   token: string,
   notif_id: number
@@ -2073,10 +2074,10 @@ export const getAllSiteTypes = async (
   try {
     const { data } = await app("/types");
     setSiteTypes(data.data);
-    // console.log(data);
+    console.log("SITE TYPES", data);
     window.sessionStorage.setItem("site-types", JSON.stringify(data.data));
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
 // update site type by admin
@@ -2953,7 +2954,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
 
   const newTicketInfos = { title, description, status_id, priority_id, dept_id, register_user_id, ticket_id }
 
-  axios.post("http://127.0.0.1:8000/api/v1/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
+  app.post("/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
       console.log(response.data);
       toast.success("تیکت با موفقیت ثبت شد.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
@@ -3094,11 +3095,11 @@ export const CREATEPROJECT = async (token: string, title: string, description: s
     template: template || null,
     token
   }
-  await axios.post("http://127.0.0.1:8000/api/v1/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
+  await app.post("/project/store", newProjectInfos, { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }).
     then(response => {
       console.log(response);
       toast.success("پروژه با موفقیت ثبت شد.", { position: "top-right", style: { fontSize: "14px" }, autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
-      window.location.replace('http://localhost:3000/panel/user/project-management')
+      window.location.replace('/panel/user/project-management')
     }
     ).catch(error => {
       console.log(error.response.data);
@@ -3639,19 +3640,14 @@ export const closeTicket = async (
   try {
     const { data } = await app.post(
       `/ticket/update/${ticketId}`,
-      {
-        status_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { status_id, },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("closed ticket", data);
     toast.success("تیکت با موفقیت بسته شد.", {
       position: "top-right",
       autoClose: 2000,
+      style: { fontSize: "14px" },
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -3669,6 +3665,7 @@ export const closeTicket = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,

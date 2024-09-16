@@ -6,7 +6,8 @@ import uploadfile from "../../public/Panel/uploadfile.svg";
 import { Bounce, toast } from "react-toastify";
 import axios from "axios";
 import { useFormik } from "formik";
-import { HomeFormSubmissionSchema } from "@/schemas/userpanel-profile-schema";
+// import { HomeFormSubmissionSchema } from "@/schemas/userpanel-profile-schema";
+
 type OrdersubmissionFormProps = {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -123,14 +124,11 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
   } = useFormik({
     initialValues,
     onSubmit: handleSubmission,
-    validationSchema: HomeFormSubmissionSchema,
+    // validationSchema: HomeFormSubmissionSchema,
     validateOnMount: true,
   });
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-[#F8FAFC] rounded-2xl grid grid-cols-1 gap-3 px-[5%] py-[2%] w-full"
-    >
+    <form onSubmit={handleSubmit} className="bg-white/30 rounded-2xl grid grid-cols-1 gap-3 px-[5%] py-[2%] w-full" >
       <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter ">
         فرم ثبت درخواست
       </label>

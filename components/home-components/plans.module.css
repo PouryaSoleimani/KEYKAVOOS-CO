@@ -1,0 +1,32 @@
+/* From Uiverse.io by milegelu */ 
+.plansContainer {
+    width: 100%;
+    height: 100%;
+  
+    background: linear-gradient(to bottom , white , transparent );
+    --gap: 4em;
+    --line: 1px;
+    --color: rgba(40, 7, 226, 0.24);
+  
+    background-image: linear-gradient(   -90deg,   transparent calc(var(--gap) - var(--line)),   var(--color) calc(var(--gap) - var(--line) + 1px),   var(--color) var(--gap) ),
+      linear-gradient(  0deg,  transparent calc(var(--gap) - var(--line)),  var(--color) calc(var(--gap) - var(--line) + 1px),  var(--color) var(--gap));
+    background-size: var(--gap) var(--gap);
+
+  }
+  .plansContainer::before {
+    content: "";
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(to bottom , #EAEFF6  , transparent) ;
+    /* background: red; */
+    position: absolute;
+    top: 0;
+  } 
+  .plansContainer::after {
+    content: "";
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to bottom , transparent , #EAEFF6 ) ;
+    position: absolute;
+    bottom: 0;
+  } 

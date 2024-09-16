@@ -80,20 +80,6 @@ export const PlanData = [
     imgSrc: Images.news,
     route: "/designs/tourism",
   },
-  {
-    id: 4,
-    type: "پزشکی",
-    title: "لورم ایپسوم متن ساختگی",
-    planInfo: [
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-      "لورم ایپسوم متن ساختگی",
-    ],
-    price: "10",
-    imgSrc: Images.news,
-    route: "/designs/medical",
-  },
 ];
 export const ReasonData = [
   {
@@ -101,7 +87,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.data,
+    imgSrc: Images.RESPONSIVE,
     hoveredImgSrc: Images.hoveredData,
   },
   {
@@ -109,7 +95,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.time,
+    imgSrc: Images.ROCKET,
     hoveredImgSrc: Images.hoveredTime,
   },
   {
@@ -117,7 +103,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.mail,
+    imgSrc: Images.WEB__SEARCH,
     hoveredImgSrc: Images.hoveredMail,
   },
   {
@@ -125,7 +111,7 @@ export const ReasonData = [
     reasonTitle: "دامنه و هاست رایگان",
     reasonText:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از ",
-    imgSrc: Images.book,
+    imgSrc: Images.APPLICATION,
     hoveredImgSrc: Images.hoveredBook,
   },
 ];
@@ -566,17 +552,17 @@ export const TechnologyData = [
   {
     id: 2,
     title: "بک اند",
-    imgUrl: Images.back,
+    imgUrl: Images.BACKEND,
     technologies: [
       {
-        id: 1,
-        techImgUrl: [Images.ExpressLogo],
-        tech: ["Express"],
+        id: 2,
+        techImgUrl: [Images.NodeLogo,],
+        tech: ["Node.js"],
       },
       {
-        id: 2,
-        techImgUrl: [Images.NodeLogo, Images.NestLogo],
-        tech: ["Node", "Nest"],
+        id: 1,
+        techImgUrl: [Images.ExpressLogo, Images.NestLogo],
+        tech: ["Express.js", "Nest.js"],
       },
       {
         id: 3,
@@ -588,29 +574,30 @@ export const TechnologyData = [
   {
     id: 1,
     title: "فرانت اند",
-    imgUrl: Images.front,
+    imgUrl: Images.FRONTEND,
     technologies: [
-      {
-        id: 4,
-        techImgUrl: [Images.JSLogo, Images.TypescriptLogo],
-        tech: ["JS", "TS"],
-      },
-      {
-        id: 5,
-        techImgUrl: [Images.ReactLogo, Images.NextLogo],
-        tech: ["React", "Next"],
-      },
       {
         id: 6,
         techImgUrl: [Images.HtmlLogo, Images.CssLogo],
         tech: ["HTML", "CSS"],
       },
+      {
+        id: 4,
+        techImgUrl: [Images.JSLogo, Images.TypescriptLogo],
+        tech: ["Javascript", "Typescript"],
+      },
+      {
+        id: 5,
+        techImgUrl: [Images.ReactLogo, Images.NextLogo],
+        tech: ["React.js", "Next.js"],
+      },
+
     ],
   },
   {
     id: 0,
     title: "گرافیک",
-    imgUrl: Images.Graphics,
+    imgUrl: Images.GRAPHIC,
     technologies: [
       {
         id: 7,
@@ -620,20 +607,20 @@ export const TechnologyData = [
       {
         id: 8,
         techImgUrl: [Images.PhotoshopLogo],
-        tech: ["PS"],
+        tech: ["Photoshop"],
       },
       {
         id: 9,
         techImgUrl: [Images.AdobeIllus],
-        tech: ["AI"],
+        tech: ["Adone Illustrator"],
       },
     ],
   },
 
   {
     id: 5,
-    title: "پنل",
-    imgUrl: Images.ServerMangamenetLogo,
+    title: "پنل ها",
+    imgUrl: Images.PANELS,
     technologies: [
       {
         id: 10,
@@ -655,7 +642,7 @@ export const TechnologyData = [
   {
     id: 3,
     title: "سرور",
-    imgUrl: Images.server,
+    imgUrl: Images.SERVER,
     technologies: [
       {
         id: 13,
@@ -665,7 +652,7 @@ export const TechnologyData = [
       {
         id: 14,
         techImgUrl: [Images.CloudLogo],
-        tech: ["Cloud"],
+        tech: ["Google Cloud"],
       },
       {
         id: 15,
@@ -677,7 +664,7 @@ export const TechnologyData = [
   {
     id: 4,
     title: "دیتابیس",
-    imgUrl: Images.Database,
+    imgUrl: Images.DATABASE,
     technologies: [
       {
         id: 16,
@@ -836,13 +823,24 @@ export const mainAdminSidebarOptions = [
     ],
   },
   {
-    text: "پشتیبانی",
+    text: "مدیریت تیکت ها",
     imgSrc: Images.SupportIcon,
     address: "/panel/admin/support",
     path: [
       "/panel/admin/support",
-      "/panel/admin/support/add-new-placard",
+      // "/panel/admin/support/add-new-placard",
       "/panel/admin/support/ticket-detail",
+    ],
+  },
+  {
+    text: "مدیریت اعلان ها",
+    imgSrc: Images.SupportIcon,
+    address: "/panel/admin/notifications-management",
+    path: [
+      "/panel/admin/notifications-management",
+      "/panel/admin/notifications-management/add-new-placard",
+      "/panel/admin/notifications-management/add-new-placard/new-placard",
+      "/panel/admin/notifications-management/notification-details",
     ],
   },
   {
