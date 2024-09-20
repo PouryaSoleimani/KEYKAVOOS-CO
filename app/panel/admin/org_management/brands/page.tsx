@@ -12,6 +12,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
+import BackButton from "../../components/BackButton";
 
 export type BrandType = { brand: { title: string; description: string; id: number; deleted_at: string; }; };
 function Brands() {
@@ -48,9 +49,7 @@ function Brands() {
     <div className="grid grid-cols-1 gap-2">
       <div className="flex items-center justify-between">
         <NewInfoOnEachPageBtn btnText="ایجاد برند" src="/panel/admin/org_management/brands/create-brand" />
-        <Link href='/panel/admin/org_management' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
-          <IoArrowBack />
-        </Link>
+        <BackButton />
       </div>
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-5">
         <div className="grid lg:grid-cols-4 grid-cols-9">
@@ -72,13 +71,10 @@ function Brands() {
                 item: { brand: { title: string; description: string; id: number; deleted_at: string; }; },
                 index
               ) => (
-                <div
-                  className={`${item.brand.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`}
-                  key={index}
-                >
+                <div className={`${item.brand.deleted_at ? "bg-red-500" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-9 gap-x-5 text-center py-3 rounded-[4px] cursor-pointer items-center`} key={index}>
                   <p className="col-span-1">{index + 1}</p>
-                  <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-2 lg:col-span-1">{item.brand.title}</p>
-                  <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1">
+                  <p className="bg-transparent caret-transparent cursor-default text-center outline-none col-span-2 lg:col-span-1">{item.brand.title}</p>
+                  <p className="bg-transparent caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1">
                     {item.brand.description ? item.brand.description : "-"}
                   </p>
                   <div className="flex flex-row items-center justify-center gap-3 lg:grid-cols-1 grid-cols-3 my-2">
@@ -86,10 +82,10 @@ function Brands() {
                       <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                     </Link>
                     <span onClick={() => deleteBrand(item.brand.id, token, setBrandIsDeleted)} className="flex justify-center" >
-                      <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
+                      <RiDeleteBin7Fill className={`text-red-600 text-lg hover:scale-125 duration-300 ${item.brand.deleted_at ? "hidden" : "inline"}`} />
                     </span>
                     <span onClick={() => restoreBrand(item.brand.id, token, setBrandIsDeleted)}>
-                      <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
+                      <IoReloadCircle className={`text-emerald-600 text-lg hover:scale-125 duration-300 ${!item.brand.deleted_at ? "hidden" : "inline"}`} />
                     </span>
                   </div>
                 </div>

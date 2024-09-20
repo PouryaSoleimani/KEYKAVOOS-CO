@@ -69,13 +69,13 @@ function PlanDetail() {
         />
       )}
       {/* plan info */}
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center">
+      <div className="bg-white shadow mx-auto rounded-2xl w-full p-3 text-center">
         <div className="grid grid-cols-2">
           <div>نام پلن</div>
           <div>توضیحات</div>
         </div>
 
-        <div className="grid grid-cols-2 py-1 bg-[#EAEFF6] rounded-[4px] cursor-pointer">
+        <div className="grid grid-cols-2 py-3 bg-[#EAEFF6] rounded-[4px] cursor-pointer">
           <p>{planDetail.title}</p>
           <p>{planDetail.description ? planDetail.description : "-"}</p>
         </div>

@@ -38,7 +38,7 @@ export default function Home() {
   } else {
     //^ RETURN
     return (
-      <div className="bg-[#eaeff5] web-container">
+      <div className="bg-[#eaeff5] web-container overflow-x-hidden">
         <Script src="/navachat.js" async />
         <Nav />
         <main className="flex flex-col mx-auto mt-10 w-full">

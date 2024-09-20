@@ -12,32 +12,9 @@ type AttrEditionProps = {
   planId: string | null;
   planAttrs: PlanAttrType[];
   setPlanAttrs: React.Dispatch<React.SetStateAction<PlanAttrType[]>>;
-  addAtrrAndValue: {
-    addAttr: {
-      add: boolean;
-      attrTitle: string;
-      attrDesc: string;
-    };
-    addValue: {
-      add: boolean;
-      valueTitle: string;
-      valueDesc: string;
-    };
-  };
-  setAddAttrAndValue: React.Dispatch<
-    React.SetStateAction<{
-      addAttr: {
-        add: boolean;
-        attrTitle: string;
-        attrDesc: string;
-      };
-      addValue: {
-        add: boolean;
-        valueTitle: string;
-        valueDesc: string;
-      };
-    }>
-  >;
+  addAtrrAndValue: { addAttr: { add: boolean; attrTitle: string; attrDesc: string; }; addValue: { add: boolean; valueTitle: string; valueDesc: string; }; };
+  setAddAttrAndValue: React.Dispatch<React.SetStateAction<{ addAttr: { add: boolean; attrTitle: string; attrDesc: string; }; addValue: { add: boolean; valueTitle: string; valueDesc: string; }; }>>;
+  values: string[]
 };
 
 function AttrEdition({
@@ -51,20 +28,15 @@ function AttrEdition({
   const [attrIsDeleted, setAttrIsDeleted] = useState(false);
   const { setAttrId } = useContext(AttrIdContext);
 
-  useEffect(() => {
-    getPlanAttrs(token, setPlanAttrs);
-  }, [addAtrrAndValue.addAttr, planAttrs]);
+  useEffect(() => { getPlanAttrs(token, setPlanAttrs) }, []);
 
   const handleAddingValue = (id: number) => {
     setAttrId(String(id));
-    setAddAttrAndValue((last) => ({
-      ...last,
-      addValue: { ...last.addValue, add: true },
-    }));
+    setAddAttrAndValue((last) => ({ ...last, addValue: { ...last.addValue, add: true }, }));
   };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center">
+    <div className="bg-white shadow mx-auto rounded-2xl w-full p-3 text-center">
       <div className={`grid grid-cols-4`}>
         <div>نام ویژگی</div>
         <div>توضیحات ویژگی</div>
@@ -72,46 +44,20 @@ function AttrEdition({
         <div>عملیات</div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 gap-5 py-3">
         {planAttrs.map(
-          (item: {
-            deleted_at: string;
-            id: number;
-            title: string;
-            description: string;
-          }) => (
-            <div
-              className={`${attrIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"
-                } grid grid-cols-4 gap-x-5 text-center py-1 rounded-[4px] cursor-pointer`}
-              key={item.id}
-            >
-              <input
-                value={item?.title}
-                readOnly={true}
-                className="bg-[#EAEFF6] caret-transparent cursor-default text-center"
-              />
-              <input
-                value={item?.description ? item.description : "-"}
-                readOnly={true}
-                className="bg-[#EAEFF6] caret-transparent cursor-default text-center"
-              />
-              <p>
-                {item.values?.length > 0
-                  ? item.values
-                    .filter(
-                      (val: { plan_id: number }) =>
-                        val.plan_id === Number(planId)
-                    )
-                    .map((item: { title: string }) => item.title)[0]
+          (item: { deleted_at: string; id: number; title: string; description: string; }) => (
+            <div className={`${attrIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid grid-cols-4 gap-x-5 text-center py-3 rounded-[4px] cursor-pointer`} key={item.id} >
+              <input value={item?.title} readOnly={true} className="bg-[#EAEFF6] caret-transparent cursor-default text-center" />
+              <input value={item?.description ? item.description : "-"} readOnly={true} className="bg-[#EAEFF6] caret-transparent cursor-default text-center" />
+              {/* <p>
+                {item.values?.length > 0 ? item.values.filter((val: { plan_id: number }) => val.plan_id === Number(planId))
+                  .map((item: { title: string }) => item.title)[0]
                   : "-"}
-              </p>
-              <div className="flex flex-row items-center justify-center gap-3">
-                <span
-                  onClick={() =>
-                    deletePlanAttr(item?.id, token, setAttrIsDeleted)
-                  }
-                  className="flex justify-center"
-                >
+              </p> */}
+              <p>---</p>
+              <div className="flex flex-row items-center justify-center gap-5">
+                <span onClick={() => deletePlanAttr(item?.id, token, setAttrIsDeleted)} className="flex justify-center" >
                   <RiDeleteBin7Fill className="text-red-600 text-lg" />
                 </span>
                 <span onClick={() => restorePlanAttr(item.id, token, setAttrIsDeleted)}>

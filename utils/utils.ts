@@ -16,6 +16,7 @@ import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
 import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
 import { NotificationDetailType } from "@/app/panel/admin/notifications-management/notification-details/page";
+import { useRouter } from "next/router";
 
 // create notification
 export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
@@ -60,7 +61,7 @@ export const createNotification = async (token: string, dept_id: number, brand_i
       transition: Bounce,
       rtl: true,
     });
-    // console.log(error.response.data.message);
+    // console.log(error?.response?.data.message);
   }
 };
 //^ GET USER NOTIFICATIONS
@@ -72,13 +73,11 @@ export const getUserNotification = async (
 ) => {
   try {
     // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
-    const { data } = await app(`/notification/getUserNotification`, {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
+    const { data } = await app(`/notification/getUserNotification`, { headers: { Authorization: `Bearer ${token}`, }, });
     setUserNotifications(data.data);
     // console.log("notif", data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    // console.log(error?.response?.data.message);
   }
 };
 //* GET ALL NOTIFICATIONS
@@ -91,7 +90,7 @@ export const getAllNotifications = async (
     console.log("notifs", data);
     setAllNotifs(data.data)
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 
@@ -113,7 +112,7 @@ export const changeNotificationStatus = async (
     );
     // console.log("notifs", data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // budget seperation
@@ -200,7 +199,7 @@ export const sendOTPCodeForRegistrationForHaghighi = async (
     setSteps(2);
     console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // send otp code for login and general
@@ -239,7 +238,7 @@ export const sendOTPCodeMain = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 
@@ -257,7 +256,7 @@ export const showPlanAttrInfo = async (token: string, attrId: number) => {
     });
     console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // getting all the users
@@ -281,7 +280,7 @@ export const getAllUsers = async (
     setAllUsers(data.data);
     // console.log("all users data", data);
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    // console.log(error?.response?.data.message);
     setDataStatus &&
       setDataStatus((last) => ({
         ...last,
@@ -291,7 +290,7 @@ export const getAllUsers = async (
     setDataStatus && setDataStatus((last) => ({ ...last, loading: false }));
   }
 };
-// deleting user by admin
+//! DELETING USER BY ADMIN ======================================================================================================================
 export const deleteUser = async (
   userId: number,
   token: string,
@@ -299,11 +298,10 @@ export const deleteUser = async (
   AllUsersData: never[]
 ) => {
   try {
-    const { data } = await app.delete(`/user/delete/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.delete(`/user/delete/${userId}`,
+      {
+        headers: { Authorization: `Bearer ${token}`, },
+      });
     console.log(data);
     toast.success("کاربر با موفقیت حذف شد", {
       position: "top-right",
@@ -321,7 +319,7 @@ export const deleteUser = async (
       AllUsersData.filter((item: { id: number }) => item.id !== userId)
     );
     // getAllUsers(token, setAllUsers, setDataStatus);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     toast.error("خطا در حذف کاربر", {
       position: "top-right",
@@ -357,10 +355,10 @@ export const getAllPositions = async (
       },
     });
     setPositions(data.data);
-    console.log(data);
+    // console.log(data);
     window.sessionStorage.setItem("positions", JSON.stringify(data.data));
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     setPositionsStatus &&
       setPositionsStatus((last) => ({ ...last, error: "جایگاهی یافت نشد." }));
   } finally {
@@ -421,7 +419,7 @@ export const updatePosition = async (
     });
   }
 };
-// delete position by admin
+//! DELETE POSITION BY ADMIN
 export const deletePosition = async (
   positionId: number,
   token: string,
@@ -438,6 +436,7 @@ export const deletePosition = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -447,6 +446,7 @@ export const deletePosition = async (
       rtl: true,
     });
     setIsDeleted(true);
+    setTimeout(() => { window.location.reload() }, 1000);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -454,6 +454,7 @@ export const deletePosition = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -464,22 +465,18 @@ export const deletePosition = async (
     });
   }
 };
-// restore position by admin
+//* RESTORE POSITION BY ADMIN
 export const restorePosition = async (
   positionId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/position/restore/${positionId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/position/restore/${positionId}`);
     toast.success("موقعیت با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -489,6 +486,7 @@ export const restorePosition = async (
       rtl: true,
     });
     setIsDeleted(false);
+    setTimeout(() => { window.location.reload() }, 1000);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -496,6 +494,7 @@ export const restorePosition = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -506,30 +505,19 @@ export const restorePosition = async (
     });
   }
 };
-// get position detail
+//^ GET POSITION DETAIL
 export const getPositionDetail = async (
   token: string,
   positionId: string | null,
-  setPositionDetail: React.Dispatch<
-    React.SetStateAction<{
-      title_en: string;
-      title_fa: string;
-    }>
+  setPositionDetail: React.Dispatch<React.SetStateAction<{ title_en: string; title_fa: string; }>
   >
 ) => {
   try {
-    const { data } = await app.get(
-      `/position/show/${positionId ? positionId : ""}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log(data);
+    const { data } = await app.get(`/position/show/${positionId ? positionId : ""}`);
+    // console.log(data);
     setPositionDetail(data.data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response);
   }
 };
 // create position by admin
@@ -541,11 +529,7 @@ export const createNewPosition = async (
   user_id: number
 ) => {
   try {
-    const { data } = await app.post(
-      "/position/store",
-      { title_en, title_fa, dept_id, user_id, },
-      { headers: { Authorization: `Bearer ${token}`, }, }
-    );
+    const { data } = await app.post("/position/store", { title_en, title_fa, dept_id, user_id, },);
     toast.success("موقعیت با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
@@ -575,7 +559,7 @@ export const createNewPosition = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error.response);
   }
 };
 // get all roles
@@ -598,11 +582,11 @@ export const getAllRole = async (
     });
     setRoles(data.data);
     window.sessionStorage.setItem("roles", JSON.stringify(data.data));
-    console.log(data);
+    // console.log(data);
   } catch (error: any) {
     setDataLoading &&
       setDataLoading((last) => ({ ...last, error: "نقشی یافت نشد." }));
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   } finally {
     setDataLoading && setDataLoading((last) => ({ ...last, loading: false }));
   }
@@ -656,22 +640,18 @@ export const updateRole = async (
     });
   }
 };
-// delete role by admin
+//! DELETE ROLE BY ADMIN
 export const deleteRole = async (
   roleId: number,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/role/delete/${roleId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/role/delete/${roleId}`);
     console.log(data);
     toast.success("نقش با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
+      style: { fontSize: "14px" },
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -681,15 +661,17 @@ export const deleteRole = async (
       transition: Bounce,
       rtl: true,
     });
-    setIsDeleted(true);
+    setIsDeleted(true); 11
+    setTimeout(() => { window.location.reload() }, 750);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response.data);
     toast.error("خطا در حذف نقش", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
+      style: { fontSize: "14px" },
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
@@ -699,22 +681,18 @@ export const deleteRole = async (
     });
   }
 };
-// restore role by admin
+//** RESTORE ROLE BY ADMIN
 export const restoreRole = async (
   roleId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/role/restore/${roleId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/role/restore/${roleId}`);
     toast.success("نقش با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -724,6 +702,7 @@ export const restoreRole = async (
       rtl: true,
     });
     setIsDeleted(false);
+    setTimeout(() => { window.location.reload() }, 750);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -731,6 +710,7 @@ export const restoreRole = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -747,42 +727,30 @@ export const getRoleDetail = async (
   roleId: string | null,
   setRoleDetail: React.Dispatch<
     React.SetStateAction<{
+      id: number
       name_en: string;
       name_fa: string;
+      created_at: string,
+      deleted_at: string
     }>
   >
 ) => {
   try {
-    const { data } = await app.get(`/role/show/${roleId ? roleId : ""}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/role/show/${roleId ? roleId : ""}`);
     console.log(data);
     setRoleDetail(data.data);
   } catch (error) {
     console.log(error);
   }
 };
-// create role by admin
+//** CREATE ROLE BY ADMIN 
 export const createNewRole = async (
   token: string,
   name_en: string,
   name_fa: string
 ) => {
   try {
-    const { data } = await app.post(
-      "/role/store",
-      {
-        name_en,
-        name_fa,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const { data } = await app.post("/role/store", { name_en, name_fa, },);
     toast.success("نقش با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
@@ -828,10 +796,10 @@ export const getAllPermissions = async (
     });
     setPermissions(data.data);
     window.sessionStorage.setItem("permissions", JSON.stringify(data.data));
-    console.log(data);
+    // console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
-    if (error.response.data.message === "permission-notFound") {
+    console.log(error?.response?.data.message);
+    if (error?.response?.data.message === "permission-notFound") {
       setDataStatus((last) => ({ ...last, error: "دسترسی ای یافت نشد." }));
     } else {
       setDataStatus((last) => ({ ...last, error: "خطا در دریافت اطلاعات." }));
@@ -840,7 +808,7 @@ export const getAllPermissions = async (
     setDataStatus((last) => ({ ...last, loading: false }));
   }
 };
-// get permission detail
+//* get permission detail
 export const getPermissionDetail = async (
   token: string,
   permissionId: string | null,
@@ -854,16 +822,11 @@ export const getPermissionDetail = async (
   try {
     const { data } = await app.get(
       `/permission/show/${permissionId ? permissionId : ""}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
     );
-    console.log(data);
+    console.log("SINGLE PERMISSON DETAIL", data.data);
     setPermissionDetail(data.data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response.data);
   }
 };
 // create brand by admin
@@ -887,7 +850,7 @@ export const createNewPermission = async (
     );
     toast.success("دسترسی با موفقیت ایجاد شد", {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1500,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -898,6 +861,9 @@ export const createNewPermission = async (
       rtl: true,
     });
     console.log(data);
+    setTimeout(() => {
+      window.location.replace('/panel/admin/view-users/permission-management/')
+    }, 1500);
   } catch (error) {
     toast.error("خطا در ایجاد دسترسی", {
       position: "top-right",
@@ -963,19 +929,15 @@ export const updatePermission = async (
     });
   }
 };
-// delete permission by admin
+//! DELETING PERMISSION BY ADMIN ============================================================================================================================
 export const deletePermission = async (
   permissionId: number,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/permission/delete/${permissionId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    // console.log(data);
+    const { data } = await app.get(`/permission/delete/${permissionId}`);
+    console.log(data);
+    window.location.reload();
     toast.success("دسترسی با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
@@ -989,9 +951,9 @@ export const deletePermission = async (
       rtl: true,
     });
     setIsDeleted(true);
-    // console.log(data);
-  } catch (error) {
-    // console.log(error);
+    console.log(data);
+  } catch (error: any) {
+    console.log(error?.response?.data);
     toast.error("خطا در حذف دسترسی", {
       position: "top-right",
       autoClose: 2000,
@@ -1006,22 +968,18 @@ export const deletePermission = async (
     });
   }
 };
-// restore permission by admin
+//**   RESTORE PERMISSION BY ADMIN
 export const restorePermission = async (
   permissionId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/permission/restore/${permissionId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/permission/restore/${permissionId}`,);
     toast.success("دسترسی با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1031,9 +989,10 @@ export const restorePermission = async (
       rtl: true,
     });
     setIsDeleted(false);
-    console.log(data);
-  } catch (error) {
-    console.log(error);
+    window.location.reload()
+    console.log("RESTORE PERMISSION", data);
+  } catch (error: any) {
+    console.log(error.response.data);
     toast.error("خطا در بازگردانی دسترسی", {
       position: "top-right",
       autoClose: 2000,
@@ -1072,7 +1031,7 @@ export const getAllBrands = async (
     setBrandStatus && setBrandStatus((last) => ({ ...last, loading: false }));
   }
 };
-// get brand details
+//^ get brand details
 export const getBrandDetail = async (
   brandId: string | null,
   setBrandDetail: React.Dispatch<React.SetStateAction<BrandDetailType>>,
@@ -1098,7 +1057,7 @@ export const getBrandDetail = async (
       setBrandDetailStatus((last) => ({ ...last, loading: false }));
   }
 };
-// delete brand by admin
+//! delete brand by admin
 export const deleteBrand = async (
   brandId: number,
   token: string,
@@ -1115,6 +1074,7 @@ export const deleteBrand = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1125,12 +1085,14 @@ export const deleteBrand = async (
     });
     setIsDeleted(true);
     console.log(data);
+    setTimeout(() => { window.location.reload() }, 1500);
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف برند", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1141,7 +1103,7 @@ export const deleteBrand = async (
     });
   }
 };
-// restore brand by admin
+//* restore brand by admin
 export const restoreBrand = async (
   brandId: number | null,
   token: string,
@@ -1157,6 +1119,7 @@ export const restoreBrand = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1167,12 +1130,14 @@ export const restoreBrand = async (
     });
     setIsDeleted(false);
     console.log(data);
+    setTimeout(() => { window.location.reload() }, 1500);
   } catch (error) {
     console.log(error);
     toast.error("خطا در بازگردانی برند", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1183,25 +1148,13 @@ export const restoreBrand = async (
     });
   }
 };
-// create brand by admin
+//? create brand by admin
 export const createNewBrand = async (
-  token: string,
   title: string,
   description: string
 ) => {
   try {
-    const { data } = await app.post(
-      "/brand/store",
-      {
-        title,
-        description,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const { data } = await app.post("/brand/store", { title, description, },);
     toast.success("برند با موفقیت ایجاد شد", {
       position: "top-right",
       autoClose: 2000,
@@ -1217,7 +1170,7 @@ export const createNewBrand = async (
     });
     console.log(data);
     window.location.replace('/panel/admin/org_management/brands')
-  } catch (error) {
+  } catch (error: any) {
     toast.error("خطا در ایجاد برند", {
       position: "top-right",
       autoClose: 2000,
@@ -1231,7 +1184,7 @@ export const createNewBrand = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error);
+    console.log(error.response);
   }
 };
 // update brand by admin
@@ -1298,8 +1251,8 @@ export const getAllProjects = async (
     console.log("all projects", data);
     setAllProjects(data.data);
   } catch (error: any) {
-    // console.log(error.response.data.message);
-    if (error.response.data.message === "project-notFound") {
+    // console.log(error?.response?.data.message);
+    if (error?.response?.data.message === "project-notFound") {
       setProjectStatus((last) => ({ ...last, error: "پروژه ای یافت نشد." }));
     } else {
       setProjectStatus((last) => ({
@@ -1843,7 +1796,7 @@ export const createNewPlanValue = async (
       transition: Bounce,
       rtl: true,
     });
-    // console.log(error.response.data.message);
+    // console.log(error?.response?.data.message);
   }
 };
 // get all values of the plan
@@ -2063,7 +2016,7 @@ export const CreateNewSiteType = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // get all site types
@@ -2074,10 +2027,9 @@ export const getAllSiteTypes = async (
   try {
     const { data } = await app("/types");
     setSiteTypes(data.data);
-    console.log("SITE TYPES", data);
     window.sessionStorage.setItem("site-types", JSON.stringify(data.data));
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // update site type by admin
@@ -2237,7 +2189,7 @@ export const getAllNewsletters = async (
     setNewsLetters(data?.data);
   } catch (error: any) {
     // console.log(error);
-    if (error.response.data.message == "newsletter-notFound") {
+    if (error?.response?.data.message == "newsletter-notFound") {
       setNewsLetterStatus &&
         setNewsLetterStatus((last) => ({
           ...last,
@@ -2456,7 +2408,7 @@ export const getNewsLetterDetail = async (
     console.log(error);
   }
 };
-// get departments
+//^ get departments
 export const getAllDepartments = async (
   token: string,
   setDepartments: Dispatch<
@@ -2481,7 +2433,7 @@ export const getAllDepartments = async (
     setDepartments(data.data);
     window.sessionStorage.setItem("departments", JSON.stringify(data.data));
   } catch (error: any) {
-    // console.log(error.response.data.message);
+    // console.log(error?.response?.data.message);
     setDepartmentLoading &&
       setDepartmentLoading((last) => ({
         ...last,
@@ -2492,7 +2444,7 @@ export const getAllDepartments = async (
       setDepartmentLoading((last) => ({ ...last, loading: false }));
   }
 };
-// update department by admin
+//& update department by admin
 export const updateDepartment = async (
   token: string,
   departmentId: number,
@@ -2541,23 +2493,19 @@ export const updateDepartment = async (
     });
   }
 };
-// delete department by admin
+//! DELETE DEPARTMENT BY ADMIN
 export const deleteDepartment = async (
   departmentId: number,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/department/delete/${departmentId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/department/delete/${departmentId}`);
     console.log(data);
     toast.success("دپارتمان با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2568,13 +2516,14 @@ export const deleteDepartment = async (
     });
     setIsDeleted(true);
     console.log(data);
-    window.location.reload()
+    setTimeout(() => { window.location.reload() }, 1500);
   } catch (error) {
     console.log(error);
     toast.error("خطا در حذف دپارتمان", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2585,18 +2534,13 @@ export const deleteDepartment = async (
     });
   }
 };
-// restore department by admin
+//* RESTORE DEPARTMENT BY ADMIN
 export const restoreDepartment = async (
   departmentId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/department/restore/${departmentId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/department/restore/${departmentId}`);
     toast.success("دپارتمان با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
@@ -2612,6 +2556,7 @@ export const restoreDepartment = async (
     });
     setIsDeleted(false);
     console.log(data);
+    setTimeout(() => { window.location.reload() }, 1500);
   } catch (error) {
     console.log(error);
     toast.error("خطا در بازگردانی دپارتمان", {
@@ -2629,7 +2574,7 @@ export const restoreDepartment = async (
     });
   }
 };
-// get department detail
+//^ get department detail
 export const getDepartmentDetail = async (
   token: string,
   departmentId: string | null,
@@ -2647,7 +2592,7 @@ export const getDepartmentDetail = async (
     console.log(error);
   }
 };
-// create new department by admin
+//? create new department by admin
 export const createNewDepartment = async (
   token: string,
   name_en: string,
@@ -2720,7 +2665,7 @@ export const getAllConsultations = async (
     console.log("all consultations", data);
     setAllConsults(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     setConsultStatus &&
       setConsultStatus((last) => ({ ...last, erorr: "مشاوره ای یافت نشد." }));
   } finally {
@@ -2773,19 +2718,16 @@ export const submitConsultation = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 //! DELETE CONSULTATION BY ADMIN 
 export const deleteConsultation = async (
   consultId: number,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/consult/delete/${consultId}`, {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
+    const { data } = await app.get(`/consult/delete/${consultId}`);
     console.log(data);
     toast.success("مشاوره با موفقیت حذف شد", {
       position: "top-right",
@@ -2802,9 +2744,9 @@ export const deleteConsultation = async (
     });
     setIsDeleted(true);
     console.log(data);
-    window.location.reload()
-  } catch (error) {
-    console.log(error);
+    setTimeout(() => { window.location.reload() }, 1500);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در حذف مشاوره", {
       position: "top-right",
       autoClose: 2000,
@@ -2820,18 +2762,13 @@ export const deleteConsultation = async (
     });
   }
 };
-// restore consultation by admin
+//? RESTORE CONSULTATION BY ADMIN
 export const restoreConsultation = async (
   consultationId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/consult/restore/${consultationId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/consult/restore/${consultationId}`);
     toast.success("مشاوره با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
@@ -2845,6 +2782,7 @@ export const restoreConsultation = async (
       rtl: true,
     });
     setIsDeleted(false);
+    setTimeout(() => { window.location.reload() }, 1500);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -2871,6 +2809,7 @@ export const getConsultationDetail = async (
       title: string;
       description: string;
       date: string;
+      user_id: string
     }>
   >,
   setConsultDetailStatus?: React.Dispatch<
@@ -2934,7 +2873,7 @@ export const getConsultationDetail = async (
 //       rtl: true,
 //     });
 //   } catch (error: any) {
-//     console.log(error.response.data.message);
+//     console.log(error?.response?.data.message);
 //     toast.error("خطا در ایجاد تیکت", {
 //       position: "top-right",
 //       autoClose: 2000,
@@ -2962,7 +2901,7 @@ export const CREATETICKET = (title: string, token: string, description: string, 
       setTimeout(() => { window.location.replace('http://localhost:3000/panel/user/support') }, 500);
     }
     ).catch(error => {
-      console.log(error.response);
+      console.log(error?.response);
       console.log("%c ERROR ====>", "color:orange;font-weight:900", newTicketInfos);
       toast.error("خطا در ثبت تیکت.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
@@ -2981,8 +2920,8 @@ export const getAllTickets = async (
     console.log("%c ALL TICKETS", "color:yellow", data);
     setAllTickets(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
-    if (error.response.data.message === "ticket-notFound") {
+    console.log(error?.response?.data.message);
+    if (error?.response?.data.message === "ticket-notFound") {
       setAllTicketsStatus((last) => ({ ...last, error: "تیکتی یافت نشد." }));
     }
   } finally {
@@ -3024,7 +2963,7 @@ export const getTicektDetail = async (
     console.log("ticketdetail", data);
     setTicketDetail(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 //^^^ CREATING A NEW PROJECT IN USER PANEL 
@@ -3062,7 +3001,7 @@ export const getTicektDetail = async (
 //     window.sessionStorage.removeItem("consultation_id");
 //     console.log("CREATING PROJECT ---- DATA ==>", data);
 //   } catch (error: any) {
-//     // console.log(error.response.data.message);
+//     // console.log(error?.response?.data.message);
 //     toast.error("خطا در ثبت پروژه.", {
 //       position: "top-right",
 //       autoClose: 2000,
@@ -3102,7 +3041,7 @@ export const CREATEPROJECT = async (token: string, title: string, description: s
       window.location.replace('/panel/user/project-management')
     }
     ).catch(error => {
-      console.log(error.response.data);
+      console.log(error?.response?.data);
       console.log(newProjectInfos);
       toast.error("خطا در ثبت پروژه.", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
     }
@@ -3134,7 +3073,7 @@ export const createProjectSimilars = async (
     );
     // console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // create project color
@@ -3161,7 +3100,7 @@ export const createProjectColor = async (
     );
     console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // create project plugin
@@ -3185,7 +3124,7 @@ export const createProjectPlugin = async (
     );
     console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // create project template
@@ -3209,7 +3148,7 @@ export const createProjectTemplate = async (
     );
     console.log(data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // get project detail
@@ -3230,7 +3169,7 @@ export const getProjectDetail = async (
         ...last,
         error: "پروژه ای یافت نشد.",
       }));
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   } finally {
     setProjectDetailStatus &&
       setProjectDetailStatus((last) => ({ ...last, loading: false }));
@@ -3250,7 +3189,7 @@ export const getSimilarSite = async (
     console.log("similar", data);
     setProjectDetail((last) => ({ ...last, Similar_Site: data.data }));
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // get colors for project
@@ -3267,7 +3206,7 @@ export const getColors = async (
     console.log("colors", data);
     setProjectDetail((last) => ({ ...last, Colors: data.data }));
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // get templates for project
@@ -3284,7 +3223,7 @@ export const getTemplates = async (
     console.log("templates", data);
     setProjectDetail((last) => ({ ...last, Templates: data.data }));
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // reject project
@@ -3333,7 +3272,7 @@ export const rejectProject = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // project status
@@ -3341,7 +3280,7 @@ export const getProjectStatus = async (token: string) => {
   try {
   } catch (error) { }
 };
-// orders
+//* GET ALL ORDERS
 export const getOrders = async (
   token: string,
   setOrders: React.Dispatch<React.SetStateAction<never[]>>,
@@ -3349,61 +3288,84 @@ export const getOrders = async (
 ) => {
   try {
     setOrderStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app.get("/orders", {
-      headers: { Authorization: `Bearer ${token}`, },
-    });
+    const { data } = await app.get("/orders",);
     console.log("orders", data);
     setOrders(data.data);
   } catch (error: any) {
     setOrderStatus((last) => ({ ...last, error: "سفارشی یافت نشد." }));
-    console.log(error.response.data.message);
+    console.log(error.response.data);
   } finally {
     setOrderStatus((last) => ({ ...last, loading: false }));
   }
 };
-// get all organizations
+//^ GET ALL ORGANIZATIONS
 export const getOrganizations = async (
-  token: string,
   setOrganizations: React.Dispatch<React.SetStateAction<never[]>>,
   setOrganizationstatus: React.Dispatch<
-    React.SetStateAction<{
-      error: string;
-      loading: boolean;
-    }>
+    React.SetStateAction<{ error: string; loading: boolean; }>
   >
 ) => {
   try {
     setOrganizationstatus((last) => ({ ...last, loading: true }));
-    const { data } = await app("/organizations", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app("/organizations");
     console.log("organizations", data);
     setOrganizations(data.data);
   } catch (error: any) {
     setOrganizationstatus((last) => ({ ...last, error: "سازمانی یافت نشد." }));
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   } finally {
     setOrganizationstatus((last) => ({ ...last, loading: false }));
   }
 };
-// restore position by admin
-export const restoreOrganization = async (
-  organizationId: number | null,
-  token: string,
-  setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
+// ? CREATE NEW ORGANIZATION 
+export const createNewOrganization = async (
+  name_fa: string, name_en: string, description: string, address: string, phone: string, user_id: string | number
 ) => {
   try {
-    const { data } = await app.get(`/organization/restore/${organizationId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const { data } = await app.post("/organization/store",
+      { name_fa, name_en, description, address, phone, user_id },
+    );
+    toast.success("سازمان با موفقیت ایجاد شد", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
     });
+    console.log(data);
+    window.location.replace('/panel/admin/org_management')
+  } catch (error: any) {
+    toast.error("خطا در ایجاد سازمان", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
+    });
+    console.log(error.response);
+  }
+};
+// * RESTORE ORGANIZATION BY ADMIN
+export const restoreOrganization = async (organizationId: number | null, setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>) => {
+  try {
+    const { data } = await app.get(`/organization/restore/${organizationId}`);
     toast.success("سازمان با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3414,12 +3376,14 @@ export const restoreOrganization = async (
     });
     setIsDeleted(false);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+    setTimeout(() => { window.location.reload() }, 1500);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در بازگردانی سازمان", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3430,18 +3394,10 @@ export const restoreOrganization = async (
     });
   }
 };
-// deleting organization by admin
-export const deleteOrgan = async (
-  organId: number,
-  token: string,
-  setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
-) => {
+//! DELETING ORGANIZATIONS BY ADMIN
+export const deleteOrgan = async (organId: number, setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>) => {
   try {
-    const { data } = await app.get(`/organization/delete/${organId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/organization/delete/${organId}`);
     console.log(data);
     toast.success("سازمان با موفقیت حذف شد", {
       position: "top-right",
@@ -3456,9 +3412,10 @@ export const deleteOrgan = async (
       rtl: true,
     });
     setIsDeleted(true);
+    setTimeout(() => { window.location.reload() }, 1500);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در حذف سازمان", {
       position: "top-right",
       autoClose: 2000,
@@ -3473,33 +3430,25 @@ export const deleteOrgan = async (
     });
   }
 };
-// get organization detail
+//^ GET ORGANIZATION DETAIL
 export const getOrganizationDetail = async (
   token: string,
   organizationId: string | null,
   setorganizationDetail: React.Dispatch<React.SetStateAction<any>>,
   setOrgDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      error: string;
-    }>
-  >
+    React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
     setOrgDetailStatus &&
       setOrgDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app.get(
       `/organization/show/${organizationId ? organizationId : ""}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     console.log("org detail", data);
     setorganizationDetail(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     setOrgDetailStatus &&
       setOrgDetailStatus((last) => ({
         ...last,
@@ -3522,6 +3471,7 @@ export const confirmProjectByAdmin = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3531,11 +3481,12 @@ export const confirmProjectByAdmin = async (
       rtl: true,
     });
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     toast.error("خطا در تایید پروژه", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3576,7 +3527,7 @@ export const changeOrderStatus = async (
       rtl: true,
     });
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     toast.error("خطا در تغییر وضعیت پروژه", {
       position: "top-right",
       autoClose: 2000,
@@ -3606,7 +3557,7 @@ export const getOrderDetail = async (
   } catch (error: any) {
     seOrderDetailStatus &&
       seOrderDetailStatus((last) => ({ ...last, error: "حطا در ردیافت اطلاعات" }));
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     console.log("ERROR ==>", error);
   } finally {
     seOrderDetailStatus &&
@@ -3626,7 +3577,7 @@ export const getAllOrderStatuses = async (
     console.log("all order statuses", data);
     setOrderStatuses(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // close ticket
@@ -3660,7 +3611,7 @@ export const closeTicket = async (
     setIsClosed(true);
     // setAllTickets(data.data);
   } catch (error: any) {
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
     toast.error("خطا در بستن تیکت", {
       position: "top-right",
       autoClose: 2000,
@@ -3727,7 +3678,7 @@ export const handlePaymentFileUpload = async (
       transition: Bounce,
       rtl: true,
     });
-    console.log(error.response.data.message);
+    console.log(error?.response?.data.message);
   }
 };
 // pay
@@ -3744,6 +3695,6 @@ export const sendAmount = async (token: string, amount: number, paymentId: numbe
       window.location.href = data.data.url;
     }
   } catch (error: any) {
-    console.log("%c PAYMENT ERROR ==>", "color : orangered", error.response.data.message);
+    console.log("%c PAYMENT ERROR ==>", "color : orangered", error?.response?.data.message);
   }
 };

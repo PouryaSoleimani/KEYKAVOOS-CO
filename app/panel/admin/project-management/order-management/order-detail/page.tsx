@@ -8,13 +8,14 @@ import {
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import BackButton from "../../../components/BackButton";
 
 function OrderDetail() {
   const { token } = useSelector((state: any) => state.userData);
   const [orderDetail, setOrderDetail] = useState([]);
   const params = useSearchParams();
   const orderId = params.get("id");
-  const [orderStatuses, setOrderStatuses] = useState([]);
+  const [orderStatuses, setOrderStatuses] = useState<any>([]);
   const [orderStatusInput, setOrderStatusInput] = useState("");
 
   useEffect(() => {
@@ -47,28 +48,26 @@ function OrderDetail() {
   };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%]">
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="grid grid-cols-1 gap-5"
-      >
-        <p>تغییر وضعیت سفارش</p>
-        <SubmitOrderDropdown
-          dropDownTitle=""
-          dropdownItems={orderStatusDropdownItems}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setOrderStatusInput(e.target.value)
-          }
-          value={orderStatusInput}
-          name="order-status"
-        />
-        <div className="flex justify-end">
-          <button className="bg-[#4866CE] text-white rounded-lg px-5 py-1">
-            تایید
-          </button>
-        </div>
-      </form>
-    </div>
+    <>
+      <BackButton />
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%]">
+        <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
+          <p>تغییر وضعیت سفارش</p>
+          <SubmitOrderDropdown
+            dropDownTitle=""
+            dropdownItems={orderStatusDropdownItems}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setOrderStatusInput(e.target.value)}
+            value={orderStatusInput}
+            name="order-status"
+          />
+          <div className="flex justify-end">
+            <button className="bg-[#4866CE] text-white rounded-lg px-5 py-3 hover:bg-blue-800 duration-500">
+              تایید
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 

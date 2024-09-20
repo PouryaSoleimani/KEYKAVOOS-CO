@@ -6,7 +6,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import { RoleContext } from "../../context/role-context/RoleContext";
@@ -33,7 +32,10 @@ function RoleManagement() {
     }
   }, []);
 
-  useEffect(() => { getAllRole(token, setRoles, setRoleLoading); }, []);
+  useEffect(() => {
+    getAllRole(token, setRoles, setRoleLoading);
+    console.log("ALL ROLES", roles);
+  }, []);
 
 
   return (
@@ -54,29 +56,29 @@ function RoleManagement() {
 
         {roleLoading.loading ? (
           <SkeletonTheme>
-            <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+            <Skeleton count={1} className="p-2 mt-4" baseColor="#EAEFF6" />
           </SkeletonTheme>
         ) : roleLoading.error ? (
           <NotFound text={`${roleLoading.error}`} />
         ) : (
           roles.map((item: any, index) => (
-            <div className={`${item.role.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 mt-2 rounded-[4px] cursor-pointer items-center`} key={index}>
+            <div className={`${item.role.deleted_at ? "bg-red-400" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 mt-2 rounded-[4px] cursor-pointer items-center`} key={index}>
 
               <p className="col-span-1">{index + 1}</p>
-              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1">
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1 py-2 rounded-md">
                 {item.role.name_fa}
               </p>
-              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1">
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center col-span-3 lg:col-span-1 py-2 rounded-md">
                 {item.role.name_en}
               </p>
               <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
                 <Link href={`/panel/admin/view-users/role-management/role-detail?id=${item.role.id}`} className="flex justify-center">
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-125 duration-300" />
                 </Link>
-                <span onClick={() => deleteRole(item.role.id, token, setRoleIsDeleted,)} className="flex justify-center">
+                <span onClick={() => deleteRole(item.role.id, setRoleIsDeleted,)} className={`flex justify-center ${item.role.deleted_at ? "hidden" : "inline"}`}>
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
                 </span>
-                <span onClick={() => restoreRole(item.role.id, token, setRoleIsDeleted)} >
+                <span onClick={() => restoreRole(item.role.id, setRoleIsDeleted)} className={`flex justify-center ${!item.role.deleted_at ? "hidden" : "inline"}`}>
                   <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
                 </span>
               </div>

@@ -27,7 +27,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
   const clickHandler = (notif_id: number, read_at: string | null) => {
     if (read_at === null) { setIsRead(read_at); changeNotificationStatus(token, notif_id); } else { }
   };
-  console.log(userNotifs);
+
   // ^ RETURN
   return (
     <div className="flex flex-col items-end relative justify-center" dir="rtl" onMouseLeave={() => setShowAnnouncementDropdown(false)}>
