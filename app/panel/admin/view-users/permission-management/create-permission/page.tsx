@@ -6,20 +6,13 @@ import { PermissionContext } from "../../../context/permission-context/Permissio
 
 function CreatePermission() {
   const { token } = useSelector((state: any) => state.userData);
-  const [createPermission, setCreatePermission] = useState({
-    name_en: "",
-    name_fa: "",
-  });
+  const [createPermission, setCreatePermission] = useState({ name_en: "", name_fa: "", });
   const { setPermissions, setPermissionStatus } = useContext(PermissionContext);
+
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    Promise.all([
-      await createNewPermission(
-        token,
-        createPermission.name_en,
-        createPermission.name_fa
-      ),
-      await getAllPermissions(token, setPermissions, setPermissionStatus),
+    Promise.all([await createNewPermission(token, createPermission.name_en, createPermission.name_fa),
+    await getAllPermissions(token, setPermissions, setPermissionStatus),
     ]);
 
     setCreatePermission({ name_en: "", name_fa: "" });
@@ -27,10 +20,7 @@ function CreatePermission() {
   return (
     <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3 flex flex-col gap-5">
       <p>ایجاد دسترسی جدید</p>
-      <form
-        onSubmit={(e) => handleSubmission(e)}
-        className="flex flex-col gap-3"
-      >
+      <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3"  >
         <label htmlFor="">نام انگلیسی</label>
         <input
           type="text"

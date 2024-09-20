@@ -15,7 +15,7 @@ function ConsultDetail() {
   const { token } = useSelector((state: any) => state.userData);
   const params = useSearchParams();
   const id = params.get("id");
-  const [consultationDetail, setConsultationDetail] = useState({ title: "", description: "", date: "", });
+  const [consultationDetail, setConsultationDetail] = useState({ title: "", description: "", date: "", user_id: "" });
   const [consultDetailStatus, setConsultDetailStatus] = useState({ loading: false, erorr: "", });
 
   useEffect(() => { getConsultationDetail(token, id, setConsultationDetail, setConsultDetailStatus); }, []);
@@ -30,9 +30,10 @@ function ConsultDetail() {
       </div>
 
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-5">
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-4">
           <div>تاریخ درخواست مشاوره</div>
           <div>عنوان مشاوره</div>
+          <div> USER_ID </div>
           <div>توضیحات</div>
         </div>
         {consultDetailStatus.loading ? (
@@ -42,9 +43,10 @@ function ConsultDetail() {
         ) : consultDetailStatus.erorr ? (
           <NotFound text={`${consultDetailStatus.erorr}`} />
         ) : (
-          <div className="grid grid-cols-3 py-4 bg-[#EAEFF6] rounded-[4px]">
+          <div className="grid grid-cols-4 py-4 bg-[#EAEFF6] rounded-[4px]">
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
+            <p>{consultationDetail.user_id ? consultationDetail.user_id : " --- "}</p>
             <p>{consultationDetail.description}</p>
           </div>
         )}

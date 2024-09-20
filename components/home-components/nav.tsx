@@ -19,14 +19,16 @@ const Nav = () => {
   const [navlocaltoken, setnavlocaltoken] = useState(null);
   const dispatch = useDispatch();
   const { FirstName, userProfile, role, status, token, localToken } = useSelector((state: any) => state.userData);
+
   const [scrollTop, setScrollTop] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      window.scrollY > 60 ? setActiveColorChange(true) : setActiveColorChange(false);
       window.scrollY > 200 ? setScrollTop(true) : setScrollTop(false);
+      window.scrollY > 60 ? setActiveColorChange(true) : setActiveColorChange(false);
     });
-  });
+  }, [scrollTop]);
+
   useEffect(() => { console.log("SCROLL TOP"); }, [scrollTop])
 
   useEffect(() => {
@@ -60,7 +62,7 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-[90vw] rounded-2xl shadow-md shadow-zinc-400 " : ""}`}
+      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-11/12 rounded-full shadow-md shadow-zinc-400 " : ""}`}
       onMouseLeave={() => (setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
     >
       <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] bg-transparent backdrop-blur-[10px] font-thin">

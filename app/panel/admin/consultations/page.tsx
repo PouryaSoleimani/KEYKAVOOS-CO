@@ -39,7 +39,7 @@ function Consultations() {
         ) : (
           <div className="grid grid-cols-1 gap-5">
             {allConsults.map((item, index) => (
-              <div className={`${consultIsDeleted && item.deleted_at ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-5 grid-cols-12 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`} key={index}>
+              <div className={`${item.deleted_at ? "bg-red-500" : "bg-[#EAEFF6]"} grid lg:grid-cols-5 grid-cols-12 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`} key={index}>
                 <p className="col-span-1">{index + 1}</p>
                 <p className="col-span-2 lg:col-span-1">
                   {item.created_at ? moment(item.created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
@@ -50,11 +50,11 @@ function Consultations() {
                   <Link href={`/panel/admin/consultations/consult-detail?id=${item.id}`} className="flex justify-center hover:scale-125 duration-300">
                     <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                   </Link>
-                  <span onClick={() => deleteConsultation(item.id, token, setConsultIsDeleted)} className="flex justify-center" >
-                    <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
+                  <span onClick={() => deleteConsultation(item.id, setConsultIsDeleted)} className="flex justify-center" >
+                    <RiDeleteBin7Fill className={`text-red-600 text-lg hover:scale-125 duration-300 mr-3 ${item.deleted_at ? "hidden" : "inline"}`} />
                   </span>
-                  <span onClick={() => restoreConsultation(item.id, token, setConsultIsDeleted)} >
-                    <IoReloadCircle className="text-emerald-600 text-xl hover:scale-125 duration-300" />
+                  <span onClick={() => restoreConsultation(item.id, setConsultIsDeleted)} >
+                    <IoReloadCircle className={`text-emerald-600 text-xl hover:scale-125 duration-300   ${!item.deleted_at ? "hidden" : "inline"}`} />
                   </span>
                 </div>
               </div>

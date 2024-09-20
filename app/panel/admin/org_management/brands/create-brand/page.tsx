@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { BrandType } from "../page";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
+import BackButton from "../../../components/BackButton";
 
 function CreateBrand() {
   const { token } = useSelector((state: any) => state.userData);
@@ -16,7 +17,7 @@ function CreateBrand() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     Promise.all([
-      await createNewBrand(token, createBrand.title, createBrand.description),
+      await createNewBrand(createBrand.title, createBrand.description),
       await getAllBrands(setAllBrands),
     ]);
     setCreateBrand({ title: "", description: "" });
@@ -24,12 +25,8 @@ function CreateBrand() {
 
   return (
     <>
-      <div className="flex items-center justify-end py-2">
-        <Link href='/panel/admin/org_management/brands' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
-          <IoArrowBack />
-        </Link>
-      </div>
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3 flex flex-col gap-5">
+      <BackButton />
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] space-y-3 flex flex-col gap-5">
         <p>ایجاد برند جدید</p>
         <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3">
           <label htmlFor="">عنوان</label>

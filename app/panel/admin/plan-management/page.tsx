@@ -32,7 +32,7 @@ function PlanManagement() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-row items-center gap-5 whitespace-nowrap">
         <NewInfoOnEachPageBtn btnText="ایجاد پلن" src="/panel/admin/plan-management/create-plan" />
-        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-3 tracking-tight rounded-[5px] w-[220px] hover:bg-blue-800 duration-300" >
+        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-4 tracking-tight rounded-[5px] w-[220px] hover:bg-blue-800 duration-300" >
           مدیریت سایت های قابل طراحی
         </Link>
       </div>

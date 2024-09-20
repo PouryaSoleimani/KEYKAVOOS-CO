@@ -7,13 +7,33 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";
 import LegalUserHeader from "../components/LegalUserHeader";
 import { deleteUser } from "@/utils/utils";
-
 import SearchInput from "../components/SearchInput";
 import { RiDeleteBin7Fill } from "react-icons/ri";
+import app from "@/services/service";
+import { toast } from "react-toastify";
 
 type LegalUsersProps = { LegalUsersData: any[]; usersStatus: { loading: boolean; }; token: string; setAllUsers: React.Dispatch<any>; setDataStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; }>>; AllUsersData: never[]; searchUsers: string; setSearchUsers: React.Dispatch<React.SetStateAction<string>>; };
 
 function LegalUsers({ LegalUsersData, usersStatus, token, setAllUsers, setDataStatus, AllUsersData, searchUsers, setSearchUsers, }: LegalUsersProps) {
+  const notifySuccess = () => toast.success('کاربر با موفقیت حذف شد')
+  const notifyError = () => toast.error('خطا در حذف کاربر')
+  //! DELETE USER FUNCTION 
+  function deleteUser(event: React.MouseEvent<HTMLSpanElement, MouseEvent>, ID: number | string) {
+    event.preventDefault()
+
+    const TOKEN: string | null = sessionStorage.getItem('token')
+
+    app.delete(`/user/delete/${ID.toString()}`, { headers: { Authorization: `Bearer ${JSON.parse(TOKEN as string)}` }, })
+      .then(response => {
+        console.log("AXIOS --->", response.data); notifySuccess();
+        let NEWUSERS = AllUsersData?.filter((item: { id: number }) => item.id !== ID)
+        setAllUsers(NEWUSERS)
+      }
+      )
+      .catch(error => {
+        console.log("ERROR --->", error?.response); notifyError()
+      })
+  }
 
   return (
     <div className="flex flex-col gap-5">
@@ -34,7 +54,8 @@ function LegalUsers({ LegalUsersData, usersStatus, token, setAllUsers, setDataSt
               <p className="col-span-3 py-2  md:col-span-1">{item.mobile}</p>
               <p className="col-span-3  py-2 md:col-span-1">{item.org_registration_Number ? item.org_registration_Number : "-"}</p>
 
-              <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1 py-2"  >
+              {/* <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1 py-2"  > */}
+              <span onClick={(event) => deleteUser(event, item.id)} className="flex justify-center col-span-1" >
                 <RiDeleteBin7Fill className="text-lg text-red-800 hover:scale-125 duration-300" />
               </span>
 

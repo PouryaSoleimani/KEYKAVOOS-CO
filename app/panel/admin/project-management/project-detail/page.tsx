@@ -191,10 +191,10 @@ function ProjectDetail() {
             </div>
             {projectDetail?.status === "processing" && (
               <div className="w-full flex justify-end items-center gap-3">
-                <button className="bg-[#EAEFF6] text-[#4866CE] rounded-lg py-1 px-3" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
+                <button className="bg-red-800 text-white rounded-lg py-3 px-4 hover:bg-red-600 duration-300" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
                   رد پروژه
                 </button>
-                <button className="bg-[#4866CE] text-white rounded-lg p-1" onClick={() => confirmProjectByAdmin(token, Number(id))}>
+                <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id))}>
                   تایید پروژه
                 </button>
               </div>
@@ -203,7 +203,7 @@ function ProjectDetail() {
           {rejection.isRejected && (
             <div className="relative">
               <textarea className="p-[1%] bg-[#EAEFF6] rounded-[4px] w-full placeholder:text-[#4866CE]" rows={4} placeholder="علت رد پروژه" onChange={(e) => setRejection((last) => ({ ...last, rejection_reason: e.target.value, }))} value={rejection.rejection_reason}></textarea>
-              <button className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] p-2" onClick={() => rejectProject(token, rejection.rejection_reason, Number(id), userProfile.id)} >
+              <button className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] px-4 py-3 hover:bg-blue-800 duration-500" onClick={() => rejectProject(token, rejection.rejection_reason, Number(id), userProfile.id)} >
                 تایید و ارسال به کارفرما
               </button>
             </div>

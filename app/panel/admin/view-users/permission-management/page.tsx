@@ -10,14 +10,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
-
-
 import { PermissionContext } from "../../context/permission-context/PermissionContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
+import app from "@/services/service";
 
 export type PermissionType = { name_en: string; name_fa: string; id: number; };
 
@@ -26,6 +25,7 @@ function PermissionManagement() {
   const { permissions, setPermissions, permissionStatus, setPermissionStatus } = useContext(PermissionContext);
   const { token } = useSelector((state: any) => state.userData);
   const [permissionIsDeleted, setPermissionIsDeleted] = useState(false);
+  const TOKEN = JSON.stringify(sessionStorage.getItem('token') as string)
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -52,7 +52,7 @@ function PermissionManagement() {
         </Link>
       </div>
 
-      <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center space-y-3 tracking-tight">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center space-y-3 tracking-tight">
         <div className="grid lg:grid-cols-4 grid-cols-10">
           <div className="col-span-1">ردیف</div>
           <div className="col-span-3 lg:col-span-1">نام دسترسی به فارسی</div>
@@ -68,33 +68,30 @@ function PermissionManagement() {
           <NotFound text={`${permissionStatus.error}`} />
         ) : (
           permissions?.map((item: any, index) => (
-            <div
-              className={`${permissionIsDeleted ? "bg-red-300" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer`}
-              key={index}
-            >
-              <p className="col-span-1">{index + 1}</p>
-              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1">
+            <div className={`${item.deleted_at !== null ? "bg-red-400" : "bg-[#EAEFF6]"} grid lg:grid-cols-4 grid-cols-10 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer`} key={index} >
+              <p className={`col-span-1 ${item.deleted_at ? "text-white" : ""}`}>{index + 1}</p>
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1 py-2 rounded-md">
                 {item.name_fa}
               </p>
-              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1">
+              <p className="bg-[#EAEFF6] caret-transparent cursor-default text-center outline-none col-span-3 lg:col-span-1 py-2 rounded-md">
                 {item.name_en}
               </p>
-              <div className="flex flex-row items-center justify-center gap-3 col-span-2 lg:col-span-1">
+              <div className="flex flex-row items-center justify-center gap-4 col-span-2 lg:col-span-1">
                 <Link href={`/panel/admin/view-users/permission-management/permission-detail?id=${item.id}`} className="flex justify-center hover:scale-125 duration-300" >
                   <Image src={vieweye} alt="مشاهده" width={20} height={20} />
                 </Link>
-                <span onClick={() => deletePermission(item.id, token, setPermissionIsDeleted)} className="flex justify-center hover:scale-125 duration-300" >
-                  <RiDeleteBin7Fill className="text-red-600 text-lg" />
+                <span onClick={() => deletePermission(item.id, setPermissionIsDeleted)} className="hover:scale-125 duration-300" >
+                  <RiDeleteBin7Fill className={`text-red-600 text-xl mr-3 ${item.deleted_at ? "hidden" : "inline"}`} />
                 </span>
-                <span onClick={() => restorePermission(item.id, token, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
-                  <IoReloadCircle  className="text-emerald-600 text-xl" />
+                <span onClick={() => restorePermission(item.id, setPermissionIsDeleted)} className="hover:scale-125 duration-300">
+                  <IoReloadCircle className={`text-emerald-600 text-xl translate-x-4 ${!item.deleted_at ? "hidden" : "inline"}`} />
                 </span>
               </div>
             </div>
           ))
         )}
       </div>
-    </div>
+    </div >
   );
 }
 

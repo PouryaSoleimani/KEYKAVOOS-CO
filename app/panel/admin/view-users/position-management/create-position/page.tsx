@@ -6,10 +6,12 @@ import React, { useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { useSelector } from "react-redux";
 
+
+// COMPONENT ==================================================================================================================================================================
 function CreatePosition() {
   const { token } = useSelector((state: any) => state.userData);
   const [usersInfo, setUsersInfo] = useState([]);
-  const [departmentsInfo, setDepartmentsInfo] = useState([]);
+  const [departmentsInfo, setDepartmentsInfo] = useState([] as any);
   const [createPosition, setCreatePosition] = useState({ title_en: "", title_fa: "", dept_id: "", user_id: "", });
 
   useEffect(() => {
@@ -30,9 +32,13 @@ function CreatePosition() {
       }
     }
   }, []);
+  useEffect(() => {
+    console.log("LOCAL USERS ===>", usersInfo);
+    console.log("DEPARTMENT INFO ===>", departmentsInfo);
+  }, [])
 
   const usersDropDownInfo = usersInfo.map(
-    (item: { name: string }) => item.name
+    (item: { name: string, surname: string }) => item.name + " " + item.surname
   );
   const selectedUsersId = usersInfo
     .filter((item: { name: string }) => item.name === createPosition.user_id)
@@ -89,7 +95,7 @@ function CreatePosition() {
           {/* user id */}
           <SubmitOrderDropdown
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, user_id: e.target.value }))}
-            value={createPosition.user_id}
+            value={`${createPosition.user_id}`}
             dropdownItems={usersDropDownInfo}
             dropDownTitle="کاربران:"
           />
@@ -97,7 +103,7 @@ function CreatePosition() {
           {/* department id */}
           <SubmitOrderDropdown
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, dept_id: e.target.value }))}
-            value={createPosition.dept_id}
+            value={selectedDepartmentsId}
             dropdownItems={departmentsDropdownInfo}
             dropDownTitle="دپارتمان ها:"
           />
