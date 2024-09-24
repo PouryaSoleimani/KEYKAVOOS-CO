@@ -17,7 +17,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await sendAmount(token, 100000000, firstOrderPayment?.id, setUrl);
-    // router.replace(url);
+    router.replace(url);
   };
   useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
 
@@ -30,12 +30,12 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
         <div className="grid grid-cols-1 gap-5">
           <div className="grid grid-cols-2 gap-5">
             {/* value={`${handleBudegtChange(String(firstOrderPayment?.final_price))} ریال`} */}
-            <FinanceInput label="مبلغ کل پروژه : " disable={true} value={orderDetail ? ` ${orderDetail.price?.toLocaleString()}  ریال ` : "---"} />
+            <FinanceInput label="مبلغ کل پروژه : " disable={true} value={orderDetail ? ` ${Math.round(Number(orderDetail?.price)).toLocaleString()} ریال ` : "---"} />
             <FinanceInput label="مبلغ باقی مانده : " disable={true} value={firstOrderPayment ? `${firstOrderPayment.debt} ریال` : "---"} />
-            <FinanceInput label="مبلغ پرداخت شده : " disable={true} value={`0 ریال`} />
-            <FinanceInput label="مبلغ پرداختی شما : " value={"100,000,000 ریال"} setToBlue={true} />
+            <FinanceInput label="مبلغ پرداخت شده : " disable={true} value={`---`} />
+            <FinanceInput label="مبلغ این قسط : " value={`${Math.round(Number(firstOrderPayment?.amount)).toLocaleString()} ریال `} setToBlue={true} />
           </div>
-        </div>
+        </div>  
       </div>
       <div className="w-full flex justify-end">
         <button type="submit" className="bg-[#4866CE] text-white px-4 py-2 tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">

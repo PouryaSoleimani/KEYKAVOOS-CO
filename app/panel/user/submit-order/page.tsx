@@ -175,11 +175,11 @@ function SubmitOrder() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={siteTypes.map(item => item.title)} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
+            <SubmitOrderDropdown dropDownTitle="نوع پروژه:" dropdownItems={siteTypes?.map(item => item.title)} value={projectFields.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, type: e.target.value }))} />
             <p className="absolute top-3 right-[4.5rem] text-red-800">*</p>
           </div>
           <div className="relative pt-3">
-            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={allPlans.map(item => item.plan.title)} value={projectFields.plan}
+            <SubmitOrderDropdown dropDownTitle="پلن انتخابی:" dropdownItems={allPlans?.map(item => item.plan.title)} value={projectFields.plan}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setProjectFields((last) => ({ ...last, plan: e.target.value }))} />
             <p className="absolute top-3 right-[5.5rem] text-red-800">*</p>
           </div>

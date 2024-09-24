@@ -3552,7 +3552,7 @@ export const getOrderDetail = async (
   try {
     seOrderDetailStatus && seOrderDetailStatus((last) => ({ ...last, loading: true }));
     const { data } = await app.get(`/order/show/${orderId}`, { headers: { Authorization: `Bearer ${token}`, }, });
-    // console.log("ORDER DETAILS ==>", data);
+    console.log("ORDER DETAILS ==>", data);
     setOrderDetail(data.data);
   } catch (error: any) {
     seOrderDetailStatus &&

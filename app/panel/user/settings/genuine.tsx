@@ -49,7 +49,7 @@ function Genuine({ userId, token }: GenuineProps) {
       dispatch(updateUserProfile({ ...userProfile, name, surname, email, mobile, }));
       notifySuccess()
       console.log(data);
-    } catch (error : any) {
+    } catch (error: any) {
       notifyError()
       console.log(error.response);
     }
