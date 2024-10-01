@@ -18,12 +18,14 @@ function CreateOrganization() {
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
     const [user_id, setUser_id] = useState("")
+    const [registration_number, setRegisteration_number] = useState("")
+    const [shenase_melli, setShenase_melli] = useState("")
 
     //^ FORM SUBMIT
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(org_name, description, address, phone, user_id),
+            await createNewOrganization(org_name, description, address, phone, user_id , shenase_melli , registration_number),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
@@ -49,6 +51,10 @@ function CreateOrganization() {
                     <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">USER_ID</label>
                     <input type="text" value={user_id} onChange={(e) => setUser_id(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <label htmlFor="">شماره ثبت</label>
+                    <input type="text" value={registration_number} onChange={(e) => setRegisteration_number(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <label htmlFor="">شناسه ملی</label>
+                    <input type="text" value={shenase_melli} onChange={(e) => setShenase_melli(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <div className="flex justify-end my-5">
                         <button className="p-3 w-[120px] bg-[#4866CF] rounded-[4px] text-white">تایید</button>
                     </div>
