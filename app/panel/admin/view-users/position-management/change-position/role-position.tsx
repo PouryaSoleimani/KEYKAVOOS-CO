@@ -29,8 +29,9 @@ function RolePosition() {
     //^ FUNCTIONS 
     function GETALLROLES() { app.get('/roles').then(response => { setAllRoles(response.data.data); console.log(response.data.data); }) }
     function GETALLPOSITIONS() { app.get('/positions').then(response => { setAllPositions(response.data.data); console.log("POSITIONS", response.data.data); }) }
+    function GETALLPERMISSIONS() { app.get('/permissions').then(response => { setAllPermissions(response.data.data); console.log(response.data.data); }) }
 
-    useEffect(() => { GETALLPOSITIONS(); GETALLROLES() }, [])
+    useEffect(() => { GETALLPOSITIONS(); GETALLROLES(); GETALLPERMISSIONS() }, [])
 
     const router = useRouter()
     //* ATTACH ROLES
