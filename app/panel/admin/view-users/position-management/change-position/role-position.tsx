@@ -8,7 +8,7 @@ import app from "@/services/service";
 import { Bounce, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 //? TYPES
-type Inputs = { permission: string, role: string, position: string }
+type Inputs = { permission: string, role_id: string, position_id: string }
 
 
 //^ COMPONENT ========================================================================================================================================
@@ -36,9 +36,9 @@ function RolePosition() {
     //* ATTACH ROLES
     const onSubmitGreen: SubmitHandler<Inputs> = (data) => {
         console.log("GREEN", data)
-        const position_id = data.position
-        const role_id = data.role
-        app.get(`/position/attach_role/${Number(position_id)}/${role_id}`)
+        const position_id = data.position_id
+        const role_id = data.role_id
+        app.get(`/position/attach_role/${position_id}/${role_id}`)
             .then(response => {
                 console.log(response.data);
                 toast.success("جایگاه با موفقیت به نقش داده شد", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
@@ -53,8 +53,8 @@ function RolePosition() {
     //! DETACH ROLE
     const onSubmitRed: SubmitHandler<Inputs> = (data) => {
         console.log(data, "RED")
-        const position_id = data.position
-        const role_id = data.role
+        const position_id = data.position_id
+        const role_id = data.role_id
         app.get(`/position/detach_role/${Number(position_id)}/${role_id}`)
             .then(response => {
                 console.log(response.data);
@@ -77,7 +77,7 @@ function RolePosition() {
                         <div className="label">
                             <span className="label-text text-black">جایگاه ها</span>
                         </div>
-                        <select className="select select-bordered" defaultValue="جایگاه مورد نظر را انتخاب کنید" {...register("position", { required: true })}>
+                        <select className="select select-bordered" defaultValue="جایگاه مورد نظر را انتخاب کنید" {...register("position_id", { required: true })}>
                             <option disabled>جایگاه مورد نظر را انتخاب کنید</option>
                             {allPositions.map((item: any) => (
                                 <option key={item.position.id} value={item.position.id}>{item.position.title_fa}</option>
@@ -90,7 +90,7 @@ function RolePosition() {
                         <div className="label">
                             <span className="label-text text-black">تقش ها</span>
                         </div>
-                        <select className="select select-bordered" defaultValue="نقش مورد نظر را انتخاب کنید" {...register("role", { required: true })}>
+                        <select className="select select-bordered" defaultValue="نقش مورد نظر را انتخاب کنید" {...register("role_id", { required: true })}>
                             <option disabled>نقش مورد نظر را انتخاب کنید</option>
                             {allRoles.map((item: any) => (
                                 <option key={item.id} value={item.role.id}>{item.role.name_fa}</option>
