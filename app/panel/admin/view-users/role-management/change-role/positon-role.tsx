@@ -40,7 +40,7 @@ function PositionRole() {
     app.get(`/role/attach_position/${Number(role_id)}/${Number(position_id)}`)
       .then(response => {
         console.log(response.data);
-        toast.success("دسترسی با موفقیت به جایگاه داده شد", { position: "top-right", autoClose: 2000, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+        toast.success("نقش با موفقیت به جایگاه داده شد", { position: "top-right", autoClose: 2000, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
         router.refresh()
       })
       .catch((error: any) => {
@@ -53,14 +53,16 @@ function PositionRole() {
     console.log(data, "RED")
     const role_id = data.role
     const position_id = data.position
-    app.get(`/permission/detach_position/${Number(role_id)}/${Number(position_id)}`)
+    app.get(`/role/detach_position/${role_id}/${Number(position_id)}`)
       .then(response => {
         console.log(response.data);
-        toast.success("دسترسی با موفقیت از جایگاه گرفته شد", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+        toast.success("نقش با موفقیت از جایگاه گرفته شد", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
         router.refresh()
       })
-      .catch(error => {
+      .catch((error: any) => {
+        console.log(error.response)
         toast.error("لطفا مقادیر درخواستی را انتخاب کنید", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+
       })
   }
 
