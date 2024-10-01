@@ -36,8 +36,8 @@ function RolePosition() {
     //* ATTACH ROLES
     const onSubmitGreen: SubmitHandler<Inputs> = (data) => {
         console.log("GREEN", data)
-        const position_id = data.position_id
-        const role_id = data.role_id
+        let position_id = data.position_id
+        let role_id = data.role_id
         app.get(`/position/attach_role/${position_id}/${role_id}`)
             .then(response => {
                 console.log(response.data);
@@ -53,8 +53,8 @@ function RolePosition() {
     //! DETACH ROLE
     const onSubmitRed: SubmitHandler<Inputs> = (data) => {
         console.log(data, "RED")
-        const position_id = data.position_id
-        const role_id = data.role_id
+        let position_id = data.position_id
+        let role_id = data.role_id
         app.get(`/position/detach_role/${Number(position_id)}/${role_id}`)
             .then(response => {
                 console.log(response.data);
