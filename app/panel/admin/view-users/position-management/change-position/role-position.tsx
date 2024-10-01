@@ -83,7 +83,7 @@ function RolePosition() {
                                 <option key={item.position.id} value={item.position.id}>{item.position.title_fa}</option>
                             ))}
                         </select>
-                        {errors.position && <p className="text-sm pr-2 text-red-800 font-thin">انتخاب جایگاه الزامی است</p>}
+                        {errors.position_id && <p className="text-sm pr-2 text-red-800 font-thin">انتخاب جایگاه الزامی است</p>}
                     </label>
                     {/*//& ROLES */}
                     <label className="form-control w-full max-w-xs">
@@ -96,7 +96,7 @@ function RolePosition() {
                                 <option key={item.id} value={item.role.id}>{item.role.name_fa}</option>
                             ))}
                         </select>
-                        {errors.role && <p className="text-sm pr-2 text-red-800 font-thin">انتخاب نقش الزامی است</p>}
+                        {errors.role_id && <p className="text-sm pr-2 text-red-800 font-thin">انتخاب نقش الزامی است</p>}
                     </label>
                 </div>
                 <div className="flex items-center justify-end space-x-6 w-full">
