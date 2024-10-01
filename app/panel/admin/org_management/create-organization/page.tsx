@@ -13,8 +13,7 @@ function CreateOrganization() {
     const [organizationsStatus, setOrganizationsStatus] = useState({ loading: false, error: "", });
     const [createBrand, setCreateBrand] = useState({ title: "", description: "", });
     //^ FORM STATES
-    const [name_fa, setName_fa] = useState("")
-    const [name_en, setName_en] = useState("")
+    const [org_name, setOrg_name] = useState("")
     const [description, setDescription] = useState("")
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
@@ -24,7 +23,7 @@ function CreateOrganization() {
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(name_fa, name_en, description, address, phone, user_id),
+            await createNewOrganization(org_name, description, address, phone, user_id),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
@@ -40,10 +39,8 @@ function CreateOrganization() {
             </div>
             <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3 flex flex-col gap-5">
                 <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3">
-                    <label htmlFor="">اسم فارسی</label>
-                    <input type="text" value={name_fa} onChange={(e) => setName_fa(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC] mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
-                    <label htmlFor="">اسم انگلیسی</label>
-                    <input type="text" value={name_en} onChange={(e) => setName_en(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <label htmlFor="">نام سازمان</label>
+                    <input type="text" value={org_name} onChange={(e) => setOrg_name(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC] mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">توضیحات</label>
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">آدرس</label>
