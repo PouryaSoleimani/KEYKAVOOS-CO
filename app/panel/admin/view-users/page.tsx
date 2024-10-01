@@ -75,6 +75,9 @@ function ViewUsers() {
   // ^ RETURN
   return (
     <div className="grid grid-cols-1 gap-8">
+      <div>
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت کاربران</h1>
+      </div>
       <div className="flex flex-row gap-2 justify-center md:justify-normal md:text-base text-sm">
         <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[155px] whitespace-nowrap" >
           مدیریت دسترسی ها

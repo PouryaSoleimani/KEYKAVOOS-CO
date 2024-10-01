@@ -23,8 +23,11 @@ function OrgManagement() {
 
   return (
     <div className="grid grid-cols-1 gap-5">
+      <div>
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت سازمان ها</h1>
+      </div>
       <div className="flex gap-5">
-        <Link href={`/panel/admin/org_management/create-organization`} className="text-white bg-[#4866CF] py-3 flex  items-center justify-center gap-x-3 px-6 hover:bg-blue-800 duration-300 rounded-[5px]" >
+        <Link href={`/panel/admin/org_management/create-organization`} className="text-white bg-[#4866CF] p-3 flex items-center justify-between gap-x-3 hover:bg-blue-800 duration-300 rounded-[5px]" >
           سازمان جدید
           <IoAddCircle className="text-xl" />
         </Link>

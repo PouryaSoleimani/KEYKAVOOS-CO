@@ -68,7 +68,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
     if (typeof window !== "undefined") {
       Promise.all([
         getAllPlans(token, setAllPlans),
-        getUserNotification(token, Number(userId), setUserNotifications),
+        // getUserNotification(token, Number(userId), setUserNotifications),
         getAllSiteTypes(token, setSiteTypes),
         getAllDepartments(token, setDepartments),
       ]);

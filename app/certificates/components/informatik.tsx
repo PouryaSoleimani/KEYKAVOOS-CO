@@ -4,6 +4,7 @@ import styles from "../certificates.module.css";
 import FinanceCert from "./finance-cert";
 import CertHeader from "./cert-header";
 const { container } = styles;
+
 const Informatik = () => {
   return (
     <div>
@@ -14,7 +15,7 @@ const Informatik = () => {
           alt="انفورماتیک"
           width={400}
           height={300} 
-          className="lg:p-0 px-[8%]"
+          className="px-[8%] lg:p-0 animate animate__animated animate__flash animate__slow"
         />
       </div>
     </div>

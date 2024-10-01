@@ -22,10 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa">
-      <body className="4xl:w-[60%] 4xxl:w-[55%] 4xxxl:max-5xl:w-[55%] 5xl:w-[50%] 6xl:w-[50%] 3xl:w-[70%] mx-auto 7xl:w-[45%] 8xl:w-[25%] font-YekanBakh bg-[#eaeff5]">
-        {/* <body className="w-screen font-YekanBakh bg-[#eaeff5] overflow-x-hidden"> */}
-        {/* <GoogleOAuthWrapper> */}
-        {/* <NextAuthProviderWrapper> */}
+      <body className="bg-[#eaeff5] mx-auto 4xl:w-[60%] 4xxl:w-[55%] 4xxxl:max-5xl:w-[55%] 5xl:w-[50%] 6xl:w-[50%] 3xl:w-[70%] 7xl:w-[45%] 8xl:w-[25%] font-YekanBakh">
+        {/* <body className="bg-[#eaeff5] w-screen font-YekanBakh overflow-x-hidden"> */}
+        {/* <GoogleOAuthWrapper>
+          <NextAuthProviderWrapper> */}
         <ToastProvider>
           <Providers>
             <ShowNavachat />
@@ -35,8 +35,8 @@ export default function RootLayout({
             <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
           </Providers>
         </ToastProvider>
-        {/* </NextAuthProviderWrapper> */}
-        {/* </GoogleOAuthWrapper> */}
+        {/* </NextAuthProviderWrapper>
+        </GoogleOAuthWrapper> */}
       </body>
     </html >
   );

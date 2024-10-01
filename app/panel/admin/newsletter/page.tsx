@@ -1,19 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
-import {
-  deleteNewsLetter,
-  getAllNewsletters,
-  restoreBrand,
-  restoreNewsletter,
-} from "@/utils/utils";
+import { deleteNewsLetter, getAllNewsletters, restoreBrand, restoreNewsletter, } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
-
-
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../components/NotFound";
@@ -21,6 +14,8 @@ import NewInfoOnEachPageBtn from "../../user/components/NewInfoOnEachPageBtn";
 import { IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 
+
+//^ COMPONENT __________________________________________________________________________________________________________________________________
 function NewsLetter() {
   const [newsLetters, setNewsLetters] = useState([]);
   const { token } = useSelector((state: any) => state.userData);
@@ -33,11 +28,11 @@ function NewsLetter() {
 
   return (
     <div className="gap-5 grid grid-cols-1">
+      <div className="py-3">
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">خبرنامه</h1>
+      </div>
       <div className="flex">
-        <NewInfoOnEachPageBtn
-          btnText="ایجاد خبرنامه جدید"
-          src="/panel/admin/newsletter/create-newsletter"
-        />
+        <NewInfoOnEachPageBtn btnText="ایجاد خبرنامه جدید" src="/panel/admin/newsletter/create-newsletter" />
       </div>
       <div className="space-y-3 bg-white shadow mx-auto p-[3%] rounded-2xl w-full text-center">
         <div className="grid grid-cols-4">
@@ -56,7 +51,7 @@ function NewsLetter() {
         ) : (
           newsLetters.map((item: any, index) => (
             <div
-              className={`${item.deleted_at ? "bg-red-100" : "bg-[#EAEFF6]"
+              className={`${item.deleted_at ? "bg-red-800 text-white" : "bg-[#EAEFF6]"
                 } grid grid-cols-4 gap-x-5 text-center py-4 rounded-[4px]`}
               key={index}
             >
@@ -79,10 +74,10 @@ function NewsLetter() {
               />
               <div className="flex flex-row justify-center items-center gap-5">
                 <span onClick={() => deleteNewsLetter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)} className="flex justify-center"  >
-                  <RiDeleteBin7Fill className="text-red-600 text-xl hover:scale-125 duration-300 cursor-pointer" />
+                  <RiDeleteBin7Fill className={`text-red-600 text-xl hover:scale-125 duration-300 cursor-pointer ${!item.deleted_at ? "inline" : "hidden"}`} />
                 </span>
-                <span onClick={() => restoreNewsletter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)}>
-                  <IoReloadCircle className={`${item.deleted_at ? "text-green-600" : "text-yellow-600 "} text-2xl hover:scale-125 duration-300 cursor-pointer`} />
+                <span onClick={() => restoreNewsletter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)} className="translate-x-3">
+                  <IoReloadCircle className={`${item.deleted_at ? "text-green-600 ml-4" : "hidden"} text-2xl hover:scale-125 duration-300 cursor-pointer`} />
                 </span>
               </div>
             </div>

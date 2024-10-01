@@ -30,9 +30,12 @@ function PlanManagement() {
 
   return (
     <div className="flex flex-col gap-5">
+      <div className="py-3">
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت پلن ها</h1>
+      </div>
       <div className="flex flex-row items-center gap-5 whitespace-nowrap">
         <NewInfoOnEachPageBtn btnText="ایجاد پلن" src="/panel/admin/plan-management/create-plan" />
-        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-4 tracking-tight rounded-[5px] w-[220px] hover:bg-blue-800 duration-300" >
+        <Link href={`/panel/admin/plan-management/site-types`} className="text-white bg-[#4866CF] p-4 tracking-tight rounded-[5px] w-[225px] hover:bg-blue-800 duration-300" >
           مدیریت سایت های قابل طراحی
         </Link>
       </div>
@@ -54,7 +57,7 @@ function PlanManagement() {
             {allPlans.map((item: PlanType, index) => (
               <div
                 className={`${planIsDeleted && item.plan.deleted_at
-                  ? "bg-red-100"
+                  ? "bg-red-500/80"
                   : "bg-[#EAEFF6]"
                   } grid grid-cols-4 text-center py-4 rounded-[4px] cursor-pointer`}
                 key={index}

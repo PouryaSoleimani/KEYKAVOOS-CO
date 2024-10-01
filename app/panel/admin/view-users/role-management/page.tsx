@@ -14,6 +14,7 @@ import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
+import BackButton from "../../components/BackButton";
 
 export type RoleType = { role: { name_en: string; name_fa: string; id: number; deleted_at: string; }; };
 
@@ -40,10 +41,17 @@ function RoleManagement() {
 
   return (
     <div className="grid grid-cols-1 gap-3">
-      <div className="flex items-center justify-between">
-        <NewInfoOnEachPageBtn btnText="ایجاد نقش" src="/panel/admin/view-users/role-management/create-role" />
+      <div className="flex items-center justify-end">
         <Link href='/panel/admin/view-users' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
           <IoArrowBack />
+        </Link>
+      </div>
+      <div className="flex lg:flex-row flex-col gap-5">
+        <div className="w-[150px] lg:w-full">
+          <NewInfoOnEachPageBtn btnText="ایجاد نقش" src="/panel/admin/view-users/role-management/create-role" />
+        </div>
+        <Link href={`/panel/admin/view-users/role-management/change-role`} className="text-white bg-[#4866CF] hover:bg-blue-800 duration-300 p-4 rounded-[5px] w-[210px] lg:w-full" >
+          تغییر و مدیریت نقش ها
         </Link>
       </div>
       <div className="bg-white shadow mx-auto rounded-xl w-full p-[3%] text-center space-y-3">

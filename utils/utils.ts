@@ -16,24 +16,16 @@ import { ConsultTypes } from "@/app/panel/admin/consultations/page";
 import { ConsultationDetail } from "@/app/panel/admin/consultations/consult-detail/page";
 import { ColorType, PluginType, SimilarSiteType, TemplateType, } from "@/app/panel/user/submit-order/page";
 import { NotificationDetailType } from "@/app/panel/admin/notifications-management/notification-details/page";
-import { useRouter } from "next/router";
 
-// create notification
+// * CREATE NOTIFICATION BY ADMIN
 export const createNotification = async (token: string, dept_id: number, brand_id: number, user_id: number, text: string) => {
   try {
     console.log("user_id", user_id);
-    // console.log("text", text);
+    console.log("text", text);
     const { data } = await app.post(
       "/notification/store",
-      {
-        dept_id,
-        brand_id,
-        user_id,
-        text,
-      },
-      {
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`, },
-      }
+      { dept_id, brand_id, user_id, text, },
+      { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`, }, }
     );
     // console.log(data);
     toast.success("نوتیفیکیشن با موفقیت ارسال شد.", {
@@ -66,50 +58,38 @@ export const createNotification = async (token: string, dept_id: number, brand_i
 };
 //^ GET USER NOTIFICATIONS
 export const getUserNotification = async (
-  token: string,
-  userId: number | string,
+  token: string | number,
+  id: number | string,
   setUserNotifications: React.Dispatch<NotificationDetailType>,
-  setNotificationDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
+  setNotificationDetailStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    // console.log("%c NOTIFICATION ==> ", "color:yellow", userId, token);
-    const { data } = await app(`/notification/getUserNotification`, { headers: { Authorization: `Bearer ${token}`, }, });
+    const { data } = await app.get(`/notification/show/${id}`);
     setUserNotifications(data.data);
-    // console.log("notif", data);
+    console.log("notif", data.data);
   } catch (error: any) {
-    // console.log(error?.response?.data.message);
+    // console.log("ERROR =>>>", error?.response?.data.message);
   }
 };
-//* GET ALL NOTIFICATIONS
+//* GET ALL NOTIFICATIONSgetUserNotification
 export const getAllNotifications = async (
-  token: string,
   setAllNotifs: React.Dispatch<React.SetStateAction<never[]>>
 ) => {
   try {
-    const { data } = await app.get(`/notifications`, { headers: { Authorization: `Bearer ${token}`, }, });
+    const { data } = await app.get(`/notifications`);
     console.log("notifs", data);
     setAllNotifs(data.data)
   } catch (error: any) {
     console.log(error?.response?.data.message);
   }
 };
-
+// ~ CHANGE NOTIFICATION STATUS BY ADMIN
 export const changeNotificationStatus = async (
   token: string,
   notif_id: number
 ) => {
   try {
-    const { data } = await app.post(
-      `/notification/change_status`,
-      {
-        notif_id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const { data } = await app.post(`/notification/change_status`, { notif_id, }, { headers: { Authorization: `Bearer ${token}`, }, });
     // console.log("notifs", data);
   } catch (error: any) {
     console.log(error?.response?.data.message);
@@ -216,6 +196,7 @@ export const sendOTPCodeMain = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1031,7 +1012,7 @@ export const getAllBrands = async (
     setBrandStatus && setBrandStatus((last) => ({ ...last, loading: false }));
   }
 };
-//^ get brand details
+//^ GET BRAND DETAILS
 export const getBrandDetail = async (
   brandId: string | null,
   setBrandDetail: React.Dispatch<React.SetStateAction<BrandDetailType>>,
@@ -1533,10 +1514,10 @@ export const getPlanDetail = async (
 ) => {
   try {
     const { data } = await app.get(`/plan/show/${planId ? planId : ""}`);
-    console.log("plan detail", data);
+    console.log("%c PLAN DETAIL ==>", "color : yellow", data);
     setPlanDetail(data.data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response);
   }
 };
 // get plan attrs
@@ -1608,23 +1589,18 @@ export const createNewPlanAttr = async (
     console.log(error);
   }
 };
-// delete plan attr by admin
+//! ADMIN PLAN ATTR BY ADMIN
 export const deletePlanAttr = async (
   attrId: number,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/attr/delete/${attrId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(data);
+    const { data } = await app.get(`/attr/delete/${attrId}`);
     toast.success("ویژگی موردنظر با موفقیت حذف شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1635,12 +1611,14 @@ export const deletePlanAttr = async (
     });
     setIsDeleted(true);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+    setTimeout(() => { window.location.reload() }, 1000);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در حذف ویژگی", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1651,22 +1629,18 @@ export const deletePlanAttr = async (
     });
   }
 };
-// restore plan attr by admin
+//* RESTORE PLAN ATTR BY ADMIN
 export const restorePlanAttr = async (
   attrId: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/attr/restore/${attrId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/attr/restore/${attrId}`);
     toast.success("ویژگی مدنظر با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1677,12 +1651,14 @@ export const restorePlanAttr = async (
     });
     setIsDeleted(false);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+    setTimeout(() => { window.location.reload() }, 1000);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در بازگردانی ویژگی", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -1694,26 +1670,11 @@ export const restorePlanAttr = async (
   }
 };
 // update plan attr by admin
-export const updatePlanAttr = async (
-  attrId: number,
-  token: string,
-  planId: number | null,
-  title: string | null,
-  description: string | null
-) => {
+export const updatePlanAttr = async (attrId: number, token: string, planId: number | null, title: string | null, description: string | null) => {
   try {
-    const { data } = await app.post(
-      `/attr/update/${attrId}`,
-      {
-        plan_id: planId,
-        title: title || "",
-        description: description || "",
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+    const { data } = await app.post(`/attr/update/${attrId}`,
+      { plan_id: planId, title: title || "", description: description || "", },
+      { headers: { Authorization: `Bearer ${token}`, }, }
     );
     toast.success("ویژگی با موفقیت به روزرسانی شد", {
       position: "top-right",
@@ -2081,7 +2042,7 @@ export const updateSiteType = async (
     });
   }
 };
-// delete site type by admin
+//! DELETE SITE TYPE BY ADMIN
 export const deleteSiteType = async (
   brandId: number,
   token: string,
@@ -2124,22 +2085,18 @@ export const deleteSiteType = async (
     });
   }
 };
-// restore site type by admin
+//* RESTORE SITE BY ADMINS
 export const restoreSiteType = async (
   siteType: number | null,
-  token: string,
   setIsDeleted: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.get(`/type/restore/${siteType}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const { data } = await app.get(`/type/restore/${siteType}`);
     toast.success("طراحی با موفقیت بازگردانی شد", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2150,12 +2107,13 @@ export const restoreSiteType = async (
     });
     setIsDeleted(false);
     console.log(data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.response);
     toast.error("خطا در بازگردانی طراحی", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2323,6 +2281,7 @@ export const deleteNewsLetter = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -2365,6 +2324,7 @@ export const restoreNewsletter = async (
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -3580,20 +3540,16 @@ export const getAllOrderStatuses = async (
     console.log(error?.response?.data.message);
   }
 };
-// close ticket
+//! CLOSE TICKET BY ADMIN
 export const closeTicket = async (
-  token: string,
   status_id: number,
-  ticketId: number,
+  ticketId: number | string,
   setAllTickets: React.Dispatch<React.SetStateAction<never[]>>,
   setIsClosed: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const { data } = await app.post(
-      `/ticket/update/${ticketId}`,
-      { status_id, },
-      { headers: { Authorization: `Bearer ${token}`, }, }
-    );
+    const TICKETID = JSON.parse(ticketId as string)
+    const { data } = await app.post(`/ticket/update/${TICKETID}`, { status_id, });
     console.log("closed ticket", data);
     toast.success("تیکت با موفقیت بسته شد.", {
       position: "top-right",
@@ -3609,9 +3565,9 @@ export const closeTicket = async (
       rtl: true,
     });
     setIsClosed(true);
-    // setAllTickets(data.data);
+    setAllTickets(data.data);
   } catch (error: any) {
-    console.log(error?.response?.data.message);
+    console.log("TICKET ERROR ==>>", error?.response?.data);
     toast.error("خطا در بستن تیکت", {
       position: "top-right",
       autoClose: 2000,

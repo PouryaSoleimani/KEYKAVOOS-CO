@@ -124,11 +124,11 @@ function TicketDetail() {
   // * FILE UPLOAD
   function FILEUPLOAD(id: number | string) {
     const formData = new FormData();
-    formData.append("file", File);
-    const FILE_UPLOAD_INFO = { uploader_user_id: 1, formData }
-    app.post(`/ticket/file/upload/1`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
+    formData.append("DOCUMENT", File);
+    const FILE_UPLOAD_INFO = { uploader_user_id: userProfile.id, formData }
+    app.post(`/ticket/file/upload/${id}`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", } })
       .then(response => console.log("%c SUCCESS ====>", "color : lime", response))
-      .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response.data))
+      .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response))
   }
 
   useEffect(() => { getTicketDetail(); }, []);

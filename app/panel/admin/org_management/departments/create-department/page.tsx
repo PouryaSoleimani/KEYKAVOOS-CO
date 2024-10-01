@@ -23,14 +23,14 @@ function CreateDepartment() {
   };
   return (
     <>
-      <div className="flex items-center justify-end py-2">
+      <div className="flex items-center justify-between py-2">
+        <h1 className="text-2xl font-bold text-[#4866CF] pr-2">ایجاد دپارتمان جدید</h1>
         <Link href='/panel/admin/org_management/departments' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
           <IoArrowBack />
         </Link>
       </div>
 
       <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3 flex flex-col gap-5">
-        <p>ایجاد دپارتمان جدید</p>
         <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3" >
           <label htmlFor="">نام انگلیسی:</label>
           <input

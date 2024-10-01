@@ -32,13 +32,13 @@ function CreateOrganization() {
 
     return (
         <>
-            <div className="flex items-center justify-end py-2">
+            <div className="flex items-center justify-between py-2">
+                <h1 className="text-2xl font-extrabold text-[#4866cf] pr-2">ایجاد سازمان جدید</h1>
                 <Link href='/panel/admin/org_management' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
                     <IoArrowBack />
                 </Link>
             </div>
             <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] space-y-3 flex flex-col gap-5">
-                <p>ایجاد سازمان جدید</p>
                 <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3">
                     <label htmlFor="">اسم فارسی</label>
                     <input type="text" value={name_fa} onChange={(e) => setName_fa(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC] mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />

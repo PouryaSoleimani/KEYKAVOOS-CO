@@ -38,7 +38,7 @@ function FirstPayment({ firstOrderPayment, token, }: { firstOrderPayment: { fina
         </div>  
       </div>
       <div className="w-full flex justify-end">
-        <button type="submit" className="bg-[#4866CE] text-white px-4 py-2 tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">
+        <button type="submit" className="bg-[#4866CE] text-white py-3 px-5 tracking-tight rounded-[6px] text-lg hover:bg-blue-800 duration-300">
           پرداخت قسط اول
         </button>
       </div>

@@ -1,14 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import TicketFields from "../../support/add-new-placard/components/ticket-fields";
+import TicketFields from "../../notifications-management/add-new-placard/components/ticket-fields";
 import { createNewsLetter } from "@/utils/utils";
 import { useSelector } from "react-redux";
 import SubmitOrderDropdown from "@/app/panel/user/submit-order/components/submit-order-dropdown";
+import BackButton from "../../components/BackButton";
 
 function CreateNewsletter() {
   const { token } = useSelector((state: any) => state.userData);
   const [users, setUsers] = useState([]);
-  const [departments, setDepartments] = useState([]);
+  const [departments, setDepartments] = useState<any>([]);
   const [brands, setBrands] = useState([]);
   const [newsletterInfo, setNewsLetteInfo] = useState({
     title: "",
@@ -86,79 +87,79 @@ function CreateNewsletter() {
     );
   };
   return (
-    <form
-      onSubmit={(e) => handleNewsLetterSubmission(e)}
-      className="flex flex-col gap-5 bg-white shadow mx-auto rounded-2xl w-full p-[3%]"
-    >
-      <p>ایجاد خبرنامه جدید</p>
-      <TicketFields
-        label="عنوان:"
-        width="100%"
-        value={newsletterInfo.title}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setNewsLetteInfo((last) => ({
-            ...last,
-            title: e.target.value,
-          }))
-        }
+    <>
+      <BackButton />
+      <form
+        onSubmit={(e) => handleNewsLetterSubmission(e)}
+        className="flex flex-col gap-5 bg-white shadow mx-auto rounded-2xl w-full p-[3%]"
+      >
+        <p>ایجاد خبرنامه جدید</p>
+        <TicketFields
+          label="عنوان:"
+          width="100%"
+          value={newsletterInfo.title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setNewsLetteInfo((last) => ({ ...last, title: e.target.value, }))
+          }
         // direction="flex-row items-center"
-      />
-      <div className="grid grid-cols-2 gap-5">
-        <SubmitOrderDropdown
-          dropDownTitle="به کاربر:"
-          dropdownItems={usersInfo}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))
-          }
-          value={newsletterInfo.user_id}
-          name={newsletterInfo.user_id}
         />
-        <SubmitOrderDropdown
-          dropDownTitle="به دپارتمان:"
-          dropdownItems={departmentsInfo}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))
-          }
-          value={newsletterInfo.dept_id}
-          name={newsletterInfo.dept_id}
-        />
-      </div>
-      <div
-        style={{
-          border: "none",
-          borderTop: "3px solid",
-          borderImage:
-            "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
-          margin: "3% 0",
-        }}
-      ></div>
-
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-row gap-2">
-          <label htmlFor="">متن خبرنامه:</label>
-          <textarea
-            name=""
-            id=""
-            cols={30}
-            rows={10}
-            className="p-2 bg-[#EAEFF6] w-[30%] rounded-[4px]"
-            value={newsletterInfo.description}
-            onChange={(e) =>
-              setNewsLetteInfo((last) => ({
-                ...last,
-                description: e.target.value,
-              }))
+        <div className="grid grid-cols-2 gap-5">
+          <SubmitOrderDropdown
+            dropDownTitle="به کاربر:"
+            dropdownItems={usersInfo}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))
             }
-          ></textarea>
+            value={newsletterInfo.user_id}
+            name={newsletterInfo.user_id}
+          />
+          <SubmitOrderDropdown
+            dropDownTitle="به دپارتمان:"
+            dropdownItems={departmentsInfo}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))
+            }
+            value={newsletterInfo.dept_id}
+            name={newsletterInfo.dept_id}
+          />
         </div>
-      </div>
+        <div
+          style={{
+            border: "none",
+            borderTop: "3px solid",
+            borderImage:
+              "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
+            margin: "3% 0",
+          }}
+        ></div>
 
-      <div className="flex items-center justify-end gap-5">
-        <button className="bg-[#4866CE] text-white p-2 rounded-[4px]">
-          ارسال خبرنامه
-        </button>
-      </div>
-    </form>
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-row gap-2">
+            <label htmlFor="" className="whitespace-nowrap">متن خبرنامه:</label>
+            <textarea
+              name=""
+              id=""
+              cols={30}
+              rows={10}
+              className="p-2 bg-[#EAEFF6] rounded-[4px] w-full"
+              value={newsletterInfo.description}
+              onChange={(e) =>
+                setNewsLetteInfo((last) => ({
+                  ...last,
+                  description: e.target.value,
+                }))
+              }
+            ></textarea>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-end gap-5">
+          <button className="bg-[#4866CE] text-white p-2 rounded-[4px]">
+            ارسال خبرنامه
+          </button>
+        </div>
+      </form>
+    </>
   );
 }
 

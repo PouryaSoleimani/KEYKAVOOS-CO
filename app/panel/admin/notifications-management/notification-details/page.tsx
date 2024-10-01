@@ -9,9 +9,10 @@ import { IoArrowBack } from "react-icons/io5";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
+import BackButton from "../../components/BackButton";
 
 export type NotificationDetailType = {
-    id: string
+    id: string | number,
     dept: { id: number, title: string, description: string, } | null
     text: string,
     brand: { id: number, title: string, description: string, } | null,
@@ -24,28 +25,27 @@ export type NotificationDetailType = {
 function NotificationDetail() {
     const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
     const params = useSearchParams();
-    const id = params.get("id") as number | string;
+    const ID = params.get("id")?.toString() as number | string;
     const { token, userProfile } = useSelector((state: any) => state.userData);
-    const [userNotification, setUserNotification] = useState<NotificationDetailType>();
+    const [userNotification, setUserNotification] = useState({} as any);
     const [notificationDetailStatus, setNotificationDetailStatus] = useState({ loading: false, error: "", });
     const moment = require("moment-jalaali");
 
-    useEffect(() => { getUserNotification(token, id, setUserNotification, setNotificationDetailStatus); }, []);
-    useEffect(() => { console.log("%c USER NOTIF DETAILS =====>", "color : yellow", userNotification); }, [userNotification])
+    useEffect(() => { getUserNotification(token, ID, setUserNotification, setNotificationDetailStatus); }, []);
+
+
     return (
         <div>
             <div className="w-fit z-10 whitespace-nowrap">
                 <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
                     <span>شماره اعلان:</span>
-                    <p className="font-faNum">{id}</p>
+                    <p className="font-faNum">{ID}</p>
                 </div>
             </div>
             <div className="py-[3%] w-full shadow mx-auto bg-white rounded-lg px-[3%] grid grid-cols-1 gap-5 relative">
 
-                <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-                    <Link href="/panel/admin/project-management" className="bg-white rounded-lg p-3 hover:bg-[#4866CF] hover:text-white duration-300"   >
-                        <IoArrowBack />
-                    </Link>
+                <div className="flex justify-end text-xl cursor-pointer absolute -top-16 left-0 items-center">
+                    <BackButton />
                 </div>
 
                 <div className="grid grid-cols-1 gap-5">
@@ -58,7 +58,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.[0].text ? userNotification?.[0].text : "---"}
+                                    {userNotification?.text ? userNotification?.text : ". . ."}
                                 </div>
                             )}
                         </div>
@@ -70,7 +70,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.[0]?.user?.name ? `${userNotification?.[0].user?.name} ${userNotification?.[0].user?.surname}` : "---"}
+                                    {userNotification?.user?.name ? `${userNotification?.user?.name} ${userNotification?.user?.surname}` : ". . ."}
                                 </div>
                             )}
                         </div>
@@ -85,7 +85,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    {userNotification?.[0].brand?.title ? userNotification?.[0].brand?.title : userNotification?.[0].dept?.title ? userNotification?.[0].dept.title : "---"}
+                                    {userNotification?.brand?.title ? userNotification?.brand?.title : userNotification?.dept?.title ? userNotification?.dept.title : ". . ."}
                                 </div>
                             )}
                         </div>
@@ -97,7 +97,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    <p>{userNotification?.[0].created_at ? moment(userNotification?.[0].created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                    <p>{userNotification?.created_at ? moment(userNotification?.created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : " . . ."}</p>
                                 </div>
                             )}
                         </div>
@@ -112,7 +112,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    <p>{userNotification?.[0].read_at ? moment(userNotification?.[0].read_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                    <p>{userNotification?.read_at ? moment(userNotification?.read_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : ". . ."}</p>
                                 </div>
                             )}
                         </div>
@@ -124,7 +124,7 @@ function NotificationDetail() {
                                 </SkeletonTheme>
                             ) : (
                                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                                    <p>{userNotification?.[0].updated_at ? moment(userNotification?.[0].updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "---"}</p>
+                                    <p>{userNotification?.updated_at ? moment(userNotification?.updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : ". . ."}</p>
                                 </div>
                             )}
                         </div>

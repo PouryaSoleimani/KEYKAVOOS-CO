@@ -4,14 +4,14 @@ import RolePermission from "./role-permission";
 import PositionPermission from "./position-permission";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
+import BackButton from "../../../components/BackButton";
 
-function ChangePermission() {
+function ChangeRole() {
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <div className="flex items-center justify-end">
-        <Link href='/panel/admin/view-users/permission-management' className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
-          <IoArrowBack />
-        </Link>
+    <div className="grid grid-cols-1 gap-3">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-[#4866cf]">تغییر و مدیریت دسترسی ها</h1>
+        <BackButton />
       </div>
       <RolePermission />
       <PositionPermission />
@@ -19,4 +19,4 @@ function ChangePermission() {
   );
 }
 
-export default ChangePermission;
+export default ChangeRole;
