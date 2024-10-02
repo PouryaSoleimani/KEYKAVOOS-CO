@@ -25,7 +25,7 @@ function CreateOrganization() {
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(org_name, description, address, phone, user_id , shenase_melli , registration_number),
+            await createNewOrganization(org_name, description, address, phone, user_id, shenase_melli, registration_number),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
