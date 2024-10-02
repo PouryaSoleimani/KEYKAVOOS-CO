@@ -78,7 +78,8 @@ const Support = () => {
                     )}
                   </div>
                   <p>
-                    {item.updated_at ? moment(item.updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
+                    {/* {item.updated_at ? moment(item.updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"} */}
+                    ...
                   </p>
                   <div>
                     <div className="flex flex-row justify-center gap-4">
