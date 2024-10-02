@@ -56,11 +56,11 @@ function OrgManagement() {
             <NotFound text={`${organizationsStatus.error}`} />
           ) : (
             <div>
-              {organizations?.map((item: { name: string; phone: number; address: string; id: number; deleted_at: string | null }, index) => (
+              {organizations?.map((item: { org_name: string; phone: number; address: string; id: number; deleted_at: string | null }, index) => (
 
                 <div className={`grid lg:grid-cols-5 grid-cols-12 bg-[#EAEFF6] caret-transparent my-2 cursor-default text-center gap-x-5 py-3 rounded-[4px] ${item.deleted_at ? "bg-red-500 " : ""}`} key={item.id}>
                   <p className="col-span-1">{index + 1}</p>
-                  <p className="col-span-2 lg:col-span-1">{item.name}</p>
+                  <p className="col-span-2 lg:col-span-1">{item.org_name}</p>
                   <p className="col-span-3 lg:col-span-1">{item.phone}</p>
                   <p className="col-span-3 lg:col-span-1">{item.address}</p>
 
