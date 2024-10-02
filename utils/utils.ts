@@ -3279,11 +3279,11 @@ export const getOrganizations = async (
 };
 // ? CREATE NEW ORGANIZATION 
 export const createNewOrganization = async (
-  org_name: string, description: string, address: string, phone: string, user_id: string | number, shenase_melli: string | number, registration_number: number | string
+  org_name: string, description: string, address: string, phone: string, user_id: string | number, shenase_melli: string | number, registration_number: number | string , 
 ) => {
   try {
     const { data } = await app.post("/organization/store",
-      { org_name, description, address, phone, user_id , shenase_melli , registration_number },
+      { org_name, description, address, phone, user_id, shenase_melli, registration_number },
     );
     toast.success("سازمان با موفقیت ایجاد شد", {
       position: "top-right",
