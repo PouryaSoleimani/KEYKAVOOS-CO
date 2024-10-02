@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { BrandType } from "../brands/page";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
+let TOKEN = JSON.parse(sessionStorage.getItem('token') as string);
 
 // ^ COMPONENT ===========================================================================================================================================================================
 function CreateOrganization() {
@@ -25,12 +26,11 @@ function CreateOrganization() {
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(org_name, description, address, phone, user_id, shenase_melli, registration_number),
+            await createNewOrganization(org_name, description, address, phone, user_id, shenase_melli, registration_number, TOKEN),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
     };
-
     return (
         <>
             <div className="flex items-center justify-between py-2">
