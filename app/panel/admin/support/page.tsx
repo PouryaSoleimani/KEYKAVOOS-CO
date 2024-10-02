@@ -67,7 +67,7 @@ const Support = () => {
               <NotFound text={`${allTicketsStatus.error}`} />
             ) : allTickets.length !== 0 ? (
               allTickets?.map((item: any, index) => (
-                <div key={item.id} className={`grid grid-cols-5 text-center py-4 rounded-[4px] ${item.updated_at ? "bg-emerald-800/80 text-white" : "bg-[#EAEFF6]"}`}  >
+                <div key={item.id} className={`grid grid-cols-5 text-center py-4 rounded-[4px] ${item.status_id == 2 ? "bg-emerald-800/80 text-white" : "bg-[#EAEFF6]"}`}  >
                   <p>{index + 1}</p>
                   <p>{item.title}</p>
                   <div>
