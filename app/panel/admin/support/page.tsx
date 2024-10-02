@@ -71,7 +71,7 @@ const Support = () => {
                   <p>{index + 1}</p>
                   <p>{item.title}</p>
                   <div>
-                    {item.updated_at ? (
+                    {item.status_id == 2 ? (
                       <p> بسته{" "} <span className="text-emerald-600 font-semibold">شده</span> </p>
                     ) : (
                       <p> بسته{" "}<span className="text-red-400 font-semibold">نشده</span></p>
@@ -85,7 +85,7 @@ const Support = () => {
                       <Link href={`/panel/admin/support/ticket-detail?id=${item.id}`} className="hover:scale-125 duration-300">
                         <Image src={vieweye} alt="مشاهده" width={20} />
                       </Link>
-                      {!item.updated_at && (
+                      {item.status_id !== 2 && (
                         <button onClick={(event => SEENTICKET(event, item.id))} className="cursor-pointer hover:scale-125 duration-300">
                           <Image src={checkmark} alt="بستن" width={20} />
                         </button>
