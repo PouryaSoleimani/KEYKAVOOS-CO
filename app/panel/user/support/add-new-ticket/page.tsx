@@ -43,7 +43,7 @@ function AddNewTicket() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, ticket.dept_id == "واحد مالی" ? 1 : 2, userProfile.id, null)
-    // setTicket((last) => ({ ...last, title: "", description: "" }));
+    setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
   //^ RETURN 
