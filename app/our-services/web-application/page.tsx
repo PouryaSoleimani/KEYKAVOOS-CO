@@ -6,6 +6,7 @@ import Footer from '@/components/home-components/Footer/Footer';
 import Image from 'next/image';
 import CarouselGames from './components/WebAppCarousel';
 import WebAppCategoryBox from './components/WebAppCategoryBox';
+import 'animate.css';
 
 //^ COMPONENT
 const WebApplicationServicePage = () => {
@@ -13,7 +14,7 @@ const WebApplicationServicePage = () => {
         <div className='web-container h-screen overflow-x-hidden'>
             <Nav />
             <div className='py-4'>
-                <h1 className='BLOG_HEADER_TEXT text-center font-black bg-gradient-to-tr from-blue-300 via-[#4866CF] to-blue-900 bg-clip-text text-4xl py-4 text-transparent'>طراحی وب اپلیکیشن</h1>
+                <h1 className='BLOG_HEADER_TEXT text-center font-black bg-gradient-to-tr from-blue-300 via-[#4866CF] to-blue-900 bg-clip-text text-5xl py-4 text-transparent BLOG_HEADER_TEXT animate__animated animate__heartBeat animate__infinite'>طراحی وب اپلیکیشن</h1>
             </div>
             <div id="WEB__APPLICATION__PAGE__CONTAINER" className='w-screen h-auto '>
                 <CarouselGames />
