@@ -41,9 +41,9 @@ const WebAppCategoryBox: React.FC<props> = ({ title, desc, imageSrc }) => {
                     </span>
                 </div>
                 <div id="RIGHT__BUTTONS" className='flex gap-4 flex-col lg:flex-row items-center justify-center lg:justify-start w-full'>
-                    <button className='btn w-full lg:w-52 btn-primary bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-900 border-none outline-none  text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500'>مشاهده نمونه کارها</button>
-                    <button className='btn w-full lg:w-52 bg-gradient-to-tr from-lime-500 via-[#0dbe66] to-emerald-500 border-none outline-none text-white text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500 '>ثبت سفارش</button>
-                    <button className='btn w-full lg:w-52 bg-gradient-to-tr from-yellow-500 via-orange-400 to-red-600 border-none outline-none text-white text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500 '>مشاوره آنلاین</button>
+                    <button className='btn w-full lg:w-[12.5rem] btn-primary bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-900 border-none outline-none  text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500'>مشاهده نمونه کارها</button>
+                    <button className='btn w-full lg:w-[12.5rem] bg-gradient-to-tr from-lime-500 via-[#0dbe66] to-emerald-500 border-none outline-none text-white text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500 '>ثبت سفارش</button>
+                    <button className='btn w-full lg:w-[12.5rem] bg-gradient-to-tr from-yellow-500 via-orange-400 to-red-600 border-none outline-none text-white text-lg font-thin tracking-tight shadow-sm shadow-zinc-300 hover:scale-110 duration-500 '>مشاوره آنلاین</button>
                 </div>
             </div>
 
