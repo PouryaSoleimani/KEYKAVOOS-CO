@@ -8,9 +8,9 @@ const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
     console.log(imageSrc, title, content)
     return (
         <div>
-            <div className="w-72 card backdrop-blur-[2px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
+            <div className="w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
                 <figure>
-                    <img src={imageSrc} alt="Pic" />
+                    <img src={imageSrc} alt="Pic" className='hover:scale-125 overflow-hidden duration-500'/>
                 </figure>
                 <div className="card-body gap-y-4">
                     <p className='text-xs text-blue-600 flex flex-row justify-start items-center gap-x-1 w-fit'>
