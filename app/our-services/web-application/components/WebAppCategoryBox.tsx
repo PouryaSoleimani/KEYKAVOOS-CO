@@ -12,8 +12,8 @@ const WebAppCategoryBox: React.FC<props> = ({ title, desc, imageSrc }) => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, omnis. Odit distinctio quia beatae illum illo maiores voluptatem deleniti quis ea non totam earum adipisci, labore deserunt temporibus. Placeat, officia!
                 </p>
                 <div id="RIGHT__BUTTONS" className='flex gap-4 flex-col lg:flex-row items-center justify-center lg:justify-start w-full'>
-                    <button className='btn btn-primary bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-900 border-none outline-none hover:bg-blue-900'>مشاهده نمونه کارها</button>
-                    <button className='btn btn-outline btn-primary border-[#4866CF] text-[#4866CF] hover:bg-[#4866CF]'>ثبت سفارش</button>
+                    <button className='btn btn-primary bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-900 border-none outline-none '>مشاهده نمونه کارها</button>
+                    <button className='btn  bg-gradient-to-tr from-lime-500 via-[#06723c] to-emerald-900 border-none outline-none '>ثبت سفارش</button>
                 </div>
             </div>
 

@@ -94,7 +94,7 @@ const Nav = () => {
               {localToken && console.log(localToken)}
               {localToken && (<p className="flex justify-between items-center"> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
-                <Skeleton width={100} baseColor="#4866CF" className="flex justify-center space-x-2 item-center" />
+                <Skeleton width={100} baseColor="#4866CF" className="flex justify-center space-x-2 items-center" />
               )}
             </button>
           </Link>
