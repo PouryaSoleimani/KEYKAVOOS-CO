@@ -68,7 +68,7 @@ export const getUserNotification = async (
     setUserNotifications(data.data);
     console.log("notif", data.data);
   } catch (error: any) {
-    console.log("ERROR OF TICKET =>>>", error?.response?.data.message);
+    // console.log("ERROR OF TICKET =>>>", error?.response?.data.message);
   }
 };
 //* GET ALL NOTIFICATIONSgetUserNotification
