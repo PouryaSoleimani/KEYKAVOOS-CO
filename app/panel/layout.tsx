@@ -2,7 +2,7 @@
 "use client";
 import PanelNav from "@/components/panel/panel-nav";
 import PanelSidebar from "@/components/panel/panel-sidebar";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { mainAdminSidebarOptions, userSidebarOptions } from "@/lib/data";
 import { useDispatch, useSelector } from "react-redux";
 import PanelNavSmall from "@/components/panel/panel-nav-small";
@@ -68,7 +68,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
     if (typeof window !== "undefined") {
       Promise.all([
         getAllPlans(token, setAllPlans),
-        // getUserNotification(token, Number(userId), setUserNotifications),
+        getUserNotification(token, Number(userId), setUserNotifications),
         getAllSiteTypes(token, setSiteTypes),
         getAllDepartments(token, setDepartments),
       ]);
@@ -87,7 +87,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
               <div className="font-YekanBakh flex w-full flex-row relative min-h-screen bg-white" style={{ boxShadow: "0px 0px 90px 2px rgba(0, 0, 0, 0.25)" }} dir="rtl" >
                 <Toaster position="top-left" reverseOrder={true} />
                 {localToken && (
-                  <>
+                  <React.Fragment>
                     <div className="hidden lg:block">
                       <PanelSidebar sideOptions={role === "Admin" ? mainAdminSidebarOptions : userSidebarOptions} status={status} />
                     </div>
@@ -104,7 +104,7 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                         <Image src={nextarrow} alt="" onClick={() => handleNextClick()} className={`${currentPage + 1 === Math.ceil(userSidebarOptions.length / itemsPerPage) ? "hidden" : "flex"}`} />
                       </div>
                     </div>
-                  </>
+                  </React.Fragment>
                 )}
               </div>
             </AttrIdContextWrapper>
