@@ -26,7 +26,7 @@ function AddNewTicket() {
       .catch((error: any) => console.log("DEPARTMENTS ERROR => ", error.response))
   }
 
-  useEffect(() => { GETALLDEPARTMENTS() }, [])
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -45,7 +45,7 @@ function AddNewTicket() {
   const departmentInfo = typedDepartments?.map((item) => String(item.department.id) + " - " + item.department.name_fa);
   const dispatch = useDispatch();
   const router = useRouter();
-
+  useEffect(() => { console.log("DEPARTMENT INFO",departmentInfo , typedDepartments) }, [])
   const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", departmentId: "" });
 
   const departmentId = typedDepartments?.filter((item) => item.department.id === Number(ticket.dept_id))?.map((item) => item.department.id)[0];
@@ -57,7 +57,7 @@ function AddNewTicket() {
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
-  //^ RETURN 
+  //^ RETURN  ================================================================================================================================================
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
