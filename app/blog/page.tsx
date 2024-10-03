@@ -11,7 +11,7 @@ const BlogPage = () => {
         <div className='web-container'>
             <Nav />
             <div >
-                <h1 className='BLOG_HEADER_TEXT text-center font-black bg-gradient-to-tr from-blue-300 via-[#4866CF] to-blue-900 bg-clip-text text-3xl py-4 text-transparent animate__animated animate__heartBeat animate__infinite'>وبــــلاگ</h1>
+                <h1 className='BLOG_HEADER_TEXT text-center font-black bg-gradient-to-tr from-blue-300 via-[#4866CF] to-blue-900 bg-clip-text text-4xl py-4 text-transparent animate__animated animate__heartBeat animate__infinite'>وبــــلاگ</h1>
             </div>
             <div id='BLOG__SWIPER__CONTAINER' className='my-6 px-10'>
                 <BlogSwiper />
