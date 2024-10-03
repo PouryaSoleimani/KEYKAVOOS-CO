@@ -40,11 +40,12 @@ const Support = () => {
       </Link>
       <div className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full animate__animated animate__pulse">
         <div className="flex flex-col gap-5">
-          <div className="grid lg:grid-cols-5 grid-cols-8 text-center">
+          <div className="grid lg:grid-cols-6 grid-cols-8 text-center">
             <p className="col-span-1">شماره</p>
             <p className="col-span-2 lg:col-span-1">عنوان</p>
-            <p className="col-span-2 lg:col-span-1">وضعیت</p>
+            <p className="col-span-2 lg:col-span-1">واحد مربوطه</p>
             <p className="col-span-2 lg:col-span-1">تاریخ به روزرسانی</p>
+            <p className="col-span-2 lg:col-span-1">وضعیت</p>
             <p>عملیات</p>
           </div>
           {supportStatus.loading ? (
@@ -55,10 +56,15 @@ const Support = () => {
             <NotFound text={supportStatus.error} />
           ) : !allTickets.length ? (<NotFound text="تیکتی یافت نشد" />) : (
             allTickets?.map((item: any, index) => (
-              <div key={item.id} className="grid lg:grid-cols-5 grid-cols-8 text-center py-3 bg-[#EAEFF6] rounded-[4px]"  >
+              <div key={item.id} className="grid lg:grid-cols-6 grid-cols-8 text-center py-3 bg-[#EAEFF6] rounded-[4px]"  >
                 <p className="font-faNum col-span-1">{index + 1}</p>
                 <p className="font-faNum col-span-2 lg:col-span-1">{item.title}</p>
                 {/* item.priority_id */}
+
+                <p>{item.dept_id == 1 ? "واحد مالی" : "واحد فنی"}</p>
+                <p className="font-faNum col-span-2 lg:col-span-1">
+                  {moment(item.updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD")}
+                </p>
                 <div className="col-span-2 lg:col-span-1">
                   {item.status_id === 2 ? (
                     <p>بسته{" "} <span className="text-emerald-600 font-semibold">شده</span> </p>
@@ -66,9 +72,6 @@ const Support = () => {
                     <p>بسته{" "}<span className="text-red-400 font-semibold">نشده</span></p>
                   )}
                 </div>
-                <p className="font-faNum col-span-2 lg:col-span-1">
-                  {moment(item.updated_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD")}
-                </p>
                 <Link href={`/panel/user/support/ticket-detail?id=${item.id}`} className="flex justify-center">
                   <Image src={vieweye} alt="مشاهده" width={20} />
                 </Link>
