@@ -27,7 +27,7 @@ const WebAppCategoryBox: React.FC<props> = ({ title, desc, imageSrc }) => {
                         <FaMoneyBillWave />
                         از 20.000.000 تومان
                     </span>
-                    <span className='btn btn-outline btn-lg text-xl lg:text-2xl w-full lg:w-auto'>
+                    <span className='btn btn-outline btn-lg text-lg lg:text-2xl w-full lg:w-auto'>
                         <FaWordpress />
                         <IoLogoJavascript />
                         <FaReact />
