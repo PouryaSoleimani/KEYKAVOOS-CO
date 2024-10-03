@@ -5,11 +5,10 @@ import PanelFields from "../../components/panel-fileds";
 import axios from "axios";
 import { useFormik } from "formik";
 import SettingsFileupload from "./components/settings-fileupload";
-// import { Bounce, toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 import app from "@/services/service";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserProfile } from "@/redux/features/user/userSlice";
-import toast, { Toaster } from 'react-hot-toast';
 import USER__DEFAULT from '@/public/USER__DEFAULT.png'
 import Image from "next/image";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -56,21 +55,22 @@ function Genuine({ userId, token }: GenuineProps) {
     try {
       const { data } = await app.put(`/user/update/${userId}`, { name, surname, email, mobile, });
       dispatch(updateUserProfile({ ...userProfile, name, surname, email, mobile, }));
-      notifySuccess()
+      toast.success("ویرایش اطلاعات با موفقیت انجام شد", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" , whiteSpace : "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(data);
     } catch (error: any) {
-      notifyError()
+      toast.error("خطا در ویرایش اطلاعات", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" , whiteSpace : "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(error.response);
     }
   };
-
+  //* HANDLE SUBMISSION 
+  const router = useRouter()
   const handleSubmission = async () => {
-    Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile)]);
+    Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile), router.refresh()]);
   };
 
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
-  const router = useRouter()
+
 
   // * HANDLE PROFILE PIC
   function handleProfilePic(event: React.ChangeEvent<HTMLInputElement>) {
