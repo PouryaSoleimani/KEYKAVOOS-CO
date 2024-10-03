@@ -10,12 +10,23 @@ import SubmitOrderDropdown from "../../submit-order/components/submit-order-drop
 import { CREATETICKET } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
+import app from "@/services/service";
 
 // ^ COMPONENT
 function AddNewTicket() {
+  //STATES
   const { userProfile, token } = useSelector((state: any) => state.userData);
   const [departments, setDepartments] = useState([]);
   const typedDepartments: DepartmentFinalType[] = departments as DepartmentFinalType[];
+
+  // FUNCTIONS
+  const GETALLDEPARTMENTS = () => {
+    app.get('/departments')
+      .then(response => console.log("DEPARTMENTS ==>", response.data))
+      .catch((error: any) => console.log("DEPARTMENTS ERROR => ", error.response))
+  }
+
+  useEffect(() => { GETALLDEPARTMENTS() }, [])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
