@@ -60,15 +60,15 @@ export const createNotification = async (token: string, dept_id: number, brand_i
 export const getUserNotification = async (
   token: string | number,
   id: number | string,
-  setUserNotifications: React.Dispatch<NotificationDetailType>,
-  setNotificationDetailStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
+  setUserNotifications: any,
+  // setNotificationDetailStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
     const { data } = await app.get(`/notification/show/${id}`);
     setUserNotifications(data.data);
     console.log("notif", data.data);
   } catch (error: any) {
-    // console.log("ERROR =>>>", error?.response?.data.message);
+    console.log("ERROR OF TICKET =>>>", error?.response?.data.message);
   }
 };
 //* GET ALL NOTIFICATIONSgetUserNotification
