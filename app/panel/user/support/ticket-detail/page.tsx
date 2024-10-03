@@ -134,7 +134,7 @@ function TicketDetail() {
     setTicketId(prevId);
   }, [ticketDetail.SenderText]);
 
-  // * FILE UPLOAD
+  // * FILE UPLOAD ================================================================================================================================================
   function FILEUPLOAD(id: number | string) {
     const formData = new FormData();
     formData.append("DOCUMENT", File);
