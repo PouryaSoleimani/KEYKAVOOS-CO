@@ -55,10 +55,10 @@ function Genuine({ userId, token }: GenuineProps) {
     try {
       const { data } = await app.put(`/user/update/${userId}`, { name, surname, email, mobile, });
       dispatch(updateUserProfile({ ...userProfile, name, surname, email, mobile, }));
-      toast.success("ویرایش اطلاعات با موفقیت انجام شد", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" , whiteSpace : "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.success("ویرایش اطلاعات با موفقیت انجام شد", { position: "top-right", autoClose: 2000, style: { fontSize: "14px", whiteSpace: "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(data);
     } catch (error: any) {
-      toast.error("خطا در ویرایش اطلاعات", { position: "top-right", autoClose: 2000, style: { fontSize: "14px" , whiteSpace : "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      toast.error("خطا در ویرایش اطلاعات", { position: "top-right", autoClose: 2000, style: { fontSize: "14px", whiteSpace: "nowrap" }, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
       console.log(error.response);
     }
   };
