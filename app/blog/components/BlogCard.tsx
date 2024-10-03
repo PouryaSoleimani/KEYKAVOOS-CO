@@ -20,7 +20,7 @@ const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
                     <h2 className="card-title">{title}</h2>
                     <p className='text-zinc-600'>{content}</p>
                     <div className="justify-end card-actions ">
-                        <button className="btn bg-[#4866CF] font-extralight hover:bg-blue-800 text-white text-lg text-start w-full rounded-xl duration-300" dir='rtl'>بیشتر ...</button>
+                        <button className="btn bg-[#4866CF] font-extralight hover:bg-blue-800 text-white text-lg text-start w-full rounded-xl duration-300" dir='rtl'>ادامه مطلب</button>
                     </div>
                 </div>
             </div>
