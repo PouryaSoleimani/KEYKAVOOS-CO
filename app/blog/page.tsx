@@ -27,11 +27,15 @@ const BlogPage = () => {
                 <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
             </div>
             <div id="BLOG__PAGINATION__CONTAINER" className='w-full flex items-center justify-center my-10'>
-                <div className="join">
+                <div className="join rounded-lg checked:bg-blue-800">
                     <input className="join-item btn btn-square" type="radio" name="options" aria-label="1" defaultChecked />
                     <input className="join-item btn btn-square" type="radio" name="options" aria-label="2" />
                     <input className="join-item btn btn-square" type="radio" name="options" aria-label="3" />
                     <input className="join-item btn btn-square" type="radio" name="options" aria-label="4" />
+                    <input className="join-item btn btn-square" type="radio" name="options" aria-label="5" />
+                    <input className="join-item btn btn-square" type="radio" name="options" aria-label="6" />
+                    <input className="join-item btn btn-square" type="radio" name="options" aria-label="7" />
+                    <input className="join-item btn btn-square" type="radio" name="options" aria-label="8" />
                 </div>
             </div>
             <Footer />
