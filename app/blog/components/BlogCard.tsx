@@ -21,7 +21,7 @@ const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
                     </p>
                     <h2 className="card-title">{title}</h2>
                     <p className='text-zinc-600'>{content}</p>
-                    <div className='flex items-center justify-around w-full'>
+                    <div className='flex items-center justify-around w-full gap-x-4'>
                         <p className='flex gap-x-1 items-center whitespace-nowrap text-xs text-orange-800'><PiUserFill />نویسنده مطلب</p>
                         <p className='flex gap-x-1 items-center whitespace-nowrap text-xs text-emerald-800'><BsCalendarDateFill />تاریخ انتشار</p>
                     </div>
