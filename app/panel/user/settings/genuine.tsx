@@ -1,6 +1,6 @@
 // ^ USER SETTINGS - GENIUNE USER ======================================================================================================================
 "use client";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import PanelFields from "../../components/panel-fileds";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -13,6 +13,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import USER__DEFAULT from '@/public/USER__DEFAULT.png'
 import Image from "next/image";
 import { MdOutlineFileUpload } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
@@ -64,31 +65,31 @@ function Genuine({ userId, token }: GenuineProps) {
   };
 
   const handleSubmission = async () => {
-    Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile), await handleAvatar(),]);
+    Promise.all([await GenuineSubmission(values.FirstName, values.LastName, values.email, values.mobile)]);
   };
 
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
-
+  const router = useRouter()
 
   // * HANDLE PROFILE PIC
   function handleProfilePic(event: React.ChangeEvent<HTMLInputElement>) {
     event.preventDefault()
-
     const PROFILE_PIC_FILE = event.target.files?.[0]
-    console.log(PROFILE_PIC_FILE)
-
     let FORM__DATA = new FormData()
     FORM__DATA.append("pic", PROFILE_PIC_FILE as File)
-
-    app.post(`/upload/profile_pic/${userId}`, { pic: PROFILE_PIC_FILE }, { headers: { "Content-Type": "multipart/form-data" } })
+    app.post(`/upload/profile_pic`, { pic: PROFILE_PIC_FILE }, { headers: { "Content-Type": "multipart/form-data" } })
       .then(response => console.log(response.data, FORM__DATA))
       .catch((error: any) => console.log(error.response, FORM__DATA))
   }
-
+  function HANDLESUBMIT() {
+    router.refresh()
+    console.log("SUBMIT SUBMIT SUBMIT")
+  }
+  //^  RETURN =====================================================================================================================================================
   return (
     <>
-      <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" onSubmit={handleSubmit}>
+      <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">
             <PanelFields label="نام : " onChange={handleChange} value={values.FirstName} name="FirstName" placeholder={userProfile?.name} />
@@ -103,8 +104,8 @@ function Genuine({ userId, token }: GenuineProps) {
                 <input id="fileInput" type="file" required style={{ display: "none" }} onChange={event => handleProfilePic(event)} />
                 <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="rounded-md px-3 w-[120px] py-2 bg-[#4866CF] hover:bg-blue-800 duration-300 flex flex-row-reverse justify-between space-x-4 items-center" >
                   <MdOutlineFileUpload className="w-6 h-6 text-white" />
-                  <span className="text-white text-[13px] tracking-tighter hover:text-white flex items-center justify-center">
-                    {selectedFile ? selectedFile.name.slice(0, 6) : "انتخاب فایل"}
+                  <span className="text-white text-[14px] hover:text-white flex items-center justify-center text-center mx-0">
+                    آپلود فایل
                   </span>
                 </label>
               </div>
@@ -125,7 +126,7 @@ function Genuine({ userId, token }: GenuineProps) {
           </div>
         </div>
         <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 mt-2">
-          <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" type="submit"> تایید  ویرایش</button>
+          <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" onClick={handleSubmission}> تایید  ویرایش</button>
         </div>
       </form>
     </>
