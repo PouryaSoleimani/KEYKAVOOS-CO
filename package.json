@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@next/bundle-analyzer": "^14.2.13",
     "@next/third-parties": "^14.1.0",
     "@persian-tools/persian-tools": "^1.7.1",
