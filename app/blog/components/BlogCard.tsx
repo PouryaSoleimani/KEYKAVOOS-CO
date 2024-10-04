@@ -3,15 +3,18 @@ import { FaCircle } from 'react-icons/fa6'
 import { PiUserFill } from "react-icons/pi";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { MdAccessTime } from "react-icons/md";
+import AOS from 'aos'
+import "aos/dist/aos.css";
 interface props { imageSrc: string, title: string, content: string }
 
-
+//^ COMPONENT
 const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
-
+    // AOS
+    useEffect(() => { AOS.init(); AOS.refresh(); }, []);
     console.log(imageSrc, title, content)
     return (
         <div >
-            <div className="BLOG__CARD w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
+            <div data-aos="fade-up" data-aos-duration="1500" className="BLOG__CARD w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
                 <figure>
                     <img src={imageSrc} alt="Pic" className='hover:scale-125 overflow-hidden duration-500' />
                 </figure>

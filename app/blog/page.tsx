@@ -6,11 +6,13 @@ import BlogSwiper from './components/BlogSwiper'
 import BlogCard from './components/BlogCard'
 import Footer from '@/components/home-components/Footer/Footer'
 import 'animate.css';
-
+import AOS from 'aos'
+import "aos/dist/aos.css";
 
 //^ COMPONENT ============================================================================================================================================
 const BlogPage = () => {
-
+    // AOS
+    useEffect(() => { AOS.init(); AOS.refresh(); }, []);
 
     // ^ RETURN
     return (
@@ -22,7 +24,7 @@ const BlogPage = () => {
             <div id='BLOG__SWIPER__CONTAINER' className='my-6 px-10'>
                 <BlogSwiper />
             </div>
-            <div id='BLOG__CARDS__CONTAINER' className='flex flex-wrap justify-center items-center place-items-center gap-8 space-y-6 lg:grid lg:grid-cols-4 p-10 w-full space-x-6'>
+            <div id='BLOG__CARDS__CONTAINER' className='flex flex-wrap justify-center items-center place-items-center gap-8 lg:grid lg:grid-cols-4 p-10 w-full space-x-6'>
                 <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
                 <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
                 <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
