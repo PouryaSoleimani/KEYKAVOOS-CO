@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <React.Fragment>
       <Nav />
-      <div dir="rtl" className="font-YekanBakh flex flex-col gap-14">
+      <div dir="rtl" className="flex flex-col gap-14 font-YekanBakh">
         <ContactHeading />
         <Options />
         <Form />

@@ -50,27 +50,30 @@ function OrderPayment() {
   // };
 
   return (
-    <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] grid grid-cols-1 gap-5 animate__animated animate__pulse">
-      {orderDetailStatus.loading ? (
-        <SkeletonTheme>
-          <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
-        </SkeletonTheme>
-      ) : orderDetailStatus.error ? (
-        <NotFound text={`${orderDetailStatus.error}`} />
-      ) : (
-        <div>
-          <div className="flex flex-row gap-3 bg-[#4866CE] text-white w-[200px] px-2 py-2 justify-center rounded-md items-center">
-            <p>شماره سفارش:</p>
-            <span>{orderId}</span>
+    <>
+      <h1 className="text-2xl p-2 font-bold text-[#4866CF]">مدیریت پرداخت ها</h1>
+      <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] grid grid-cols-1 gap-5 animate__animated animate__pulse">
+        {orderDetailStatus.loading ? (
+          <SkeletonTheme>
+            <Skeleton count={1} className="p-2" baseColor="#EAEFF6" />
+          </SkeletonTheme>
+        ) : orderDetailStatus.error ? (
+          <NotFound text={`${orderDetailStatus.error}`} />
+        ) : (
+          <div>
+            <div className="flex flex-row gap-3 bg-[#4866CE] text-white w-[200px] px-2 py-2 justify-center rounded-md items-center">
+              <p>شماره سفارش:</p>
+              <span>{orderId}</span>
+            </div>
+            <div className="grid grid-cols-1 gap-8">
+              <FirstPayment firstOrderPayment={firstOrderPayment} token={token} />
+              <SecondPayment paidAmount={secondOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} />
+              <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} />
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-8">
-            <FirstPayment firstOrderPayment={firstOrderPayment} token={token} />
-            <SecondPayment paidAmount={secondOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} />
-            <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

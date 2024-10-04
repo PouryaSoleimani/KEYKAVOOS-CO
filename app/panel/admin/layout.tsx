@@ -27,6 +27,7 @@ import { UserContext } from "./context/user-context/UserContext";
 import { BrandType } from "./org_management/brands/page";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+  // STATES
   const { token, userId } = useSelector((store: any) => store.userData);
   const dispatch = useDispatch();
   const [role, setRole] = useState("");
@@ -38,6 +39,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const { setDepartments } = useContext(DepartmentContext);
   const { setAllUsersData, setUsersStatus } = useContext(UserContext);
   const [brands, setBrands] = useState<BrandType[]>([]);
+  
+  // FUNCTIONS
   useEffect(() => {
     dispatch(getTokenFromLocal());
     dispatch<any>(fetchUserProfile());

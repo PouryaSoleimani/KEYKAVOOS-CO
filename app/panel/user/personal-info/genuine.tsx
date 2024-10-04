@@ -15,7 +15,7 @@ function Genuine({ userProfile }: GenuineProps) {
           <PanelFields label="شماره موبایل:" value={userProfile.mobile} disable={true} readonly={true} placeholder="" />
           <PanelFields label="ایمیل:" value={userProfile.email ? userProfile.email : "-"} name="email" disable={true} readonly={true} placeholder="" />
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-10 mt-10">
           <div className="self-center">
             <Image src={userProfile.pic_path ? `http://localhost:8000/storage/${userProfile.pic_path}` : USER__DEFAULT} alt="profile_pic" width={162} height={152} className="flex items-center justify-center text-zinc-500 rounded-full" />
           </div>

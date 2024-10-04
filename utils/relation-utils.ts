@@ -10,17 +10,14 @@ export const giveRolePermission = async (
   try {
     const { data } = await app(
       `/permission/attach_role/${permissionId}/${roleId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { headers: { Authorization: `Bearer ${token}`, },}
     );
     console.log(data);
     toast.success(`دسترسی با موفقیت داده شد.`, {
       position: "top-right",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -33,7 +30,8 @@ export const giveRolePermission = async (
     toast.error("خطا در ایجاد دسترسی", {
       position: "top-right",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
+      style: { fontSize: "14px" },
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,

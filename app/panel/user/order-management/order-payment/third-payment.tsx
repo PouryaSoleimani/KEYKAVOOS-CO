@@ -59,7 +59,7 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, to
             </div>
 
             <div className="flex justify-end items-center">
-              <button className="bg-[#4866CE] text-white p-2 w-[30%] tracking-tight rounded-[4px] hover:bg-blue-800 duration-300">
+              <button className="bg-[#4866CE] text-white p-3 w-[30%] tracking-tight rounded-[6px] text-lg hover:bg-blue-800 duration-300">
                 تایید
               </button>
             </div>

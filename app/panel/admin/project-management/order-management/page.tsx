@@ -22,11 +22,9 @@ function OrderManagement() {
 
   return (
     <>
-      <div className="flex items-center justify-end py-2" >
-        <Link href="/panel/admin/project-management" className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer">
-          <IoArrowBack />
-        </Link>
-      </div >
+      <div className="py-3">
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت سفارش ها</h1>
+      </div>
 
       <div className="flex flex-col gap-5 bg-white shadow mx-auto rounded-lg w-full p-[3%]">
         <div className="grid grid-cols-6 text-center">
@@ -57,9 +55,9 @@ function OrderManagement() {
                 <Link href={`/panel/admin/project-management/order-management/order-detail?id=${item?.id}`} className="flex justify-center hover:scale-125 duration-300" >
                   <Image src={vieweye} alt="مشاهده" width={25} height={25} />
                 </Link>
-                <Link href={`panel/admin/project-management/order-management`} className="hover:scale-125 duration-300">
+                {/* <Link href={`panel/admin/project-management/order-management`} className="hover:scale-125 duration-300">
                   <MdOutlinePayment className="text-2xl text-green-800 font-semibold" />
-                </Link>
+                </Link> */}
               </div>
             </div>
           ))

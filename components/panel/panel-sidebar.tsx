@@ -22,7 +22,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
         <Image src={sidebarpicbg} alt="sidebarbg" height={660} className="overflow-hidden" />
         <div className="absolute top-40 right-0 flex flex-col gap-8 py-2 pr-2 w-full">
           {sideOptions.map((item) => (
-            <Link href={item.address} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >
+            <Link href={item.address.toString()} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >
               <Image src={item.imgSrc} alt={item.text} width={26} height={26} className="-translate-x-1" />
               <p className={`hover:text-blue-800 hover:scale-105 duration-300 text-[17px] px-2 tracking-tighter -translate-x-1 w-[95%] ${item?.address === pathname || item.path.includes(pathname) ? "text-[#4866CF] border-l-4 border-l-[#4866CF] bg-blue-50 px-2 py-1.5 rounded-r-md" : " text-[#68707A]"}`} >
                 {status !== "success" ? (

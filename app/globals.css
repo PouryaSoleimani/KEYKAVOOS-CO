@@ -351,3 +351,22 @@ select {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+.BLOG_HEADER_TEXT {
+  --animate-duration: 24s;
+}
+
+.WEB__APP__PIC{
+  --animate-duration: 30s;
+}
+@keyframes CAROUSELRUN {
+  from {
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
+.WEB__APPLICATION__HEADER__IMAGES__CONTAINER{
+  animation: CAROUSELRUN 30s infinite alternate;
+}

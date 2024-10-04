@@ -10,12 +10,23 @@ import SubmitOrderDropdown from "../../submit-order/components/submit-order-drop
 import { CREATETICKET } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
+import app from "@/services/service";
 
 // ^ COMPONENT
 function AddNewTicket() {
+  //STATES
   const { userProfile, token } = useSelector((state: any) => state.userData);
   const [departments, setDepartments] = useState([]);
   const typedDepartments: DepartmentFinalType[] = departments as DepartmentFinalType[];
+
+  // FUNCTIONS
+  const GETALLDEPARTMENTS = () => {
+    app.get('/departments')
+      .then(response => console.log("DEPARTMENTS ==>", response.data))
+      .catch((error: any) => console.log("DEPARTMENTS ERROR => ", error.response))
+  }
+
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -34,19 +45,19 @@ function AddNewTicket() {
   const departmentInfo = typedDepartments?.map((item) => String(item.department.id) + " - " + item.department.name_fa);
   const dispatch = useDispatch();
   const router = useRouter();
-
   const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", departmentId: "" });
 
   const departmentId = typedDepartments?.filter((item) => item.department.id === Number(ticket.dept_id))?.map((item) => item.department.id)[0];
 
+  useEffect(() => { console.log("DEPARTMENT INFO", departmentInfo, typedDepartments) }, [])
   // * HANDLE SUMBISSION
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, ticket.dept_id == "واحد مالی" ? 1 : 2, userProfile.id, null)
-    // setTicket((last) => ({ ...last, title: "", description: "" }));
+    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, departmentId, userProfile.id, null)
+    setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
-  //^ RETURN 
+  //^ RETURN  ================================================================================================================================================
   return (
     <div className="relative">
       <div className="flex justify-end w-full text-xl cursor-pointer absolute -top-12" onClick={() => router.back()} >
@@ -58,7 +69,7 @@ function AddNewTicket() {
         <span className="absolute right-[7.8rem] top-7 text-red-800 text-xl">*</span>
         <TicketFields label="عنوان تیکت:" width="w-[30%]" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
         <div className="lg:w-[30%] w-full">
-          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id === "واحد مالی" ? "1" : "2"} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, dept_id: e.target.value }))} value={ticket.dept_id} dropDownTitle="واحد مربوطه:" dropdownItems={["واحد مالی", "واحد فنی"]} />
         </div>
         <div className="lg:w-[30%] w-full">
           <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, priority_id: e.target.value }))} value={ticket.priority_id} dropDownTitle="اولویت تیکت:" dropdownItems={["عادی", "فوری"]} />

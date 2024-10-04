@@ -33,7 +33,7 @@ function Services() {
         ))}
 
       </div>
-      <Footer />  
+      <Footer />
     </div>
   );
 }

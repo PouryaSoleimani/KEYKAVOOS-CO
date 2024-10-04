@@ -23,8 +23,11 @@ function OrgManagement() {
 
   return (
     <div className="grid grid-cols-1 gap-5">
+      <div>
+        <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت سازمان ها</h1>
+      </div>
       <div className="flex gap-5">
-        <Link href={`/panel/admin/org_management/create-organization`} className="text-white bg-[#4866CF] py-3 flex  items-center justify-center gap-x-3 px-6 hover:bg-blue-800 duration-300 rounded-[5px]" >
+        <Link href={`/panel/admin/org_management/create-organization`} className="text-white bg-[#4866CF] p-3 flex items-center justify-between gap-x-3 hover:bg-blue-800 duration-300 rounded-[5px]" >
           سازمان جدید
           <IoAddCircle className="text-xl" />
         </Link>
@@ -53,11 +56,11 @@ function OrgManagement() {
             <NotFound text={`${organizationsStatus.error}`} />
           ) : (
             <div>
-              {organizations?.map((item: { name: string; phone: number; address: string; id: number; deleted_at: string | null }, index) => (
+              {organizations?.map((item: { org_name: string; phone: number; address: string; id: number; deleted_at: string | null }, index) => (
 
                 <div className={`grid lg:grid-cols-5 grid-cols-12 bg-[#EAEFF6] caret-transparent my-2 cursor-default text-center gap-x-5 py-3 rounded-[4px] ${item.deleted_at ? "bg-red-500 " : ""}`} key={item.id}>
                   <p className="col-span-1">{index + 1}</p>
-                  <p className="col-span-2 lg:col-span-1">{item.name}</p>
+                  <p className="col-span-2 lg:col-span-1">{item.org_name}</p>
                   <p className="col-span-3 lg:col-span-1">{item.phone}</p>
                   <p className="col-span-3 lg:col-span-1">{item.address}</p>
 

@@ -121,15 +121,6 @@ function TicketDetail() {
   //     console.log("%c ERROR MESSAGE ===>", "color : orangered", error.response.data.message);
   //   }
   // };
-  // * FILE UPLOAD
-  function FILEUPLOAD(id: number | string) {
-    const formData = new FormData();
-    formData.append("file", File);
-    const FILE_UPLOAD_INFO = { uploader_user_id: 1, formData }
-    app.post(`/ticket/file/upload/1`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, } })
-      .then(response => console.log("%c SUCCESS ====>", "color : lime", response))
-      .catch(error => console.log("%c ERROR ===> ", "color : orangered", error.response.data))
-  }
 
   useEffect(() => { getTicketDetail(); }, []);
 
@@ -142,6 +133,22 @@ function TicketDetail() {
     const prevId = id as string;
     setTicketId(prevId);
   }, [ticketDetail.SenderText]);
+
+  // * FILE UPLOAD ================================================================================================================================================
+  function FILEUPLOAD(id: number | string) {
+    const formData = new FormData();
+    formData.append("DOCUMENT", File);
+    const FILE_UPLOAD_INFO = { uploader_user_id: userProfile.id, file: File }
+    app.post(`/ticket/file/upload/${ticketId}`, FILE_UPLOAD_INFO, { headers: { "Content-Type": "multipart/form-data", } })
+      .then(response => {
+        console.log("%c SUCCESS ====>", "color : lime", response)
+        toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px", whiteSpace: "nowrap" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      })
+      .catch(error => {
+        console.log("%c ERROR ===> ", "color : orangered", error.response)
+        toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px", whiteSpace: "nowrap" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+      })
+  }
 
   console.log("%c TICKET ID ===>", "color : crimson", ticketId);
 

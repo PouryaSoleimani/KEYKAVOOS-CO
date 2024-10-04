@@ -20,40 +20,44 @@ function AllProjects() {
 
 
   return (
-    <div className="flex flex-col gap-5 ">
-      <div className="grid grid-cols-4 text-center tracking-tight">
-        <p className="font-light py-1 text-zinc-800">ردیف</p>
-        <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
-        <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
-        <p className="font-light py-1 text-zinc-800">مشاهده</p>
+    <>
+      <div className="flex flex-col gap-5 ">
+        <div className="grid grid-cols-5 text-center tracking-tight">
+          <p className="font-light py-1 text-zinc-800">ردیف</p>
+          <p className="font-light py-1 text-zinc-800">عنوان پروژه</p>
+          <p className="font-light py-1 text-zinc-800">وضعیت پروژه</p>
+          <p className="font-light py-1 text-zinc-800">دلیل رد پروژه</p>
+          <p className="font-light py-1 text-zinc-800">مشاهده</p>
+        </div>
+        {projectStatus.loading ? (
+          <SkeletonTheme>
+            <Skeleton count={1} className="p-3" baseColor="#EAEFF6" />
+          </SkeletonTheme>
+        ) : projectStatus.error ? (
+          <NotFound text={projectStatus.error} />
+        ) : (
+          allProjects.map((item: any, index) => (
+            <div key={item.id} className="grid grid-cols-5 text-center py-4 bg-[#EAEFF6] rounded-[4px]"  >
+              <p>{index + 1}</p>
+              <p className="text-zinc-900">{item.title ? item.title : "-"}</p>
+              <p>
+                <span className="text-red-600">
+                  {(item.rejected_projects.length !== 0 || item.status === "not-verified") && "رد شده"}
+                </span>
+                <span className="text-green-600">{item.status === "verified" && "تایید شده"}</span>
+                <span className="font-thin tracking-tight text-blue-700">
+                  {item.status === "processing" && item.rejected_projects.length === 0 && "در حال بررسی"}
+                </span>
+              </p>
+              <p>{item.rejected_projects.length ? item.rejected_projects[0].reason : ". . ."}</p>
+              <Link href={`/panel/user/project-management/project-detail?id=${item.id}`} className="flex justify-center" >
+                <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-[125%] duration-300" />
+              </Link>
+            </div>
+          ))
+        )}
       </div>
-      {projectStatus.loading ? (
-        <SkeletonTheme>
-          <Skeleton count={1} className="p-3" baseColor="#EAEFF6" />
-        </SkeletonTheme>
-      ) : projectStatus.error ? (
-        <NotFound text={projectStatus.error} />
-      ) : (
-        allProjects.map((item: any, index) => (
-          <div key={item.id} className="grid grid-cols-4 text-center py-4 bg-[#EAEFF6] rounded-[4px]"  >
-            <p>{index + 1}</p>
-            <p className="text-zinc-900">{item.title ? item.title : "-"}</p>
-            <p>
-              <span className="text-red-600">
-                {(item.rejected_projects.length !== 0 || item.status === "not-verified") && "رد شده"}
-              </span>
-              <span className="text-green-600">{item.status === "verified" && "تایید شده"}</span>
-              <span className="font-thin tracking-tight text-blue-700">
-                {item.status === "processing" && item.rejected_projects.length === 0 && "در حال بررسی"}
-              </span>
-            </p>
-            <Link href={`/panel/user/project-management/project-detail?id=${item.id}`} className="flex justify-center" >
-              <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-[125%] duration-300" />
-            </Link>
-          </div>
-        ))
-      )}
-    </div>
+    </>
   );
 }
 

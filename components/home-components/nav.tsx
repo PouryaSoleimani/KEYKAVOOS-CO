@@ -65,7 +65,7 @@ const Nav = () => {
       className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-11/12 rounded-full shadow-md shadow-zinc-400 " : ""}`}
       onMouseLeave={() => (setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
     >
-      <div className="flex justify-between items-center h-[5rem] md:h-[5rem] mx-auto shadow-md px-[10%] bg-transparent backdrop-blur-[10px] font-thin">
+      <div className="flex justify-between items-center bg-transparent shadow-md backdrop-blur-[10px] mx-auto px-[10%] h-[5rem] md:h-[5rem] font-thin">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -88,45 +88,48 @@ const Nav = () => {
             <Skeleton count={1} className="p-2" baseColor="#4866CF" />
           </SkeletonTheme>
         ) : (
-          <Link href={route} className="flex items-center justify-center space-x-2">
-            <button className="hidden lg:inline-block bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 rounded-2xl text-zinc-100 tracking-tight hover:scale-110 duration-300 py-3 px-6 text-base ">
+          <Link href={route} className="flex justify-center items-center space-x-2">
+            <button className="lg:inline-block hidden bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 px-6 py-3 rounded-2xl text-base text-zinc-100 tracking-tight hover:scale-110 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && console.log(localToken)}
-              {localToken && (<p className="flex items-center justify-between "> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
+              {localToken && (<p className="flex justify-between items-center"> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
-                <Skeleton width={100} baseColor="#4866CF" className="flex item-center justify-center space-x-2" />
+                <Skeleton width={100} baseColor="#4866CF" className="flex justify-center space-x-2 items-center" />
               )}
             </button>
           </Link>
         )}
 
         <div className="lg:flex gap-6 hidden">
-          <ul className="hidden lg:flex justify-center items-center gap-10 z-10 pr-6 text-zinc-200">
-            <li className="bg-blue-950 text-white  backdrop-blur-md py-3 px-6 rounded-2xl hover:scale-110 duration-300">
+          <ul className="z-10 lg:flex justify-center items-center gap-10 hidden pr-6 text-zinc-200">
+            <li className="bg-blue-950 backdrop-blur-md px-6 py-3 rounded-2xl text-white hover:scale-110 duration-300">
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
             <li className="flex flex-col" onMouseEnter={() => (setShowTwo(true), setShowOne(false), setShowThree(false), setShowFour(false))}>
               <div className="flex gap-2 cursor-pointer">
                 <span>
-                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
+                  <FaChevronDown className="text-sm text-zinc-500 translate-y-1" />
                 </span>
-                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold hover:text-[#4866CF] text-[14px] text-zinc-700" >
+                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold text-[14px] text-zinc-700 hover:text-[#4866CF]" >
                   خدمات ما
                 </Link>
               </div>
 
               {showTwo && (
                 <>
-                  <ul className="navUL list-none absolute bg-white -translate-x-5 lg:top-[55px] backdrop-blur-sm rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10 text-zinc-700 " onMouseEnter={() => setShowTwo(true)}  >
-                    <Link href="/in-hand">
-                      <li className="text-sm pt-1 hover:text-[#4866CF] duration-300 ">طراحی سایت</li>
+                  <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-sm mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 -translate-x-5 list-none navUL" onMouseEnter={() => setShowTwo(true)}  >
+                  <Link href="/our-services/web-application">
+                      <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی وب اپلیکیشن</li>
                     </Link>
                     <Link href="/in-hand">
-                      <li className="text-sm hover:text-[#4866CF] duration-300 ">طراحی گرافیک</li>
+                      <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی سایت</li>
                     </Link>
                     <Link href="/in-hand">
-                      <li className="text-sm pb-2 hover:text-[#4866CF] duration-300">کد نویسی</li>
+                      <li className="text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</li>
+                    </Link>
+                    <Link href="/in-hand">
+                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">کد نویسی</li>
                     </Link>
                   </ul>
                 </>
@@ -136,16 +139,16 @@ const Nav = () => {
             <li className="flex flex-col justify-center items-end" onMouseEnter={() => (setShowFour(true), setShowOne(false), setShowTwo(false), setShowThree(false))}  >
               <div className="flex gap-2 hover:text-[#4866CF] cursor-pointer">
                 <span>
-                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
+                  {/* <FaChevronDown className="text-sm text-zinc-500 translate-y-1" /> */}
                 </span>
-                <span className={`font-semibold text-[14px] text-zinc-700 hover:text-blue-800`}>وبلاگ</span>
+                <Link href="/blog" className={`font-semibold text-[14px] text-zinc-700 hover:text-blue-800`}>وبلاگ</Link>
               </div>
 
               {showFour && (
                 <React.Fragment>
-                  <ul className="navUL list-none absolute bg-white text-zinc-700 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 translate-x-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10" onMouseLeave={() => setShowFour(false)}  >
+                  {/* <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-[15px] mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 translate-x-8 list-none navUL" onMouseLeave={() => setShowFour(false)}  >
                     <Link href="/weblog/back-end ">
-                      <li className="text-sm pt-1 hover:text-[#4866CF] duration-300">بک اند</li>
+                      <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">بک اند</li>
                     </Link>
                     <Link href="/weblog/front-end">
                       <li className="text-sm hover:text-[#4866CF] duration-300">فرانت اند</li>
@@ -154,11 +157,11 @@ const Nav = () => {
                       <li className="text-sm hover:text-[#4866CF] duration-300">حسابداری</li>
                     </Link>
                     <Link href="/weblog/digital-marketing">
-                      <li className="text-sm rounded-b-lg pb-2 hover:text-[#4866CF] duration-300">
+                      <li className="pb-2 rounded-b-lg text-sm hover:text-[#4866CF] duration-300">
                         دیجیتال مارکتینگ
                       </li>
                     </Link>
-                  </ul>
+                  </ul> */}
                 </React.Fragment>
               )}
             </li>
@@ -172,21 +175,21 @@ const Nav = () => {
                 setShowFour(false)
               )}
             >
-              <div className="flex gap-2 cursor-default hover:text-[#4866CF]">
+              <div className="flex gap-2 hover:text-[#4866CF] cursor-default">
                 <span>
-                  <FaChevronDown className="text-zinc-500 text-sm translate-y-1" />
+                  <FaChevronDown className="text-sm text-zinc-500 translate-y-1" />
                 </span>
-                <span className="font-semibold text-[14px] cursor-pointer text-zinc-700 hover:text-blue-800">درباره ما</span>
+                <span className="font-semibold text-[14px] text-zinc-700 hover:text-blue-800 cursor-pointer">درباره ما</span>
               </div>
               {showThree && (
                 <React.Fragment>
-                  <ul className="navUL list-none absolute bg-white text-zinc-700 lg:top-[55px] backdrop-blur-[15px] rounded-2xl border-b-8 border-b-[#4866CF] px-4 text-2xl py-5 mt-2 text-right flex flex-col gap-6 z-10"
+                  <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-[15px] mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 list-none navUL"
                     onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
-                      <li className="text-sm pt-2  hover:text-[#4866CF] duration-300">مجوزها</li>
+                      <li className="pt-2 text-sm hover:text-[#4866CF] duration-300">مجوزها</li>
                     </Link>
                     <Link href="/contact-us">
-                      <li className="text-sm  hover:text-[#4866CF] duration-300">تماس با ما</li>
+                      <li className="text-sm hover:text-[#4866CF] duration-300">تماس با ما</li>
                     </Link>
                   </ul>
                 </React.Fragment>

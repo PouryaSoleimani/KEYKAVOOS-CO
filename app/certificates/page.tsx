@@ -1,3 +1,4 @@
+//^ CERTIFICATES PAGE =============================================================================================================================================
 import Nav from "@/components/home-components/nav";
 import React from "react";
 import Informatik from "./components/informatik";
@@ -7,12 +8,17 @@ import SenfiCert from "./components/senfi-cert";
 import styles from "./certificates.module.css";
 import CertificatesSlider from "./components/certificate-slider";
 import Footer from "@/components/home-components/Footer/Footer";
+import 'aos/dist/aos.css';
+import 'animate.css';
+
+//^ COMPONENT
 const Certificates = () => {
+
   return (
     <div>
       <Nav />
       <div dir="rtl" className="font-YekanBakh">
-        <div className={`${styles.container} pt-[3%]`}>
+        <div className={`${styles.container} pt-[3%]`} >
           <Informatik />
         </div>
         <div className={`${styles.certContainer} py-[5%]`}>

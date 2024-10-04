@@ -8,7 +8,8 @@ import 'animate.css';
 function ProjectManagement() {
   return (
     <div>
-      <div className="mb-5 flex">
+      <h1 className="text-2xl font-bold text-[#4866cf] my-4">مدیریت پروژه ها</h1>
+      <div className="mb-5 flex ">
         <NewInfoOnEachPageBtn btnText="ایجاد پروژه جدید" src="/panel/user/submit-order" />
       </div>
       <div className={`bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] animate__animated animate__pulse`}>
