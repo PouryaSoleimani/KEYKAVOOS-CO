@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { MutableRefObject, useEffect } from 'react'
 import { FaCircle } from 'react-icons/fa6'
 import { PiUserFill } from "react-icons/pi";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { MdAccessTime } from "react-icons/md";
-import Aos from 'aos'
 interface props { imageSrc: string, title: string, content: string }
 
 
 const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
-    useEffect(() => { Aos.init() }, [])
+
     console.log(imageSrc, title, content)
     return (
-        <div>
-            <div data-aos="fade-up" className="BLOG__CARD w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
+        <div >
+            <div className="BLOG__CARD w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
                 <figure>
                     <img src={imageSrc} alt="Pic" className='hover:scale-125 overflow-hidden duration-500' />
                 </figure>

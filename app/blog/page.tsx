@@ -6,12 +6,12 @@ import BlogSwiper from './components/BlogSwiper'
 import BlogCard from './components/BlogCard'
 import Footer from '@/components/home-components/Footer/Footer'
 import 'animate.css';
-import Aos from 'aos'
+
 
 //^ COMPONENT ============================================================================================================================================
 const BlogPage = () => {
 
-    
+
     // ^ RETURN
     return (
         <div className='web-container'>
