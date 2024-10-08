@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import Nav from '@/components/home-components/nav';
 import Footer from '@/components/home-components/Footer/Footer';
 import GraphicDesignCarousel from './components/GraphicDesignCarousel';
+import GraphicDesignCategoryBox from './components/GraphicDesignCategoryBox';
 //INTERFACE
 interface Props { }
 
@@ -36,6 +37,15 @@ const GraPhicDesignPage: NextPage<Props> = ({ }) => {
                     طراحی گرافیک شامل طیف وسیعی از خدمات است که هر کدام به نیازهای خاص مشتریان پاسخ می‌دهند. در زیر به انواع خدمات طراحی گرافیک با جزئیات بیشتری پرداخته‌ایم:
                 </span>
             </p>
+            {/* CATEGORY BOXES */}
+            <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی لوگو' subtitle="خلق نماد و نشان برند." desc='شامل تحقیق در مورد برند، تحلیل رقبا، ایجاد چندین طرح و اصلاح آن‌ها بر اساس بازخورد مشتری. لوگو باید در تمام اندازه‌ها و زمینه‌ها قابل شناسایی باشد' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی بروشور و کاتالوگ' subtitle="تولید مواد چاپی برای ارائه محصولات یا خدمات" desc='شامل طراحی صفحات، انتخاب تصاویر و نوع‌خط، سازماندهی محتوا و استفاده از فضای سفید برای جلب توجه. بروشورها می‌توانند دو یا چند لتی باشند' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی پوستر' subtitle="خلق آثار بصری جذاب برای تبلیغ رویدادها یا محصولات" desc='تمرکز بر جلب توجه سریع، استفاده از رنگ‌های متناسب، ترکیب متن و تصویر و رعایت تعادل بصری.' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی بسته‌بندی' subtitle="طراحی بسته‌های محصولات" desc='شامل انتخاب مواد، شکل و رنگ بسته، در نظر گرفتن ویژگی‌های عملکردی و الزامات قانونی، همچنین ایجاد حس جذابیت و شناسایی برند' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی وب' subtitle="ایجاد رابط‌های کاربری برای وب‌سایت‌ها" desc='شامل طراحی UI/UX، انتخاب رنگ و نوع‌خط مناسب، ایجاد نمادها و عناصر بصری، و بهینه‌سازی برای دستگاه‌های مختلف' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی اینفوگرافیک' subtitle="ترکیب اطلاعات و داده‌ها به شکل بصری" desc='شامل استفاده از نمودارها، تصاویر و متن کوتاه برای انتقال اطلاعات به شکل آسان و جذاب. اینفوگرافیک‌ها باید قابل اشتراک‌گذاری و درک سریع باشند.' />
+            </div>
             <Footer />
         </div>
     )
