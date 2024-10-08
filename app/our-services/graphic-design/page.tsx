@@ -48,6 +48,10 @@ const GraPhicDesignPage: NextPage<Props> = ({ }) => {
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی گرافیک متحرک' subtitle="ایجاد انیمیشن‌ها و ویدئوهای بصری" desc='شامل طراحی داستان، انتخاب رنگ و نوع‌خط، و انیمیشن عناصر برای جلب توجه. این نوع طراحی برای تبلیغات و آموزش استفاده می‌شود' />
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی نشریات' subtitle="طراحی صفحات برای مجلات، روزنامه‌ها و کتاب‌ها" desc='شامل چیدمان متن و تصویر، انتخاب نوع‌خط، و ایجاد یک تجربه خواندن جذاب و منظم' />
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی نشریات' subtitle="طراحی صفحات برای مجلات، روزنامه‌ها و کتاب‌ها" desc='شامل چیدمان متن و تصویر، انتخاب نوع‌خط، و ایجاد یک تجربه خواندن جذاب و منظم' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی تبلیغات' subtitle="تولید مواد تبلیغاتی برای رسانه‌های مختلف" desc='شامل طراحی بنرها، آگهی‌های چاپی و دیجیتال. نیاز به تحقیق در مورد مخاطب هدف و استراتژی‌های بازاریابی دارد' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='مشاوره برندینگ' subtitle="راهنمایی در ایجاد هویت بصری برند" desc='شامل تحلیل بازار، شناسایی نقاط قوت و ضعف برند، و ایجاد راهبردهای گرافیکی برای تطابق با اهداف برند.' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی گرافیک اجتماعی' subtitle="طراحی محتوا برای رسانه‌های اجتماعی" desc='شامل ایجاد پست‌ها، استوری‌ها و بنرها با در نظر گرفتن الگوریتم‌های هر پلتفرم و نیاز به تعامل بالا با مخاطب' />
+                <p className='bg-blue-900 text-cener leading-7 px-6 py-2 rounded-xl w-[90%] text-white font-bold tracking-tight text-lg'>این خدمات می‌توانند به تنهایی یا در کنار هم ارائه شوند تا نیازهای مشتریان به بهترین شکل برآورده شود. اگر به موضوع خاصی علاقه‌مندید یا نیاز به اطلاعات بیشتری دارید، بفرمایید!</p>
             </div>
             <Footer />
         </div>
