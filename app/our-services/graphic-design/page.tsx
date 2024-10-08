@@ -45,6 +45,7 @@ const GraPhicDesignPage: NextPage<Props> = ({ }) => {
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی بسته‌بندی' subtitle="طراحی بسته‌های محصولات" desc='شامل انتخاب مواد، شکل و رنگ بسته، در نظر گرفتن ویژگی‌های عملکردی و الزامات قانونی، همچنین ایجاد حس جذابیت و شناسایی برند' />
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی وب' subtitle="ایجاد رابط‌های کاربری برای وب‌سایت‌ها" desc='شامل طراحی UI/UX، انتخاب رنگ و نوع‌خط مناسب، ایجاد نمادها و عناصر بصری، و بهینه‌سازی برای دستگاه‌های مختلف' />
                 <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی اینفوگرافیک' subtitle="ترکیب اطلاعات و داده‌ها به شکل بصری" desc='شامل استفاده از نمودارها، تصاویر و متن کوتاه برای انتقال اطلاعات به شکل آسان و جذاب. اینفوگرافیک‌ها باید قابل اشتراک‌گذاری و درک سریع باشند.' />
+                <GraphicDesignCategoryBox imageSrc='/WEB_DESIGN_PLANS/CODING__WEBDEVELOPMENT__BG.jpg' title='طراحی گرافیک متحرک' subtitle="ایجاد انیمیشن‌ها و ویدئوهای بصری" desc='شامل طراحی داستان، انتخاب رنگ و نوع‌خط، و انیمیشن عناصر برای جلب توجه. این نوع طراحی برای تبلیغات و آموزش استفاده می‌شود' />
             </div>
             <Footer />
         </div>

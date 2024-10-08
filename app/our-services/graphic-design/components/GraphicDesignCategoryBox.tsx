@@ -25,7 +25,6 @@ const GraphicDesignCategoryBox: React.FC<props> = ({ title, subtitle, desc, imag
                 <h3 className='font-black text-2xl lg:text-4xl text-center lg:text-start whitespace-nowrap'>{title}</h3>
                 <h6 className='font-blue-300 font-semibold tracking-wide lg:pr-2 text-xl lg:text2xl text-center lg:text-start whitespace-nowrap'>{subtitle}</h6>
                 <p className='text-zinc-500 font-extralight text-center lg:text-start text-[18px] lg:text-[24px] tracking-tighter leading-9'>{desc}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, omnis. Odit distinctio quia beatae illum illo maiores voluptatem deleniti quis ea non totam earum adipisci, labore deserunt temporibus. Placeat, officia!
                 </p>
                 <div id="RIGHT__PRICE" className='flex items-center justify-start flex-col lg:flex-row flex-wrap w-full gap-4 lg:gap-2'>
                     <span className='btn btn-outline btn-lg w-full lg:w-auto'>
