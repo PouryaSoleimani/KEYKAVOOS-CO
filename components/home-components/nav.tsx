@@ -119,17 +119,20 @@ const Nav = () => {
               {showTwo && (
                 <>
                   <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-sm mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 -translate-x-5 list-none navUL" onMouseEnter={() => setShowTwo(true)}  >
-                  <Link href="/our-services/web-application">
+                    <Link href="/our-services/web-application">
                       <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی وب اپلیکیشن</li>
                     </Link>
-                    <Link href="/in-hand">
+                    <Link href="/our-services/website">
                       <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی سایت</li>
                     </Link>
-                    <Link href="/in-hand">
-                      <li className="text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</li>
+                    <Link href="/our-services/hardwares">
+                      <li className="text-sm hover:text-[#4866CF] duration-300">نامین قطعات کامپیوتری</li>
+                    </Link>
+                    <Link href="/our-services/graphic-design">
+                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</li>
                     </Link>
                     <Link href="/in-hand">
-                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">کد نویسی</li>
+                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">آموزش کارکنان دولت</li>
                     </Link>
                   </ul>
                 </>
