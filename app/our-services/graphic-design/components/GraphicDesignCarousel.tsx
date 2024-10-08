@@ -20,7 +20,7 @@ const GraphicDesignCarousel: React.FunctionComponent = () => {
                         pagination: false,
                         fixedWidth: '445px',
                         gap: '12px',
-                        height: '10rem',
+                        height: '20rem',
                         wheel: true,
                     }}
                     extensions={{ AutoScroll }}
