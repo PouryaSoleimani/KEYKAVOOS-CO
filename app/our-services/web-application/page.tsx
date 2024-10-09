@@ -37,8 +37,7 @@ const WebApplicationServicePage: React.FC = () => {
             {/* BOXES */}
             <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
                 <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' />
-                <WebAppCategoryBox imageSrc='/site-type/gardeshgari.svg' title='وب سایت گردشگری' desc='توضیحات' />
-                <WebAppCategoryBox imageSrc='/site-type/pezeshki.svg' title='وب سایت پزشکی' desc='توضیحات' />
+                <WebAppCategoryBox imageSrc='/site-type/gardeshgari.svg' title='وب سایت گردشگری' desc='توضیحات' />                <WebAppCategoryBox imageSrc='/site-type/pezeshki.svg' title='وب سایت پزشکی' desc='توضیحات' />
                 <WebAppCategoryBox imageSrc='/site-type/sherkati.svg' title='وب سایت شرکتی' desc='توضیحات' />
             </div>
             {/* BROWSER MOCKUP */}
