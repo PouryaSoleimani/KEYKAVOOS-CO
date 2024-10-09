@@ -5,7 +5,7 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/splide/dist/css/splide.min.css";
 import '@splidejs/react-splide/css/core';
 import Image from 'next/image';
-const imageStyle = { width: '447px', height: '264px', borderRadius: '30px', border: '1px solid #FFFFFF33', };
+const imageStyle = { width: '290px', height: '264px', borderRadius: '30px', border: '1px solid #FFFFFF33', };
 
 function GovernmentLearningCarousel() {
     return (
@@ -23,25 +23,28 @@ function GovernmentLearningCarousel() {
                     extensions={{ AutoScroll }}
                 >
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/1.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/html.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/2.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/css.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/3.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/bootstrap.png' alt='WEB__APPLICATION__BG' width={300} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/4.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/tailwind-css-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/5.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/js.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/6.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/typescript-programming-language-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/7.jpg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/react-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <Image src='/public/Technology/redux-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
                         <Image src='/SERVICES/WEB__APPLICATION/8.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
