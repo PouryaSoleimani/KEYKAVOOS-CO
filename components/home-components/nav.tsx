@@ -131,7 +131,7 @@ const Nav = () => {
                     <Link href="/our-services/graphic-design">
                       <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</li>
                     </Link>
-                    <Link href="/in-hand">
+                    <Link href="/our-services/government-learning">
                       <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">آموزش کارکنان دولت</li>
                     </Link>
                   </ul>
