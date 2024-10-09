@@ -5,21 +5,14 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/splide/dist/css/splide.min.css";
 import '@splidejs/react-splide/css/core';
 import Image from 'next/image';
-const imageStyle = { width: '290px', height: '264px', borderRadius: '30px', border: '1px solid #FFFFFF33', };
+const imageStyle = { width: '190px', height: '190px', borderRadius: '30px', border: '1px solid #FFFFFF33', };
 
 function GovernmentLearningCarousel() {
     return (
         <div className="relative flex h-full bg-transparent mt-20">
             <div className="w-screen relative z-20 overflow-x-hidden">
                 <Splide
-                    options={{
-                        type: "loop", // Loop back to the beginning when reaching the end
-                        autoScroll: { pauseOnHover: false, pauseOnFocus: false, rewind: true, speed: 1 },
-                        arrows: false, // Hide navigation arrows
-                        pagination: false, // Hide pagination dots
-                        fixedWidth: '445px', // Fixed width for each slide
-                        gap: '12px', // Gap between slides
-                    }}
+                    options={{ type: "loop", autoScroll: { pauseOnHover: false, pauseOnFocus: false, rewind: true, speed: 1 }, arrows: false, pagination: false, fixedWidth: '265px', gap: '4px', }}
                     extensions={{ AutoScroll }}
                 >
                     <SplideSlide>
@@ -44,25 +37,31 @@ function GovernmentLearningCarousel() {
                         <Image src='/Technology/react-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/public/Technology/redux-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/redux-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/8.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/nextjs-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/9.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/node-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/10.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/express-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/11.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/nest-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/12.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/mongodb-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/SERVICES/WEB__APPLICATION/13.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/Technology/php-programming-language-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <Image src='/Technology/laravel-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <Image src='/Technology/mysql-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                 </Splide>
             </div>

@@ -27,13 +27,13 @@ const WebApplicationServicePage: React.FC = () => {
                 <h2 className='text-center font-extralight text-md text-zinc-700 bg-zinc-300 py-2 px-4 rounded-xl w-fit mx-auto'>آموزش مباحث مبتدی و حرفه ای به کارمندان و کارکنان دولت با تدریس مجرب ترین اساتید</h2>
             </div>
             <video src="/VIDEOS/GOVERNMENT__HEADER__VIDEO.mp4" loop autoPlay playsInline height={100} className='h-80 w-fit mx-auto my-10 rounded-3xl ' />
-            {/* CAROUSEL */}
             <div id="WEB__APPLICATION__PAGE__CONTAINER" className='w-screen h-auto' data-aos="fade-up" data-aos-duration="1000">
-                <GovernmentLearningCarousel />
             </div>
+            {/* CAROUSEL */}
             <div id="WEB__APPLICATION__PAGE__TITLE__CONTAINER" className='flex flex-col items-center justify-center gap-4 py-10' data-aos="fade-up" data-aos-duration="1000">
-                <h2 className='text-center text-xl lg:text-2xl font-bold text-[#4866CF] px-6' dir='rtl'>مباحث دوره های آموزشی</h2>
+                <h2 className='text-center text-xl lg:text-4xl font-bold text-[#4866CF] px-6' dir='rtl'>مباحث دوره های آموزشی</h2>
             </div>
+            <GovernmentLearningCarousel />
             {/* BOXES */}
             <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
                 {/* <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' /> */}
