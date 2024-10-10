@@ -56,7 +56,7 @@ const WebAppCategoryBox: React.FC<props> = ({ title, desc, imageSrc }) => {
 
 
             <div id="LEFT" className='w-full lg:w-1/2 h-full'>
-                <Image src={imageSrc.toString()} alt='pic' width={600} height={600} className='rounded-sm w-full h-full ' />
+                <Image src={imageSrc.toString()} alt='pic' width={600} height={600} className='rounded-sm w-full h-full ' loading='lazy' />
             </div>
 
         </div>
