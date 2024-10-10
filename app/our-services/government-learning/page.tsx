@@ -4,7 +4,6 @@ import Nav from '@/components/home-components/nav'
 import React, { useEffect } from 'react'
 import Footer from '@/components/home-components/Footer/Footer';
 import GovernmentLearningCarousel from './components/GovernmentLearningCarousel';
-// import WebAppCategoryBox from './components/WebAppCategoryBox';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
@@ -12,7 +11,7 @@ import GovernmentLearningCarousel2 from './components/GovernmentLearningCarousel
 import GovernmentLearningCarousel3 from './components/GovernmentLearningCarousel3';
 import GovernmentLearningCarousel4 from './components/GovernmentLearningCarousel4';
 import GovernmentLearningCarousel5 from './components/GovernmentLearningCarousel5';
-// import CarouselGames2 from './components/WebAppCarousel2';
+
 
 //^ COMPONENT
 const WebApplicationServicePage: React.FC = () => {
@@ -63,15 +62,6 @@ const WebApplicationServicePage: React.FC = () => {
             </div>
             <div className="divider"></div>
 
-
-
-            {/* BOXES */}
-            <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
-                {/* <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' /> */}
-                {/* <WebAppCategoryBox imageSrc='/site-type/gardeshgari.svg' title='وب سایت گردشگری' desc='توضیحات' /> */}
-                {/* <WebAppCategoryBox imageSrc='/site-type/pezeshki.svg' title='وب سایت پزشکی' desc='توضیحات' /> */}
-                {/* <WebAppCategoryBox imageSrc='/site-type/sherkati.svg' title='وب سایت شرکتی' desc='توضیحات' /> */}
-            </div>
             {/* BROWSER MOCKUP */}
             <div className='w-[90%] h-fit flex items-center justify-center my-10 p-6 mx-auto' >
                 <div className="mockup-browser w-full h-[90vh] bg-slate-800 border">
