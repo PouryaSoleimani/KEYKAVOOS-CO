@@ -35,13 +35,15 @@ const WebApplicationServicePage: React.FC = () => {
                 <h2 className='text-center text-xl lg:text-4xl font-bold text-[#4866CF] px-6' dir='rtl'>مباحث دوره های آموزشی</h2>
             </div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6'>ICDL آموزش</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-blue-600/50 via-[#4866CF] shadow-md shadow-zinc-400 to-blue-900/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>ICDL آموزش</h3>
                 <GovernmentLearningCarousel2 />
             </div>
-            <div>
-                <h3 className='text-center font-extrabold text-2xl'>آموزش برنامه نویسی</h3>
+            <div className="divider"></div>
+            <div className='my-10 py-6'>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-emerald-400/50 via-green-500 shadow-md shadow-zinc-400 to-emerald-700/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی</h3>
                 <GovernmentLearningCarousel />
             </div>
+            <div className="divider"></div>
             {/* BOXES */}
             <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
                 {/* <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' /> */}
