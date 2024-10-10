@@ -21,13 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa">
+    <html lang="fa" className="scroll-smooth">
       <body className="bg-[#eaeff5] mx-auto 4xl:w-[60%] 4xxl:w-[55%] 4xxxl:max-5xl:w-[55%] 5xl:w-[50%] 6xl:w-[50%] 3xl:w-[70%] 7xl:w-[45%] 8xl:w-[25%] font-YekanBakh">
         {/* <body className="bg-[#eaeff5] w-screen font-YekanBakh overflow-x-hidden"> */}
         {/* <GoogleOAuthWrapper>
           <NextAuthProviderWrapper> */}
         <ToastProvider>
-          <Providers>
+          <Providers >
             <ShowNavachat />
             <div className="overflow-x-hidden">{children}</div>
             <WebVitals />

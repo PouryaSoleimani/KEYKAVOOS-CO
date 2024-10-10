@@ -1,5 +1,6 @@
 import axios from "axios";
-let TOKEN = JSON.parse(sessionStorage.getItem('token') as string);
+const SessionToken = sessionStorage.getItem('token') as string
+let TOKEN = JSON.parse(SessionToken);
 console.log("%c TOKEN TOKEN ===>", "color : yellow", TOKEN);
 
 
