@@ -20,7 +20,7 @@ const WebApplicationServicePage: React.FC = () => {
         window.addEventListener('touchmove', () => { AOS.refresh() }, false)
     }, [])
 
-    // ^ RETURN
+    //^ RETURN 
     return (
         <div className='web-container h-screen overflow-x-hidden'>
             <Nav />
