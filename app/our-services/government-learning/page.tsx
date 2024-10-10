@@ -9,6 +9,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
 import GovernmentLearningCarousel2 from './components/GovernmentLearningCarousel2';
+import GovernmentLearningCarousel3 from './components/GovernmentLearningCarousel3';
 // import CarouselGames2 from './components/WebAppCarousel2';
 
 //^ COMPONENT
@@ -40,8 +41,12 @@ const WebApplicationServicePage: React.FC = () => {
             </div>
             <div className="divider"></div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-emerald-400/50 via-green-500 shadow-md shadow-zinc-400 to-emerald-700/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-emerald-400/50 via-green-500 shadow-md shadow-zinc-400 to-emerald-700/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی فرانت اند</h3>
                 <GovernmentLearningCarousel />
+            </div>
+            <div className='my-10 py-6'>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-red-400/80 via-red-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی بک اند</h3>
+                <GovernmentLearningCarousel3 />
             </div>
             <div className="divider"></div>
             {/* BOXES */}

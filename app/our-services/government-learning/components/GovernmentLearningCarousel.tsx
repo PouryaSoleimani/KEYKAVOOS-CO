@@ -42,27 +42,6 @@ function GovernmentLearningCarousel() {
                     <SplideSlide>
                         <Image src='/Technology/nextjs-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/node-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/express-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/nest-js-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/mongodb-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/php-programming-language-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/laravel-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <Image src='/Technology/mysql-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
-                    </SplideSlide>
                 </Splide>
             </div>
         </div>
