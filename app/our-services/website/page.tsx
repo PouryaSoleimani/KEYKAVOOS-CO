@@ -8,6 +8,7 @@ import '@splidejs/splide/css';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
+import Image from 'next/image';
 
 //^ COMPONENT
 const WebDesignPage = () => {
@@ -28,28 +29,28 @@ const WebDesignPage = () => {
                     <h2 className='text-center font-extralight text-2xl text-zinc-100 bg-gradient-to-tr from-blue-300 via-[#4866CF] to-blue-900  py-2 px-4 rounded-xl w-fit mx-auto'>برخی از نمونه کارها</h2>
                     <Splide aria-label="My Favorite Images" options={{ rewind: true, type: 'loop', autoplay: true, height: "30rem" }}>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/1.png" alt="Image 1" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/1.png" alt="Image 1" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/2.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/2.png" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/3.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/3.png" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/4.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/4.png" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/5.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/5.png" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/6.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-full h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/6.png" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-screen h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/7.jpg" alt="Image 2" />
+                            <Image loading='lazy' className='w-screen h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/7.jpg" alt="Image 2" />
                         </SplideSlide>
                         <SplideSlide>
-                            <img className='w-screen h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/8.png" alt="Image 2" />
+                            <Image loading='lazy' className='w-screen h-full rounded-2xl' src="/SERVICES/WEB__APPLICATION/8.png" alt="Image 2" />
                         </SplideSlide>
                         <div className="splide__progress">
                             <div className="splide__progress__bar" />
