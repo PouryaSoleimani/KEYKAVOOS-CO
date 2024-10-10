@@ -8,6 +8,7 @@ import GovernmentLearningCarousel from './components/GovernmentLearningCarousel'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
+import GovernmentLearningCarousel2 from './components/GovernmentLearningCarousel2';
 // import CarouselGames2 from './components/WebAppCarousel2';
 
 //^ COMPONENT
@@ -29,11 +30,18 @@ const WebApplicationServicePage: React.FC = () => {
             <video src="/VIDEOS/GOVERNMENT__HEADER__VIDEO.mp4" loop autoPlay playsInline height={100} className='h-80 w-fit mx-auto my-10 rounded-3xl ' />
             <div id="WEB__APPLICATION__PAGE__CONTAINER" className='w-screen h-auto' data-aos="fade-up" data-aos-duration="1000">
             </div>
-            {/* CAROUSEL */}
+            {/* CAROUSELS */}
             <div id="WEB__APPLICATION__PAGE__TITLE__CONTAINER" className='flex flex-col items-center justify-center gap-4 py-10' data-aos="fade-up" data-aos-duration="1000">
                 <h2 className='text-center text-xl lg:text-4xl font-bold text-[#4866CF] px-6' dir='rtl'>مباحث دوره های آموزشی</h2>
             </div>
-            <GovernmentLearningCarousel />
+            <div className='my-10 py-6'>
+                <h3 className='text-center font-extrabold text-2xl my-6'>ICDL آموزش</h3>
+                <GovernmentLearningCarousel2 />
+            </div>
+            <div>
+                <h3 className='text-center font-extrabold text-2xl'>آموزش برنامه نویسی</h3>
+                <GovernmentLearningCarousel />
+            </div>
             {/* BOXES */}
             <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
                 {/* <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' /> */}
