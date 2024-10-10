@@ -38,27 +38,33 @@ const WebApplicationServicePage: React.FC = () => {
                 <h2 className='text-center text-xl lg:text-4xl font-bold text-[#4866CF] px-6' dir='rtl'>مباحث دوره های آموزشی</h2>
             </div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-blue-600/50 via-[#4866CF] shadow-md shadow-zinc-400 to-blue-900/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>ICDL آموزش</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-blue-600/50 via-[#4866CF] shadow-md shadow-zinc-400 to-blue-900/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl tracking-tight'>ICDL آموزش</h3>
                 <GovernmentLearningCarousel2 />
             </div>
             <div className="divider"></div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-emerald-400/50 via-green-500 shadow-md shadow-zinc-400 to-emerald-700/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی فرانت اند</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-emerald-400/50 via-green-500 shadow-md shadow-zinc-400 to-emerald-700/50 w-fit text-white py-4 px-8 mx-auto rounded-2xl tracking-tight'>آموزش برنامه نویسی فرانت اند</h3>
                 <GovernmentLearningCarousel />
             </div>
+            <div className="divider"></div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-red-400/80 via-red-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش برنامه نویسی بک اند</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-red-400/80 via-red-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl tracking-tight'>آموزش برنامه نویسی بک اند</h3>
                 <GovernmentLearningCarousel3 />
             </div>
+            <div className="divider"></div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-yellow-400/80 via-orange-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش طراحی رابط کاربری</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-yellow-400/80 via-orange-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl tracking-tight'>آموزش طراحی رابط کاربری</h3>
                 <GovernmentLearningCarousel4 />
             </div>
+            <div className="divider"></div>
             <div className='my-10 py-6'>
-                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-yellow-400/80 via-orange-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش حسابداری</h3>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-violet-400/80 via-purple-500 shadow-md shadow-zinc-400 to-violet-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl tracking-tight'>آموزش حسابداری</h3>
                 <GovernmentLearningCarousel5 />
             </div>
             <div className="divider"></div>
+
+
+
             {/* BOXES */}
             <div className='flex flex-col items-center justify-center gap-16 pb-6 h-auto' data-aos="fade-up" data-aos-duration="1000">
                 {/* <WebAppCategoryBox imageSrc='/site-type/foroshgahi.svg' title='وب سایت فروشگاهی' desc='توضیحات' /> */}

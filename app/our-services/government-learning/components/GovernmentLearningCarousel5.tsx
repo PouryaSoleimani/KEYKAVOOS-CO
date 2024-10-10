@@ -16,28 +16,31 @@ function GovernmentLearningCarousel5() {
                     extensions={{ AutoScroll }}
                 >
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-photoshop-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ICDL__ICONS/microsoft-excel-icon.svg' alt='WEB__APPLICATION__BG' width={300} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-illustrator-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/CHORTKE.webp' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-premiere-pro-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/SEPIDAR.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-after-effects-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/HOLOO.jpg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-xd-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/PARMIS.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/figma-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/TADBIR.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/adobe-premiere-pro-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/HESABFA.png' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                     <SplideSlide>
-                        <Image src='/UI__DESIGN__ICONS/blender-icon.svg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                        <Image src='/ACCOUNTING__ICONS/FARDAD.jpg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <Image src='/ACCOUNTING__ICONS/GHIYAS.jpg' alt='WEB__APPLICATION__BG' width={350} height={300} className='WEB__APP__PIC rounded-3xl' style={imageStyle} />
                     </SplideSlide>
                 </Splide>
             </div>
