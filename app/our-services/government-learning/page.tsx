@@ -11,6 +11,7 @@ import 'animate.css';
 import GovernmentLearningCarousel2 from './components/GovernmentLearningCarousel2';
 import GovernmentLearningCarousel3 from './components/GovernmentLearningCarousel3';
 import GovernmentLearningCarousel4 from './components/GovernmentLearningCarousel4';
+import GovernmentLearningCarousel5 from './components/GovernmentLearningCarousel5';
 // import CarouselGames2 from './components/WebAppCarousel2';
 
 //^ COMPONENT
@@ -52,6 +53,10 @@ const WebApplicationServicePage: React.FC = () => {
             <div className='my-10 py-6'>
                 <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-yellow-400/80 via-orange-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش طراحی رابط کاربری</h3>
                 <GovernmentLearningCarousel4 />
+            </div>
+            <div className='my-10 py-6'>
+                <h3 className='text-center font-extrabold text-2xl my-6 bg-gradient-to-tr from-yellow-400/80 via-orange-500 shadow-md shadow-zinc-400 to-red-700/80 w-fit text-white py-4 px-8 mx-auto rounded-2xl'>آموزش حسابداری</h3>
+                <GovernmentLearningCarousel5 />
             </div>
             <div className="divider"></div>
             {/* BOXES */}

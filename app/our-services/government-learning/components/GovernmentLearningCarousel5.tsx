@@ -7,7 +7,7 @@ import '@splidejs/react-splide/css/core';
 import Image from 'next/image';
 const imageStyle = { width: '140px', height: '140px', borderRadius: '30px', border: '1px solid #FFFFFF33', };
 
-function GovernmentLearningCarousel4() {
+function GovernmentLearningCarousel5() {
     return (
         <div className="relative flex h-full bg-transparent mt-20">
             <div className="w-screen relative z-20 overflow-x-hidden">
@@ -45,4 +45,4 @@ function GovernmentLearningCarousel4() {
     );
 }
 
-export default GovernmentLearningCarousel4;
+export default GovernmentLearningCarousel5;
