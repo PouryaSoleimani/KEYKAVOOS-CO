@@ -27,20 +27,12 @@ function SocialMedia() {
       <div className="flex flex-col text-center justify-center items-center gap-3">
         <div className="flex justify-center items-center gap-6">
 
-          <SocialMediaIconsContainer
-            mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: true }))}
-            mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: false }))}
-            isHovered={hoverLogo.hoverOne}
-          >
-            <Image src="/footer/insColoredLogoSvg.svg" alt="instagram" className={styles["social-media-icon"]} />
+          <SocialMediaIconsContainer mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: true }))} mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: false }))} isHovered={hoverLogo.hoverOne} >
+            <Image src="/footer/insColoredLogoSvg.svg" alt="instagram" className={styles["social-media-icon"]} width={200} height={200} />
           </SocialMediaIconsContainer>
 
-          <SocialMediaIconsContainer
-            mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: true }))}
-            mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: false }))}
-            isHovered={hoverLogo.hoverTwo}
-          >
-            <Image src="/footer/whatColoredLogoSvg.svg" alt="whatsapp" width={55} className={styles["social-media-icon"]} />
+          <SocialMediaIconsContainer mouseEnterHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: true }))} mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: false }))} isHovered={hoverLogo.hoverTwo}  >
+            <Image src="/footer/whatColoredLogoSvg.svg" alt="whatsapp" width={55} className={styles["social-media-icon"]} height={200} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer
@@ -56,6 +48,7 @@ function SocialMedia() {
               src="/footer/baleColoredLogoSvg.svg"
               alt="bale"
               className={styles["social-media-icon"]}
+              width={200} height={200}
             />
           </SocialMediaIconsContainer>
 
@@ -72,6 +65,7 @@ function SocialMedia() {
               src="/footer/telegramColoredLogoSvg.svg"
               alt="telegram"
               className={styles["social-media-icon"]}
+              width={200} height={200}
             />
           </SocialMediaIconsContainer>
         </div>
