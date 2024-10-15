@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import PanelFields from "../../components/panel-fileds";
+import PanelFields from "../../../../components/PANEL__COMPONENTS/panel-fileds";
 import SubmitOrderDropdown from "./components/submit-order-dropdown";
 import SubmitOrderModalfield from "./components/submit-order-modalfield";
 import SubmitOrderDescription from "./components/submit-order-description";

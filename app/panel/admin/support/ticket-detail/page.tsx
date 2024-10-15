@@ -7,7 +7,7 @@ import Chat from "./components/chat";
 import { Bounce, toast } from "react-toastify";
 import { IoArrowBack } from "react-icons/io5";
 import app from "@/services/service";
-import NotFound from "@/app/panel/admin/components/NotFound";
+import NotFound from "@/components/ADMIN__PANEL__COMPONENTS/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 const moment = require("moment-jalaali");
 

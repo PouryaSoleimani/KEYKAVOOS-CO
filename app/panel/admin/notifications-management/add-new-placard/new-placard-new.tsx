@@ -1,6 +1,6 @@
 import app from '@/services/service'
 import { NextPage, GetStaticProps } from 'next'
-import BackButton from '../../components/BackButton'
+import BackButton from '../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton'
 import { FormEvent, useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Bounce, toast } from 'react-toastify'

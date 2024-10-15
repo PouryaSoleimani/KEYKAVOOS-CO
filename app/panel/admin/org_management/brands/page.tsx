@@ -7,12 +7,12 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
-import NotFound from "../../components/NotFound";
+import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 export type BrandType = { brand: { title: string; description: string; id: number; deleted_at: string; }; };
 function Brands() {

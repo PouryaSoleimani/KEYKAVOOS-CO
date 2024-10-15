@@ -2,7 +2,7 @@
 import { getBrandDetail } from '@/utils/utils';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import BackButton from '../../../components/BackButton';
+import BackButton from '../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton';
 import app from '@/services/service';
 
 function SiteTypesDetail() {

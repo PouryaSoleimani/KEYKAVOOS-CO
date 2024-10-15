@@ -11,7 +11,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { IoReloadCircle } from "react-icons/io5";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 function SiteTypes() {
   const [siteTypes, setSiteTypes] = useState<never[]>([]);

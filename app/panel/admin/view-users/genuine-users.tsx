@@ -3,12 +3,12 @@ import Image from "next/image";
 import React from "react";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
 import Link from "next/link";
-import NotFound from "../components/NotFound";
-import GenuineUserHeader from "../components/GenuineUserHeader";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import GenuineUserHeader from "../../../../components/ADMIN__PANEL__COMPONENTS/GenuineUserHeader";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import toast, { Toaster } from 'react-hot-toast';
 import { deleteUser, getAllUsers } from "@/utils/utils";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "../../../../components/ADMIN__PANEL__COMPONENTS/SearchInput";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import app from "@/services/service";
 

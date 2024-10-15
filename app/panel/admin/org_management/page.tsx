@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../components/NotFound";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import { deleteOrgan, getOrganizations, restoreOrganization, } from "@/utils/utils";
 import { useSelector } from "react-redux";
 

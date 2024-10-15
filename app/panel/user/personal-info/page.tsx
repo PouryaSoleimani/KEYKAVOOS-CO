@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Genuine from "./genuine";
 import Legal from "./legal";
 import { fetchUserProfile, getTokenFromLocal, } from "@/redux/features/user/userSlice";
-import NotFound from "../../admin/components/NotFound";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'animate.css';
 

@@ -4,7 +4,7 @@ import { getPermissionDetail, getPositionDetail, getRoleDetail } from "@/utils/u
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import BackButton from "../../../components/BackButton";
+import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 function PositionDetail() {
   const { token } = useSelector((state: any) => state.userData);

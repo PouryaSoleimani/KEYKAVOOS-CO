@@ -10,7 +10,7 @@ import {
   updateUserProfile,
 } from "@/redux/features/user/userSlice";
 import { useFormik } from "formik";
-import { UserPanelPersonalSchema } from "../../../schemas/userpanel-profile-schema";
+import { UserPanelPersonalSchema } from "../../schemas/userpanel-profile-schema";
 import { Bounce, toast } from "react-toastify";
 
 const PersonalInfo = () => {

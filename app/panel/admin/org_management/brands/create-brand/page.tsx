@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { BrandType } from "../page";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
-import BackButton from "../../../components/BackButton";
+import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 function CreateBrand() {
   const { token } = useSelector((state: any) => state.userData);

@@ -4,7 +4,7 @@ import TicketFields from "../../notifications-management/add-new-placard/compone
 import { createNewsLetter } from "@/utils/utils";
 import { useSelector } from "react-redux";
 import SubmitOrderDropdown from "@/app/panel/user/submit-order/components/submit-order-dropdown";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 function CreateNewsletter() {
   const { token } = useSelector((state: any) => state.userData);

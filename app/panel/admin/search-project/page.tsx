@@ -12,8 +12,8 @@ import {
 import axios from "axios";
 import Link from "next/link";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import SearchInput from "../components/SearchInput";
-import NotFound from "../components/NotFound";
+import SearchInput from "../../../../components/ADMIN__PANEL__COMPONENTS/SearchInput";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 
 function SearchProject() {
   const [searchProject, setSearchProject] = useState("");

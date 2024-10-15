@@ -1,4 +1,4 @@
-import PanelFields from "../../components/panel-fileds";
+import PanelFields from "../../../../components/PANEL__COMPONENTS/panel-fileds";
 import Image from "next/image";
 import USER__DEFAULT from "/USER__DEFAULT.png"
 import Link from "next/link";

@@ -8,11 +8,11 @@ import { useSelector } from "react-redux";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../components/NotFound";
+import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { IoArrowBack, IoReloadCircle, IoReloadCircleSharp } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 export type PositionType = { position: { title_en: string; title_fa: string; id: number; deleted_at: string; dept_id: string; user_id: string; }; };
 

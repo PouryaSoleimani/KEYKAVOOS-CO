@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../admin/components/NotFound";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import { getAllProjects, getOrders } from "@/utils/utils";
 import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";

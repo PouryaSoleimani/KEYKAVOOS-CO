@@ -10,7 +10,7 @@ import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/fe
 import checkmark from "../../../../public/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
-import NotFound from "../components/NotFound";
+import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
 import { closeTicket, getAllNotifications } from "@/utils/utils";
 import app from "@/services/service";
 import { Bounce, toast } from "react-toastify";

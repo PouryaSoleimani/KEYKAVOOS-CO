@@ -6,7 +6,7 @@ import AttrAdditionForm from "../components/attr-addition-form";
 import { useSelector } from "react-redux";
 import AttrEdition from "../components/attr-edition";
 import ValueAddition from "../components/value-addition";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 import { IoAdd, IoAddCircle } from "react-icons/io5";
 
 // TYPES

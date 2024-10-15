@@ -4,7 +4,7 @@ import RolePermission from "./role-permission";
 import PositionPermission from "./position-permission";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
-import BackButton from "../../../components/BackButton";
+import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 function ChangeRole() {
   return (
