@@ -2,7 +2,7 @@
 // ^ NOTIFICATIONS-MANAGEMENT PAGE =================================================================================================================================
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import add from "../../../../public/Panel/addticket.svg";
+import add from "/Panel/addticket.svg";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";

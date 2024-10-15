@@ -99,9 +99,9 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
                         {children}
                       </div>
                       <div className="lg:hidden flex flex-row bg-[#4866CF] transition-all rounded-md w-full">
-                        <Image src="/backarrow.svg" alt="" onClick={() => handlePrevClick()} className={`${currentPage === 0 ? "hidden" : "flex"}`} />
+                        <Image src="/backarrow.svg" alt="back___arrow" width={26} height={26} onClick={() => handlePrevClick()} className={`${currentPage === 0 ? "hidden" : "flex"}`} />
                         <PanelSidebarSmall sideOptions={displayedItems} />
-                        <Image src="/forwardarrow.svg" alt="" onClick={() => handleNextClick()} className={`${currentPage + 1 === Math.ceil(userSidebarOptions.length / itemsPerPage) ? "hidden" : "flex"}`} />
+                        <Image src="/forwardarrow.svg" alt="forward__arrow" width={26} height={26}  onClick={() => handleNextClick()} className={`${currentPage + 1 === Math.ceil(userSidebarOptions.length / itemsPerPage) ? "hidden" : "flex"}`} />
                       </div>
                     </div>
                   </React.Fragment>
