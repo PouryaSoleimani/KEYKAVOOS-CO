@@ -81,7 +81,7 @@ function PlanManagement() {
                 />
                 <div className="flex flex-row items-center justify-center gap-5">
                   <Link href={`/panel/admin/plan-management/plan-detail?id=${item.plan.id}`} className="flex justify-center hover:scale-125 duration-300" >
-                    <Image src={vieweye} alt="مشاهده" width={25} height={20} />
+                    <Image src='/ViewUsers/vieweye.svg' alt="مشاهده" width={25} height={20} />
                   </Link>
                   <span onClick={() => deletePlan(item.plan.id, token, setPlanIsDeleted, setAllPlans)} className="flex justify-center hover:scale-125 duration-300"  >
                     <RiDeleteBin7Fill className="text-red-600 text-2xl" />

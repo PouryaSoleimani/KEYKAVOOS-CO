@@ -9,7 +9,6 @@ import Plans from "@/home-components/plans";
 import Reason from "@/home-components/reason";
 import Script from "next/script";
 import Technology from "@/home-components/technology";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";

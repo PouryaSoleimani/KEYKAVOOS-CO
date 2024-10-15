@@ -22,7 +22,7 @@ function TableHeader() {
         </th>
         <TableHeaderTemp index={1}>
           <div className="flex flex-col items-center text-[#E4624C]">
-            <Image src={base} alt="پایه" />
+            <Image src='/plans/base-logo.svg' alt="پایه" />
             <span className="font-bold">پلن پایه</span>
             <span>شروع قیمت از</span>
             <span className="font-faNum">10 میلیون تومان</span>
@@ -30,7 +30,7 @@ function TableHeader() {
         </TableHeaderTemp>
         <TableHeaderTemp index={2}>
           <div className="flex flex-col items-center text-[#A8B1EC]">
-            <Image src={advanced} alt="حرفه ای" />
+            <Image src="/advanced-logo.svg" alt="حرفه ای" />
             <span className="font-bold">پلن حرفه ای</span>
             <span>شروع قیمت از</span>
             <span className="font-faNum">15 میلیون تومان</span>
@@ -38,7 +38,7 @@ function TableHeader() {
         </TableHeaderTemp>
         <TableHeaderTemp index={3}>
           <div className="flex flex-col items-center text-[#FBAC5B]">
-            <Image src={special} alt="پایه" />
+            <Image src="/special-logo.svg" alt="پایه" />
             <span className="font-bold">پلن ویژه</span>
             <span>شروع قیمت از</span>
             <span className="font-faNum">30 میلیون تومان</span>
@@ -46,7 +46,7 @@ function TableHeader() {
         </TableHeaderTemp>
         <TableHeaderTemp index={4}>
           <div className="flex flex-col items-center text-[#FFDF40]">
-            <Image src={elite} alt="الیت" />
+            <Image src="/plans/ellite-logo.svg" alt="الیت" />
             <span className="font-bold">پلن الیت</span>
             <span>شروع قیمت از</span>
             <span className="font-faNum">50 میلیون تومان</span>

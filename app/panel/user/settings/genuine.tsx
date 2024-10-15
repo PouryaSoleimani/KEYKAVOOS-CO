@@ -9,7 +9,7 @@ import { Bounce, toast } from "react-toastify";
 import app from "@/services/service";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserProfile } from "@/redux/features/user/userSlice";
-import USER__DEFAULT from '@/public/USER__DEFAULT.png'
+import USER__DEFAULT from '/USER__DEFAULT.png'
 import Image from "next/image";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { useRouter } from "next/navigation";
@@ -120,7 +120,7 @@ function Genuine({ userId, token }: GenuineProps) {
               </div>
             ) : (
               <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-                <Image src={USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+                <Image src="/USER__DEFAULT.png" alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
               </div>
             )}
           </div>

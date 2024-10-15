@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import InstagramLogo from "@/public/footer/insLogoSvg.svg";
-import InstagramColoredLogo from "@/public/footer/insColoredLogoSvg.svg";
-import WhatsappLogo from "@/public/footer/whatLogoSvg.svg";
-import WhatsappColoredLogo from "@/public/footer/whatColoredLogoSvg.svg";
-import BaleLogo from "@/public/footer/baleLogoSvg.svg";
-import BaleColoredLogo from "@/public/footer/baleColoredLogoSvg.svg";
-import TelegramLogo from "@/public/footer/telegramLogoSvg.svg";
-import TelegramColoredLogo from "@/public/footer/telegramColoredLogoSvg.svg";
+import InstagramLogo from "/footer/insLogoSvg.svg";
+import InstagramColoredLogo from "/footer/insColoredLogoSvg.svg";
+import WhatsappLogo from "/footer/whatLogoSvg.svg";
+import WhatsappColoredLogo from "/footer/whatColoredLogoSvg.svg";
+import BaleLogo from "/footer/baleLogoSvg.svg";
+import BaleColoredLogo from "/footer/baleColoredLogoSvg.svg";
+import TelegramLogo from "/footer/telegramLogoSvg.svg";
+import TelegramColoredLogo from "/footer/telegramColoredLogoSvg.svg";
 import styles from "./socialmedia.module.css";
 import SocialMediaIconsContainer from "./SocialMediaIconsContainer";
 
@@ -32,7 +32,7 @@ function SocialMedia() {
             mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: false }))}
             isHovered={hoverLogo.hoverOne}
           >
-            <Image src={hoverLogo.hoverOne ? InstagramLogo : InstagramColoredLogo} alt="instagram" className={styles["social-media-icon"]} />
+            <Image src="/footer/insColoredLogoSvg.svg" alt="instagram" className={styles["social-media-icon"]} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer
@@ -40,7 +40,7 @@ function SocialMedia() {
             mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: false }))}
             isHovered={hoverLogo.hoverTwo}
           >
-            <Image src={hoverLogo.hoverTwo ? WhatsappLogo : WhatsappColoredLogo} alt="whatsapp" width={55} className={styles["social-media-icon"]} />
+            <Image src="/footer/whatColoredLogoSvg.svg" alt="whatsapp" width={55} className={styles["social-media-icon"]} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer
@@ -53,7 +53,7 @@ function SocialMedia() {
             isHovered={hoverLogo.hoverThree}
           >
             <Image
-              src={hoverLogo.hoverThree ? BaleLogo : BaleColoredLogo}
+              src="/footer/baleColoredLogoSvg.svg"
               alt="bale"
               className={styles["social-media-icon"]}
             />
@@ -69,7 +69,7 @@ function SocialMedia() {
             isHovered={hoverLogo.hoverFour}
           >
             <Image
-              src={hoverLogo.hoverFour ? TelegramLogo : TelegramColoredLogo}
+              src="/footer/telegramColoredLogoSvg.svg"
               alt="telegram"
               className={styles["social-media-icon"]}
             />

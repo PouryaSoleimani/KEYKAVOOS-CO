@@ -53,7 +53,7 @@ function Consultations() {
                   <p className="col-span-3 lg:col-span-1">{item.description}</p>
                   <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
                     <Link href={`/panel/admin/consultations/consult-detail?id=${item.id}`} className="flex justify-center hover:scale-125 duration-300">
-                      <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                      <Image src='/ViewUsers/vieweye.svg' alt="مشاهده" width={20} height={20} />
                     </Link>
                     <span onClick={() => deleteConsultation(item.id, setConsultIsDeleted)} className="flex justify-center" >
                       <RiDeleteBin7Fill className={`text-red-600 text-lg hover:scale-125 duration-300 mr-3 ${item.deleted_at ? "hidden" : "inline"}`} />

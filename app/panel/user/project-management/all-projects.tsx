@@ -51,7 +51,7 @@ function AllProjects() {
               </p>
               <p>{item.rejected_projects.length ? item.rejected_projects[0].reason : ". . ."}</p>
               <Link href={`/panel/user/project-management/project-detail?id=${item.id}`} className="flex justify-center" >
-                <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-[125%] duration-300" />
+                <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} className="hover:scale-[125%] duration-300" />
               </Link>
             </div>
           ))

@@ -81,7 +81,7 @@ function RoleManagement() {
               </p>
               <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
                 <Link href={`/panel/admin/view-users/role-management/role-detail?id=${item.role.id}`} className="flex justify-center">
-                  <Image src={vieweye} alt="مشاهده" width={20} height={20} className="hover:scale-125 duration-300" />
+                  <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} className="hover:scale-125 duration-300" />
                 </Link>
                 <span onClick={() => deleteRole(item.role.id, setRoleIsDeleted,)} className={`flex justify-center ${item.role.deleted_at ? "hidden" : "inline"}`}>
                   <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-125 duration-300" />
