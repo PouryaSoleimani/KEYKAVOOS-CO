@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
-import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
-// import LegalUsers from "./legal-users";
+// import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
+const PersonalInfoHeader = dynamic(() => import("../../user/personal-info/components/personal-info-header"), { ssr: false })
 const LegalUsersDynamic = dynamic(() => import('./legal-users'), { ssr: false })
-// import GenuineUsers from "./genuine-users";
 const GeniuneUsersDynamic = dynamic(() => import("./genuine-users"), { ssr: false })
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
@@ -21,26 +20,13 @@ function ViewUsers() {
   const [genuineUsers, setGenuineUsers] = useState<never[]>([]);
   const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
-  useEffect(() => {
-    if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }
-  }, []);
+  useEffect(() => { getAllUsers(token, setAllUsersData, setUsersStatus); }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
-      setAllUsersData(allUsers);
-    }
-  }, [setAllUsersData]);
+  useEffect(() => { const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string); setAllUsersData(allUsers); }, [setAllUsersData]);
 
-  useEffect(() => {
-    let legal = AllUsersData?.filter((item: any) => item.type === "hoghooghi");
-    setLegalUsers(legal);
-  }, [setLegalUsers, AllUsersData]);
+  useEffect(() => { let legal = AllUsersData?.filter((item: any) => item.type === "hoghooghi"); setLegalUsers(legal); }, [setLegalUsers, AllUsersData]);
 
-  useEffect(() => {
-    let genuine = AllUsersData?.filter((item: any) => item.type === "haghighi");
-    setGenuineUsers(genuine);
-  }, [setGenuineUsers, AllUsersData]);
+  useEffect(() => { let genuine = AllUsersData?.filter((item: any) => item.type === ""); setGenuineUsers(genuine); }, [setGenuineUsers, AllUsersData]);
 
 
   const renderSteps = () => {

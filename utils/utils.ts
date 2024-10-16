@@ -245,9 +245,7 @@ export const getAllUsers = async (
   token: string,
   setAllUsers: React.Dispatch<any>,
   setDataStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-    }>
+    React.SetStateAction<{ loading: boolean; }>
   >
 ) => {
   try {
