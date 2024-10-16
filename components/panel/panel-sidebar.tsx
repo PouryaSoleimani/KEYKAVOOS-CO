@@ -20,7 +20,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
           <Logo />
         </div>
         <Image src={sidebarpicbg} alt="sidebarbg" height={660} className="overflow-hidden" />
-        <div className="absolute top-40 flex flex-col gap-12 pt-[3.5rem] pr-2 w-full right-[8px]">
+        <div className="absolute top-32 flex flex-col gap-8 pt-[3rem] pr-2 w-full right-[8px]">
           {sideOptions.map((item) => (
             <Link href={item.address.toString()} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >
               <Image src={item.imgSrc} alt={item.text} width={26} height={26} className="-translate-x-1" />
