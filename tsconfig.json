@@ -47,7 +47,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/panel/student-panel/courses"
-  ],
+, "services/service.ts"  ],
   "exclude": [
     "node_modules"
   ]

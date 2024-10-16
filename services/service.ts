@@ -1,9 +1,10 @@
 import axios from "axios";
-const SessionToken = sessionStorage.getItem('token') as string
-let TOKEN = JSON.parse(SessionToken);
-console.log("%c TOKEN TOKEN ===>", "color : yellow", TOKEN);
 
-
+if (typeof window !== "undefined") {
+  let SessionToken = window.sessionStorage.getItem('token')
+  const TOKEN = JSON.parse(SessionToken as string);
+  console.log("%c TOKEN TOKEN ===>", "color : yellow", TOKEN);
+}
 
 
 const app = axios.create({
