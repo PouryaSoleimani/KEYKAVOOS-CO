@@ -1,7 +1,7 @@
 // ^ USER SETTINGS - GENIUNE USER ======================================================================================================================
 "use client";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
-import PanelFields from "../../../../components/PANEL__COMPONENTS/panel-fileds";
+import PanelFields from "../../components/panel-fileds";
 import axios from "axios";
 import { useFormik } from "formik";
 import SettingsFileupload from "./components/settings-fileupload";

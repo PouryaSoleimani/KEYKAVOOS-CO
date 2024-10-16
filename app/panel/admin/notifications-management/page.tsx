@@ -2,7 +2,7 @@
 // ^ NOTIFICATIONS-MANAGEMENT PAGE =================================================================================================================================
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import add from "/Panel/addticket.svg";
+import add from "../../../../public/Panel/addticket.svg";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/fe
 import checkmark from "../../../../public/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
-import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../components/NotFound";
 import { closeTicket, getAllNotifications } from "@/utils/utils";
 import app from "@/services/service";
 import { Bounce, toast } from "react-toastify";
@@ -59,7 +59,7 @@ const NotificationManagement = () => {
             </div>
             <Link href="/panel/admin/notifications-management/add-new-placard" className="flex flex-row gap-2 bg-[#4866CE] text-white p-3 rounded-[4px] w-[145px] hover:bg-blue-800 duration-300 items-center justify-between"  >
                 <span>اعلان جدید</span>
-                <Image src="/Panel/addticket.svg" alt="add" width={26} height={26} />
+                <Image src={add} alt="add" />
             </Link>
             <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] w-full">
                 <div className="flex flex-col gap-5">
@@ -105,7 +105,7 @@ const NotificationManagement = () => {
                                                 onClick={(event) => CLOSENOTIFICATION(event, item.id)}
                                                 // onClick={() => closeTicket(2, item.id, setAllTickets, setIsClosed)}
                                                 className={`cursor-pointer hover:scale-125 duration-300 `}>
-                                                <Image src={checkmark} alt="بستن" width={20} height={20}/>
+                                                <Image src={checkmark} alt="بستن" width={20} />
                                             </div>
                                         )}
                                     </div>

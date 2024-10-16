@@ -9,7 +9,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa6";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../components/NotFound";
 import NewInfoOnEachPageBtn from "../../user/components/NewInfoOnEachPageBtn";
 import { IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import NewPlacardNew from "./new-placard-new";
-import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import BackButton from "../../components/BackButton";
 
 function AddNewTicket() {
   const [steps, setSteps] = useState(0);

@@ -1,5 +1,5 @@
 import React from "react";
-import PanelFields from "../../../../components/PANEL__COMPONENTS/panel-fileds";
+import PanelFields from "../../components/panel-fileds";
 import Image from "next/image";
 import malegender from "../../../../public/Panel/malegender.svg";
 import Link from "next/link";

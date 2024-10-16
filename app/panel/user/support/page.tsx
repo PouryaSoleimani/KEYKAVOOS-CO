@@ -12,7 +12,7 @@ import checkmark from "../../../../public/Panel/checkmark.svg";
 import vieweye from "../../../../public/ViewUsers/vieweye.svg";
 import CloseTicketModal from "./components/close-ticket-modal";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../admin/components/NotFound";
 import { getAllTickets } from "@/utils/utils";
 import 'animate.css';
 

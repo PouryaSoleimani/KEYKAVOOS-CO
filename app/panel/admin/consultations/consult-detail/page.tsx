@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../components/NotFound";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
 const moment = require("moment-jalaali");

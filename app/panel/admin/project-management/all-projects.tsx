@@ -6,7 +6,7 @@ import vieweye from "../../../../public/ViewUsers/vieweye.svg";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../components/NotFound";
 import { getAllProjects } from "@/utils/utils";
 
 function AllProjects() {

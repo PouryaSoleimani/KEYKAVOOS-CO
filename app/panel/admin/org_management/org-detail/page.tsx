@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../components/NotFound";
 import { number } from "yup";
 import { IoArrowBack } from "react-icons/io5";
 import Link from "next/link";

@@ -3,12 +3,12 @@
 import Nav from '@/components/home-components/nav'
 import React, { useEffect } from 'react'
 import Footer from '@/components/home-components/Footer/Footer';
-import CarouselGames from '../../../components/WEB__APPLICATION__COMPONENTS/WebAppCarousel';
-import WebAppCategoryBox from '../../../components/WEB__APPLICATION__COMPONENTS/WebAppCategoryBox';
+import CarouselGames from './components/WebAppCarousel';
+import WebAppCategoryBox from './components/WebAppCategoryBox';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
-import CarouselGames2 from '../../../components/WEB__APPLICATION__COMPONENTS/WebAppCarousel2';
+import CarouselGames2 from './components/WebAppCarousel2';
 
 //^ COMPONENT
 const WebApplicationServicePage: React.FC = () => {

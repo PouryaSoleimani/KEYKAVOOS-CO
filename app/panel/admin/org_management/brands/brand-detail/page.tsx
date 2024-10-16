@@ -3,8 +3,8 @@ import { getBrandDetail } from "@/utils/utils";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
-import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import NotFound from "../../../components/NotFound";
+import BackButton from "../../../components/BackButton";
 
 export type BrandDetailType = { title: string; description: string; };
 //^ COMPONENT

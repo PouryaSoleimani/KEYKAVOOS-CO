@@ -8,7 +8,7 @@ import FirstPayment from "./first-payment";
 import SecondPayment from "./second-payment";
 import ThirdPayment from "./third-payment";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "@/components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "@/app/panel/admin/components/NotFound";
 import 'animate.css';
 
 //^ COMPONENT =========================================================================================================================================

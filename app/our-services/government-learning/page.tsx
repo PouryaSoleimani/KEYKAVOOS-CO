@@ -3,14 +3,14 @@
 import Nav from '@/components/home-components/nav'
 import React, { useEffect } from 'react'
 import Footer from '@/components/home-components/Footer/Footer';
-import GovernmentLearningCarousel from '../../../components/GOVERNMENT__LEARNING__COMPONENTS/GovernmentLearningCarousel';
+import GovernmentLearningCarousel from './components/GovernmentLearningCarousel';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css';
-import GovernmentLearningCarousel2 from '../../../components/GOVERNMENT__LEARNING__COMPONENTS/GovernmentLearningCarousel2';
-import GovernmentLearningCarousel3 from '../../../components/GOVERNMENT__LEARNING__COMPONENTS/GovernmentLearningCarousel3';
-import GovernmentLearningCarousel4 from '../../../components/GOVERNMENT__LEARNING__COMPONENTS/GovernmentLearningCarousel4';
-import GovernmentLearningCarousel5 from '../../../components/GOVERNMENT__LEARNING__COMPONENTS/GovernmentLearningCarousel5';
+import GovernmentLearningCarousel2 from './components/GovernmentLearningCarousel2';
+import GovernmentLearningCarousel3 from './components/GovernmentLearningCarousel3';
+import GovernmentLearningCarousel4 from './components/GovernmentLearningCarousel4';
+import GovernmentLearningCarousel5 from './components/GovernmentLearningCarousel5';
 
 
 //^ COMPONENT

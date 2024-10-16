@@ -7,8 +7,8 @@ import 'animate.css';
 import { useEffect } from 'react';
 import Nav from '@/components/home-components/nav';
 import Footer from '@/components/home-components/Footer/Footer';
-import GraphicDesignCarousel from '../../../components/GRAPHIC__DESIGN__COMPONENTS/GraphicDesignCarousel';
-import GraphicDesignCategoryBox from '../../../components/GRAPHIC__DESIGN__COMPONENTS/GraphicDesignCategoryBox';
+import GraphicDesignCarousel from './components/GraphicDesignCarousel';
+import GraphicDesignCategoryBox from './components/GraphicDesignCategoryBox';
 //INTERFACE
 interface Props { }
 

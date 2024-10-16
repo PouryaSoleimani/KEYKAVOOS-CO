@@ -3,7 +3,7 @@ import { CreateNewSiteType } from "@/utils/utils";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import BackButton from "../../../components/BackButton";
 
 function CreateSiteType() {
   const router = useRouter()

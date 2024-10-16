@@ -2,7 +2,7 @@
 import React from "react";
 import PermissionRole from "./permission-role";
 import PositionRole from "./positon-role";
-import BackButton from "../../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import BackButton from "../../../components/BackButton";
 
 function ChangePermission() {
     return (

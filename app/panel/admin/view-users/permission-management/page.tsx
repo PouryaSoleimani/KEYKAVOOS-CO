@@ -12,7 +12,7 @@ import vieweye from "@/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import { PermissionContext } from "../../context/permission-context/PermissionContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../components/NotFound";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";

@@ -8,8 +8,8 @@ import React, { useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
-import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import NotFound from "../../components/NotFound";
+import BackButton from "../../components/BackButton";
 
 export type NotificationDetailType = {
     id: string | number,

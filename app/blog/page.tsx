@@ -2,8 +2,8 @@
 // ^ BLOG PAGE ============================================================================================================================================
 import Nav from '@/components/home-components/nav'
 import React, { useEffect } from 'react'
-import BlogSwiper from '../../components/BLOG__COMPONENTS/BlogSwiper'
-import BlogCard from '../../components/BLOG__COMPONENTS/BlogCard'
+import BlogSwiper from './components/BlogSwiper'
+import BlogCard from './components/BlogCard'
 import Footer from '@/components/home-components/Footer/Footer'
 import 'animate.css';
 import AOS from 'aos'

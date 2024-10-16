@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../components/NotFound";
 
 export type ProjectDetailType = {
   title: string;

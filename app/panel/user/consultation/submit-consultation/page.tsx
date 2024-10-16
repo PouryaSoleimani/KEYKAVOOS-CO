@@ -6,7 +6,7 @@ import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/fe
 import { Bounce, toast } from "react-toastify";
 import { IoArrowBack } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-import AboutMeEducationDropdown from "@/components/PANEL__COMPONENTS/about-me-education-dropsown";
+import AboutMeEducationDropdown from "@/app/panel/components/about-me-education-dropsown";
 import SubmitOrderDropdown from "./../../submit-order/components/submit-order-dropdown";
 import TicketFields from "./../../support/add-new-ticket/components/ticket-fields";
 import FileUpload from "../../submit-order/components/file-upload";

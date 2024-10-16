@@ -13,7 +13,7 @@ import { Bounce, toast } from "react-toastify";
 import { IoArrowBack } from "react-icons/io5";
 import { getTicektDetail } from "@/utils/utils";
 import app from "@/services/service";
-import NotFound from "@/components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "@/app/panel/admin/components/NotFound";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 const moment = require("moment-jalaali");
 type SenderTextItem = { childId?: number; description: string; mainDescription: string; register_user_id: string; responser_user_id: string; created_at: string; messages: []; };

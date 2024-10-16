@@ -11,10 +11,10 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { DepartmentContext } from "../../context/department-context/DepartmentContext";
 import NewInfoOnEachPageBtn from "@/app/panel/user/components/NewInfoOnEachPageBtn";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import NotFound from "../../../../../components/ADMIN__PANEL__COMPONENTS/NotFound";
+import NotFound from "../../components/NotFound";
 import { IoArrowBack, IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import BackButton from "../../../../../components/ADMIN__PANEL__COMPONENTS/BackButton";
+import BackButton from "../../components/BackButton";
 
 export type DepartmentType = { id: number; name_en: string; name_fa: string; deleted_at: string; };
 export type DepartmentFinalType = { department: { id: number; name_en: string; name_fa: string; deleted_at: string; }; };

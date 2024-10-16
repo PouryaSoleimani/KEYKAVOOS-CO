@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
-// import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
-const PersonalInfoHeader = dynamic(() => import("../../user/personal-info/components/personal-info-header"), { ssr: false })
-const LegalUsersDynamic = dynamic(() => import('./legal-users'), { ssr: false })
-const GeniuneUsersDynamic = dynamic(() => import("./genuine-users"), { ssr: false })
+import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
+import LegalUsers from "./legal-users";
+import GenuineUsers from "./genuine-users";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { getAllUsers } from "@/utils/utils";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import dynamic from "next/dynamic";
 
 function ViewUsers() {
   const { localToken, token } = useSelector((state: any) => state.userData);
@@ -20,20 +18,32 @@ function ViewUsers() {
   const [genuineUsers, setGenuineUsers] = useState<never[]>([]);
   const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
-  useEffect(() => { getAllUsers(token, setAllUsersData, setUsersStatus); }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }
+  }, []);
 
-  useEffect(() => { const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string); setAllUsersData(allUsers); }, [setAllUsersData]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
+      setAllUsersData(allUsers);
+    }
+  }, [setAllUsersData]);
 
-  useEffect(() => { let legal = AllUsersData?.filter((item: any) => item.type === "hoghooghi"); setLegalUsers(legal); }, [setLegalUsers, AllUsersData]);
+  useEffect(() => {
+    let legal = AllUsersData?.filter((item: any) => item.type === "hoghooghi");
+    setLegalUsers(legal);
+  }, [setLegalUsers, AllUsersData]);
 
-  useEffect(() => { let genuine = AllUsersData?.filter((item: any) => item.type === ""); setGenuineUsers(genuine); }, [setGenuineUsers, AllUsersData]);
-
+  useEffect(() => {
+    let genuine = AllUsersData?.filter((item: any) => item.type === "haghighi");
+    setGenuineUsers(genuine);
+  }, [setGenuineUsers, AllUsersData]);
 
   const renderSteps = () => {
     switch (type) {
       case "Genuine":
         return (
-          <GeniuneUsersDynamic
+          <GenuineUsers
             GenuineUsersData={genuineUsers}
             usersStatus={usersStatus}
             setAllUsers={setAllUsersData}
@@ -46,7 +56,7 @@ function ViewUsers() {
         );
       case "Legal":
         return (
-          <LegalUsersDynamic
+          <LegalUsers
             LegalUsersData={legalUsers}
             usersStatus={usersStatus}
             setAllUsers={setAllUsersData}
