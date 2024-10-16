@@ -2,12 +2,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import PersonalInfoHeader from "../../user/personal-info/components/personal-info-header";
-import LegalUsers from "./legal-users";
-import GenuineUsers from "./genuine-users";
+// import LegalUsers from "./legal-users";
+const LegalUsersDynamic = dynamic(() => import('./legal-users'), { ssr: false })
+// import GenuineUsers from "./genuine-users";
+const GeniuneUsersDynamic = dynamic(() => import("./genuine-users"), { ssr: false })
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { getAllUsers } from "@/utils/utils";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import dynamic from "next/dynamic";
 
 function ViewUsers() {
   const { localToken, token } = useSelector((state: any) => state.userData);
@@ -39,11 +42,12 @@ function ViewUsers() {
     setGenuineUsers(genuine);
   }, [setGenuineUsers, AllUsersData]);
 
+
   const renderSteps = () => {
     switch (type) {
       case "Genuine":
         return (
-          <GenuineUsers
+          <GeniuneUsersDynamic
             GenuineUsersData={genuineUsers}
             usersStatus={usersStatus}
             setAllUsers={setAllUsersData}
@@ -56,7 +60,7 @@ function ViewUsers() {
         );
       case "Legal":
         return (
-          <LegalUsers
+          <LegalUsersDynamic
             LegalUsersData={legalUsers}
             usersStatus={usersStatus}
             setAllUsers={setAllUsersData}
