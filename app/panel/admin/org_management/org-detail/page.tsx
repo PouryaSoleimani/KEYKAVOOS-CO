@@ -50,14 +50,14 @@ function OrgDetail() {
           <NotFound text={`${orgDetailStatus.error}`} />
         ) : (
           <div className="grid grid-cols-8 py-3 bg-[#EAEFF6] rounded-[4px] place-items-center">
-            <p>{orgDetail?.id}</p>
-            <p>{orgDetail?.name}</p>
-            <p>{orgDetail?.descriprion ? orgDetail?.descriprion : "-"}</p>
-            <p>{orgDetail?.user}</p>
-            <p>{orgDetail?.phone}</p>
-            <p>{orgDetail?.address}</p>
-            <p>{orgDetail?.shenase_melli ? orgDetail?.shenase_melli : "-"}</p>
-            <p>{orgDetail?.logo ? orgDetail?.logo : "---"}</p>
+            <p>{orgDetail.id}</p>
+            <p>{orgDetail.name}</p>
+            <p>{orgDetail.descriprion ? orgDetail.descriprion : "-"}</p>
+            <p>{orgDetail.user}</p>
+            <p>{orgDetail.phone}</p>
+            <p>{orgDetail.address}</p>
+            <p>{orgDetail.shenase_melli ? orgDetail.shenase_melli : "-"}</p>
+            <p>{orgDetail.logo ? orgDetail.logo : "---"}</p>
           </div>
         )}
       </div>
