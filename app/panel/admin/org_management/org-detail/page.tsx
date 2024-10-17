@@ -1,11 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
+import React, { useEffect, useState } from "react";
 import { getBrandDetail, getOrganizationDetail } from "@/utils/utils";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
-import { number } from "yup";
 import { IoArrowBack } from "react-icons/io5";
 import Link from "next/link";
 
@@ -13,6 +13,8 @@ export type BrandDetailType = {
   title: string;
   description: string;
 };
+
+//^ COMPONENT
 function OrgDetail() {
   const { token } = useSelector((state: any) => state.userData);
   const params = useSearchParams();
@@ -20,9 +22,7 @@ function OrgDetail() {
   const [orgDetailStatus, setOrgDetailStatus] = useState({ loading: false, error: "", });
   const [orgDetail, setOrgDetail] = useState({ id: "", name: "", descriprion: "", phone: "", shenase_melli: "", user: "", address: "", logo: "" });
 
-  useEffect(() => {
-    getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus);
-  }, []);
+  useEffect(() => { getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus); console.log("ORG DETAILS ====>", orgDetail) }, []);
 
   return (
     <>
@@ -50,14 +50,14 @@ function OrgDetail() {
           <NotFound text={`${orgDetailStatus.error}`} />
         ) : (
           <div className="grid grid-cols-8 py-3 bg-[#EAEFF6] rounded-[4px] place-items-center">
-            <p>{orgDetail.id}</p>
-            <p>{orgDetail.name}</p>
-            <p>{orgDetail.descriprion ? orgDetail.descriprion : "-"}</p>
-            <p>{orgDetail.user}</p>
-            <p>{orgDetail.phone}</p>
-            <p>{orgDetail.address}</p>
-            <p>{orgDetail.shenase_melli ? orgDetail.shenase_melli : "-"}</p>
-            <p>{orgDetail.logo ? orgDetail.logo : "---"}</p>
+            <p>{orgDetail?.id}</p>
+            <p>{orgDetail?.name}</p>
+            <p>{orgDetail?.descriprion ? orgDetail?.descriprion : "-"}</p>
+            <p>{orgDetail?.user}</p>
+            <p>{orgDetail?.phone}</p>
+            <p>{orgDetail?.address}</p>
+            <p>{orgDetail?.shenase_melli ? orgDetail?.shenase_melli : "-"}</p>
+            <p>{orgDetail?.logo ? orgDetail?.logo : "---"}</p>
           </div>
         )}
       </div>
