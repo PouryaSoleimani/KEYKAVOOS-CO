@@ -49,14 +49,14 @@ function OrgDetail() {
         ) : (
           orgDetail && (
             <div className="grid grid-cols-8 py-3 bg-[#EAEFF6] rounded-[4px] place-items-center">
-              <p>{orgDetail?.data?.id}</p>
-              <p>{orgDetail?.data?.name}</p>
-              <p>{orgDetail?.data?.descriprion ? orgDetail?.data?.descriprion : "-"}</p>
-              <p>{orgDetail?.data?.user}</p>
-              <p>{orgDetail?.data?.phone}</p>
-              <p>{orgDetail?.data?.address}</p>
-              <p>{orgDetail?.data?.shenase_melli ? orgDetail?.data?.shenase_melli : "-"}</p>
-              <p>{orgDetail?.data?.logo ? orgDetail.logo : "---"}</p>
+              <p>{orgDetail?.id}</p>
+              <p>{orgDetail?.name}</p>
+              <p>{orgDetail?.descriprion ? orgDetail?.descriprion : "-"}</p>
+              <p>{orgDetail?.user}</p>
+              <p>{orgDetail?.phone}</p>
+              <p>{orgDetail?.address}</p>
+              <p>{orgDetail?.shenase_melli ? orgDetail?.shenase_melli : "-"}</p>
+              <p>{orgDetail?.logo ? orgDetail.logo : "---"}</p>
             </div>
           )
         )}

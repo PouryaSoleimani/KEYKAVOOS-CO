@@ -3405,7 +3405,7 @@ export const getOrganizationDetail = async (
       `/organization/show/${organizationId ? organizationId : ""}`,
       { headers: { Authorization: `Bearer ${token}`, }, }
     );
-    console.log("org detail", data);
+    console.log("org detail UTILS", data);
     setorganizationDetail(data.data);
   } catch (error: any) {
     console.log(error?.response?.data.message);
