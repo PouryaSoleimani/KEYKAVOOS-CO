@@ -3,15 +3,10 @@ import axios from "axios";
 
 let TOKEN = null;
 
-
 if (typeof window !== "undefined") {
   const SessionToken = sessionStorage.getItem('token');
-
-  try {
-    TOKEN = JSON.parse(SessionToken as string);
-  } catch (error) {
-    console.error("Error parsing token:", error);
-  }
+  try { TOKEN = JSON.parse(SessionToken as string); }
+  catch (error) { console.error("Error parsing token:", error); }
 }
 
 console.log("%c TOKEN TOKEN ===>", "color: yellow", TOKEN);
