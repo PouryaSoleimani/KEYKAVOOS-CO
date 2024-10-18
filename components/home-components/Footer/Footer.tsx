@@ -18,7 +18,7 @@ function Footer() {
 
   return (
     <div className="text-[#000000] pt-4 bg-slate-900/80 backdrop-blur-sm  ">
-      <div className="flex flex-col lg:flex-row items-center justify-between  w-full px-10 gap-5 mx-auto" dir="rtl" >
+      <div className="flex flex-col lg:flex-row items-center justify-between  w-full px-4 lg:px-10 gap-5 mx-auto" dir="rtl" >
         <div className="hidden md:flex col-span-2">
           <FooterNewsLetter />
         </div>
