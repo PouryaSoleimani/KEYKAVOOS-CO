@@ -20,7 +20,7 @@ function OrgDetail() {
   const id = params.get("id");
   const [orgDetailStatus, setOrgDetailStatus] = useState({ loading: false, error: "", });
   const [orgDetail, setOrgDetail] = useState({ id: "", name: "", descriprion: "", phone: "", shenase_melli: "", user: "", address: "", logo: "" });
-
+  const testObj = { name: "pori" }
   useEffect(() => { getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus); }, []);
 
   return (
@@ -57,6 +57,7 @@ function OrgDetail() {
             <p>{orgDetail.address}</p>
             <p>{orgDetail.shenase_melli ? orgDetail.shenase_melli : "-"}</p>
             <p>{orgDetail.logo ? orgDetail.logo : "---"}</p>
+            <p>{testObj.name}</p>
           </div>
         )}
       </div>
