@@ -4,7 +4,10 @@ import React from "react";
 import style from "./nav.module.css";
 import Skeleton from "react-loading-skeleton";
 type NavMobileProps = { localToken: any; userProfile: any; active: boolean; showOne: boolean; showTwo: boolean; showThree: boolean; showFour: boolean; setActive: React.Dispatch<React.SetStateAction<boolean>>; setShowOne: React.Dispatch<React.SetStateAction<boolean>>; setShowTwo: React.Dispatch<React.SetStateAction<boolean>>; setShowThree: React.Dispatch<React.SetStateAction<boolean>>; setShowFour: React.Dispatch<React.SetStateAction<boolean>>; };
+
+// ^  COMPONENT
 const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, setShowOne, setShowThree, setShowTwo, showOne, showFour, showThree, showTwo, }: NavMobileProps) => {
+
   return (
     <div className="lg:hidden">
       <Image
@@ -15,12 +18,7 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
         onClick={() => (setActive(!active), setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
         className={`z-20 relative ${active ? "-top-1" : "top-0"}`}
       />
-      <ul
-        className={`w-full flex flex-col justify-center items-end list-none border-b-[10px] border-b-indigo-500 ${active
-          ? "absolute top-0 left-0 w-full p-4 bg-white z-10 rounded-xl"
-          : "hidden"
-          }`}
-      >
+      <ul className={`w-full flex flex-col justify-center items-end list-none border-b-[10px] border-b-indigo-500 ${active ? "absolute top-0 left-0 w-full p-4 bg-white z-10 rounded-xl" : "hidden"}`}>
         <li className={style.list}>
           {showOne && (
             <ul className="list-none left-64 bg-white rounded-2xl border-b-8 border-b-[#4866CF] text-right flex flex-col z-10 absolute top-12 gap-4 w-[30%] px-4 py-3">
@@ -66,28 +64,11 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
             </Link>
           </button>
           <span>
-            <Image
-              src="/arrow.png"
-              width={22}
-              height={22}
-              alt="arrow"
-              className={`${showOne ? "rotate-90" : "rotate-180"}`}
-              onClick={() => (
-                setShowOne(!showOne),
-                setShowTwo(false),
-                setShowThree(false),
-                setShowFour(false)
-              )}
-            />
+            <Image src="/arrow.png" width={22} height={22} alt="arrow" className={`${showOne ? "rotate-90" : "rotate-180"}`} onClick={() => (setShowOne(!showOne), setShowTwo(false), setShowThree(false), setShowFour(false))} />
           </span>
           <span
             className="font-bold text-lg"
-            onClick={() => (
-              setShowOne(!showOne),
-              setShowTwo(false),
-              setShowThree(false),
-              setShowFour(false)
-            )}
+            onClick={() => (setShowOne(!showOne), setShowTwo(false), setShowThree(false), setShowFour(false))}
           >
             وبلاگ
           </span>
@@ -104,29 +85,9 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
             </ul>
           )}
           <span>
-            <Image
-              src="/arrow.png"
-              width={22}
-              height={22}
-              alt="arrow"
-              onClick={() => (
-                setShowTwo(!showTwo),
-                setShowOne(false),
-                setShowThree(false),
-                setShowFour(false)
-              )}
-              className={`${showTwo ? "rotate-90" : "rotate-180"}`}
-            />
+            <Image src="/arrow.png" width={22} height={22} alt="arrow" onClick={() => (setShowTwo(!showTwo), setShowOne(false), setShowThree(false), setShowFour(false))} className={`${showTwo ? "rotate-90" : "rotate-180"}`} />
           </span>
-          <span
-            className="text-lg font-bold"
-            onClick={() => (
-              setShowTwo(!showTwo),
-              setShowOne(false),
-              setShowThree(false),
-              setShowFour(false)
-            )}
-          >
+          <span className="text-lg font-bold" onClick={() => (setShowTwo(!showTwo), setShowOne(false), setShowThree(false), setShowFour(false))}>
             درباره ما
           </span>
         </li>
