@@ -68,7 +68,7 @@ function Departments() {
               </p>
               <div className="flex flex-row items-center justify-center gap-3 col-span-3 lg:col-span-1">
                 <Link href={`/panel/admin/org_management/departments/department-detail?id=${item.department.id}`} className="flex justify-center hover:scale-125 duration-300"  >
-                  <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                  <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
                 </Link>
                 <span onClick={() => deleteDepartment(item.department.id, setDepartmentIsDeleted)} className="flex justify-center"  >
                   <RiDeleteBin7Fill className={`text-red-600 text-lg hover:scale-125 duration-300 ${item.department.deleted_at ? "hidden" : "inline"}`} />

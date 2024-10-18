@@ -9,7 +9,7 @@ const CodingWebDevelopment: NextPage<Props> = ({ }) => {
     return (
         <div className='flex bg-transparent flex-col-reverse px-7 py-3 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-between items-center w-full h-full lg:h-fit'>
 
-            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
+            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/react.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-4' />
                 <Image src='/Technology/next.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-32' />
                 <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />

@@ -24,7 +24,7 @@ function Services() {
             <div className="flex flex-col gap-5 p-3" dir="rtl">
               {item.subtitles.map((item, index) => (
                 <div key={index} className="flex flex-row items-start gap-x-1">
-                  <Image src={options} alt="options" className="w-6 h-6" />
+                  <Image src="/public/plans/options.svg" alt="options" className="w-6 h-6" />
                   <span className="text-base leading-6 tracking-tighter text-start">{item}</span>
                 </div>
               ))}

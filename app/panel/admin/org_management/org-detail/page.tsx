@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { getBrandDetail, getOrganizationDetail } from "@/utils/utils";
 import { useSearchParams } from "next/navigation";
@@ -18,11 +19,8 @@ function OrgDetail() {
   const params = useSearchParams();
   const id = params.get("id");
   const [orgDetailStatus, setOrgDetailStatus] = useState({ loading: false, error: "", });
-  const [orgDetail, setOrgDetail] = useState({ id: "", name: "", descriprion: "", phone: "", shenase_melli: "", user: "", address: "", logo: "" });
-
-  useEffect(() => {
-    getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus);
-  }, []);
+  const [orgDetail, setOrgDetail] = useState({ id: "", name: "", descriprion: "", phone: "", shenase_melli: "", user: { name: "", surname: "" }, address: "", logo: "" });
+  useEffect(() => { getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus); }, []);
 
   return (
     <>
@@ -52,8 +50,8 @@ function OrgDetail() {
           <div className="grid grid-cols-8 py-3 bg-[#EAEFF6] rounded-[4px] place-items-center">
             <p>{orgDetail.id}</p>
             <p>{orgDetail.name}</p>
+            <p>{orgDetail.user.name}{orgDetail.user.surname}</p>
             <p>{orgDetail.descriprion ? orgDetail.descriprion : "-"}</p>
-            <p>{orgDetail.user}</p>
             <p>{orgDetail.phone}</p>
             <p>{orgDetail.address}</p>
             <p>{orgDetail.shenase_melli ? orgDetail.shenase_melli : "-"}</p>

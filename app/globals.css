@@ -293,11 +293,7 @@ select {
   --grey: #93a1a1;
   position: relative;
   padding: 9px;
-  /* background-color: var(--bg); */
   border-radius: 15px;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 
 .servicecard-overlay {
@@ -323,6 +319,9 @@ select {
 }
 
 @media only screen and (max-width: 640px) {
+  .servicecard {
+    margin: 2rem 0;
+  }
   .servicecard-inner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -330,10 +329,10 @@ select {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    width: 124px;
-    height: 124px;
+    width: 230px;
+    height: 230px;
     border-radius: 12px;
-    font-size: 17px;
+    font-size: 25x;
     font-weight: 700;
     background: linear-gradient(45deg, #4d62ad, rgb(2, 2, 54));
     background-clip: text;

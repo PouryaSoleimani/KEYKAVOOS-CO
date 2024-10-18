@@ -43,7 +43,7 @@ function SiteTypes() {
             <input value={item.description ? item.description : "-"} readOnly={true} className={`${editField.showEditField ? "bg-white" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
             <div className="flex flex-row items-center justify-center gap-3">
               <Link href={`/panel/admin/plan-management/site-types/site-type-detail?id=${item.id}`} className="flex justify-center hover:scale-110 duration-300"  >
-                <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
               </Link>
               <span onClick={() => deleteSiteType(item.id, token, setSiteTypeIsDeleted)} className="flex justify-center" >
                 <RiDeleteBin7Fill className="text-red-600 text-lg hover:scale-110 duration-300" />

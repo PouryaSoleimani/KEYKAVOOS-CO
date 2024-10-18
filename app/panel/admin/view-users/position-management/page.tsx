@@ -75,7 +75,7 @@ function PositionManagement() {
 
               <div className="flex flex-row items-center justify-center gap-2 col-span-2 lg:col-span-1">
                 <Link href={`/panel/admin/view-users/position-management/position-detail?id=${item.position.id}`} className="flex justify-center" >
-                  <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                  <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
                 </Link>
 
                 <span onClick={() => deletePosition(item.position.id, token, setPositionIsDeleted)} className="flex justify-center" >

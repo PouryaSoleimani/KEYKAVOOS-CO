@@ -35,7 +35,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
         <div className="flex flex-row gap-3 items-center py-1">
           <div>
             <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 relative">
-              <Image src={notification} alt="notification-bell" width={26} className="cursor-pointer hover:scale-110 duration-300" onMouseEnter={() => setShowAnnouncementDropdown(true)} />
+              <Image src="/Panel/notif.svg" alt="notification-bell" width={26} height={26} className="cursor-pointer hover:scale-110 duration-300" onMouseEnter={() => setShowAnnouncementDropdown(true)} />
               <p className="bg-[#4866CF] font-faNum text-white p-2 rounded-full flex items-center text-xs justify-center w-[20px] h-[20px] absolute top-0 right-0">
                 <span>{numberOfAnnouncements.length}</span>
               </p>
@@ -67,9 +67,9 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                   <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
                 </div>
               ) : (
-                <Image src={USER__DEFAULT} alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
+                <Image src="/USER__DEFAULT.png" alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
-                <Image src={exit} alt="exit" width={24} className="p-0.5 -translate-x-0.5 hover:scale-110 duration-300" />
+                <Image src="/Panel/exit.svg" alt="exit" width={24} height={24} className="p-0.5 -translate-x-0.5 hover:scale-110 duration-300" />
               </div>
             </div>
           </div>

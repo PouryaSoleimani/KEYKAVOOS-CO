@@ -66,7 +66,7 @@ function OrgManagement() {
 
                   <div className="flex flex-row items-center justify-center lg:gap-3 col-span-3 gap-1 lg:col-span-1">
                     <Link href={`/panel/admin/org_management/org-detail?id=${item.id}`} className="flex justify-center">
-                      <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                      <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
                     </Link>
 
                     <span onClick={() => deleteOrgan(item.id, setOrganIsDeleted)} className="flex justify-center cursor-pointer" >

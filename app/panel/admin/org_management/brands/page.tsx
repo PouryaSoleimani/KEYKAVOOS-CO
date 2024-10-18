@@ -79,7 +79,7 @@ function Brands() {
                   </p>
                   <div className="flex flex-row items-center justify-center gap-3 lg:grid-cols-1 grid-cols-3 my-2">
                     <Link href={`/panel/admin/org_management/brands/brand-detail?id=${item.brand.id}`} className="flex justify-center hover:scale-125 duration-300" >
-                      <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                      <Image src='/ViewUsers/vieweye.svg' alt="مشاهده" width={20} height={20} />
                     </Link>
                     <span onClick={() => deleteBrand(item.brand.id, token, setBrandIsDeleted)} className="flex justify-center" >
                       <RiDeleteBin7Fill className={`text-red-600 text-lg hover:scale-125 duration-300 ${item.brand.deleted_at ? "hidden" : "inline"}`} />

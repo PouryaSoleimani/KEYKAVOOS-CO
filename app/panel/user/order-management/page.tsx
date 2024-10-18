@@ -50,7 +50,7 @@ function OrderManagement() {
                 <p>{item.status?.title ? item.status?.title : "در حال بررسی"}</p>
                 <div className="flex flex-row gap-5 justify-center items-center">
                   <Link href={`/panel/user/project-management/project-detail?id=${item?.project.id}`} className="hover:scale-125 duration-300" >
-                    <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+                    <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
                   </Link>
                   <Link href={`/panel/user/order-management/order-payment?id=${item?.id}`} className="hover:scale-125 duration-300">
                     <MdOutlinePayment className="text-xl text-green-800 font-semibold" />

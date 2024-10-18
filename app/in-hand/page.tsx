@@ -119,7 +119,7 @@ const InHand = () => {
                 به زودی حاضر میشه
               </span>
               <span className="absolute text-center top-[60%] left-1/2 -translate-x-1/2 w-full flex justify-center">
-                <Image src={SmileIcon} alt="smile" />
+                <Image src='/in-hand/smile.svg' alt="smile" />
               </span>
               {/* <div className="absolute top-[10rem] left-1/2 -translate-x-1/2">
                 <div className="text-[18px] font-bold flex">
