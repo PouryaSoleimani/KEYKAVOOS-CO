@@ -21,9 +21,7 @@ function OrgDetail() {
   const [orgDetailStatus, setOrgDetailStatus] = useState({ loading: false, error: "", });
   const [orgDetail, setOrgDetail] = useState({ id: "", name: "", descriprion: "", phone: "", shenase_melli: "", user: "", address: "", logo: "" });
 
-  useEffect(() => {
-    getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus);
-  }, []);
+  useEffect(() => { getOrganizationDetail(token, id, setOrgDetail, setOrgDetailStatus); }, []);
 
   return (
     <>
