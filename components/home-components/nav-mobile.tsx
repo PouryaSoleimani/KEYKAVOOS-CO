@@ -3,34 +3,8 @@ import Link from "next/link";
 import React from "react";
 import style from "./nav.module.css";
 import Skeleton from "react-loading-skeleton";
-type NavMobileProps = {
-  localToken: any;
-  userProfile: any;
-  active: boolean;
-  showOne: boolean;
-  showTwo: boolean;
-  showThree: boolean;
-  showFour: boolean;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowOne: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowTwo: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowThree: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowFour: React.Dispatch<React.SetStateAction<boolean>>;
-};
-const NavMobile = ({
-  localToken,
-  userProfile,
-  active,
-  setActive,
-  setShowFour,
-  setShowOne,
-  setShowThree,
-  setShowTwo,
-  showOne,
-  showFour,
-  showThree,
-  showTwo,
-}: NavMobileProps) => {
+type NavMobileProps = { localToken: any; userProfile: any; active: boolean; showOne: boolean; showTwo: boolean; showThree: boolean; showFour: boolean; setActive: React.Dispatch<React.SetStateAction<boolean>>; setShowOne: React.Dispatch<React.SetStateAction<boolean>>; setShowTwo: React.Dispatch<React.SetStateAction<boolean>>; setShowThree: React.Dispatch<React.SetStateAction<boolean>>; setShowFour: React.Dispatch<React.SetStateAction<boolean>>; };
+const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, setShowOne, setShowThree, setShowTwo, showOne, showFour, showThree, showTwo, }: NavMobileProps) => {
   return (
     <div className="lg:hidden">
       <Image
@@ -38,21 +12,14 @@ const NavMobile = ({
         width={active ? 25 : 40}
         height={active ? 25 : 40}
         alt="info"
-        onClick={() => (
-          setActive(!active),
-          setShowOne(false),
-          setShowTwo(false),
-          setShowThree(false),
-          setShowFour(false)
-        )}
+        onClick={() => (setActive(!active), setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
         className={`z-20 relative ${active ? "-top-1" : "top-0"}`}
       />
       <ul
-        className={`w-full flex flex-col justify-center items-end list-none border-b-[10px] border-b-indigo-500 ${
-          active
-            ? "absolute top-0 left-0 w-full p-4 bg-white z-10 rounded-xl"
-            : "hidden"
-        }`}
+        className={`w-full flex flex-col justify-center items-end list-none border-b-[10px] border-b-indigo-500 ${active
+          ? "absolute top-0 left-0 w-full p-4 bg-white z-10 rounded-xl"
+          : "hidden"
+          }`}
       >
         <li className={style.list}>
           {showOne && (
@@ -80,12 +47,12 @@ const NavMobile = ({
                   ? "/authorization"
                   : userProfile.UserType === "Admin" ||
                     userProfile.UserType === "GeneralAdmin"
-                  ? "/panel/main-admin/profile"
-                  : userProfile.UserType === "User"
-                  ? "/panel"
-                  : userProfile.UserType === "Employer"
-                  ? "/panel/employer-panel"
-                  : ""
+                    ? "/panel/main-admin/profile"
+                    : userProfile.UserType === "User"
+                      ? "/panel"
+                      : userProfile.UserType === "Employer"
+                        ? "/panel/employer-panel"
+                        : ""
               }
             >
               {!localToken && "ثبت نام / ورود"}
