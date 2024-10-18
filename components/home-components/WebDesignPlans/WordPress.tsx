@@ -9,13 +9,13 @@ const WordPress: NextPage<Props> = ({ }) => {
     return (
         <div className='flex bg-transparent flex-col-reverse px-7 py-3 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-between items-center w-full h-full lg:h-fit'>
 
-            <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
+            <div id="LEFT" className={`w-full bg-contain  lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
                 <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
             </div>
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4  py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
-                <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>وب سایت وردپرسی</h2>
-                <p className='text-zinc-600 tracking-tighter text-justify text-md leading-9 font-thin whitespace-pre-line'><b className='font-bold tracking-wide text-zinc-800 my-3'>طراحی سایت با وردپرس مزایای زیادی دارد، از جمله : </b>
+                <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-3xl lg:text-4xl font-extrabold bg-clip-text text-transparent whitespace-nowrap'>وب سایت وردپرسی</h2>
+                <p className='text-zinc-600 tracking-tighter text-justify text-md leading-8 lg:leading-9 font-thin whitespace-pre-line '><b className='font-bold tracking-wide text-zinc-800 my-3'>طراحی سایت با وردپرس مزایای زیادی دارد، از جمله : </b>
                     <br />
                     <p className='font-bold text-[#4866CF] text-xl leading-6'> -  کاربرپسند بودن : </p>
                     ایجاد و مدیریت سایت با وردپرس به راحتی انجام می‌شود و نیازی به مهارت‌های کدنویسی ندارد.
