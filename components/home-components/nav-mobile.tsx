@@ -92,7 +92,7 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
           </span>
         </li>
         <li className={style.list}>
-          <Link href="/services" className="text-lg font-bold">
+          <Link href="/#OUR__SERVICES__SECTION" className="text-lg font-bold">
             خدمات ما
           </Link>
         </li>

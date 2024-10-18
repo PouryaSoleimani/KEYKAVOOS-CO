@@ -40,7 +40,7 @@ export default function Home() {
       <div className="bg-[#eaeff5] web-container overflow-x-hidden">
         <Script src="/navachat.js" async />
         <Nav />
-        <main className="flex flex-col mx-auto mt-10 w-full">
+        <main id="HOME__PAGE__MAIN__SECTION" className="flex flex-col mx-auto mt-10 w-full">
           <Intro />
           <OurServices />
           <div className="relative px-[4vw] space-y-10">
