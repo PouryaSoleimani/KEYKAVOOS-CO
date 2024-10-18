@@ -8,7 +8,6 @@ type NavMobileProps = { localToken: any; userProfile: any; active: boolean; show
 // ^  COMPONENT
 const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, setShowOne, setShowThree, setShowTwo, showOne, showFour, showThree, showTwo, }: NavMobileProps) => {
 
-
   return (
     <div className="lg:hidden">
       <Image src={active ? "/cross.jpg" : "/bar.svg"} width={active ? 25 : 40} height={active ? 25 : 40} alt="info" onClick={() => (setActive(!active), setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))} className={`z-20 relative ${active ? "-top-1" : "top-0"}`} />
