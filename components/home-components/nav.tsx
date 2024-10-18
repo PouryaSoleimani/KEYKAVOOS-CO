@@ -111,9 +111,9 @@ const Nav = () => {
                 <span>
                   <FaChevronDown className="text-sm text-zinc-500 translate-y-1" />
                 </span>
-                <Link href={"/services"} onMouseEnter={() => setShowTwo(true)} className="font-semibold text-[14px] text-zinc-700 hover:text-[#4866CF]" >
+                <li onMouseEnter={() => setShowTwo(true)} className="font-semibold text-[14px] text-zinc-700 hover:text-[#4866CF]" >
                   خدمات ما
-                </Link>
+                </li>
               </div>
 
               {showTwo && (
