@@ -3401,7 +3401,10 @@ export const getOrganizationDetail = async (
   try {
     setOrgDetailStatus &&
       setOrgDetailStatus((last) => ({ ...last, loading: true }));
-    const { data } = await app.get(`/organization/show/${organizationId ? organizationId : ""}`, { headers: { Authorization: `Bearer ${token}`, }, });
+    const { data } = await app.get(
+      `/organization/show/${organizationId ? organizationId : ""}`,
+      { headers: { Authorization: `Bearer ${token}`, }, }
+    );
     console.log("org detail UTILS", data);
     setorganizationDetail(data.data);
   } catch (error: any) {
