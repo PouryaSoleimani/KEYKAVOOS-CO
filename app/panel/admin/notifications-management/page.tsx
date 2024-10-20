@@ -2,14 +2,14 @@
 // ^ NOTIFICATIONS-MANAGEMENT PAGE =================================================================================================================================
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import add from "../../../../public/Panel/addticket.svg";
+import add from "/Panel/addticket.svg";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
-import checkmark from "../../../../public/Panel/checkmark.svg";
+import checkmark from "/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import vieweye from "../../../../public/ViewUsers/vieweye.svg";
+import vieweye from "/ViewUsers/vieweye.svg";
 import NotFound from "../components/NotFound";
 import { closeTicket, getAllNotifications } from "@/utils/utils";
 import app from "@/services/service";

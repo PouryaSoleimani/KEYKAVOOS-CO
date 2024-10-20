@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Image from "next/image";
 import React, { FormEvent, useContext, useEffect, useState } from "react";
@@ -5,7 +6,7 @@ import Logo from "./components/logo";
 import SubmissionBtn from "./components/submission-btn";
 import FormInput from "../contact-us/components/form/form-inputs";
 import OtpInput from "react-otp-input";
-import sms from "../../public/Auth/sms.svg";
+import sms from "/public/Auth/sms.svg";
 import Modal from "@/components/modal";
 import { sendOTPCodeMain } from "@/utils/utils";
 import { useDispatch, useSelector } from "react-redux";

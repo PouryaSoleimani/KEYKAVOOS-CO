@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import microsoft from "../../../public/Auth/microsoft.svg";
-import github from "../../../public/Auth/github.svg";
-import google from "../../../public/Auth/google.svg";
+import microsoft from "/Auth/microsoft.svg";
+import github from "/Auth/github.svg";
+import google from "/Auth/google.svg";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { useGoogleLogin } from "@react-oauth/google";
