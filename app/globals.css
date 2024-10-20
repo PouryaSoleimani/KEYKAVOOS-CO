@@ -14,12 +14,12 @@
 
 @font-face {
   font-family: "YekanBakh";
-  src: url("../public/fonts/YekanBakh-Regular.otf");
+  src: url("/public/fonts/YekanBakh-Regular.otf");
 }
 
 @font-face {
   font-family: "faNum";
-  src: url("../public/fonts/YekanBakhFaNum-Regular.otf");
+  src: url("/public/fonts/YekanBakhFaNum-Regular.otf");
 }
 
 * {
@@ -64,11 +64,11 @@ td {
 
 /* swiper arrows customization */
 .swiper-button-next {
-  background-image: url("../public/arrow.png");
+  background-image: url("/public/arrow.png");
 }
 
 .swiper-button-prev {
-  background-image: url("../public/arrow.png");
+  background-image: url("/public/arrow.png");
   rotate: 180deg;
 }
 
@@ -153,7 +153,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url("../public/Panel/dropdownbutton.svg");
+  background-image: url("/public/Panel/dropdownbutton.svg");
   background-repeat: no-repeat;
   background-position: 2% 50%;
   outline: none;

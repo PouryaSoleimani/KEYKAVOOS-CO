@@ -5,9 +5,9 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "@/redux/features/user/userSlice";
 import { useRouter } from "next/navigation";
-import notification from "../../public/Panel/notif.svg";
-import USER__DEFAULT from '@/public/USER__DEFAULT.png'
-import exit from "../../public/Panel/exit.svg";
+import notification from "/public/Panel/notif.svg";
+import USER__DEFAULT from '/public/USER__DEFAULT.png'
+import exit from "/public/Panel/exit.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { changeNotificationStatus } from "@/utils/utils";
 import { RiCrosshair2Fill, RiDeleteBin7Fill } from "react-icons/ri";

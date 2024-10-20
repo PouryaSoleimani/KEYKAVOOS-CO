@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import plus from "../../../../../public/Panel/plus.svg";
+import plus from "/public/Panel/plus.svg";
 import Image from "next/image";
 import { MdDelete } from "react-icons/md";
 import OrdersubmissionModal from "./odersubmission-modal";
