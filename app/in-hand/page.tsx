@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./in-hand.module.css";
 import { animated, useSpring } from "@react-spring/web";
 import Image from "next/image";
-import board from "../../public/in-hand/board.svg";
+import board from "/in-hand/board.svg";
 import { useStopwatch } from "react-timer-hook";
 const { inHandBackground } = styles;
-import SmileIcon from "@/public/in-hand/smile.svg";
+import SmileIcon from "/in-hand/smile.svg";
 const InHand = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [heightReached, setHeightReached] = useState(false);
@@ -114,12 +114,12 @@ const InHand = () => {
             }}
           >
             <div className="relative">
-              <Image src={board} alt="board" />
+              <Image src={board} alt="board" width={200} height={200}/>
               <span className="font-bold absolute text-center top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full text-[18px]">
                 به زودی حاضر میشه
               </span>
               <span className="absolute text-center top-[60%] left-1/2 -translate-x-1/2 w-full flex justify-center">
-                <Image src='/in-hand/smile.svg' alt="smile" />
+                <Image src='/in-hand/smile.svg' alt="smile" width={200} height={200} />
               </span>
               {/* <div className="absolute top-[10rem] left-1/2 -translate-x-1/2">
                 <div className="text-[18px] font-bold flex">
