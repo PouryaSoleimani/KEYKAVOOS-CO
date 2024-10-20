@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import React, { ChangeEvent, useEffect } from "react";
-import uploadFile from "../../../../../public/Panel/uploadfile.svg";
+import uploadFile from "/public/Panel/uploadfile.svg";
 import { MdOutlineFileUpload } from "react-icons/md";
-import USER__DEFAULT from '@/public/USER__DEFAULT.png'
+import USER__DEFAULT from '/public/USER__DEFAULT.png'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile, getIdFromLocal, getTokenFromLocal } from "@/redux/features/user/userSlice";
 import axios from "axios";
