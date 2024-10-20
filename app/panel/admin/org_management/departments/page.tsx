@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import vieweye from "@/public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineEdit } from "react-icons/ai";
 import { DepartmentContext } from "../../context/department-context/DepartmentContext";

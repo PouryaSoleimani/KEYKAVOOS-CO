@@ -4,7 +4,7 @@ import { deleteConsultation, getAllConsultations, restoreConsultation, } from "@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import vieweye from "@/public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import NotFound from "../components/NotFound";

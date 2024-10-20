@@ -1,14 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import {
-  deletePermission,
-  getAllPermissions,
-  restorePermission,
-} from "@/utils/utils";
+import { deletePermission, getAllPermissions, restorePermission,} from "@/utils/utils";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import vieweye from "@/public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import Image from "next/image";
 import { PermissionContext } from "../../context/permission-context/PermissionContext";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
