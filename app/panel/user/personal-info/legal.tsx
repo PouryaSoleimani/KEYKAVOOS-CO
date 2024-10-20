@@ -1,7 +1,7 @@
 import React from "react";
 import PanelFields from "../../components/panel-fileds";
 import Image from "next/image";
-import malegender from "../../../../public/Panel/malegender.svg";
+import malegender from "/public/Panel/malegender.svg";
 import Link from "next/link";
 type LegalProps = { PhoneNumber: string; token: string; name_of_Organization: string; shenase_melli: string; registration_Number: string; path?: string; userProfile: {} };
 

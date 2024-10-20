@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import add from "../../../../public/Panel/addticket.svg";
+import add from "/public/Panel/addticket.svg";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
-import checkmark from "../../../../public/Panel/checkmark.svg";
+import checkmark from "/public/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import vieweye from "../../../../public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import CloseTicketModal from "./components/close-ticket-modal";
 import NotFound from "../components/NotFound";
 import { closeTicket, getAllTickets } from "@/utils/utils";
