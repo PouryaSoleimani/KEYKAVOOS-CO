@@ -8,6 +8,7 @@ import Image from "next/image";
 import { CertificateSlider } from "@/lib/data";
 import { useState } from "react";
 
+
 const CertificatesSlider = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
@@ -17,20 +18,10 @@ const CertificatesSlider = () => {
         modules={[Autoplay, EffectCoverflow]}
         loop
         speed={1500}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: true,
-          stopOnLastSlide: false,
-        }}
+        autoplay={{ delay: 3500, disableOnInteraction: true, stopOnLastSlide: false, }}
         slidesPerView={3}
         effect="coverflow"
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 90,
-          depth: 900,
-          modifier: 1,
-          slideShadows: false,
-        }}
+        coverflowEffect={{ rotate: 0, stretch: 90, depth: 900, modifier: 1, slideShadows: false, }}
         centeredSlides={true}
         preventInteractionOnTransition={true}
         onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
@@ -38,13 +29,7 @@ const CertificatesSlider = () => {
       >
         {CertificateSlider.map((link) => (
           <SwiperSlide key={link.id}>
-            <Image
-              src={link.link}
-              alt={link.altText}
-              width={500}
-              height={200}
-              className={`p-${link.padding}`}
-            />
+            <Image src={link.link} alt={link.altText} width={500} height={200} className={`p-${link.padding}`} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
 import Link from "next/link";
 import Image from "next/image";
-import vieweye from "@/public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import { IoArrowBack } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
 import BackButton from "../../components/BackButton";

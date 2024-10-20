@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import OrdersubmissionInput from "./ordersubmission-input";
 import Image from "next/image";
-import uploadfile from "../../public/Panel/uploadfile.svg";
+import uploadfile from "/public/Panel/uploadfile.svg";
 import { Bounce, toast } from "react-toastify";
 import axios from "axios";
 import { useFormik } from "formik";

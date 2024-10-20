@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import vieweye from "../../../../public/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import Link from "next/link";
 import NotFound from "../components/NotFound";
 import GenuineUserHeader from "../components/GenuineUserHeader";

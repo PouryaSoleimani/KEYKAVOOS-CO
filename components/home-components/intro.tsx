@@ -1,6 +1,6 @@
 import React from "react";
-import tower from "../../public/Intro/tower.svg";
-import support from "../../public/Intro/support.svg";
+import tower from "/public/Intro/tower.svg";
+import support from "/public/Intro/support.svg";
 import Image from "next/image";
 import IntroBtns from "./intro-btns";
 import 'animate.css';

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import search from "../../../../public/ViewUsers/search.svg";
+import search from "/public/ViewUsers/search.svg";
 
 type SearchInputProps = {
   value: string;

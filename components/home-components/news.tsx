@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Bounce, toast } from "react-toastify";
-import NewsIcon from "../../public/Newsletter/bottomsvg-newsletterbg-icon.svg";
+import NewsIcon from "/public/Newsletter/bottomsvg-newsletterbg-icon.svg";
 
 
 function News() {

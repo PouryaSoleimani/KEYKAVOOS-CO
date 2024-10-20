@@ -3,31 +3,22 @@ import React, { useEffect, useState } from "react";
 import styles from "./in-hand.module.css";
 import { animated, useSpring } from "@react-spring/web";
 import Image from "next/image";
-import board from "../../public/in-hand/board.svg";
 import { useStopwatch } from "react-timer-hook";
 const { inHandBackground } = styles;
-import SmileIcon from "@/public/in-hand/smile.svg";
+
 const InHand = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [heightReached, setHeightReached] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, });
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const targetDate = new Date("2024-03-27").getTime();
       const distance = targetDate - now;
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -36,21 +27,11 @@ const InHand = () => {
 
     return () => clearInterval(interval);
   }, []);
-  const stopAnimation = () => {
-    setIsAnimating(false);
-  };
+  const stopAnimation = () => { setIsAnimating(false); };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsAnimating(true);
-    }, 1000); // Start animation after 1 second delay
-  }, []);
+  useEffect(() => { setTimeout(() => { setIsAnimating(true); }, 1000); }, []);
 
-  useEffect(() => {
-    setIsAnimating(true);
-    setHeightReached(false);
-    setTimeLeft(30);
-  }, []);
+  useEffect(() => { setIsAnimating(true); setHeightReached(false); setTimeLeft(30); }, []);
 
   const hookSpring = useSpring({
     from: { y: 0 },
@@ -70,9 +51,7 @@ const InHand = () => {
   const startTimer = () => {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1);
-      if (timeLeft === 0) {
-        clearInterval(timer);
-      }
+      if (timeLeft === 0) { clearInterval(timer); }
     }, 1000);
   };
 
@@ -80,13 +59,9 @@ const InHand = () => {
     from: { height: 0 },
     to: { height: 30 },
     config: { duration: 3000 },
-    onStart: () => {
-      setIsAnimating(true);
-    },
+    onStart: () => { setIsAnimating(true); },
     onFrame: (props: any) => {
-      if (props.height >= 100) {
-        stopAnimation();
-      }
+      if (props.height >= 100) { stopAnimation(); }
     },
   });
 
@@ -114,12 +89,13 @@ const InHand = () => {
             }}
           >
             <div className="relative">
-              <Image src={board} alt="board" />
+              <Image src="/in-hand/board" alt="board" width={200} height={200} />
               <span className="font-bold absolute text-center top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full text-[18px]">
                 به زودی حاضر میشه
               </span>
               <span className="absolute text-center top-[60%] left-1/2 -translate-x-1/2 w-full flex justify-center">
-                <Image src='/in-hand/smile.svg' alt="smile" />
+                <Image src='/in-hand/smile.svg' alt="smile" width={200} height={200} />
+                <Image src='/in-hand/smile.svg' alt="smile" width={200} height={200} />
               </span>
               {/* <div className="absolute top-[10rem] left-1/2 -translate-x-1/2">
                 <div className="text-[18px] font-bold flex">
