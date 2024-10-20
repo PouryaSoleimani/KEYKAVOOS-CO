@@ -9,7 +9,7 @@ import axios from "axios";
 import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import checkmark from "/public/Panel/checkmark.svg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import vieweye from "/ViewUsers/vieweye.svg";
+import vieweye from "/public/ViewUsers/vieweye.svg";
 import NotFound from "../components/NotFound";
 import { closeTicket, getAllNotifications } from "@/utils/utils";
 import app from "@/services/service";
