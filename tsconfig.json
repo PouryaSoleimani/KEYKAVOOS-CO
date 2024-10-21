@@ -27,8 +27,7 @@
         "./*"
       ],
       "@/public/*": [
-        // "/public/*"
-        "/"
+        "/public/*"
       ],
       "@/components/*": [
         "./components/*"
