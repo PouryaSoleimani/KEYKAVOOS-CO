@@ -7,12 +7,7 @@ const FianaceAuthorizationCert = () => {
   return (
     <div>
       <div className={`flex justify-center items-center px-[5%]`}>
-        <Image
-          src="/certificates/2.svg"
-          alt="گواهی صلاحیت سازمان بودجه"
-          width={600}
-          height={500}
-        />
+        <Image src="/certificates/2.svg" alt="گواهی صلاحیت سازمان بودجه" width={600} height={500} />
       </div>
     </div>
   );
