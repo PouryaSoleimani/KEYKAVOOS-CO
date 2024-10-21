@@ -106,7 +106,7 @@ const Nav = () => {
               <button>دانلود کاتالوگ</button>
             </li>
             {/* services */}
-            <li className="flex flex-col" onMouseEnter={() => (setShowTwo(true), setShowOne(false), setShowThree(false), setShowFour(false))}>
+            <div className="flex flex-col" onMouseEnter={() => (setShowTwo(true), setShowOne(false), setShowThree(false), setShowFour(false))}>
               <div className="flex gap-2 cursor-pointer">
                 <span>
                   <FaChevronDown className="text-sm text-zinc-500 translate-y-1" />
@@ -117,29 +117,29 @@ const Nav = () => {
               </div>
 
               {showTwo && (
-                <>
+                <div>
                   <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-sm mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 -translate-x-5 list-none navUL" onMouseEnter={() => setShowTwo(true)}  >
                     <Link href="/our-services/web-application">
-                      <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی وب اپلیکیشن</li>
+                      <p className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی وب اپلیکیشن</p>
                     </Link>
                     <Link href="/our-services/website">
-                      <li className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی سایت</li>
+                      <p className="pt-1 text-sm hover:text-[#4866CF] duration-300">طراحی سایت</p>
                     </Link>
                     <Link href="/our-services/hardwares">
-                      <li className="text-sm hover:text-[#4866CF] duration-300">نامین قطعات کامپیوتری</li>
+                      <p className="text-sm hover:text-[#4866CF] duration-300">نامین قطعات کامپیوتری</p>
                     </Link>
                     <Link href="/our-services/graphic-design">
-                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</li>
+                      <p className="pb-2 text-sm hover:text-[#4866CF] duration-300">طراحی گرافیک</p>
                     </Link>
                     <Link href="/our-services/government-learning">
-                      <li className="pb-2 text-sm hover:text-[#4866CF] duration-300">آموزش کارکنان دولت</li>
+                      <p className="pb-2 text-sm hover:text-[#4866CF] duration-300">آموزش کارکنان دولت</p>
                     </Link>
                   </ul>
-                </>
+                </div>
               )}
-            </li>
+            </div>
             {/* weblog */}
-            <li className="flex flex-col justify-center items-end" onMouseEnter={() => (setShowFour(true), setShowOne(false), setShowTwo(false), setShowThree(false))}  >
+            <div className="flex flex-col justify-center items-end" onMouseEnter={() => (setShowFour(true), setShowOne(false), setShowTwo(false), setShowThree(false))}  >
               <div className="flex gap-2 hover:text-[#4866CF] cursor-pointer">
                 <span>
                   {/* <FaChevronDown className="text-sm text-zinc-500 translate-y-1" /> */}
@@ -167,7 +167,7 @@ const Nav = () => {
                   </ul> */}
                 </React.Fragment>
               )}
-            </li>
+            </div>
             {/* about */}
             <li
               className="flex flex-col"
@@ -189,10 +189,10 @@ const Nav = () => {
                   <ul className="lg:top-[55px] text-right z-10 absolute flex flex-col gap-6 bg-white backdrop-blur-[15px] mt-2 px-4 py-5 border-b-[#4866CF] border-b-8 rounded-2xl text-2xl text-zinc-700 list-none navUL"
                     onMouseLeave={() => setShowThree(false)}  >
                     <Link href="/certificates">
-                      <li className="pt-2 text-sm hover:text-[#4866CF] duration-300">مجوزها</li>
+                      <p className="pt-2 text-sm hover:text-[#4866CF] duration-300">مجوزها</p>
                     </Link>
                     <Link href="/contact-us">
-                      <li className="text-sm hover:text-[#4866CF] duration-300">تماس با ما</li>
+                      <p className="text-sm hover:text-[#4866CF] duration-300">تماس با ما</p>
                     </Link>
                   </ul>
                 </React.Fragment>

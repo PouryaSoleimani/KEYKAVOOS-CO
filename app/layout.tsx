@@ -12,8 +12,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import ShowNavachat from "@/navachat/ShowNavachat";
 import NextAuthProviderWrapper from "@/next-auth-provider/NextAuthProviderWrapper";
 import GoogleOAuthWrapper from "@/oauth-provider/GoogleOAuthWarpper";
-
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Bounce, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ToastProvider = ({ children }) => {
   return (
@@ -8,8 +9,8 @@ const ToastProvider = ({ children }) => {
       {children}
       <ToastContainer
         position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
+        autoClose={3000}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
@@ -18,7 +19,6 @@ const ToastProvider = ({ children }) => {
         pauseOnHover
         theme="light"
         transition={Bounce}
-        
       />
     </>
   );

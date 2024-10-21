@@ -19,7 +19,7 @@ const PanelSidebarSmall = ({
     <div className="flex justify-between w-full">
       <ul className="flex flex-row justify-between w-full whitespace-nowrap p-[3%] gap-3">
         {sideOptions.map((item, index) => (
-          <li key={index} className="font-bold">
+          <div key={index} className="font-bold">
             <Link
               href={`${item.address}`}
               className={`text-sm md:text-lg flex flex-col justify-around items-center gap-2 ${
@@ -33,7 +33,7 @@ const PanelSidebarSmall = ({
               />
               <span>{item.text}</span>
             </Link>
-          </li>
+          </div>
         ))}
       </ul>
     </div>

@@ -12,7 +12,7 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
     <div className="lg:hidden">
       <Image src={active ? "/cross.jpg" : "/bar.svg"} width={active ? 25 : 40} height={active ? 25 : 40} alt="info" onClick={() => (setActive(!active), setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))} className={`z-20 relative ${active ? "-top-1" : "top-0"}`} />
       <ul className={`w-full flex flex-col space-y-16 justify-center items-end list-none border-b-[10px] border-b-indigo-500 ${active ? "absolute top-0 left-0 w-full p-4 bg-white z-10 rounded-xl" : "hidden"}`}>
-        <li className={style.list}>
+        <div className={style.list}>
           {showOne && (<Link href="/blog" className="list-none left-64 bg-white rounded-2xl border-b-8 border-b-[#4866CF] text-right flex flex-col z-10 absolute top-12 gap-4 w-[30%] px-4 py-3"></Link>)}
           <button className="bg-[#4866CF] p-2 rounded-lg text-white relative -left-44 tracking-tighter top-48 px-6">
             <Link
@@ -40,15 +40,15 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
             </Link>
           </button>
           <Link href='/blog' className="font-bold text-lg" onClick={() => (setShowOne(!showOne), setShowTwo(false), setShowThree(false), setShowFour(false))}  > وبلاگ  </Link>
-        </li>
+        </div>
         <div className={style.list}>
           {showTwo && (
             <ul className="list-none absolute rounded-2xl border-b-8 left-0 px-4 gap-3 w-full bg-white border-b-[#4866CF] text-right flex flex-col top-20 z-10 py-3">
               <Link href="/certificates">
-                <li className="text-sm font-semibold">مجوزها</li>
+                <p className="text-sm font-semibold">مجوزها</p>
               </Link>
               <Link href="/contact-us">
-                <li className="text-sm font-semibold">تماس با ما</li>
+                <p className="text-sm font-semibold">تماس با ما</p>
               </Link>
             </ul>
           )}
@@ -59,11 +59,11 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
             درباره ما
           </span>
         </div>
-        <li className={style.list}>
+        <div className={style.list}>
           <Link href="/#OUR__SERVICES__SECTION" className="text-lg font-bold">
             خدمات ما
           </Link>
-        </li>
+        </div>
       </ul>
     </div>
   );
