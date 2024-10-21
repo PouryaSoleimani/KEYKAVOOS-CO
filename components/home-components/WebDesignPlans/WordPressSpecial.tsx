@@ -10,7 +10,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
         <div className='flex bg-transparent flex-col-reverse px-7 py-3 space-x-4 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row-reverse justify-between items-center w-full h-full lg:h-fit'>
 
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex items-start justify-start flex-col lg:flex-row space-y-10 lg:space-y-0 ml-16 `} data-aos="fade-right" data-aos-duration="1500">
-                <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D absolute left-[-4rem] lg:left-[-47.5rem] scale-75 lg:scale-100' />
+                <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D absolute left-[-4rem] lg:left-[-42.5rem] scale-75 lg:scale-100' />
                 <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
             </div>
 

@@ -17,6 +17,7 @@ import WordPress from "@/components/home-components/WebDesignPlans/WordPress";
 import OurServices from "@/components/home-components/OurServices";
 import WordPressSpecial from "@/components/home-components/WebDesignPlans/WordPressSpecial";
 import CodingWebDevelopment from "@/components/home-components/WebDesignPlans/CodingWebDevelopment";
+import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
 
 

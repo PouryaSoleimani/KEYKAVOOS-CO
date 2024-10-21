@@ -52,7 +52,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-spring": "^9.7.3",
     "react-timer-hook": "^3.0.7",
-    "react-toastify": "^10.0.4",
+    "react-toastify": "^10.0.6",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "sharp": "^0.33.2",

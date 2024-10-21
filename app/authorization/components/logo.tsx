@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div>
       <Link href="/">
-        <Image src='/logo.svg' width={190} height={190} alt="logo" priority className="w-auto h-auto" />
+        <Image src='/logo.svg' width={190} height={120} alt="logo" priority className="w-64 h-32" />
       </Link>
     </div>
   );
