@@ -36,7 +36,7 @@ const Support = () => {
       <h1 className="text-2xl font-bold p-2 text-[#4866CF]">پشتیبانی</h1>
       <Link href="/panel/user/support/add-new-ticket" className="flex flex-row items-center justify-between gap-2 bg-[#4866CE] text-white p-3 rounded-lg  w-[150px] whitespace-nowrap hover:bg-blue-800 duration-300" >
         <span>تیکت جدید</span>
-        <Image src={add} alt="add" />
+        <Image src="/Panel/addticket.svg" alt="add" width={25} height={25} />
       </Link>
       <div className="bg-white shadow mx-auto rounded-xl py-[3%] px-[3%] w-full animate__animated animate__pulse">
         <div className="flex flex-col gap-5">
@@ -73,7 +73,7 @@ const Support = () => {
                   )}
                 </div>
                 <Link href={`/panel/user/support/ticket-detail?id=${item.id}`} className="flex justify-center">
-                  <Image src={vieweye} alt="مشاهده" width={20} />
+                  <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
                 </Link>
               </div>
             ))

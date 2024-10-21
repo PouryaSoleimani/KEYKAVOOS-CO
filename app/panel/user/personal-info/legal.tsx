@@ -18,7 +18,7 @@ function Legal({ PhoneNumber, name_of_Organization, shenase_melli, registration_
         </div>
         <div className="flex lg:flex-col lg:gap-0 gap-5 flex-col-reverse justify-between">
           <div className="self-center">
-            <Image src={path ? `http://localhost:8000/storage/${path}` : malegender} alt="profile" width={250} height={250} className="rounded-full" />
+            <Image src={path ? `http://localhost:8000/storage/${path}` : "/Panel/malegender.svg"} alt="profile" width={250} height={250} className="rounded-full" />
           </div>
           <PanelFields label="شماره ثبت:" value={registration_Number} name="registration_Number" disable={true} placeholder={registration_Number} />
         </div>
