@@ -60,7 +60,7 @@ const RegisterUser = () => {
             <div className="flex flex-col gap-4">
               <FormInput
                 value={
-                  PhoneNumberInput  ? localStorage.getItem("PhoneNumber")?.slice(9) +  "*****" +  localStorage.getItem("PhoneNumber")?.slice(0, 4)  : (localStorage.getItem("PhoneNumber") as string)}
+                  PhoneNumberInput ? localStorage.getItem("PhoneNumber")?.slice(9) + "*****" + localStorage.getItem("PhoneNumber")?.slice(0, 4) : (localStorage.getItem("PhoneNumber") as string)}
                 label="شماره تماس"
                 type="tel"
                 name="mobile"
@@ -70,8 +70,8 @@ const RegisterUser = () => {
                 value={OTP}
                 onChange={setOTP}
                 numInputs={6}
-                inputStyle={{   border: "0.3px solid lightgray",   borderRadius: "7px",   width: "47px",   height: "50px", }}
-                containerStyle={{   display: "flex",   justifyContent: "space-between",   flexDirection: "row-reverse", }}
+                inputStyle={{ border: "0.3px solid lightgray", borderRadius: "7px", width: "47px", height: "50px", }}
+                containerStyle={{ display: "flex", justifyContent: "space-between", flexDirection: "row-reverse", }}
                 renderInput={(props) => <input {...props} />}
                 inputType="tel"
                 shouldAutoFocus={true}
@@ -124,7 +124,7 @@ const RegisterUser = () => {
                     </p>
                     <p className="text-black">یا</p>
                     <p className="flex w-full items-center gap-2">
-                      <Image src="/Auth/phone.svg" alt="phone" width={25} height={25}/>
+                      <Image src="/Auth/phone.svg" alt="phone" width={25} height={25} />
                       {/* <span
                         className="cursor-pointer"
                         onClick={() =>
@@ -140,7 +140,7 @@ const RegisterUser = () => {
                   </div>
                 ) : (
                   <div className="flex flex-row gap-2 items-center">
-                    <Image src='/Auth/sms.svg' alt="sms" width={25} height={25}/>
+                    <Image src='/Auth/sms.svg' alt="sms" width={25} height={25} />
                     <span className="whitespace-nowrap sm:text-xl text-sm xsm:text-lg">
                       {counter} ثانیه تا ارسال مجدد کد از طریق پیامک
                     </span>
