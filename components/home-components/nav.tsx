@@ -91,7 +91,6 @@ const Nav = () => {
           <Link href={route} className="flex justify-center items-center space-x-2">
             <button className="lg:inline-block hidden bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 px-6 py-3 rounded-2xl text-base text-zinc-100 tracking-tight hover:scale-110 duration-300">
               {!localToken && "ثبت نام / ورود"}
-              {localToken && console.log(localToken)}
               {localToken && (<p className="flex justify-between items-center"> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
               {!FirstName && localToken && (
                 <Skeleton width={100} baseColor="#4866CF" className="flex justify-center space-x-2 items-center" />
@@ -205,7 +204,7 @@ const Nav = () => {
         </div>
 
         <Link href="/" className="lg:hidden">
-          <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} priority/>
+          <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} priority />
         </Link>
       </div>
     </div>
