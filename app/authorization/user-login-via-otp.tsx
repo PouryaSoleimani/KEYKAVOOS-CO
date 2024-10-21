@@ -80,36 +80,12 @@ const UserLoginViaOTP = () => {
             <div className="flex flex-col gap-4">
               <FormInput value={PhoneNumber.slice(9) + "*****" + PhoneNumber.slice(0, 4)} label="شماره تماس" type="tel" name="PhoneNumber" disabled={true} />
 
-              <OtpInput
-                value={OTP}
-                onChange={setOTP}
-                numInputs={6}
-                inputStyle={{ border: "1px solid gray", borderRadius: "7px", width: "50px", height: "50px", }}
-                containerStyle={{ display: "flex", justifyContent: "space-between", flexDirection: "row-reverse", }}
-                renderInput={(props) => <input {...props} />}
-                inputType="tel"
-                shouldAutoFocus={true}
-              />
+              <OtpInput value={OTP} onChange={setOTP} numInputs={6} inputStyle={{ border: "1px solid gray", borderRadius: "7px", width: "50px", height: "50px", }} containerStyle={{ display: "flex", justifyContent: "space-between", flexDirection: "row-reverse", }} renderInput={(props) => <input {...props} />} inputType="tel" shouldAutoFocus={true} />
               {errorMessage !== "" && !errorOnProfileHandler && (
-                <Modal
-                  showModal={showModal}
-                  mainButtonText="ارسال مجدد کد یکبارمصرف"
-                  text={errorMessage}
-                  data=" "
-                  isLoggedIn={false}
-                  isLoggingIn={false}
-                  showOnErrorOrSuccess={true}
-                />
+                <Modal showModal={showModal} mainButtonText="ارسال مجدد کد یکبارمصرف" text={errorMessage} data=" " isLoggedIn={false} isLoggingIn={false} showOnErrorOrSuccess={true} />
               )}
               {successMessage !== "" && !errorOnProfileHandler && (
-                <Modal
-                  showModal={showModal}
-                  mainButtonText="متوجه شدم"
-                  text={successMessage}
-                  data=""
-                  isLoggedIn={isLoggedIn}
-                  showOnErrorOrSuccess={true}
-                />
+                <Modal showModal={showModal} mainButtonText="متوجه شدم" text={successMessage} data="" isLoggedIn={isLoggedIn} showOnErrorOrSuccess={true} />
               )}
               <span
                 className={`w-full text-[20px] ${counter === 0 && "text-blue-700 cursor-pointer "
@@ -118,13 +94,13 @@ const UserLoginViaOTP = () => {
                 {counter === 0 ? (
                   <div className="flex flex-row flex-wrap lg:flex-nowrap w-full  items-center gap-10 whitespace-nowrap">
                     <p className="flex items-center gap-2" onClick={async () => counter === 0 && (sendOTPCodeMain(PhoneNumber, setAuthSteps), setCounter(180))} >
-                      <Image src={sms} alt="sms" className="w-8 h-8" />
+                      <Image src="/Auth/sms.svg" alt="sms" className="w-8 h-8" width={25} height={25} />
                       <span className="text-lg tracking-tight">ارسال مجدد</span>
                     </p>
                   </div>
                 ) : (
                   <div className="flex flex-row gap-2 items-center">
-                    <Image src={sms} alt="sms" />
+                    <Image src="/Auth/sms.svg" alt="sms" width={25} height={25} />
                     <span className="whitespace-nowrap sm:text-lg tracking-tight text-zinc-700 text-sm xsm:text-lg">
                       {counter} ثانیه تا ارسال مجدد کد از طریق پیامک
                     </span>
