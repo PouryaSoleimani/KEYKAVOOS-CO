@@ -25,7 +25,7 @@ const initialState: RTKUserState = {
   // to avoid conflict in auth and main page
   errorOnProfileHandler: false,
   changePhoneNumber: false,
-  PhoneNumber: "" || null,
+  PhoneNumber: "",
   email: "",
   PhoneNumberInput: true,
   showModal: false,
@@ -126,8 +126,8 @@ const fetchUserProfile = createAsyncThunk<
       const { data } = await app.get(`/user/show`, {
         headers: {
           authorization: `Bearer ${getState().userData.token
-              ? getState().userData.token
-              : getState().userData.localToken
+            ? getState().userData.token
+            : getState().userData.localToken
             }`,
         },
       });
