@@ -16,7 +16,7 @@ import { SiCoreldraw } from "react-icons/si";
 interface props { title: string, subtitle: string, desc: string, imageSrc: string }
 
 const GraphicDesignCategoryBox: React.FC<props> = ({ title, subtitle, desc, imageSrc }) => {
-    useEffect(() => { AOS.init({ offset: -100 }); AOS.refresh(); }, [])
+    useEffect(() => { AOS.init({ offset: -200 }); AOS.refresh(); }, [])
 
     return (
         <div data-aos="fade-up" data-aos-duration="1000" className='w-[90%] backdrop-blur-sm h-auto lg:h-auto mx-10 p-6 gap-y-4 rounded-2xl border border-zinc-400 bg-transparent shadow-xl shadow-zinc-300 flex flex-col lg:flex-row items-center justify-between text-3xl pr-6' dir='rtl'>
