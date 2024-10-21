@@ -18,7 +18,7 @@ function PersonalInfoFileupload({ handleChange, selectedFile, }: PersonalInfoFil
             <label>عکس کاربری:</label>
             <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
             <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="bg-[#EDF0FB] rounded-lg p-[2%] flex flex-col items-center w-full" >
-              <Image src={uploadFile} alt="انتخاب فایل" width={20} height={20} />
+              <Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" width={20} height={20} />
               <span className="text-[#68707A] text-[13px]">
                 {selectedFile ? selectedFile.name : "انتخاب فایل"}
               </span>
@@ -30,7 +30,7 @@ function PersonalInfoFileupload({ handleChange, selectedFile, }: PersonalInfoFil
           </p>
         </div>
         <div>
-          <Image src={malegender} alt="عکس انتخاب شده" width={600} height={600} />
+          <Image src="/Panel/malegender.svg" alt="عکس انتخاب شده" width={600} height={600} />
         </div>
       </div>
     </div>
