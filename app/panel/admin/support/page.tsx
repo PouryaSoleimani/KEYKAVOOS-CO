@@ -84,7 +84,7 @@ const Support = () => {
                   <div>
                     <div className="flex flex-row justify-center gap-4">
                       <Link href={`/panel/admin/support/ticket-detail?id=${item.id}`} className="hover:scale-125 duration-300">
-                        <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} />
+                        <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20}/>
                       </Link>
                       {item.status_id !== 2 && (
                         <button onClick={(event => SEENTICKET(event, item.id))} className="cursor-pointer hover:scale-125 duration-300">

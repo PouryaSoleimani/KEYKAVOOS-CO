@@ -50,28 +50,10 @@ function NewsLetter() {
           <NotFound text={`${newLetterStatus.erorr}`} />
         ) : (
           newsLetters.map((item: any, index) => (
-            <div
-              className={`${item.deleted_at ? "bg-red-800 text-white" : "bg-[#EAEFF6]"
-                } grid grid-cols-4 gap-x-5 text-center py-4 rounded-[4px]`}
-              key={index}
-            >
+            <div className={`${item.deleted_at ? "bg-red-800 text-white" : "bg-[#EAEFF6]" } grid grid-cols-4 gap-x-5 text-center py-4 rounded-[4px]`} key={index}   >
               <p>{index + 1}</p>
-              <input
-                value={item.title}
-                readOnly={true}
-                className={`${item.deleted_at
-                  ? "bg-transparent caret-transparent cursor-default text-center"
-                  : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                  } outline-none`}
-              />
-              <input
-                value={item.description}
-                readOnly={true}
-                className={`${item.deleted_at
-                  ? "bg-transparent caret-transparent cursor-default text-center"
-                  : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
-                  } outline-none`}
-              />
+              <input value={item.title} readOnly={true} className={`${item.deleted_at ? "bg-transparent caret-transparent cursor-default text-center" : "bg-[#EAEFF6] caret-transparent cursor-default text-center" } outline-none`}/>
+              <input   value={item.description}   readOnly={true}   className={`${item.deleted_at ? "bg-transparent caret-transparent cursor-default text-center": "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
               <div className="flex flex-row justify-center items-center gap-5">
                 <span onClick={() => deleteNewsLetter(token, item.id, setNewsLetterIsDeleted, setNewsLetters)} className="flex justify-center"  >
                   <RiDeleteBin7Fill className={`text-red-600 text-xl hover:scale-125 duration-300 cursor-pointer ${!item.deleted_at ? "inline" : "hidden"}`} />
