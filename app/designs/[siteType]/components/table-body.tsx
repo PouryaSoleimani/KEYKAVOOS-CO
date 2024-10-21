@@ -2,9 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 
-type PlansTableProps = {
-  TableData: object[];
-};
+type PlansTableProps = { TableData: object[]; };
 
 function TableBody({ TableData }: PlansTableProps) {
   return (
@@ -18,7 +16,7 @@ function TableBody({ TableData }: PlansTableProps) {
                 <td key={index}>
                   {typeof item !== "string" ? (
                     <div className="flex justify-center">
-                      <Image src={item} alt="" />
+                      <Image src={item} alt="image" width={200} height={200} />
                     </div>
                   ) : (
                     item

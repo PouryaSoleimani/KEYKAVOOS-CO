@@ -7,14 +7,9 @@ const SenfiCert = () => {
   return (
     <div>
       <div className={`flex justify-center items-center px-[5%]`}>
-        <Image
-          src="/certificates/3.svg"
-          alt="گواهینامه نظام صنفی"
-          width={1000}
-          height={300}
-        />
+        <Image src="/certificates/3.svg" alt="گواهینامه نظام صنفی" width={1000} height={300} />
       </div>
-        
+
     </div>
   );
 };

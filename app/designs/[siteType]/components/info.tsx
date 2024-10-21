@@ -18,7 +18,7 @@ function Info() {
                 </p>
                 <p className="font-semibold lg:text-[20px] text-[14px] text-justify">{item.desc}</p>
               </div>
-              <Image src={item.imgUrl} alt={item.type} />
+              <Image src={item.imgUrl} alt={item.type} width={200} height={200} />
             </div>
           )
       )}

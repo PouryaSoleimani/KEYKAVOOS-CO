@@ -61,12 +61,7 @@ const Form = () => {
           </form>
         </div>
         <div className="hidden lg:block">
-          <Image
-            src="/contactus/agent.png"
-            width={700}
-            height={700}
-            alt="agent"
-          />
+          <Image    src="/contactus/agent.png"    width={700}    height={700}    alt="agent"  />
         </div>
       </div>
     </div>

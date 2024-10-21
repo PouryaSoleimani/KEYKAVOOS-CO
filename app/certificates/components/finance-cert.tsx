@@ -3,24 +3,12 @@ import styles from "../certificates.module.css";
 import Image from "next/image";
 
 const { containerTwo, conatinerSix } = styles;
-type FinanceCert = {
-  middleText: string;
-  rightText: string;
-  logoSrc: string;
-  altText: string;
-};
-const FinanceCert = ({
-  middleText,
-  rightText,
-  logoSrc,
-  altText,
-}: FinanceCert) => {
+type FinanceCert = { middleText: string; rightText: string; logoSrc: string; altText: string; };
+
+const FinanceCert = ({ middleText, rightText, logoSrc, altText, }: FinanceCert) => {
   return (
     <div className="w-full">
-      <div
-        className="z-50 lg:flex lg:flex-row lg:justify-around lg:items-center grid grid-cols-1 mx-auto rounded-[25px] w-[80%] 2xl:max-4xl:w-[70%] lg:h-[246px] overflow-hidden"
-        style={{ boxShadow: "0px 31px 70px 0px rgba(0, 0, 0, 0.25)", backgroundColor: "rgba(255, 255, 255,1)", }}
-      >
+      <div className="z-50 lg:flex lg:flex-row lg:justify-around lg:items-center grid grid-cols-1 mx-auto rounded-[25px] w-[80%] 2xl:max-4xl:w-[70%] lg:h-[246px] overflow-hidden" style={{ boxShadow: "0px 31px 70px 0px rgba(0, 0, 0, 0.25)", backgroundColor: "rgba(255, 255, 255,1)", }} >
         <p className="lg:block order-3 lg:order-1 mr-[3%] px-[1%] pb-[20%] lg:pb-0 w-[90%] lg:w-[15%] font-bold text-[20px] text-center">
           {rightText}
         </p>
