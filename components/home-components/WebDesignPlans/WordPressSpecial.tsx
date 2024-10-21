@@ -11,7 +11,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
 
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex items-start justify-start flex-col lg:flex-row space-y-10 lg:space-y-0 ml-16 `} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D absolute left-[-4rem] lg:left-[-42.5rem] scale-75 lg:scale-100' />
-                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
+                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto" }} />
             </div>
 
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4  py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
@@ -29,7 +29,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
                     <br />
                     <p className='font-bold text-[#4866CF] text-xl leading-6'> -  سئو دوستانه : </p>
                     ابزارهای قدرتمند برای بهینه‌سازی موتورهای جستجو (SEO) به راحتی در دسترس است.   این مزایا به شما کمک می‌کند تا وب‌سایت کارآمد و حرفه‌ای ایجاد کنید. <span className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>...</span>
-                    </div>
+                </div>
                 <div className="w-full flex items-center justify-end">
                     <button className='bg-gradient-to-tr whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                         توضیحات بیشتر

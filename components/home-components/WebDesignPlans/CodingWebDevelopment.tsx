@@ -12,7 +12,7 @@ const CodingWebDevelopment: NextPage<Props> = ({ }) => {
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/react.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-8 lg:top-4' />
                 <Image src='/Technology/next.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-32' />
-                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
+                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto" }} />
             </div>
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4  py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
                 <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>وب سایت کد نویسی</h2>
@@ -30,7 +30,7 @@ const CodingWebDevelopment: NextPage<Props> = ({ }) => {
                     <p className='font-bold text-[#4866CF] text-xl leading-6'> -  سئو دوستانه : </p>
                     ابزارهای قدرتمند برای بهینه‌سازی موتورهای جستجو (SEO) به راحتی در دسترس است.
                     این مزایا به شما کمک می‌کند تا وب‌سایت کارآمد و حرفه‌ای ایجاد کنید. <span className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>...</span>
-                    </div>
+                </div>
                 <button className='bg-gradient-to-tr whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                     توضیحات بیشتر
                     <TiPlus className='icon' />

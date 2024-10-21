@@ -11,7 +11,7 @@ const WordPress: NextPage<Props> = ({ }) => {
 
             <div id="LEFT" className={`w-full bg-contain  lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
-                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
+                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto" }} />
             </div>
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4  py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
                 <h2 className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-3xl lg:text-4xl font-extrabold bg-clip-text text-transparent whitespace-nowrap'>وب سایت وردپرسی</h2>
