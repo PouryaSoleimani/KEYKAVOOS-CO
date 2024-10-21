@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Footer from "@/home-components/Footer/Footer";
 import Nav from "@/home-components/nav";
 import Intro from "@/home-components/intro";

@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script";
+
 import Providers from "../redux/Providers";
 import "react-loading-skeleton/dist/skeleton.css";
 import ToastProvider from "../toastify/ToastProvider";
@@ -12,6 +12,9 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import ShowNavachat from "@/navachat/ShowNavachat";
 import NextAuthProviderWrapper from "@/next-auth-provider/NextAuthProviderWrapper";
 import GoogleOAuthWrapper from "@/oauth-provider/GoogleOAuthWarpper";
+
+
+
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
     <html lang="fa">
@@ -21,7 +24,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
         <ToastProvider>
           <Providers >
             <ShowNavachat />
-            <div className="overflow-x-hidden">{children}</div>
+            <div>{children}</div>
             <WebVitals />
             <Metrics />
             <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
