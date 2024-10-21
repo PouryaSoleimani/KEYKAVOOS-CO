@@ -78,36 +78,16 @@ function CreatePosition() {
         <p>ایجاد موقعیت جدید</p>
         <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-3" >
           <label htmlFor="" className="text-lg tracking-tighter ">نام انگلیسی</label>
-          <input
-            type="text"
-            value={createPosition.title_en}
-            onChange={(e) => setCreatePosition((last) => ({ ...last, title_en: e.target.value }))}
-            className="bg-[#D0DBEC] border-[#D0DBEC] mx-auto outline-none rounded-md px-2 py-2 text-lg text-zinc-700 tracking-tighter  w-full border-[0.3px]"
-          />
+          <input type="text" value={createPosition.title_en} onChange={(e) => setCreatePosition((last) => ({ ...last, title_en: e.target.value }))} className="bg-[#D0DBEC] border-[#D0DBEC] mx-auto outline-none rounded-md px-2 py-2 text-lg text-zinc-700 tracking-tighter  w-full border-[0.3px]" />
 
           <label htmlFor="" className="text-lg tracking-tighter ">نام فارسی</label>
-          <input
-            type="text"
-            value={createPosition.title_fa}
-            onChange={(e) => setCreatePosition((last) => ({ ...last, title_fa: e.target.value }))}
-            className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg text-zinc-700 font-thin w-full border-[0.3px]"
-          />
+          <input type="text" value={createPosition.title_fa} onChange={(e) => setCreatePosition((last) => ({ ...last, title_fa: e.target.value }))} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg text-zinc-700 font-thin w-full border-[0.3px]" />
 
           {/* user id */}
-          <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, user_id: e.target.value }))}
-            value={`${createPosition.user_id}`}
-            dropdownItems={usersDropDownInfo}
-            dropDownTitle="کاربران:"
-          />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, user_id: e.target.value }))} value={`${createPosition.user_id}`} dropdownItems={usersDropDownInfo} dropDownTitle="کاربران:" />
 
           {/* department id */}
-          <SubmitOrderDropdown
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, dept_id: e.target.value }))}
-            value={selectedDepartmentsId}
-            dropdownItems={departmentsDropdownInfo}
-            dropDownTitle="دپارتمان ها:"
-          />
+          <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCreatePosition((last) => ({ ...last, dept_id: e.target.value }))} value={selectedDepartmentsId} dropdownItems={departmentsDropdownInfo} dropDownTitle="دپارتمان ها:" />
 
           <div className="flex justify-end my-5">
             <button className="p-3 w-[120px] bg-[#4866CF] rounded-[4px] text-white hover:bg-blue-800 duration-300">
