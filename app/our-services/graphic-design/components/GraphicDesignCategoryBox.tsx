@@ -16,14 +16,14 @@ import { SiCoreldraw } from "react-icons/si";
 interface props { title: string, subtitle: string, desc: string, imageSrc: string }
 
 const GraphicDesignCategoryBox: React.FC<props> = ({ title, subtitle, desc, imageSrc }) => {
-    useEffect(() => { AOS.init({ offset: -50 }); AOS.refresh(); }, [])
+    useEffect(() => { AOS.init({ offset: -100 }); AOS.refresh(); }, [])
 
     return (
         <div data-aos="fade-up" data-aos-duration="1000" className='w-[90%] backdrop-blur-sm h-auto lg:h-auto mx-10 p-6 gap-y-4 rounded-2xl border border-zinc-400 bg-transparent shadow-xl shadow-zinc-300 flex flex-col lg:flex-row items-center justify-between text-3xl pr-6' dir='rtl'>
 
             <div id='RIGHT' className='flex flex-col items-center lg:items-start justify-center lg:justify-between gap-6 w-full lg:w-1/2 h-full lg:p-4 pl-0'>
                 <h3 className='font-black text-2xl lg:text-4xl text-center lg:text-start whitespace-nowrap'>{title}</h3>
-                <h6 className='font-blue-300 font-semibold tracking-wide lg:pr-2 text-xl lg:text2xl text-center lg:text-start whitespace-nowrap'>{subtitle}</h6>
+                <h6 className='text-zinc-600 font-semibold tracking-wide lg:pr-2 text-xl lg:text2xl text-center lg:text-start whitespace-wrap lg:whitespace-nowrap'>{subtitle}</h6>
                 <p className='text-zinc-500 font-extralight text-center lg:text-start text-[18px] lg:text-[24px] tracking-tighter leading-9'>{desc}
                 </p>
                 <div id="RIGHT__PRICE" className='flex items-center justify-start flex-col lg:flex-row flex-wrap w-full gap-4 lg:gap-2'>
@@ -32,13 +32,13 @@ const GraphicDesignCategoryBox: React.FC<props> = ({ title, subtitle, desc, imag
                         از 20.000.000 تومان
                     </span>
                     <span className='btn btn-outline btn-lg text-lg lg:text-2xl w-full lg:w-auto flex px-2 lg:px-4'>
-                    <SiAdobephotoshop />
-                    <SiAdobeaftereffects />
-                    <SiAdobexd />
-                    <SiAdobeindesign />
-                    <CgIfDesign />
-                    <IoLogoFigma />
-                    <SiCoreldraw />
+                        <SiAdobephotoshop />
+                        <SiAdobeaftereffects />
+                        <SiAdobexd />
+                        <SiAdobeindesign />
+                        <CgIfDesign />
+                        <IoLogoFigma />
+                        <SiCoreldraw />
                     </span>
                 </div>
                 <div id="RIGHT__BUTTONS" className='flex gap-4 flex-col lg:flex-row items-center justify-center lg:justify-start w-full'>
