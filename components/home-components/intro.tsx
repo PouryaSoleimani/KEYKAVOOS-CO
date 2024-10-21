@@ -12,10 +12,7 @@ function Intro() {
     <div className="grid md:grid-cols-2 grid-cols-1 text-right relative px-[4vw] animate__animated animate__fadeInUp animate__slow animate__delay-1s" >
       <div className="flex justify-center lg:justify-normal relative">
         <div style={{ backgroundColor: "#eaeaea", borderRadius: "100%", }} className="lg:w-[430px] lg:h-[430px] max-w-[430px] w-[300px] h-[285px] absolute top-[1rem] lg:left-0 lg:translate-x-0"></div>
-        <div
-          style={{ background: "radial-gradient(circle at bottom,#1c1d1d 0%,#0000)", borderRadius: "50% 50% 50% 50%", overflow: "hidden", display: "flex", justifyContent: "center", zIndex: "10", }}
-          className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]"
-        >
+        <div style={{ background: "radial-gradient(circle at bottom,#1c1d1d 0%,#0000)", borderRadius: "50% 50% 50% 50%", overflow: "hidden", display: "flex", justifyContent: "center", zIndex: "10", }} className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]" >
           <Image src={tower} alt="tower" className="z-20 animate__animated animate__fadeInUp animate__slow animate__delay-2s " />
 
           {/*     پشتیبانی یکساله     */}
