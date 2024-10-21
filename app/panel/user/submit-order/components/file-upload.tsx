@@ -18,7 +18,7 @@ function FileUpload({ handleChange, File }: FileUploadProps) {
         <label>فایل انتخابی:</label>
         <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
         <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="bg-[#EDF0FB] rounded-lg flex flex-col items-center px-2 py-2" >
-          {File ? File.name : <Image src={uploadFile} alt="انتخاب فایل" />}
+          {File ? File.name : <Image src='/Panel/uploadfile.svg' alt="انتخاب فایل" width={50} height={50} />}
         </label>
       </div>
     </div>

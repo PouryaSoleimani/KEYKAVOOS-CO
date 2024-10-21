@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import microsoft from "/Auth/microsoft.svg";
@@ -21,12 +22,7 @@ function LoginVia() {
   const getUserInfo = async () => {
     try {
       if (accessToken) {
-        const { data } = await axios(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
-          {
-            headers: { Authorization: `Bearer ${accessToken}`, },
-          }
-        );
+        const { data } = await axios(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`, { headers: { Authorization: `Bearer ${accessToken}`, }, });
         sessionStorage.setItem("name", data.name);
         setProfile(data);
         console.log("profile", profile);
@@ -48,8 +44,8 @@ function LoginVia() {
         </p>
       </div>
       <div className="flex flex-row justify-around">
-        <Image src={github} alt="github" onClick={() => signIn("github")} className="cursor-pointer" />
-        <Image src={google} alt="google" onClick={() => login()} className="cursor-pointer" />
+        <Image src="/Auth/github.svg" alt="github" onClick={() => signIn("github")} className="cursor-pointer" width={25} height={25} />
+        <Image src="/Auth/google.svg" alt="google" onClick={() => login()} className="cursor-pointer" width={25} height={25} />
         {/* <Image
           src={microsoft}
           alt="microsoft"

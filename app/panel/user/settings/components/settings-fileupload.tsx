@@ -57,7 +57,7 @@ function SettingsFileupload({ handleChange, selectedFile, label, }: SettingsFile
         </div>
       ) : (
         <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-          <Image src={USER__DEFAULT} alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+          <Image src={USER__DEFAULT} alt="عکس انتخاب شده" className="rounded-full lg:translate-x-4" width={500} height={200} />
         </div>
       )}
     </div>

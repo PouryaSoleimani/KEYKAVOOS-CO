@@ -59,7 +59,7 @@ const NotificationManagement = () => {
             </div>
             <Link href="/panel/admin/notifications-management/add-new-placard" className="flex flex-row gap-2 bg-[#4866CE] text-white p-3 rounded-[4px] w-[145px] hover:bg-blue-800 duration-300 items-center justify-between"  >
                 <span>اعلان جدید</span>
-                <Image src={add} alt="add" />
+                <Image src="/Panel/addticket.svg" width={20} height={20} alt="add" />
             </Link>
             <div className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] w-full">
                 <div className="flex flex-col gap-5">
@@ -98,14 +98,14 @@ const NotificationManagement = () => {
                                 <div>
                                     <div className={`flex flex-row justify-center gap-4`}>
                                         <Link href={`/panel/admin/notifications-management/notification-details?id=${item.id}`} className="hover:scale-125 duration-300">
-                                            <Image src={vieweye} alt="مشاهده" width={20} />
+                                            <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} />
                                         </Link>
                                         {item.status_id !== 2 && !item.read_at && (
                                             <div
                                                 onClick={(event) => CLOSENOTIFICATION(event, item.id)}
                                                 // onClick={() => closeTicket(2, item.id, setAllTickets, setIsClosed)}
                                                 className={`cursor-pointer hover:scale-125 duration-300 `}>
-                                                <Image src={checkmark} alt="بستن" width={20} />
+                                                <Image src="/Panel/checkmark.svg" alt="بستن" width={20} />
                                             </div>
                                         )}
                                     </div>

@@ -10,35 +10,20 @@ const Notifications = () => {
     <div className="w-[90%] mx-auto h-[80%]">
       <div className="flex flex-row justify-between items-center">
         <p className="font-bold text-lg pb-2">موضوع پیام</p>
-        {showSingleChat && (
-          <p className="font-bold text-lg pb-2 self-center w-[66%]">متن پیام</p>
-        )}
+        {showSingleChat && (<p className="font-bold text-lg pb-2 self-center w-[66%]">متن پیام</p>)}
       </div>
-      <div
-        className={`grid grid-cols-3 gap-[3%] h-full w-full ${
-          showChat ? "justify-start items-start" : ""
-        }`}
-      >
+      <div className={`grid grid-cols-3 gap-[3%] h-full w-full ${showChat ? "justify-start items-start" : ""}`}>
         <div className="border flex flex-col justify-between rounded-lg text-center font-bold overflow-hidden h-[455px] col-span-1">
-          <p
-            className="bg-yellow-50l font-medium cursor-pointer"
-            onClick={() => (setShowSingleChat(true), setShowChat(false))}
-          >
+          <p className="bg-yellow-50l font-medium cursor-pointer" onClick={() => (setShowSingleChat(true), setShowChat(false))}  >
             پیام
           </p>
-          <button
-            className="self-end border rounded-lg w-full py-2 font-extrabold"
-            onClick={() => (setShowChat(true), setShowSingleChat(false))}
-          >
+          <button className="self-end border rounded-lg w-full py-2 font-extrabold" onClick={() => (setShowChat(true), setShowSingleChat(false))}  >
             پیام جدید +
           </button>
         </div>
         <div className="col-span-2">
           {!showChat && !showSingleChat && (
-            <div
-              className="cursor-pointer w-full rounded-lg h-[80%] bg-[#E1E8FF] flex justify-center items-center"
-              onClick={() => setShowChat(true)}
-            >
+            <div className="cursor-pointer w-full rounded-lg h-[80%] bg-[#E1E8FF] flex justify-center items-center" onClick={() => setShowChat(true)}  >
               <div className="w-full flex flex-col items-center">
                 <p>شما تا کنون پیامی ندارید</p>
                 <button className="bg-[#4866CF] text-white p-[2%] rounded-lg">
@@ -58,9 +43,9 @@ const Notifications = () => {
                 <textarea
                   className="rounded-lg  bg-[#EDF0FB] px-2 py-4 w-full h-full"
                   placeholder="شرح مختصری از درخواست خود را بنویسید..."
-                  // onChange={onChange}
-                  // value={value}
-                  // form={formId}
+                // onChange={onChange}
+                // value={value}
+                // form={formId}
                 ></textarea>
               </div>
               <button className="bg-[#EDF0FB] text-black w-[80px] rounded-lg mr-8 flex flex-row items-center gap-2 px-[2%]">
@@ -77,12 +62,7 @@ const Notifications = () => {
                   <div className="relative">
                     <input className="h-[50px] w-full border rounded-lg" />
                     <div className="absolute top-1/2 -translate-y-1/2 left-3">
-                      <Image
-                        src="/sendchat.svg"
-                        width={30}
-                        height={30}
-                        alt="send"
-                      />
+                      <Image src="/sendchat.svg" width={30} height={30} alt="send" />
                     </div>
                   </div>
                 </div>

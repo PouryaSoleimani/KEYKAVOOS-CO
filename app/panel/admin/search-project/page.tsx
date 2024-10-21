@@ -111,7 +111,7 @@ function SearchProject() {
               href={`/panel/admin/search-project/project-detail?id=${item._id}`}
               className="flex justify-center"
             >
-              <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+              <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
             </Link>
           </div>
         ))

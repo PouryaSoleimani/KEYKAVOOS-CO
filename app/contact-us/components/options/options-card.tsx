@@ -1,18 +1,12 @@
+import Image from "next/image";
 import React from "react";
-type OptionsCardProps = {
-  src: string;
-  head: string;
-  info: string;
-};
+type OptionsCardProps = { src: string; head: string; info: string; };
 const OptionsCard = ({ src, head, info }: OptionsCardProps) => {
   return (
-    <div
-      className="w-full h-full py-[15%] px-[1%] rounded-[50px] overflow-hidden flex flex-col items-center justify-center mx-auto"
-      style={{ boxShadow: "0px 17px 44px -1px rgba(0, 0, 0, 0.25)" }}
-    >
+    <div    className="w-full h-full py-[15%] px-[1%] rounded-[50px] overflow-hidden flex flex-col items-center justify-center mx-auto"    style={{ boxShadow: "0px 17px 44px -1px rgba(0, 0, 0, 0.25)" }}  >
       {/* Logo */}
       <div className="w-[150px] h-[150px] bg-gradient-to-b from-zinc-300 to-indigo-400 rounded-full flex justify-center items-center">
-        <img src={src} className="w-[60px] h-[60px]" />
+        <Image src={src} className="w-[60px] h-[60px]" alt='pic' width={50} height={50} />
       </div>
       {/* Texts */}
       <div className="flex flex-col justify-center items-center gap-4">

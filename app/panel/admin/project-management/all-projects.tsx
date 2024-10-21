@@ -49,7 +49,7 @@ function AllProjects() {
               <span> {item?.status === "processing" && item.rejected_projects?.length === 0 && "در حال بررسی"}</span>
             </p>
             <Link href={`/panel/admin/project-management/project-detail?id=${item?.id}`} className="flex justify-center hover:scale-125 duration-300" >
-              <Image src={vieweye} alt="مشاهده" width={20} height={20} />
+              <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />
             </Link>
           </div>
         ))

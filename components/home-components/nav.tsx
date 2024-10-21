@@ -200,12 +200,12 @@ const Nav = () => {
             </li>
           </ul>
           <Link href="/">
-            <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} />
+            <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} priority />
           </Link>
         </div>
 
         <Link href="/" className="lg:hidden">
-          <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} />
+          <Image src="/logo.svg" alt="kz-logo" width={130} height={44.74} quality={100} priority/>
         </Link>
       </div>
     </div>

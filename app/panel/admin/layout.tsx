@@ -1,21 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import {
-  fetchUserProfile,
-  getIdFromLocal,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
-import {
-  getAllBrands,
-  getAllDepartments,
-  getAllPermissions,
-  getAllPositions,
-  getAllRole,
-  getAllSiteTypes,
-  getAllUsers,
-  getUserNotification,
-} from "@/utils/utils";
+import { fetchUserProfile, getIdFromLocal, getTokenFromLocal, } from "@/redux/features/user/userSlice";
+import { getAllBrands, getAllDepartments, getAllPermissions, getAllPositions, getAllRole, getAllSiteTypes, getAllUsers, getUserNotification, } from "@/utils/utils";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { OrderSubmissionContext } from "../context/order-submission-contexts/OrderSubmissionContext";
@@ -39,7 +26,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const { setDepartments } = useContext(DepartmentContext);
   const { setAllUsersData, setUsersStatus } = useContext(UserContext);
   const [brands, setBrands] = useState<BrandType[]>([]);
-  
+
   // FUNCTIONS
   useEffect(() => {
     dispatch(getTokenFromLocal());
