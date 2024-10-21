@@ -49,7 +49,7 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, to
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
-                    {File ? (File.name) : isFileUploaded === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" />)}
+                    {File ? (File.name) : isFileUploaded === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15}/>)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>
