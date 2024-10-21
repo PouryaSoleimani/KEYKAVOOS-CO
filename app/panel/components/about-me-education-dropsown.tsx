@@ -19,14 +19,7 @@ const AboutMeEducationDropdown = ({
       <div>
         <div className="flex justify-between items-center gap-[1%] py-[1%]">
           <span className="text-gray-400">{selectText}</span>
-          <Image
-            width={12}
-            height={12}
-            src="/employerpanel/right-arrow.svg"
-            alt="arrow"
-            className="-rotate-90 gap-[2%] cursor-pointer"
-            onClick={() => setShowDropdown(!showDropdown)}
-          />
+          <Image width={12} height={12} src="/employerpanel/right-arrow.svg" alt="arrow" className="-rotate-90 gap-[2%] cursor-pointer" onClick={() => setShowDropdown(!showDropdown)} />
         </div>
       </div>
       <div
@@ -36,11 +29,7 @@ const AboutMeEducationDropdown = ({
         {showDropdown && (
           <ul>
             {dropDownOptions?.map((item, index) => (
-              <li
-                key={index}
-                value={value}
-                onClick={() => handleFreeSelection(item)}
-              >
+              <li key={index} value={value} onClick={() => handleFreeSelection(item)}  >
                 {item}
               </li>
             ))}
