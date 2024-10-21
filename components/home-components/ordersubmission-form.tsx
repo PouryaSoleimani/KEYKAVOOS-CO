@@ -171,7 +171,7 @@ function OrdersubmissionForm({ setCurrentStep }: OrdersubmissionFormProps) {
             <input id="fileInput" type="file" style={{ display: "none" }} onChange={handleFileChange} />
             <label className="text-[#68707A]">انتخاب فایل</label>
             <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex flex-col items-center tracking-tighter font-bold">
-              {File ? File.name : <Image src={uploadfile} alt="انتخاب فایل" />}
+              {File ? File.name : <Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" width={25} height={25}/>}
             </label>
             <span dir="rtl" className="text-[#4f647e] text-[1rem] tracking-tighter mt-1">
               فرمت های مورد قبول:  <span className="text-[#4866CF] font-bold text-lg">zip, rar</span>

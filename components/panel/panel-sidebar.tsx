@@ -19,7 +19,7 @@ const PanelSidebar = ({ sideOptions, status }: PanelSidebarProps) => {
         <div className="flex justify-center">
           <Logo />
         </div>
-        <Image src={sidebarpicbg} alt="sidebarbg" height={660} className="overflow-hidden" />
+        <Image src="/Panel/sidebarpicbg.svg" alt="sidebarbg" height={660} className="overflow-hidden" width={50} />
         <div className="absolute top-40 right-0 flex flex-col gap-8 py-2 pr-2 w-full">
           {sideOptions.map((item) => (
             <Link href={item.address.toString()} key={item.text} className="flex flex-row items-center gap-5 whitespace-nowrap" >

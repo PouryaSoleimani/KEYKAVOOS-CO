@@ -54,11 +54,10 @@ function News() {
         </button>
         <input className="outline-none w-full rounded-r-2xl px-3" dir="rtl" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
-      <Image src={NewsIcon} alt="bg" className="absolute -left-16 -bottom-20 -z-10 max-lg:hidden opacity-50 w-80" />
-      <Image src={NewsIcon} alt="bg" className="absolute -right-16 -top-20 rotate-180 opacity-50 max-lg:hidden w-80 " />
+      <Image src="/Newsletter/bottomsvg-newsletterbg-icon.svg" alt="bg" className="absolute -left-16 -bottom-20 -z-10 max-lg:hidden opacity-50 w-80" width={25} height={25} />
+      <Image src="/Newsletter/bottomsvg-newsletterbg-icon.svg" alt="bg" className="absolute -right-16 -top-20 rotate-180 opacity-50 max-lg:hidden w-80 " width={25} height={25} />
     </form>
   );
 }
 
 export default News;
-// bg-[#19325530]
