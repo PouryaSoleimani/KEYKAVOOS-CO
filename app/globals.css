@@ -4,10 +4,10 @@
 
 @import '~react-toastify/dist/ReactToastify.min.css';
 
-/* :root {
+:root {
   --main-blue-color: #4866cf;
   --main-text-color: #ffffff;
-} */
+}
 
 .on-hover:hover {
   background-color: #4866cf;

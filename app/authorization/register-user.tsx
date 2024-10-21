@@ -5,8 +5,8 @@ import SubmissionBtn from "./components/submission-btn";
 import Logo from "./components/logo";
 import { useDispatch, useSelector } from "react-redux";
 // import { sendOTPCodeAfterRegistration } from "@/redux/features/user/userSlice";
-import sms from "/public/Auth/sms.svg";
-import phone from "/public/Auth/phone.svg";
+// import sms from "@/public/Auth/sms.svg";
+// import phone from "@/public/Auth/phone.svg";
 import Modal from "@/components/modal";
 import FormInput from "../contact-us/components/form/form-inputs";
 import OTPInput from "react-otp-input";
@@ -39,18 +39,12 @@ const RegisterUser = () => {
   console.log(5);
   return (
     <div>
-      <div
-        className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]"
-        dir="rtl"
-      >
+      <div className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]" dir="rtl" >
         <div className="py-[5%] w-full relative px-[5%]">
           <div>
             <Logo />
           </div>
-          <form
-            onSubmit={(e) => handleSubmission(e)}
-            className="flex flex-col gap-5"
-          >
+          <form onSubmit={(e) => handleSubmission(e)} className="flex flex-col gap-5"  >
             <label className="md:whitespace-nowrap">
               <p className="lg:w-[90%] text-[14px] py-4 tracking-tight">
                 لطفا کد 6 رقمی که به شماره همراه شما ارسال شده است را وارد کنید.
@@ -72,7 +66,7 @@ const RegisterUser = () => {
                 numInputs={6}
                 inputStyle={{ border: "0.3px solid lightgray", borderRadius: "7px", width: "47px", height: "50px", }}
                 containerStyle={{ display: "flex", justifyContent: "space-between", flexDirection: "row-reverse", }}
-                renderInput={(props) => <input {...props} />}
+                renderInput={(props: any) => <input {...props} />}
                 inputType="tel"
                 shouldAutoFocus={true}
               />

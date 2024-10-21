@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserInLoginWithPassword, openModal, updateStatus, } from "@/redux/features/user/userSlice";
 import Logo from "../authorization/components/logo";
 import { useFormik } from "formik";
 import { LoginSchema } from "@/schemas/userpanel-profile-schema";
 import Modal from "@/components/modal";
 import { AuthContext } from "./context/AuthContext";
 import { useCaptcha } from "@/hooks/useCaptcha";
-import styles from "./styles/login.module.css";
 import OtpLoginMain from "./components/OtpLoginMain";
 import { useStoreNumInLocal } from "@/hooks/useStoreNumInLocal";
-import { useDispatch, useSelector } from "react-redux";
 import FormInput from "../contact-us/components/form/form-inputs";
-import { fetchUserInLoginWithPassword, openModal, updateStatus, } from "@/redux/features/user/userSlice";
 import { sendOTPCodeMain } from "@/utils/utils";
 import { useDebounce } from "use-debounce";
+import styles from "./styles/login.module.css";
 
 type LoginProps = {
   setLoginApproach: React.Dispatch<React.SetStateAction<number>>;

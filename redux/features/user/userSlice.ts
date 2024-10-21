@@ -9,9 +9,8 @@ import {
   verifyUserByOTPInLoginAndRegistrationPayload,
 } from "@/types/types";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
-
+import 'react-toastify/dist/ReactToastify.css';
 const initialState: RTKUserState = {
   status: "idle",
   userProfile: {},
@@ -25,7 +24,7 @@ const initialState: RTKUserState = {
   // to avoid conflict in auth and main page
   errorOnProfileHandler: false,
   changePhoneNumber: false,
-  PhoneNumber: "",
+  PhoneNumber: null,
   email: "",
   PhoneNumberInput: true,
   showModal: false,
@@ -40,16 +39,12 @@ const initialState: RTKUserState = {
 };
 
 // vorod ba mobile & password
-const fetchUserInLoginWithPassword = createAsyncThunk(
-  "userData/fetchUserInLoginWithPassword",
+const fetchUserInLoginWithPassword = createAsyncThunk("userData/fetchUserInLoginWithPassword",
   async (payload: fetchUserInLoginWithPasswordPayload, { rejectWithValue }) => {
     const { mobile, password } = payload;
     try {
-      const { data } = await app.post("/user/login", {
-        mobile,
-        password,
-      });
-      // console.log(data.data?.user.roles);
+      const { data } = await app.post("/user/login", { mobile, password, });
+      console.log(data.data?.user.roles);
       console.log("loginwithpass", data);
       console.log("loginwithpass", data.data?.token);
       return {

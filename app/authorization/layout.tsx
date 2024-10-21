@@ -4,15 +4,14 @@ import AuthContextWrapper from "./context/AuthContextWrapper";
 import InfoContextWrapper from "./context/InfoContextWrapper";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import 'react-toastify/dist/ReactToastify.css';
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSelector((state: any) => state.userData);
   const [localToken, setLocalToken] = useState("");
   useLayoutEffect(() => {
     if (typeof window !== "undefined") {
-      const localToken = JSON.parse(
-        window.sessionStorage.getItem("token") as string
-      );
+      const localToken = JSON.parse(window.sessionStorage.getItem("token") as string);
       setLocalToken(localToken);
     }
   }, []);
