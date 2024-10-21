@@ -10,7 +10,7 @@ const CodingWebDevelopment: NextPage<Props> = ({ }) => {
         <div className='flex bg-transparent flex-col-reverse px-7 py-3 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-between items-center w-full h-full lg:h-fit'>
 
             <div id="LEFT" className={`w-full bg-contain lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
-                <Image src='/Technology/react.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-4' />
+                <Image src='/Technology/react.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-8 lg:top-4' />
                 <Image src='/Technology/next.svg' alt='wordpress-logo' width={90} height={90} className='wordPress3D absolute top-32' />
                 <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' />
             </div>
@@ -30,7 +30,7 @@ const CodingWebDevelopment: NextPage<Props> = ({ }) => {
                     <p className='font-bold text-[#4866CF] text-xl leading-6'> -  سئو دوستانه : </p>
                     ابزارهای قدرتمند برای بهینه‌سازی موتورهای جستجو (SEO) به راحتی در دسترس است.
                     این مزایا به شما کمک می‌کند تا وب‌سایت کارآمد و حرفه‌ای ایجاد کنید. <span className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>...</span></p>
-                <button className='bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
+                <button className='bg-gradient-to-tr whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                     توضیحات بیشتر
                     <TiPlus className='icon' />
                 </button>
