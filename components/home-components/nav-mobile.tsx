@@ -41,7 +41,7 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
           </button>
           <Link href='/blog' className="font-bold text-lg" onClick={() => (setShowOne(!showOne), setShowTwo(false), setShowThree(false), setShowFour(false))}  > وبلاگ  </Link>
         </li>
-        <li className={style.list}>
+        <div className={style.list}>
           {showTwo && (
             <ul className="list-none absolute rounded-2xl border-b-8 left-0 px-4 gap-3 w-full bg-white border-b-[#4866CF] text-right flex flex-col top-20 z-10 py-3">
               <Link href="/certificates">
@@ -58,7 +58,7 @@ const NavMobile = ({ localToken, userProfile, active, setActive, setShowFour, se
           <span className="text-lg font-bold" onClick={() => (setShowTwo(!showTwo), setShowOne(false), setShowThree(false), setShowFour(false))}>
             درباره ما
           </span>
-        </li>
+        </div>
         <li className={style.list}>
           <Link href="/#OUR__SERVICES__SECTION" className="text-lg font-bold">
             خدمات ما
