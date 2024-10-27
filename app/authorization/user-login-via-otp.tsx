@@ -24,13 +24,11 @@ const UserLoginViaOTP = () => {
 
   // PHONENUMBER FROM LOCALSTORAGE
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const PhoneNumber = window.localStorage.getItem("PhoneNumber");
-      if (PhoneNumber !== null) {
-        setPhoneNumber(PhoneNumber);
-      } else {
-        setPhoneNumber("");
-      }
+    const PhoneNumber = window.localStorage.getItem("PhoneNumber");
+    if (PhoneNumber !== null) {
+      setPhoneNumber(PhoneNumber);
+    } else {
+      setPhoneNumber("");
     }
   }, []);
 

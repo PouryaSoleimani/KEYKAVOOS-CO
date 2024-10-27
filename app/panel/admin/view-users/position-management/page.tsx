@@ -23,10 +23,8 @@ function PositionManagement() {
   const [positionIsDeleted, setPositionIsDeleted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localPositions = JSON.parse(window.sessionStorage.getItem("positions") as string);
       setPositions(localPositions);
-    }
   }, []);
 
   useEffect(() => {

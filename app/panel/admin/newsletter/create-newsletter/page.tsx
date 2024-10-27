@@ -11,31 +11,23 @@ function CreateNewsletter() {
   const [users, setUsers] = useState([]);
   const [departments, setDepartments] = useState<any>([]);
   const [brands, setBrands] = useState([]);
-  const [newsletterInfo, setNewsLetteInfo] = useState({
-    title: "",
-    description: "",
-    user_id: "",
-    dept_id: "",
-    brand_id: "",
-  });
+  const [newsletterInfo, setNewsLetteInfo] = useState({ title: "", description: "", user_id: "", dept_id: "", brand_id: "", });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const localUsers = JSON.parse(
-        window.sessionStorage.getItem("users") as string
-      );
-      setUsers(localUsers);
+    const localUsers = JSON.parse(
+      window.sessionStorage.getItem("users") as string
+    );
+    setUsers(localUsers);
 
-      const localDepartments = JSON.parse(
-        window.sessionStorage.getItem("departments") as string
-      );
-      setDepartments(localDepartments);
+    const localDepartments = JSON.parse(
+      window.sessionStorage.getItem("departments") as string
+    );
+    setDepartments(localDepartments);
 
-      const localBrands = JSON.parse(
-        window.sessionStorage.getItem("brands") as string
-      );
-      setBrands(localBrands);
-    }
+    const localBrands = JSON.parse(
+      window.sessionStorage.getItem("brands") as string
+    );
+    setBrands(localBrands);
   }, []);
 
   useEffect(() => {

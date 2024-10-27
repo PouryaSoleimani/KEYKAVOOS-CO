@@ -1,12 +1,6 @@
 "use client";
 import axios from "axios";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useContext, useEffect, useState, } from "react";
 import SubmissionBtn from "./submission-btn";
 import { useFormik } from "formik";
 import { UserRegistrationPersonalSchema } from "@/schemas/userpanel-profile-schema";
@@ -44,10 +38,8 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
   const { setSavedInfo } = useContext(InfoContext);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      let number = window.localStorage.getItem("PhoneNumber");
-      setPhoneNumber(number as string);
-    }
+    let number = window.localStorage.getItem("PhoneNumber");
+    setPhoneNumber(number as string);
   }, []);
 
   const handleSubmission = async () => {

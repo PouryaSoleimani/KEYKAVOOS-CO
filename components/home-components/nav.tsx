@@ -32,19 +32,15 @@ const Nav = () => {
   useEffect(() => { console.log("SCROLL TOP"); }, [scrollTop])
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const locTok = JSON.parse(
         window.sessionStorage.getItem("token") as string
       );
       setnavlocaltoken(locTok);
-    }
   }, [dispatch]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       dispatch(setLocalStorageToken(navlocaltoken));
       dispatch<any>(fetchUserProfile());
-    }
   }, [dispatch, navlocaltoken]);
 
   const routing = () => {

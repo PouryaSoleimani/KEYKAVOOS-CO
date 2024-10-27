@@ -29,10 +29,8 @@ function AddNewTicket() {
 
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
       setDepartments(localDepartments);
-    }
   }, []);
 
   useEffect(() => {

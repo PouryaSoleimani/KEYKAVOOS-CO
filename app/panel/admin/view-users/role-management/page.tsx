@@ -26,11 +26,9 @@ function RoleManagement() {
   const [roleIsDeleted, setRoleIsDeleted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localRoles = JSON.parse(window.sessionStorage.getItem("roles") as string);
       console.log(localRoles);
       setRoles(localRoles);
-    }
   }, []);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import PanelFields from "../../components/panel-fileds";
 import SubmitOrderDropdown from "./components/submit-order-dropdown";
@@ -33,12 +33,10 @@ function SubmitOrder() {
 
   // GETTING PLANS AND TYPES
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
       const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
       setAllPlans(localPlans);
       setSiteTypes(localSiteTypes);
-    }
   }, []);
 
   const [similarSiteData, setSimilarSiteData] = useState<SimilarSiteType[]>([{ title: "", url: "" },]);
@@ -82,10 +80,8 @@ function SubmitOrder() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const consultation_id = JSON.parse(window.sessionStorage.getItem("consultation_id") as string);
       setConsultationId(consultation_id);
-    }
   }, [consultationId]);
 
   // const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {

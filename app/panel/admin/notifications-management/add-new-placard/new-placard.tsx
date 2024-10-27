@@ -18,7 +18,6 @@
 
 //   //^ FUNCTIONS
 //   useEffect(() => {
-//     if (typeof window !== "undefined") {
 //       const localUsers = JSON.parse(window.sessionStorage?.getItem("users") as string);
 //       setUsers(localUsers);
 
@@ -27,7 +26,6 @@
 
 //       const localBrands = JSON.parse(window.sessionStorage?.getItem("brands") as string);
 //       setBrands(localBrands);
-//     }
 //   }, []);
 
 //   useEffect(() => {

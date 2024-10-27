@@ -26,12 +26,10 @@ function Departments() {
   const [editField, setEditField] = useState({ showEditField: false, name_en: "", name_fa: "", });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localDepartments = JSON.parse(
         window.sessionStorage.getItem("departments") as string
       );
       setDepartments(localDepartments);
-    }
   }, []);
 
   useEffect(() => { getAllDepartments(token, setDepartments, setDepartmentLoading); }, []);

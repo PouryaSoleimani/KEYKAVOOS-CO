@@ -58,21 +58,17 @@ const PanelLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const token = JSON.parse(window.sessionStorage.getItem("token") as string);
-      setLocalToken(token);
-    }
+    const token = JSON.parse(window.sessionStorage.getItem("token") as string);
+    setLocalToken(token);
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      Promise.all([
-        getAllPlans(token, setAllPlans),
-        getUserNotification(token, Number(userId), setUserNotifications),
-        getAllSiteTypes(token, setSiteTypes),
-        getAllDepartments(token, setDepartments),
-      ]);
-    }
+    Promise.all([
+      getAllPlans(token, setAllPlans),
+      getUserNotification(token, Number(userId), setUserNotifications),
+      getAllSiteTypes(token, setSiteTypes),
+      getAllDepartments(token, setDepartments),
+    ]);
   }, [token, setAllPlans, setSiteTypes, setDepartments, userId, setUserNotifications,]);
 
 

@@ -19,14 +19,12 @@ function ViewUsers() {
   const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
   useEffect(() => {
-    if (typeof window !== "undefined") { getAllUsers(token, setAllUsersData, setUsersStatus); }
+ getAllUsers(token, setAllUsersData, setUsersStatus);
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
       setAllUsersData(allUsers);
-    }
   }, [setAllUsersData]);
 
   useEffect(() => {

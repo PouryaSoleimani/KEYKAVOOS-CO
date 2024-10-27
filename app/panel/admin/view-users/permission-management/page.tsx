@@ -24,10 +24,8 @@ function PermissionManagement() {
   const TOKEN = JSON.stringify(sessionStorage.getItem('token') as string)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localPermissions = JSON.parse(window.sessionStorage.getItem("permissions") as string);
       setPermissions(localPermissions);
-    }
   }, [setPermissions]);
 
   useEffect(() => { getAllPermissions(token, setPermissions, setPermissionStatus); console.log("PERMISSIONS ==>", permissions); }, []);

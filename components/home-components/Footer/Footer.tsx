@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from "react";
 import LocationIcon from "/footer/location.svg";
 import PhoneIcon from "/footer/phone.svg";

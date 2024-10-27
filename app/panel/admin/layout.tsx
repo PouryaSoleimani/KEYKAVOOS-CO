@@ -35,15 +35,12 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localRole = JSON.parse(
         window.localStorage.getItem("role") as string
       );
       setRole(localRole);
-    }
   }, []);
   useEffect(() => {
-    if (typeof window !== "undefined") {
       Promise.all([
         getAllUsers(token, setAllUsersData, setUsersStatus),
         getUserNotification(token, Number(userId), setUserNotifications),
@@ -52,7 +49,6 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         getAllRole(token, setRoles, setDataLoading),
         getAllBrands(setBrands),
       ]);
-    }
   }, [
     token,
     setAllPlans,

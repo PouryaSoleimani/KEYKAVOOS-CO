@@ -16,7 +16,6 @@ function CreatePosition() {
   const [createPosition, setCreatePosition] = useState({ title_en: "", title_fa: "", dept_id: "", user_id: "", });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       const localUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
       setUsersInfo(localUsers);
 
@@ -31,7 +30,6 @@ function CreatePosition() {
         );
         setCreatePosition((prev) => ({ ...prev, dept_id: departments[0] }));
       }
-    }
   }, []);
   useEffect(() => {
     console.log("LOCAL USERS ===>", usersInfo);

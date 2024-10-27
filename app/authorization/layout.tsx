@@ -9,11 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSelector((state: any) => state.userData);
   const [localToken, setLocalToken] = useState("");
+
   useLayoutEffect(() => {
-    if (typeof window !== "undefined") {
-      const localToken = JSON.parse(window.sessionStorage.getItem("token") as string);
-      setLocalToken(localToken);
-    }
+    const localToken = JSON.parse(window.sessionStorage.getItem("token") as string);
+    setLocalToken(localToken);
   }, []);
 
   return !token || !localToken ? (
