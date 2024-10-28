@@ -26,12 +26,8 @@
       "@/*": [
         "./*"
       ],
-      "@/public/*": [
-        "/public/*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
+      "@/public/*": [ "/*"],
+      "@/components/*": ["./components/*"],
       "@/home-components/*": [
         "./components/home-components/*"
       ],
