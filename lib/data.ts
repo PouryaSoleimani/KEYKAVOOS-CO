@@ -1,4 +1,3 @@
-import { Images } from "@/lib/images";
 
 export const CertificateSlider = [
   {
