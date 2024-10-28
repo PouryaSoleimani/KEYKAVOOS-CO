@@ -1,4 +1,4 @@
-import { Images } from "./images";
+import { Images } from "@/lib/images";
 
 export const CertificateSlider = [
   {
