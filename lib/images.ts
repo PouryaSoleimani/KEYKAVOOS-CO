@@ -82,7 +82,7 @@ export const Images = {
   ProjectManagementIcon,
   PersoanlInfoIcon,
   DashboardIcon,
-  data,
+  // data,
   hoveredData,
   time,
   hoveredTime,
