@@ -41,10 +41,7 @@ const Login = ({
   };
 
   const { values, errors, handleSubmit, handleChange, isValid } = useFormik({
-    initialValues: {
-      PhoneNumber: "",
-      Password: "",
-    },
+    initialValues: { PhoneNumber: "", Password: "", },
     onSubmit: handleSubmission,
     validationSchema: LoginSchema,
     validateOnMount: true,
