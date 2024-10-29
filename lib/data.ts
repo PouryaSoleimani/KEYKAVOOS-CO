@@ -573,7 +573,7 @@ export const TechnologyData = [
   {
     id: 1,
     title: "فرانت اند",
-    imgUrl: "/Technology/front.svg",
+    imgUrl: "/NEW__TECH__ICONS/FRONTEND.png",
     technologies: [
       {
         id: 6,
@@ -641,7 +641,7 @@ export const TechnologyData = [
   {
     id: 3,
     title: "سرور",
-    imgUrl: ["/NEW__TECH__ICONS/SERVER.png"],
+    imgUrl: "/NEW__TECH__ICONS/SERVER.png",
     technologies: [
       {
         id: 13,
