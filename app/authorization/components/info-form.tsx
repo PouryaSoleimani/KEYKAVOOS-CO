@@ -70,15 +70,7 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
     }
   };
 
-  const {
-    values,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    isValid,
-    touched,
-    errors,
-  } = useFormik({
+  const { values, handleChange, handleBlur, handleSubmit, isValid, touched, errors, } = useFormik({
     initialValues,
     onSubmit: handleSubmission,
     validationSchema: UserRegistrationPersonalSchema,
@@ -102,7 +94,7 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
           ثبت نام در کیکاووس زمان
         </p>
         <p className="text-[14px] tracking-tighter pt-5 pb-10 flex space-x-4 items-center">
-        <FaLightbulb className="text-yellow-400 w-6 h-6 -translate-y-2" />
+          <FaLightbulb className="text-yellow-400 w-6 h-6 -translate-y-2" />
           اطلاعات خود را وارد کنید و به جمع ما بپیوندید تا از خدمات ویژه ما بهره
           مند شوید.
         </p>
