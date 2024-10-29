@@ -36,8 +36,8 @@ const Login = ({
   const [loginwithPass, setLoginwithPass] = useState(false);
 
   const handleSubmission = async () => {
-    setIsLoggingIn(true);
-    dispatch(openModal(true));
+      setIsLoggingIn(true);
+      dispatch(openModal(true));
   };
 
   const { values, errors, handleSubmit, handleChange, isValid } = useFormik({
@@ -82,7 +82,7 @@ const Login = ({
 
   useEffect(() => {
     if (status === "failed" && loginApproach === 1 && loginwithPass && result) {
-      // console.log("second");
+      console.log("second");
       dispatch<any>(
         fetchUserInLoginWithPassword({
           mobile: values.PhoneNumber,
@@ -97,36 +97,13 @@ const Login = ({
       <div className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]" dir="rtl" >
         <div className="py-[5%] w-full relative px-[5%]">
           {errorMessage === "" && successMessage === "" && (
-            <Modal
-              showModal={showModal}
-              data={values.PhoneNumber ? values.PhoneNumber : ""}
-              text={values.PhoneNumber ? "شماره تماس زیر مورد تایید است؟" : "شماره همراه خود را وارد کنید."}
-              setSteps={setAuthSteps}
-              isLoggingIn={isLoggingIn}
-              isLoggedIn={isLoggedIn}
-              showOnErrorOrSuccess={false}
-              setLogWithOTP={setLogwithOTP}
-              setLoginWithPass={setLoginwithPass}
-            />
+            <Modal showModal={showModal} data={values.PhoneNumber ? values.PhoneNumber : ""} text={values.PhoneNumber ? "شماره تماس زیر مورد تایید است؟" : "شماره همراه خود را وارد کنید."} setSteps={setAuthSteps} isLoggingIn={isLoggingIn} isLoggedIn={isLoggedIn} showOnErrorOrSuccess={false} setLogWithOTP={setLogwithOTP} setLoginWithPass={setLoginwithPass} />
           )}
           {errorMessage !== "" && !errorOnProfileHandler && (
-            <Modal
-              showModal={showModal}
-              data=" "
-              text={errorMessage}
-              mainButtonText="متوجه شدم"
-              showOnErrorOrSuccess={true}
-            />
+            <Modal showModal={showModal} data=" " text={errorMessage} mainButtonText="متوجه شدم" showOnErrorOrSuccess={true} />
           )}
           {successMessage !== "" && !errorOnProfileHandler && (
-            <Modal
-              showModal={showModal}
-              data=""
-              text={successMessage}
-              mainButtonText="متوجه شدم"
-              showOnErrorOrSuccess={true}
-              isLoggedIn={isLoggedIn}
-            />
+            <Modal showModal={showModal} data="" text={successMessage} mainButtonText="متوجه شدم" showOnErrorOrSuccess={true} isLoggedIn={isLoggedIn} />
           )}
           <Logo />
           <div className="flex flex-row justify-between items-center my-10">
