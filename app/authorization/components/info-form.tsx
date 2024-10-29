@@ -19,17 +19,10 @@ import FormValidationMsg from "./form-validation-msg";
 import { verifyIranianNationalId } from "@persian-tools/persian-tools";
 import InfoFormFieldContainer from "./info-form-filed-container";
 import { InfoContext } from "../context/InfoContext";
+import { FaLightbulb } from "react-icons/fa";
 
-type infoFormProps = {
-  setSteps: Dispatch<SetStateAction<number>>;
-};
-const initialValues = {
-  FirstName: "",
-  LastName: "",
-  Password: "",
-  type: "حقیقی",
-  ncode: "",
-};
+type infoFormProps = { setSteps: Dispatch<SetStateAction<number>>; };
+const initialValues = { FirstName: "", LastName: "", Password: "", type: "حقیقی", ncode: "", };
 
 const InfoForm = ({ setSteps }: infoFormProps) => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -105,10 +98,11 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
         />
       )}
       <label>
-        <p className="font-bold text-[24px] pt-[3%] pb-1">
+        <p className="font-extrabold text-[24px] pt-[3%] pb-1 tracking-tight">
           ثبت نام در کیکاووس زمان
         </p>
-        <p className="text-[16px] py-4">
+        <p className="text-[14px] tracking-tighter pt-5 pb-10 flex space-x-4 items-center">
+        <FaLightbulb className="text-yellow-400 w-6 h-6 -translate-y-2" />
           اطلاعات خود را وارد کنید و به جمع ما بپیوندید تا از خدمات ویژه ما بهره
           مند شوید.
         </p>
@@ -126,16 +120,7 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
         </div>
         <div className="grid grid-cols-2 gap-8">
           <InfoFormFieldContainer>
-            <FormInput
-              value={values.FirstName}
-              onChange={handleChange}
-              name="FirstName"
-              label="نام"
-              error={errors.FirstName && touched.FirstName}
-              onBlur={handleBlur}
-              type="text"
-              autoFocus={true}
-            />
+            <FormInput value={values.FirstName} onChange={handleChange} name="FirstName" label="نام" error={errors.FirstName && touched.FirstName} onBlur={handleBlur} type="text" autoFocus={true} />
             <span className="absolute -top-7 right-[3.25rem] z-20 text-[#4866CF]">
               *
             </span>
@@ -145,15 +130,7 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
           </InfoFormFieldContainer>
 
           <InfoFormFieldContainer>
-            <FormInput
-              value={values.LastName}
-              onChange={handleChange}
-              name="LastName"
-              label="نام خانوادگی"
-              error={errors.LastName && touched.LastName}
-              onBlur={handleBlur}
-              type="text"
-            />
+            <FormInput value={values.LastName} onChange={handleChange} name="LastName" label="نام خانوادگی" error={errors.LastName && touched.LastName} onBlur={handleBlur} type="text" />
             <span className="absolute -top-7 right-[7rem] z-20 text-[#4866CF]">
               *
             </span>
@@ -163,15 +140,7 @@ const InfoForm = ({ setSteps }: infoFormProps) => {
           </InfoFormFieldContainer>
 
           <InfoFormFieldContainer>
-            <FormInput
-              value={values.Password}
-              onChange={handleChange}
-              name="Password"
-              label="رمزعبور"
-              error={errors.Password && touched.Password}
-              onBlur={handleBlur}
-              type="text"
-            />
+            <FormInput value={values.Password} onChange={handleChange} name="Password" label="رمزعبور" error={errors.Password && touched.Password} onBlur={handleBlur} type="password" />
             <span className="absolute -top-7 right-[5rem] z-20 text-[#4866CF]">
               *
             </span>

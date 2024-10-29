@@ -14,12 +14,12 @@ const FormInput = ({ label, placeholder, type, onChange, value, pattern, name, e
       <input
         className={`${error === "" || !error ? "text-black border border-zinc-400/80" : "border border-[#4866CF] text-[#4866CF]"} ${disabled ? "text-center bg-[#D0DBEC] border-[#D0DBEC]" : ""} mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[1.5px]`}
         placeholder={placeholder}
-        type={type}
-        // dir={`${type === "tel" ? "rtl" : "rtl"}`}
+        type={`${type === "password" ? "password" : "text"}`}
+        dir={`${type === "tel" ? "rtl" : "rtl"}`}
         onChange={onChange}
         maxLength={length}
         value={value}
-        // required
+        required
         autoComplete="off"
         pattern={pattern}
         name={name}

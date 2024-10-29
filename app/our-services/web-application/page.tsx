@@ -13,7 +13,7 @@ import CarouselGames2 from './components/WebAppCarousel2';
 //^ COMPONENT
 const WebApplicationServicePage: React.FC = () => {
     useEffect(() => {
-        AOS.init();
+        AOS.init({ offset: -200 });
         window.addEventListener('touchmove', () => { AOS.refresh() }, false)
     }, [])
 
