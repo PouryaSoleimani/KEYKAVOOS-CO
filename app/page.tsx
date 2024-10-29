@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   // AOS
-  useEffect(() => { AOS.init(); AOS.refresh(); }, []);
+  useEffect(() => { AOS.init({ offset: -200 }); AOS.refresh(); }, []);
 
   if (mainLoading) {
     return <Loading />;
