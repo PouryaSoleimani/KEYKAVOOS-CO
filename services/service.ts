@@ -12,8 +12,8 @@ if (typeof window !== "undefined") {
 console.log("%c TOKEN TOKEN ===>", "color: yellow", TOKEN);
 
 const app = axios.create({
-  // baseURL: process.env.API_BASE_URL || "https://back.keykavoos.co/api/v1",
-  baseURL: process.env.API_BASE_URL || "http://127.0.0.1:8000/api/v1",
+  baseURL: process.env.API_BASE_URL || "https://back.keykavoos.co/api/v1",
+  // baseURL: process.env.API_BASE_URL || "http://127.0.0.1:8000/api/v1",
   headers: { "Content-Type": "application/json", Authorization: TOKEN ? `Bearer ${TOKEN}` : '', },
 });
 

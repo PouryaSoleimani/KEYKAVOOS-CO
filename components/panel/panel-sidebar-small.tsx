@@ -30,6 +30,8 @@ const PanelSidebarSmall = ({
                 src={item.imgSrc}
                 alt={`${item}`}
                 className="md:w-[50px] md:h-[50px] w-[40px]"
+                width={50}
+                height={50}
               />
               <span>{item.text}</span>
             </Link>
