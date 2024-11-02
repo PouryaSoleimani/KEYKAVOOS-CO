@@ -116,7 +116,7 @@ function Genuine({ userId, token }: GenuineProps) {
             </div>
             {USER_PROFILE_PIC ? (
               <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-                <Image alt="profile" src={`http://localhost:8000/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={550} height={32} />
+                <Image alt="profile" src={`http://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={550} height={32} />
               </div>
             ) : (
               <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">

@@ -17,7 +17,7 @@ function Genuine({ userProfile }: GenuineProps) {
         </div>
         <div className="flex flex-col gap-10 mt-10">
           <div className="self-center">
-            <Image src={userProfile.pic_path ? `http://localhost:8000/storage/${userProfile.pic_path}` : `/USER__DEFAULT.png`} alt="profile_pic" width={162} height={152} className="flex items-center justify-center text-zinc-500 rounded-full" />
+            <Image src={userProfile.pic_path ? `https://back.keykavoos.co/storage/${userProfile.pic_path}` : `/USER__DEFAULT.png`} alt="profile_pic" width={162} height={152} className="flex items-center justify-center text-zinc-500 rounded-full" />
           </div>
           <div className="flex justify-center">
             <Link href={"/panel/user/settings"} className="bg-[#4866CF] text-white text-center px-2 py-3 rounded-lg w-[160px] tracking-tight text-[14px] hover:bg-blue-800 duration-300"  >

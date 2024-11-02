@@ -710,7 +710,7 @@ export const userSidebarOptions = [
   },
   {
     text: "پشتیبانی",
-    imgSrc: '/NEW__TECH__ICONS/FRONTEND.png',
+    imgSrc: "/Panel/support.svg",
     address: "/panel/user/support",
     path: [
       "/panel/user/support",
