@@ -182,7 +182,7 @@ export const sendOTPCodeForRegistrationForHaghighi = async (
     console.log(error?.response?.data.message);
   }
 };
-// send otp code for login and general
+//* send otp code for login and general
 export const sendOTPCodeMain = async (
   mobile: string,
   setSteps: React.Dispatch<React.SetStateAction<number>>
@@ -220,7 +220,7 @@ export const sendOTPCodeMain = async (
       rtl: true,
     });
     console.log(error?.response?.data.message);
-    location.reload()
+    // location.reload()
   }
 };
 
