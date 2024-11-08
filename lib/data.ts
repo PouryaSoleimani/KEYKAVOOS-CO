@@ -709,6 +709,15 @@ export const userSidebarOptions = [
     ],
   },
   {
+    text: "مدیریت سفارش ها",
+    imgSrc: "/Panel/orders.svg",
+    address: "/panel/user/order-management",
+    path: [
+      "/panel/user/order-management",
+      "/panel/user/order-management/order-payment",
+    ],
+  },
+  {
     text: "پشتیبانی",
     imgSrc: "/Panel/support.svg",
     address: "/panel/user/support",
@@ -716,15 +725,6 @@ export const userSidebarOptions = [
       "/panel/user/support",
       "/panel/user/support/add-new-ticket",
       "/panel/user/support/ticket-detail",
-    ],
-  },
-  {
-    text: "مدیریت سفارش ها",
-    imgSrc: "/Panel/orders.svg",
-    address: "/panel/user/order-management",
-    path: [
-      "/panel/user/order-management",
-      "/panel/user/order-management/order-payment",
     ],
   },
   // {

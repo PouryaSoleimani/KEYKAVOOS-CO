@@ -4,7 +4,7 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true, },
   productionBrowserSourceMaps: true,
   images: { domains: ["keykavoos.liara.run", "localhost" , "back.keykavoos.co/storage" , "localhost:3000",], },
-  images: { remotePatterns: [{ protocol: "http", hostname: "**", }, { protocol: "http", port: "3000", hostname: "***" }], },
+  images: { remotePatterns: [{ protocol: "https", hostname: "**", }, { protocol: "http", port: "3000", hostname: "***" }], },
 };
 const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true', })
 

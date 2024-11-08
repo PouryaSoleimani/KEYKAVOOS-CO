@@ -31,7 +31,7 @@ const OurServices = () => {
                 </div>
                 <div className="servicecard hover:scale-110 duration-300 cursor-pointer z-10 backdrop-blur-[10px] bg-white shadow-md shadow-zinc-300 rounded-2xl border border-zinc-300">
                     <div className="servicecard-overlay backdrop-blur-sm z-0 bg-transparent  rounded-2xl"></div>
-                    <div className="servicecard-inner z-30 backdrop-blur-sm"> آموزش <br /> کارکنان <br /> دولت</div>
+                    <Link href="/our-services/government-learning" className="servicecard-inner z-30 backdrop-blur-sm"> آموزش <br /> کارکنان <br /> دولت</Link>
                     <Image src='/3D_ICONS/NOTEBOOK.png' alt='at_sign' width={170} height={170} className='wordPress3D absolute top-[-4.5rem] left-[-2rem] -z-10' />
                 </div>
             </div>
