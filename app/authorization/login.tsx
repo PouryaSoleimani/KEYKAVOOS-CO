@@ -15,6 +15,7 @@ import FormInput from "../contact-us/components/form/form-inputs";
 import { sendOTPCodeMain } from "@/utils/utils";
 import { useDebounce } from "use-debounce";
 import styles from "./styles/login.module.css";
+import BackButton from "@/components/ADMIN__PANEL__COMPONENTS/BackButton";
 
 type LoginProps = {
   setLoginApproach: React.Dispatch<React.SetStateAction<number>>;
@@ -36,8 +37,8 @@ const Login = ({
   const [loginwithPass, setLoginwithPass] = useState(false);
 
   const handleSubmission = async () => {
-      setIsLoggingIn(true);
-      dispatch(openModal(true));
+    setIsLoggingIn(true);
+    dispatch(openModal(true));
   };
 
   const { values, errors, handleSubmit, handleChange, isValid } = useFormik({
@@ -94,6 +95,7 @@ const Login = ({
 
   return (
     <React.Fragment>
+      <BackButton />
       <div className="mx-auto grid grid-cols-1 font-YekanBakh rounded-3xl overflow-hidden shadow-2xl shadow-[13px_0_61px_-24px_rgba(0, 0, 0, 0.15)]" dir="rtl" >
         <div className="py-[5%] w-full relative px-[5%]">
           {errorMessage === "" && successMessage === "" && (
@@ -104,7 +106,9 @@ const Login = ({
           )}
           {successMessage !== "" && !errorOnProfileHandler && (
             <Modal showModal={showModal} data="" text={successMessage} mainButtonText="متوجه شدم" showOnErrorOrSuccess={true} isLoggedIn={isLoggedIn} />
-          )}
+          )
+          }
+          {errorMessage && setTimeout(() => { location.reload() }, 2500)}
           <Logo />
           <div className="flex flex-row justify-between items-center my-10">
             <span onClick={() => setLoginApproach(0)} className={loginApproach === 0 ? `bg-[#4866CF] px-4 py-2 mt-2 rounded-lg text-white tracking-tighter bg- ${styles.approach} cursor-default` : "tracking-tighter bg-[#eaeaea] hover:bg-[#4866CF] hover:text-white px-4 py-1.5 mt-2 rounded-lg border-none cursor-pointer"}  >

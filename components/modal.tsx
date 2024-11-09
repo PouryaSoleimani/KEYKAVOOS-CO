@@ -1,10 +1,6 @@
 "use client";
 import { useGetUserRoles } from "@/hooks/useGetUserRoles";
-import {
-  openModal,
-  updateStatus,
-  getTokenFromLocal,
-} from "@/redux/features/user/userSlice";
+import { openModal, updateStatus, getTokenFromLocal, } from "@/redux/features/user/userSlice";
 import { userRoleType } from "@/types/types";
 import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -50,11 +46,10 @@ function Modal({
   changeNumber,
   redirect,
 }: ModalProps) {
-  const { token, role, status, successMessage, userType, errorMessage } =
-    useSelector((state: any) => state.userData);
+  const { token, role, status, successMessage, userType, errorMessage } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
   const router = useRouter();
-  
+
   useEffect(() => {
     dispatch(getTokenFromLocal());
   }, []);
@@ -86,9 +81,8 @@ function Modal({
       id="default-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className={`${
-        showModal ? "block" : "hidden"
-      }  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-50 flex justify-center items-center backdrop-blur-sm h-full`}
+      className={`${showModal ? "block" : "hidden"
+        }  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-50 flex justify-center items-center backdrop-blur-sm h-full`}
     >
       <div className="p-4 w-full">
         <div className="relative p-8 w-full max-w-2xl max-h-full">
@@ -105,16 +99,14 @@ function Modal({
             </div>
 
             <div
-              className={`${
-                showOnErrorOrSuccess ? "" : "flex items-center justify-between"
-              }  p-4 md:p-5 rounded-b whitespace-nowrap`}
+              className={`${showOnErrorOrSuccess ? "" : "flex items-center justify-between"
+                }  p-4 md:p-5 rounded-b whitespace-nowrap`}
             >
               {/* اگر شماره موبایل بود */}
 
               <div
-                className={`${
-                  showOnErrorOrSuccess ? "flex justify-center" : ""
-                }`}
+                className={`${showOnErrorOrSuccess ? "flex justify-center" : ""
+                  }`}
               >
                 <button
                   onClick={() => handleMainButtonClick()}
@@ -130,19 +122,17 @@ function Modal({
                 </button>
               </div>
               <div
-                className={`${
-                  data === "" && "flex justify-center w-full text-center"
-                }`}
+                className={`${data === "" && "flex justify-center w-full text-center"
+                  }`}
               >
                 {!showOnErrorOrSuccess && (
                   <button
                     onClick={() => handlePrimaryButtonClick()}
                     type="button"
-                    className={`md:py-2.5 md:px-5 ms-3 px-5 text-sm font-medium focus:outline-none rounded-lg border border-[#4866CF] ${
-                      data
+                    className={`md:py-2.5 md:px-5 ms-3 px-5 text-sm font-medium focus:outline-none rounded-lg border border-[#4866CF] ${data
                         ? "self-center bg-[#4866CF] text-white"
                         : " bg-white text-[#4866CF]"
-                    }`}
+                      }`}
                   >
                     {data.length === 0 ? "تایید" : "تغییر شماره همراه"}
                   </button>
