@@ -6,7 +6,7 @@ import { MdEmail } from 'react-icons/md';
 const OrderNew = () => {
     return (
         <div className='TECH-CARD w-[88%] h-[26rem] bg-zinc-100/30 backdrop-blur-sm mx-auto my-6 rounded-xl  shadow-md shadow-zinc-400 border border-zinc-300'>
-            <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter "> فرم ثبت درخواست  </label>
+            <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter "> فرم ثبت درخواست مشاوره </label>
             <form className='flex flex-col my-6'>
                 <div id="FORM___TOP" className='flex items-center justify-center gap-x-2 px-12' dir='rtl'>
 
@@ -29,19 +29,6 @@ const OrderNew = () => {
                     <label className="form-control w-full">
                         <textarea className="textarea textarea-bordered h-44 border-2 border-slate-300 placeholder:text-lg tracking-tighter" placeholder="توضیحات تکمیلی"  ></textarea>
                     </label>
-
-                    <div className="flex items-center justify-center w-full">
-                        <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-44 border-2 border-gray-300  rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className='font-bold tracking-tight text-lg'>انتخاب فایل پیوست</span></p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">فرمت های قابل قبول : <span className='text-blue-900'>RAR , ZIP</span></p>
-                            </div>
-                            <input id="dropzone-file" type="file" multiple className="hidden" />
-                        </label>
-                    </div>
 
                 </div>
                 <button type="button" className="text-white ml-12 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 hover:bg-gradient-to-br duration-300 w-44 text-xl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2"> ثبت درخواست </button>

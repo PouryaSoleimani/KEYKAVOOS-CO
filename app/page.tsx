@@ -57,7 +57,6 @@ export default function Home() {
           <Reason />
           <Order />
           <OrderNew />
-          <News />
         </main>
         <Footer />
       </div>
