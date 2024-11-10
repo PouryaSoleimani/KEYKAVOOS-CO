@@ -19,6 +19,7 @@ import WordPressSpecial from "@/components/home-components/WebDesignPlans/WordPr
 import CodingWebDevelopment from "@/components/home-components/WebDesignPlans/CodingWebDevelopment";
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+import OrderNew from "@/components/home-components/OrderNew";
 
 
 //^ COMPONENT
@@ -55,6 +56,7 @@ export default function Home() {
           <Technology />
           <Reason />
           <Order />
+          <OrderNew />
           <News />
         </main>
         <Footer />
