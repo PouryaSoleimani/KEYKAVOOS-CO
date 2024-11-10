@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 
 const OrderNew = () => {
     return (
-        <div className='TECH-CARD w-[88%] h-[24rem] bg-zinc-100/30 backdrop-blur-sm mx-auto my-6 rounded-xl  shadow-md shadow-zinc-400 border border-zinc-300'>
+        <div className='TECH-CARD w-[88%] h-[26rem] bg-zinc-100/30 backdrop-blur-sm mx-auto my-6 rounded-xl  shadow-md shadow-zinc-400 border border-zinc-300'>
             <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter "> فرم ثبت درخواست  </label>
             <form className='flex flex-col my-6'>
                 <div id="FORM___TOP" className='flex items-center justify-center gap-x-2 px-12' dir='rtl'>
@@ -39,11 +39,12 @@ const OrderNew = () => {
                                 <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className='font-bold tracking-tight text-lg'>انتخاب فایل پیوست</span></p>
                                 <p className="text-xs text-gray-500 dark:text-gray-400">فرمت های قابل قبول : <span className='text-blue-900'>RAR , ZIP</span></p>
                             </div>
-                            <input id="dropzone-file" type="file" className="hidden" />
+                            <input id="dropzone-file" type="file" multiple className="hidden" />
                         </label>
                     </div>
 
                 </div>
+                <button type="button" className="text-white ml-12 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 hover:bg-gradient-to-br duration-300 w-44 text-xl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2"> ثبت درخواست </button>
             </form>
         </div>
     )
