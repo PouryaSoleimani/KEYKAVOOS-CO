@@ -38,22 +38,16 @@ const OrderNew = () => {
                         <div className="label">
                             <span className="label-text tracking-tight text-[17px] text-zinc-600">توضیحات تکمیلی</span>
                         </div>
-                        <textarea className="textarea textarea-bordered h-24 border-2 focus:border-blue-800 focus:outline-none" placeholder="Bio"></textarea>
-                        <div className="label">
-                            <span className="label-text-alt">Your bio</span>
-                            <span className="label-text-alt">Alt label</span>
-                        </div>
+                        <textarea className="textarea textarea-bordered h-24 border-2 focus:border-blue-800 focus:outline-none" placeholder=""></textarea>
                     </label>
 
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">Pick a file</span>
-                            <span className="label-text-alt">Alt label</span>
+                            <span className="label-text text-[17px] text-zinc-600 tracking-tighter">انتخاب فایل</span>
                         </div>
-                        <input type="file" className="file-input file-input-bordered w-full" />
+                        <input type="file" className="file-input file-input-bordered w-full" dir='ltr'/>
                         <div className="label">
-                            <span className="label-text-alt">Alt label</span>
-                            <span className="label-text-alt">Alt label</span>
+                            <span className="label-text-alt text-[15px] text-zinc-600 tracking-tighter">فرمت های قابل قبول : <span className='text-blue-800'> rar / zip </span> </span>
                         </div>
                     </label>
 
