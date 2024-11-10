@@ -55,7 +55,6 @@ export default function Home() {
           </div>
           <Technology />
           <Reason />
-          <Order />
           <OrderNew />
         </main>
         <Footer />
