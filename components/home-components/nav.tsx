@@ -32,15 +32,15 @@ const Nav = () => {
   useEffect(() => { console.log("SCROLL TOP"); }, [scrollTop])
 
   useEffect(() => {
-      const locTok = JSON.parse(
-        window.sessionStorage.getItem("token") as string
-      );
-      setnavlocaltoken(locTok);
+    const locTok = JSON.parse(
+      window.sessionStorage.getItem("token") as string
+    );
+    setnavlocaltoken(locTok);
   }, [dispatch]);
 
   useEffect(() => {
-      dispatch(setLocalStorageToken(navlocaltoken));
-      dispatch<any>(fetchUserProfile());
+    dispatch(setLocalStorageToken(navlocaltoken));
+    dispatch<any>(fetchUserProfile());
   }, [dispatch, navlocaltoken]);
 
   const routing = () => {
@@ -58,10 +58,10 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 w-11/12 rounded-full shadow-md shadow-zinc-400 " : ""}`}
+      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 rounded-full shadow-md shadow-zinc-400 " : ""}`}
       onMouseLeave={() => (setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
     >
-      <div className="flex justify-between items-center bg-transparent shadow-md backdrop-blur-[10px] mx-auto px-[10%] h-[5rem] md:h-[5rem] font-thin">
+      <div className="flex w-screen items-center justify-between bg-transparent shadow-md backdrop-blur-[10px] mx-auto px-[5%] h-[5rem] md:h-[5rem] font-thin">
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -84,7 +84,7 @@ const Nav = () => {
             <Skeleton count={1} className="p-2" baseColor="#4866CF" />
           </SkeletonTheme>
         ) : (
-          <Link href={route} className="flex justify-center items-center space-x-2">
+          <Link href={route} className="flex justify-center items-center space-x-2 w-1/4">
             <button className="lg:inline-block hidden bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 px-6 py-3 rounded-2xl text-base text-zinc-100 tracking-tight hover:scale-110 duration-300">
               {!localToken && "ثبت نام / ورود"}
               {localToken && (<p className="flex justify-between items-center"> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
@@ -95,7 +95,7 @@ const Nav = () => {
           </Link>
         )}
 
-        <div className="lg:flex gap-6 hidden">
+        <div className="lg:flex gap-6 hidden ">
           <ul className="z-10 lg:flex justify-center items-center gap-10 hidden pr-6 text-zinc-200">
             <li className="bg-blue-950 backdrop-blur-md px-6 py-3 rounded-2xl text-white hover:scale-110 duration-300">
               <button>دانلود کاتالوگ</button>
