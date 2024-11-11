@@ -46,7 +46,7 @@ export default function Home() {
           <Intro />
           <OurServices />
           <div className="relative px-[4vw] space-y-10">
-            <h2 className="relative -top-16 text-center font-black py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-3xl whitespace-nowrap lg:text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s">
+            <h2 className="relative top-16 text-center font-black py-1 bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-3xl whitespace-nowrap lg:text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s">
               {" "}طراحی و اجرای وبسایت{" "}
             </h2>
             <WordPress />
