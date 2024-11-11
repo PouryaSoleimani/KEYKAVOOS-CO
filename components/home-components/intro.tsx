@@ -35,7 +35,7 @@ function Intro() {
 
       <div className="flex flex-col justify-center items-center md:items-end gap-5">
         <div className="flex items-center justify-center text-center md:text-right md:text-[30px] text-zinc-800 text-[35px] 6xl:max-7xl:text-[43px] 7xl:text-[40px] 8xl:text-[45px] 5xl:max-6xl:text-[43px] 2xl:max-3xl:text-[38px] 3xl:max-5xl:text-[35px] 3xl:max-5xl:max-w-md lg:max-2xl:text-[45px] lg:max-2lg:text-[34px] 2lg:max-xl:text-[38px] xl:max-2xl:text-[44px] leading-snug font-YekanBakh">
-          <div className="tracking-tighter text-xl mt-4 sm:text-2xl">
+          <div className="tracking-tighter text-2xl mt-4 lg:text-3xl xl:text-4xl">
             شرکت بین المللی <span className="font-extrabold text-[#4866CF]">کیکاووس زمان</span> <br /> {" "}
             تجربه ای متفاوت در<br /> دنیای دیجیتال
           </div>
