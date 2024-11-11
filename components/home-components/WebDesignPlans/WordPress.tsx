@@ -7,9 +7,9 @@ interface Props { }
 
 const WordPress: NextPage<Props> = ({ }) => {
     return (
-        <div className='flex bg-transparent flex-col-reverse px-7 py-3 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-between items-center w-full h-full lg:h-fit'>
+        <div className='flex bg-transparent flex-col-reverse p-10 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-between items-center  lg:h-fit'>
 
-            <div id="LEFT" className={`w-full bg-contain  lg:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
+            <div id="LEFT" className={`w-full bg-contain  sm:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' />
                 <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto" }} />
             </div>
@@ -30,7 +30,7 @@ const WordPress: NextPage<Props> = ({ }) => {
                     ابزارهای قدرتمند برای بهینه‌سازی موتورهای جستجو (SEO) به راحتی در دسترس است.
                     این مزایا به شما کمک می‌کند تا وب‌سایت کارآمد و حرفه‌ای ایجاد کنید. <span className='tracking-tighter h-fit bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-4xl font-extrabold bg-clip-text text-transparent'>...</span>
                 </div>
-                <button className='bg-gradient-to-tr whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
+                <button className='bg-gradient-to-tr w-full xsm:w-fit whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                     توضیحات بیشتر
                     <TiPlus className='icon' />
                 </button>
