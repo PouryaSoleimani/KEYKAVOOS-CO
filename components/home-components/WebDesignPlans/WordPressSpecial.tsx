@@ -7,11 +7,11 @@ interface Props { }
 
 const WordPressSpecial: NextPage<Props> = ({ }) => {
     return (
-        <div className='flex bg-transparent flex-col-reverse p-10 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-center  items-center  lg:h-fit'>
+        <div className='flex bg-transparent flex-col-reverse p-10 backdrop-blur-[2px] border border-zinc-300 shadow-md shadow-zinc-400 rounded-2xl lg:flex-row justify-center gap-x-6   items-center  lg:h-fit'>
 
             <div id="LEFT" className={`w-full bg-contain  sm:bg-cover lg:w-1/2 h-full leftWordPress z-30 flex flex-col lg:flex-row items-start justify-start`} data-aos="fade-right" data-aos-duration="1500">
                 {/* <Image src='/Technology/wordpress.svg' alt='wordpress-logo' width={120} height={120} className='wordPress3D' /> */}
-                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__BG.webp" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto", margin: "auto auto" }} />
+                <Image src="/WEB_DESIGN_PLANS/WORDPRESS__SPECIAL__BG.png" width={500} height={500} alt='wordpress' style={{ width: "auto", height: "auto", margin: "auto auto" }} />
             </div>
 
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4 sm:space-y-2 py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
