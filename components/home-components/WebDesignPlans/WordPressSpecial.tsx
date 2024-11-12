@@ -15,7 +15,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
             </div>
 
             <div id="RIGHT" className='flex flex-col justify-start items-start space-y-4 sm:space-y-2 py-2 w-full lg:w-1/2 h-full' dir='rtl' data-aos="fade-left" data-aos-duration="1500">
-                <h2 className='tracking-tighter bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-3xl lg:text-4xl font-extrabold bg-clip-text text-transparent whitespace-nowrap'>وب سایت وردپرسی با قالب اختصاصی</h2>
+                <h2 className='tracking-tighter bg-gradient-to-tr from-[#4866CF] via-blue-700 to-slate-700 text-3xl lg:text-4xl font-extrabold bg-clip-text text-transparent whitespace-normal lg:whitespace-nowrap'>وب سایت وردپرسی با قالب اختصاصی</h2>
                 <div className='text-zinc-600 tracking-tighter text-justify flex flex-col space-y-5 text-md leading-8 lg:leading-9'>
                     <b className='font-bold tracking-wide text-zinc-800 text-xl'>طراحی سایت با وردپرس مزایای زیادی دارد، از جمله : </b>
                     <br />

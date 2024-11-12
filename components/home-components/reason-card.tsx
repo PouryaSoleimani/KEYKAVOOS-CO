@@ -14,7 +14,7 @@ function ReasonCard({ data }: ReasonCardProps) {
 
   //^ RETURN
   return (
-    <div className="TECH-CARD flex flex-col items-center gap-2 justify-around bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 px-2 py-3  lg:h-[280px] lg:w-[280px] rounded-3xl text-center duration-500 cursor-pointer hover:scale-105"
+    <div className="TECH-CARD w-[20rem] flex flex-col items-center gap-2 justify-around bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 px-2 py-3 lg:h-[280px] lg:w-[280px] rounded-3xl text-center duration-500 cursor-pointer hover:scale-105"
       style={{ backgroundColor: isHovered ? "#4866CF" : "transparent", color: isHovered ? "white" : "black", }}
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
     >
