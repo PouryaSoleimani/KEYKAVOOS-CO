@@ -23,7 +23,7 @@ const OrderNew = () => {
     }
 
     return (
-        <div className='TECH-CARD w-[88%] h-[27rem] bg-zinc-100/30 backdrop-blur-sm mx-auto my-6 rounded-xl shadow-md shadow-zinc-400 border border-zinc-300'>
+        <div className='TECH-CARD w-[88%] h-[27rem] bg-zinc-100/30 backdrop-blur-sm mx-auto my-16 rounded-xl shadow-md shadow-zinc-400 border border-zinc-300'>
             <label className="text-[#4866CF] flex justify-center sm:text-[36px] text-[30px] my-4 tracking-tighter "> فرم ثبت درخواست مشاوره </label>
             <form className='flex flex-col space-y-7 my-6' onSubmit={handleSubmit(onSubmit)}>
                 <div id="FORM___TOP" className='flex items-center justify-center gap-x-2 px-12' dir='rtl'>
