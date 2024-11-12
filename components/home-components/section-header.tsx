@@ -13,7 +13,7 @@ function SectionHeader({ mainTitle, subTitle, width, marginBottom, marginTop, }:
         className="lg:inline hidden"
       ></div>
       <div className="-top-10 left-1/2 absolute bg-transparent text-center -translate-x-1/2 text-xl whitespace-pre-wrap w-full">
-        <p className="font-bold text-[#68707A] sm:text-[32px] tracking-tighter">
+        <p className="font-bold text-[#68707A] sm:text-[32px] tracking-tighter leading-relaxed">
           {mainTitle}
         </p>
         <p className="text-[#4866CF] mt-6 text-[5.5vmin] sm:text-[22px] tracking-tighter">
