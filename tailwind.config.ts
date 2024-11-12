@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      xxs : "420px",
+      xxs: "420px",
       xsm: "513px",
       sm: "640px",
       md: "768px",
@@ -58,12 +58,12 @@ const config: Config = {
   daisyui: {
     themes: ["light"],
     darkTheme: false,
-    base: true, 
+    base: true,
     styled: true,
-    utils: true, 
-    prefix: "", 
+    utils: true,
+    prefix: "",
     logs: true,
-    themeRoot: ":root", 
+    themeRoot: ":root",
   },
 };
 export default config;
