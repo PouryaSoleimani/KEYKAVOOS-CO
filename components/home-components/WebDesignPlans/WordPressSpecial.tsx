@@ -33,7 +33,7 @@ const WordPressSpecial: NextPage<Props> = ({ }) => {
                     این مزایا به شما کمک می‌کند تا وب‌سایت کارآمد و حرفه‌ای ایجاد کنید.
                     <br />
                 </div>
-                <button className='bg-gradient-to-tr w-[50%] whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
+                <button className='bg-gradient-to-tr w-full lg:w-[50%] whitespace-nowrap from-[#4866CF] via-blue-700 to-slate-700 flex px-10 py-3 rounded-lg gap-x-4 items-center justify-between text-white hover:scale-105 duration-300 '>
                     توضیحات بیشتر
                     <TiPlus className='icon' />
                 </button>
