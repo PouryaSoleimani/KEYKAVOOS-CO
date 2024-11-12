@@ -14,7 +14,7 @@ function TechnologyCard({ technologyInfo }: TechnologyCardProps) {
 
 
   return (
-    <div className="TECH-CARD flex flex-col items-center gap-3 bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 hover:shadow-xl  mx-auto mb-6 rounded-3xl w-[340px] lg:w-[370px] h-fit duration-200 cursor-pointer hover:scale-105" >
+    <div className="TECH-CARD flex flex-col h-[30rem] items-center gap-3 bg-transparent shadow-md shadow-zinc-400 border border-zinc-300 hover:shadow-xl  mx-auto mb-6 rounded-3xl w-[340px] lg:w-[370px] duration-200 cursor-pointer hover:scale-105" >
       <div className="bg-[#4866CF] mb-3 p-2 rounded-t-3xl w-full font-bold text-[20px] text-center text-white tracking-tighter">
         {technologyInfo.title}
       </div>

@@ -11,7 +11,7 @@ function Technology() {
   return (
     <div className={`flex flex-col mt-2 lg:px-6`} data-aos="fade-up" data-aos-duration="1500">
       <SectionHeader mainTitle="تکنولوژی های طراحی و راه اندازی سایت در کیکاووس" subTitle="کدام طرح مناسب کسب و کار شماست؟" width="20%" />
-      <div className="flex flex-wrap items-stretch justify-stretch px-2 py-4 mt-10 2xl:px-[70px] lg:gap-y-10 ">
+      <div className="flex flex-wrap items-stretch justify-stretch px-2 py-10 md:py-6 mt-10 2xl:px-[70px] lg:gap-y-10 ">
         {TechnologyData.map((item: any) => (
           <TechnologyCard key={item.id} technologyInfo={item} />
         ))}
