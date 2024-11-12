@@ -3,7 +3,7 @@ import React from "react";
 type SectionHeaderProps = { mainTitle: string; subTitle: string; width: string; marginBottom?: string; marginTop?: string; };
 function SectionHeader({ mainTitle, subTitle, width, marginBottom, marginTop, }: SectionHeaderProps) {
   return (
-    <div className="relative mt-20 sm:mt-24 mb-10 sm:mb-20 whitespace-nowrap">
+    <div className="relative mt-20 sm:mt-24 mb-10 sm:mb-20 whitespace-normal lg:whitespace-nowrap">
       <div
         style={{ position: "absolute", top: "0", left: "0", width: width, height: "100%", border: "none", borderTop: "3px solid", borderImage: "linear-gradient(to left, rgba(72, 102, 207, 1) -5%, rgba(234, 239, 246, 1) 100%) 1", }}
         className="lg:inline hidden"
