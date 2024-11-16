@@ -32,7 +32,7 @@ function SocialMedia() {
             mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverOne: false }))}
             isHovered={hoverLogo.hoverOne}
           >
-            <Image src="/footer/insColoredLogoSvg.svg" alt="instagram" className={styles["social-media-icon"]} width={200} height={200}/>
+            <Image src="/footer/insColoredLogoSvg.svg" alt="instagram" className={styles["social-media-icon"]} width={200} height={200} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer
@@ -40,7 +40,7 @@ function SocialMedia() {
             mouseLeaveHandler={() => setHoverLogo((last) => ({ ...last, hoverTwo: false }))}
             isHovered={hoverLogo.hoverTwo}
           >
-            <Image src="/footer/whatColoredLogoSvg.svg" alt="whatsapp" width={55} className={styles["social-media-icon"]}  height={200} />
+            <Image src="/footer/whatColoredLogoSvg.svg" alt="whatsapp" width={55} className={styles["social-media-icon"]} height={200} />
           </SocialMediaIconsContainer>
 
           <SocialMediaIconsContainer

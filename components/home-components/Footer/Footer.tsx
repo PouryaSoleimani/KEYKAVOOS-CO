@@ -12,6 +12,7 @@ import EnamaadLogo from "/footer/enamaad.svg";
 import styles from "./footer.module.css";
 import FooterNewsLetter from "./FooterNewsLetter";
 import { MdEmail } from "react-icons/md";
+import SocialMedia2 from "./SocialMedia2";
 
 
 // ^ COMPONENT
@@ -60,7 +61,8 @@ const Contact = () => {
 const AuthLogos = () => {
   return (
     <div className="flex flex-col gap-3 col-span-2">
-      <SocialMedia />
+      {/* <SocialMedia /> */}
+      <SocialMedia2 />
       <div className="flex justify-center py-2 items-center">
         <Link referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=422622&Code=KGdskS8BDuEuvxkxW9GT5eCCOJ3TO3sa">
           <Image src="/footer/senfi.svg" alt="senfi-logo" className="w-[5em]" width={200} height={200} />
