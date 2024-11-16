@@ -20,6 +20,7 @@ import CodingWebDevelopment from "@/components/home-components/WebDesignPlans/Co
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
 import OrderNew from "@/components/home-components/OrderNew";
+import { Toaster } from "react-hot-toast";
 
 
 //^ COMPONENT
@@ -40,6 +41,7 @@ export default function Home() {
     //^ RETURN
     return (
       <div className="bg-[#eaeff5] web-container overflow-x-hidden">
+        <Toaster position="top-right" reverseOrder={true} />
         <Script src="/navachat.js" async />
         <Nav />
         <main id="HOME__PAGE__MAIN__SECTION" className="flex flex-col mx-auto mt-10 w-full">
