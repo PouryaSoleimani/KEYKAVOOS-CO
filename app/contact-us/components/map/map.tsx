@@ -10,7 +10,7 @@ const Map = () => {
         loading="lazy"
         // referrerpolicy="no-referrer-when-downgrade"
         className="mx-auto w-full lg:h-[300px]"
-      ></iframe>
+      />
     </div>
   );
 };
