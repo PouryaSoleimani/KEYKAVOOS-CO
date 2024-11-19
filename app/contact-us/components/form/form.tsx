@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { FaUser } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
 
 type Inputs = { fullName: string, phoneNumber: number, messageText: string }
 
@@ -18,6 +19,9 @@ type Inputs = { fullName: string, phoneNumber: number, messageText: string }
 const Form = () => {
   const [message, setMessage] = useState({ name: "", phone: "", text: "" });
   const [disable, setDisable] = useState(true);
+  // TOASTS
+  const notifySuccess = () => toast.success('درخواست شما با موفقیت ثبت شد');
+  const notifyError = () => toast.error('خطا در ثبت درخواست');
   // YUP
   const schema = yup.object().shape({
     fullName: yup.string().required(),
@@ -29,7 +33,14 @@ const Form = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>({ resolver: yupResolver(schema), });
   // * SUBMIT HANDLER
   const onSubmit = (data: any) => {
-    console.log(data); reset()
+    if (data) {
+      console.log(data);
+      reset();
+      notifySuccess()
+    } else {
+      notifyError()
+    }
+
   }
 
   return (
