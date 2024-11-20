@@ -10,10 +10,11 @@ import 'animate.css';
 function Intro() {
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 text-right relative px-[4vw] animate__animated animate__fadeInUp animate__slow animate__delay-1s place-content-between " >
-      <div className="flex justify-center lg:justify-normal relative">
+      {/*//& LEFT */}
+      <div className="flex justify-center lg:justify-normal relative w-full">
         <div style={{ backgroundColor: "#eaeaea", borderRadius: "100%", }} className="lg:w-[430px] lg:h-[430px] max-w-[430px] w-[300px] h-[285px] absolute top-[1rem] lg:left-0 lg:translate-x-0"></div>
         <div style={{ background: "radial-gradient(circle at bottom,#1c1d1d 0%,#0000)", borderRadius: "50% 50% 50% 50%", overflow: "hidden", display: "flex", justifyContent: "center", zIndex: "10", }} className="lg:w-[420px] lg:max-w-[450px] lg:h-[450px] w-[300px] h-[300px]" >
-          <Image src="/intro/tower.svg" alt="tower" className="z-20 animate__animated animate__fadeInUp animate__slow animate__delay-2s " width={300} height={800} />
+          <Image src="/intro/tower.svg" alt="tower" className="z-20 animate__animated animate__fadeInUp animate__slow animate__delay-2s" width={300} height={800} />
 
           {/*     پشتیبانی یکساله     */}
           {/* <div className="bg-[#FFFFFF] lg:w-[100px] lg:h-[100px] w-[90px] h-[90px] lg:rounded-full absolute lg:left-0 -left-5 top-14 flex flex-col items-center py-3 gap-1 shadow z-30 rounded-xl">
@@ -33,7 +34,8 @@ function Intro() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center md:items-end gap-5">
+      {/*//& RIGHT  */}
+      <div className="flex flex-col justify-center items-center md:items-end gap-5 w-full">
         <div className="flex items-center justify-center text-center md:text-right md:text-[30px] text-zinc-800 text-[35px] 6xl:max-7xl:text-[43px] 7xl:text-[40px] 8xl:text-[45px] 5xl:max-6xl:text-[43px] 2xl:max-3xl:text-[38px] 3xl:max-5xl:text-[35px] 3xl:max-5xl:max-w-md lg:max-2xl:text-[45px] lg:max-2lg:text-[34px] 2lg:max-xl:text-[38px] xl:max-2xl:text-[44px] leading-snug font-YekanBakh">
           <div className="tracking-tighter text-2xl mt-4 lg:text-3xl xl:text-4xl">
             شرکت بین المللی <span className="font-extrabold text-[#4866CF]">کیکاووس زمان</span> <br /> {" "}

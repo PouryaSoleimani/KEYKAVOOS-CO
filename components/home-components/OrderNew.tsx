@@ -13,7 +13,7 @@ type Inputs = { name: string, email: string, phonenumber: number | string, texta
 const OrderNew = () => {
     const schema = yup
         .object()
-        .shape({ name: yup.string().required(), email: yup.string().email().required(), phonenumber: yup.string().max(11).required(), textarea: yup.string() })
+        .shape({ name: yup.string().required(), email: yup.string().email().required(), phonenumber: yup.string().max(11).required(), textarea: yup.string().required() })
         .required();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
@@ -48,7 +48,8 @@ const OrderNew = () => {
                 <div id="FORM___BUTTOM" className='flex px-12 items-center justify-center my-4 gap-x-3' dir='rtl'>
 
                     <label className="form-control w-full">
-                        <textarea className="textarea textarea-bordered h-44 border-2 border-slate-300 placeholder:text-lg tracking-tighter" placeholder="توضیحات تکمیلی" {...register('textarea', { required: true })}  ></textarea>
+                        <textarea className="textarea textarea-bordered h-44 border-2 border-slate-300 placeholder:text-lg tracking-tighter relative" placeholder="توضیحات تکمیلی" {...register('textarea', { required: true })} />
+                        {errors.textarea && <p className='text-red-900 absolute bottom-[60px] right-[5%] tracking-tighter text-sm z-10'>لطفا متن توضیحات خود را وارد کنید</p>}
                     </label>
 
                 </div>
