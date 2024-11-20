@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { FaPhone } from 'react-icons/fa6';
+import toast from 'react-hot-toast';
 
 type Inputs = { name: string, email: string, phonenumber: number | string, textarea?: string | number }
 
@@ -17,9 +18,11 @@ const OrderNew = () => {
         .required();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
-
+    const notifySuccess = () => toast.success('درخواست شما با موفقیت ثبت شد');
     const onSubmit: SubmitHandler<Inputs> = (data) => {
-        console.log(data); reset()
+        console.log(data);
+        reset();
+        notifySuccess()
     }
 
     return (
