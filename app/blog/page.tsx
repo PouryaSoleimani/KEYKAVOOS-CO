@@ -24,16 +24,19 @@ const BlogPage = () => {
             <div id='BLOG__SWIPER__CONTAINER' className='my-6 px-10'>
                 <BlogSwiper />
             </div>
+            {/*//? BLOG CARDS */}
             <div id='BLOG__CARDS__CONTAINER' className='flex flex-wrap justify-center items-center place-items-center gap-8 lg:grid lg:grid-cols-4 p-10 w-full space-x-6'>
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
-                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
+                <BlogCard imageSrc='/BLOG/BLOG_1.bmp' title="عنوان مطلب" content="محتوای مطلب" id="1" />
             </div>
+
+            {/*//? PAGINATION */}
             <div id="BLOG__PAGINATION__CONTAINER" className='w-full flex items-center justify-center my-10'>
                 <div className="join rounded-lg checked:bg-blue-800">
                     <input className="join-item btn btn-square" type="radio" name="options" aria-label="1" defaultChecked />

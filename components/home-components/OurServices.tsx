@@ -8,7 +8,7 @@ const OurServices = () => {
     return (
         <>
             <h2 id='OUR__SERVICES__SECTION' className='mt-32 mb-10 text-center font-[1000] bg-gradient-to-tr from-blue-500 via-[#4866CF] to-blue-800 bg-clip-text text-transparent text-5xl tracking-tighter animate__animated animate__fadeInUp animate__slow animate__delay-2s'> خدمات ما </h2>
-            <section className='grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 sm:gap-16 sm:place-items-stretch lg:px-10 lg:flex flex-wrap  place-items-stretch px-10 justify-center items-start py-16 gap-4 w-full lg:h-auto lg:my-16 text-zinc-800' dir='rtl' data-aos="fade-up" data-aos-duration="1500">
+            <section className='grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 sm:gap-10 sm:place-items-stretch lg:px-10 lg:flex flex-wrap  place-items-stretch px-10 justify-center items-start py-16 gap-4 w-full lg:h-auto lg:my-16 text-zinc-800' dir='rtl' data-aos="fade-up" data-aos-duration="1500">
                 <div className="servicecard h-fit hover:scale-110 duration-300 cursor-pointer z-10 backdrop-blur-[10px] bg-white shadow-md flex items-center justify-center shadow-zinc-300 rounded-2xl border border-zinc-300 text-center">
                     <div className="servicecard-overlay backdrop-blur-sm z-0 bg-transparent rounded-2xl"></div>
                     <Link href='/our-services/web-application' className="servicecard-inner z-30 backdrop-blur-sm text-center text-4xl font-bold ">طراحی<br /><br /><br />وب اپلیکیشن</Link>

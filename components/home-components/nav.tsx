@@ -58,10 +58,10 @@ const Nav = () => {
   //^ RETURN
   return (
     <div
-      className={`w-full font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 rounded-full shadow-md shadow-zinc-400 " : ""}`}
+      className={`font-thin mx-auto duration-500 top-0 z-[999] font-YekanBakh transition-all sticky mb-3 rounded-xl lg:${activeColorChange && "shadow-md bg-transparent backdrop-blur-[10px] rounded-2xl"} ${scrollTop ? "absolute top-3 rounded-full shadow-md shadow-zinc-400 w-[90vw] bg-blend-difference" : ""}`}
       onMouseLeave={() => (setShowOne(false), setShowTwo(false), setShowThree(false), setShowFour(false))}
     >
-      <div className="flex w-screen items-center justify-between bg-transparent shadow-md backdrop-blur-[10px] mx-auto px-[5%] h-[5rem] md:h-[5rem] font-thin">
+      <div className={`flex w-full items-center justify-between bg-transparent shadow-md backdrop-blur-[10px] mx-auto px-[5%] h-[5rem] md:h-[5rem] font-thin ${scrollTop ? "" : ""}`}>
         {/* Mobile */}
         <NavMobile
           active={active}
@@ -70,6 +70,7 @@ const Nav = () => {
           setShowTwo={setShowTwo}
           setShowThree={setShowThree}
           setShowFour={setShowFour}
+
           localToken={token}
           userProfile={userProfile}
           showOne={showOne}
@@ -78,7 +79,6 @@ const Nav = () => {
           showFour={showFour}
         />
         {/* Large Screen */}
-
         {status === "loading" ? (
           <SkeletonTheme width={140} >
             <Skeleton count={1} className="p-2" baseColor="#4866CF" />
@@ -188,6 +188,9 @@ const Nav = () => {
                     </Link>
                     <Link href="/contact-us">
                       <p className="text-sm hover:text-[#4866CF] duration-300">تماس با ما</p>
+                    </Link>
+                    <Link href="/about-us">
+                      <p className="text-sm hover:text-[#4866CF] duration-300">درباره ما</p>
                     </Link>
                   </ul>
                 </React.Fragment>

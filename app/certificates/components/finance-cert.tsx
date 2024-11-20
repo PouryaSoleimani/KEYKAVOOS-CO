@@ -14,7 +14,7 @@ const FinanceCert = ({ middleText, rightText, logoSrc, altText, }: FinanceCert) 
         </p>
         <div className="flex lg:flex-row flex-col justify-center items-center order-2 text-center">
           <Image src="/certificates/vector2.png" alt="vector" width={5} height={324} className="w-[8px] h-[170px] rotate-90 lg:rotate-0" />
-          <p className="px-5 lg:w-[500px] font-thin text-2xl text-justify lg:text-lg leading-10 tracking-tight">
+          <p className="px-5 lg:w-[500px] font-thin  text-justify md:text-xl lg:text-lg leading-10 tracking-tight">
             {middleText}
           </p>
           <Image src="/certificates/vector2.png" alt="vector" width={5} height={324} className="w-[8px] h-[170px] rotate-90 lg:rotate-0" />

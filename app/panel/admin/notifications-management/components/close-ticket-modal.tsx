@@ -60,9 +60,8 @@ function CloseTicketModal({
       id="default-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className={`${
-        showModal ? "block" : "hidden"
-      }  absolute top-0 left-0 flex justify-center items-center w-full text-center z-50 backdrop-blur-sm h-full`}
+      className={`${showModal ? "block" : "hidden"
+        }  absolute top-0 left-0 flex justify-center items-center w-full text-center z-50 backdrop-blur-sm h-full`}
     >
       <div className="p-4 w-full flex justify-center items-center">
         <div className="relative p-8 w-full max-w-2xl max-h-full">

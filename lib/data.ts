@@ -962,3 +962,15 @@ export const servicesData = [
     ],
   },
 ];
+export const blogsData = [
+  {
+    id: 1,
+    title: "عنوان مطلب",
+    content: "محتوای مطلب",
+    imgSrc: "/BLOG/BLOG_1.bmp",
+    category: "دسته بندی مطلب",
+    author: "نویسنده مطلب",
+    publishDate: "تاریخ انتشار مطلب",
+    readingTime: "مدت زمان مطالعه مطلب",
+  }
+]

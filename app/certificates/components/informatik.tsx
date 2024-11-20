@@ -10,7 +10,7 @@ const Informatik = () => {
     <div>
       <div className="flex flex-col justify-center items-center">
         <CertHeader />
-        <Image src="/certificates/1.svg" alt="انفورماتیک" width={400} height={300} className="px-[8%] lg:p-0 animate animate__animated animate__flash animate__slow" />
+        <Image src="/certificates/1.svg" alt="انفورماتیک" width={400} height={300} className="px-[8%] lg:p-0 animate animate__animated animate__flash animate__slow rounded-xl" />
       </div>
     </div>
   );

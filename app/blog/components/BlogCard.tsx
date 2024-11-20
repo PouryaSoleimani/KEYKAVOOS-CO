@@ -5,13 +5,15 @@ import { BsCalendarDateFill } from "react-icons/bs";
 import { MdAccessTime } from "react-icons/md";
 import AOS from 'aos'
 import "aos/dist/aos.css";
-interface props { imageSrc: string, title: string, content: string }
+import Link from 'next/link';
+interface props { imageSrc: string, title: string, content: string, id: string | number }
 
 //^ COMPONENT
-const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
+const BlogCard: React.FC<props> = ({ imageSrc, title, content, id }) => {
     // AOS
     useEffect(() => { AOS.init(); AOS.refresh(); }, []);
-    console.log(imageSrc, title, content)
+    // console.log(imageSrc, title, content)
+
     return (
         <div >
             <div data-aos="fade-up" data-aos-duration="1500" className="BLOG__CARD w-72 card backdrop-blur-[4px] bg-zinc-800/10 shadow-lg shadow-zinc-300 hover:scale-110 duration-500 cursor-pointer gap-y-4 " dir='rtl'>
@@ -36,7 +38,7 @@ const BlogCard: React.FC<props> = ({ imageSrc, title, content }) => {
                         </p>
                     </div>
                     <div className="justify-end card-actions ">
-                        <button className="btn bg-[#4866CF] font-extralight hover:bg-blue-800 text-white text-lg text-start w-full rounded-xl duration-300" dir='rtl'>ادامه مطلب</button>
+                        <Link href={`/blog/${id}`} className="btn bg-[#4866CF] font-extralight hover:bg-blue-800 text-white text-lg text-start w-full rounded-xl duration-300" dir='rtl'>ادامه مطلب</Link>
                     </div>
                 </div>
             </div>

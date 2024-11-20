@@ -18,7 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
-    <html lang="fa">
+    <html lang="fa" className="overflow-x-hidden">
       <body className="bg-[#eaeff5] mx-auto 4xl:w-[60%] 4xxl:w-[55%] 4xxxl:max-5xl:w-[55%] 5xl:w-[50%] 6xl:w-[50%] 3xl:w-[70%] 7xl:w-[45%] 8xl:w-[25%] font-YekanBakh">
         {/* <GoogleOAuthWrapper>
           <NextAuthProviderWrapper> */}
