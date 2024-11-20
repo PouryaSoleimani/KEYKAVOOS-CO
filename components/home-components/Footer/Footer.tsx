@@ -40,7 +40,7 @@ const Contact = () => {
       <p className={`${styles["footer-section-title"]} tracking-tighter pr-2 text-center lg:text-start`}>تماس با ما</p>
       <div className="flex flex-row items-center gap-2 mt-1">
         <Image src="/footer/location.svg" alt="location" className="w-7 h-7 ml-1 translate-x-2" width={200} height={400} />
-        <p className="font-faNum text-[14px] max-w-[26rem] tracking-normal  text-zinc-100">
+        <p className="font-faNum text-[14px] max-w-[26rem] tracking-normal translate-x-2 text-zinc-100">
           تهران،خیابان قائم مقام فراهانی،کوچه ماگنولیا، پلاک 30 ،واحد 12
         </p>
       </div>

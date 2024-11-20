@@ -8,7 +8,7 @@ import Image from 'next/image';
 const SocialMedia2 = () => {
     return (
         <div>
-            <div className="flex justify-center items-center my-6 gap-4">
+            <div className="flex flex-wrap justify-center items-center my-6 gap-4">
                 {/* INSTAGRAM */}
                 <Link href="/" className="group flex justify-center p-2 rounded-lg drop-shadow-xl bg-gradient-to-tr from-orange-500 via-pink-800 to-violet-900 text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]" >
                     <GrInstagram className='w-8 h-8' />
