@@ -87,7 +87,7 @@ const Nav = () => {
           <Link href={route} className="flex justify-center items-center space-x-2 w-1/4">
             <button className="lg:inline-block hidden bg-gradient-to-r from-blue-500 via-[#4866CF] to-blue-800 px-6 py-3 rounded-2xl text-base text-zinc-100 tracking-tight hover:scale-110 duration-300">
               {!localToken && "ثبت نام / ورود"}
-              {localToken && (<p className="flex justify-between items-center"> {FirstName} {userProfile.surname}  <FaUser className="ml-3" /> </p>)}
+              {localToken && (<p className="flex justify-between items-center pt-1"> {FirstName}  {userProfile.surname}   <FaUser className="ml-3 -translate-y-1" /> </p>)}
               {!FirstName && localToken && (
                 <Skeleton width={100} baseColor="#4866CF" className="flex justify-center space-x-2 items-center" />
               )}

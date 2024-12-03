@@ -14,7 +14,7 @@ import { RiCrosshair2Fill, RiDeleteBin7Fill } from "react-icons/ri";
 import { ImCross, ImEyePlus } from "react-icons/im";
 type NavProps = { userProfile: any; status: string; userType: string; numberOfAnnouncements: any; setShowAnnouncementDropdown: Dispatch<SetStateAction<boolean>>; showAnnouncementDropdown: boolean; };
 
-
+``
 // ^ COMPONENT ====================================================================================================================================
 const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncementDropdown, showAnnouncementDropdown, }: NavProps) => {
 
@@ -64,7 +64,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                 </SkeletonTheme>
               ) : userProfile.pic_path ? (
                 <div className="bg-[#EAEFF6] rounded-full">
-                  <Image alt="profile" src={`http://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
+                  <Image alt="profile" src={`https://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
                 </div>
               ) : (
                 <Image src="/USER__DEFAULT.png" alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
