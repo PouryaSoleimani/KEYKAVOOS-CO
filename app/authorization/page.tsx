@@ -35,7 +35,7 @@ const Auth = () => {
     }
   };
 
-  useEffect(() => {  dispatch(updateStatus());}, []);
+  useEffect(() => { dispatch(updateStatus()); }, []);
 
   return <div>{<div dir="rtl">{renderSteps()}</div>}</div>;
 };
