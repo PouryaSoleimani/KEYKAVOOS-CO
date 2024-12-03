@@ -22,15 +22,12 @@ function FooterNewsLetter() {
   const notifySuccess = () => toast.success('اشتراک شما در خبرنامه با موفقیت ثبت شد');
   const notifyError = () => toast.error("خطا در ثبت اشتراک خبرنامه");
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
+  const { register, handleSubmit, resetField, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (data) {
-      console.log(data);
-      notifySuccess();
-      reset();
-    } else {
-      notifyError()
+      app.post("/member/store", data)
+        .then(response => { console.log(response); reset(); resetField("email") })
     }
   }
 
