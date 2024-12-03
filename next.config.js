@@ -4,14 +4,10 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true, },
   productionBrowserSourceMaps: true,
   images: {
-    domains: ['back.keykavoos.co', "localhost:3000",],
-  },
-  images: {
     remotePatterns: [
-      { protocol: "https", hostname: "back.keykavoos.co", },
+      { protocol: "https", hostname: "back.keykavoos.co", port: "", pathname: "back.keykavoos.co/storage", },
       { protocol: "http", port: "3000", hostname: "***" },
     ],
-
   },
 };
 const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true', })
@@ -19,3 +15,5 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.e
 module.exports = { productionSourceMaps: true, };
 module.exports = nextConfig;
 module.exports = withBundleAnalyzer(nextConfig)
+module.exports = { experimental: { turbo: { resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json',], }, }, }
+module.exports = { images: { domains: ['back.keykavoos.co'], }, }
