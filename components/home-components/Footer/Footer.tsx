@@ -63,12 +63,12 @@ const AuthLogos = () => {
     <div className="flex flex-col gap-3 col-span-2">
       <SocialMedia2 />
       <div className="flex justify-center py-2 items-center">
-        <Link referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=422622&Code=KGdskS8BDuEuvxkxW9GT5eCCOJ3TO3sa">
+        <Link referrerPolicy="origin" target="_blank" href="https://tehran.irannsr.org/fa/trade_unit/2549517/swd_id/104366/%D8%A7%D8%B9%D8%B6%D8%A7%DB%8C-%D8%AD%D9%82%D9%88%D9%82%DB%8C-%D8%A8%DB%8C%D9%86-%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C-%DA%A9%DB%8C%DA%A9%D8%A7%D9%88%D9%88%D8%B3-%D8%B2%D9%85%D8%A7%D9%86.html">
           <Image src="/footer/senfi.svg" alt="senfi-logo" className="w-[5em]" width={200} height={200} />
         </Link>
-        <Link href="https://enamad.ir/" target="_blank">
+        <Link href="https://trustseal.enamad.ir/?id=446767&Code=Y6oDWjmfcaGlRuWAK8t9YKGUq2VNkzYJ" target="_blank">
           <Image src="/footer/enamaad.svg" alt="enamaad-logo" className="w-[5em]" width={200} height={200} />
-        </Link>@
+        </Link>
       </div>
     </div>
   );
