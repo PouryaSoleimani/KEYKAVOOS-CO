@@ -8,5 +8,5 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.e
 module.exports = { productionSourceMaps: true, nextConfig };
 module.exports = withBundleAnalyzer(nextConfig)
 module.exports = {
-  images: { remotePatterns: [{ protocol: 'https', hostname: 'back.keykavoos.co' }], },
+  images: { remotePatterns: [{ protocol: 'https', hostname: 'back.keykavoos.co', port: "" , pathname: "/" }], },
 }
