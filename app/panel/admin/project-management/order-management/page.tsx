@@ -28,12 +28,12 @@ function OrderManagement() {
 
       <div className="flex flex-col gap-5 bg-white shadow mx-auto rounded-lg w-full p-[3%]">
         <div className="grid grid-cols-6 text-center">
-          <p>ردیف</p>
-          <p>شماره درخواست</p>
-          <p>عنوان سفارش</p>
-          <p>مبلغ سفارش</p>
-          <p>وضعیت سفارش</p>
-          <p>عملیات</p>
+          <p className="text-xs lg:text-xl">ردیف</p>
+          <p className="text-xs lg:text-xl">شماره درخواست</p>
+          <p className="text-xs lg:text-xl">عنوان سفارش</p>
+          <p className="text-xs lg:text-xl">مبلغ سفارش</p>
+          <p className="text-xs lg:text-xl">وضعیت سفارش</p>
+          <p className="text-xs lg:text-xl">عملیات</p>
         </div>
         {orderStatus.loading ? (
           <SkeletonTheme>
