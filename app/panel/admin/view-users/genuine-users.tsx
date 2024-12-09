@@ -72,7 +72,7 @@ function GenuineUsers({ GenuineUsersData, usersStatus, token, setAllUsers, setDa
               <span className="flex justify-center gap-x-4 col-span-1" >
                 <button onClick={(event) => deleteUser(event, item.id)} ><RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" /></button>
                 <button><PiUserSwitchBold className="text-xl text-blue-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" /></button>
-              </span> 
+              </span>
 
             </div>
           )

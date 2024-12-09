@@ -26,7 +26,7 @@ function CreateOrganization() {
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(org_name, description, address, phone, user_id, shenase_melli, registration_number, token),
+            await createNewOrganization(org_name, description, address, phone,  shenase_melli, registration_number, token),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
@@ -49,8 +49,6 @@ function CreateOrganization() {
                     <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">تلفن</label>
                     <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
-                    <label htmlFor="">USER_ID</label>
-                    <input type="text" value={user_id} onChange={(e) => setUser_id(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">شماره ثبت</label>
                     <input type="text" value={registration_number} onChange={(e) => setRegisteration_number(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">شناسه ملی</label>
