@@ -11,6 +11,7 @@ import { deleteUser, getAllUsers } from "@/utils/utils";
 import SearchInput from "../components/SearchInput";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import app from "@/services/service";
+import { PiUserSwitchBold } from "react-icons/pi";
 
 type GenuineUsersProps = {
   GenuineUsersData: never[];
@@ -68,10 +69,11 @@ function GenuineUsers({ GenuineUsersData, usersStatus, token, setAllUsers, setDa
               <p className="font-faNum col-span-2 md:col-span-1">{item.mobile}</p>
               <p className="col-span-2 md:col-span-1">{item.name} {item.surname}</p>
               <p className="col-span-3 md:col-span-1">{item.email ? item.email : "-"}</p>
-              {/* <span onClick={() => deleteUser(item.id, token, setAllUsers, AllUsersData)} className="flex justify-center col-span-1" > */}
-              <span onClick={(event) => deleteUser(event, item.id)} className="flex justify-center col-span-1" >
-                <RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" />
-              </span>
+              <span className="flex justify-center gap-x-4 col-span-1" >
+                <button onClick={(event) => deleteUser(event, item.id)} ><RiDeleteBin7Fill className="text-lg text-red-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" /></button>
+                <button><PiUserSwitchBold className="text-xl text-blue-800 font-extrabold -translate-x-1 translate-y-.5 hover:scale-125 duration-300" /></button>
+              </span> 
+
             </div>
           )
           )

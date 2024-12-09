@@ -19,12 +19,12 @@ function ViewUsers() {
   const [usersStatus, setUsersStatus] = useState({ loading: false, });
 
   useEffect(() => {
- getAllUsers(token, setAllUsersData, setUsersStatus);
+    getAllUsers(token, setAllUsersData, setUsersStatus);
   }, []);
 
   useEffect(() => {
-      const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
-      setAllUsersData(allUsers);
+    const allUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
+    setAllUsersData(allUsers);
   }, [setAllUsersData]);
 
   useEffect(() => {
@@ -76,16 +76,16 @@ function ViewUsers() {
       <div>
         <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مدیریت کاربران</h1>
       </div>
-      <div className="flex flex-row gap-2 justify-center md:justify-normal md:text-base text-sm">
-        <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[155px] whitespace-nowrap" >
+      <div className="flex flex-row gap-2 justify-center md:justify-end md:text-base text-sm">
+        {/* <Link href={"/panel/admin/view-users/permission-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[155px] whitespace-nowrap" >
           مدیریت دسترسی ها
-        </Link>
-        <Link href={"/panel/admin/view-users/role-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[125px] whitespace-nowrap"  >
+        </Link> */}
+        {/* <Link href={"/panel/admin/view-users/role-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[125px] whitespace-nowrap"  >
           مدیریت نقش ها
-        </Link>
-        <Link href={"/panel/admin/view-users/position-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[135px] whitespace-nowrap" >
+        </Link> */}
+        {/* <Link href={"/panel/admin/view-users/position-management"} className="text-white tracking-tight font-normal bg-[#4866CF] hover:bg-blue-800 duration-300 px-2 py-3 rounded-[5px] md:w-[135px] whitespace-nowrap" >
           مدیریت جایگاه ها
-        </Link>
+        </Link> */}
       </div>
       <div className="grid grid-cols-1 gap-10 w-full">
         <PersonalInfoHeader step={type} setStep={setType} color="#ffffff" />
