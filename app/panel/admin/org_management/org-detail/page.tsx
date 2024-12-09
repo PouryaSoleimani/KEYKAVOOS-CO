@@ -50,7 +50,7 @@ function OrgDetail() {
           <div className="grid grid-cols-8 py-3 bg-[#EAEFF6] rounded-[4px] place-items-center">
             <p>{orgDetail.id}</p>
             <p>{orgDetail.name}</p>
-            <p>{orgDetail.user.name}{orgDetail.user.surname}</p>
+            <p>{orgDetail.user.name} {orgDetail.user.surname}</p>
             <p>{orgDetail.descriprion ? orgDetail.descriprion : "-"}</p>
             <p>{orgDetail.phone}</p>
             <p>{orgDetail.address}</p>
