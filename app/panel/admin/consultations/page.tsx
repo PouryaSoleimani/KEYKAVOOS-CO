@@ -29,11 +29,11 @@ function Consultations() {
       <div>
         <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center grid grid-cols-1 gap-5">
           <div className="grid lg:grid-cols-5 grid-cols-12 items-center">
-            <div className="col-span-1">ردیف</div>
-            <div className="col-span-2 lg:col-span-1">تاریخ</div>
-            <div className="col-span-3 lg:col-span-1">موضوع</div>
-            <div className="col-span-3 lg:col-span-1">توضیحات</div>
-            <div className="col-span-3 lg:col-span-1">عملیات</div>
+            <div className=" text-xs lg:text-xl col-span-1">ردیف</div>
+            <div className=" text-xs lg:text-xl col-span-2 lg:col-span-1">تاریخ</div>
+            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">موضوع</div>
+            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">توضیحات</div>
+            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">عملیات</div>
           </div>
           {consultStatus.loading ? (
             <SkeletonTheme>
