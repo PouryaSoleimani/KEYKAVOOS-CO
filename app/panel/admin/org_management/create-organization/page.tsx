@@ -48,11 +48,11 @@ function CreateOrganization() {
                     <label htmlFor="">آدرس</label>
                     <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">تلفن</label>
-                    <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">شماره ثبت</label>
-                    <input type="text" value={registration_number} onChange={(e) => setRegisteration_number(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <input type="number" value={registration_number} onChange={(e) => setRegisteration_number(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <label htmlFor="">شناسه ملی</label>
-                    <input type="text" value={shenase_melli} onChange={(e) => setShenase_melli(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
+                    <input type="number" value={shenase_melli} onChange={(e) => setShenase_melli(e.target.value)} className="bg-[#D0DBEC] border-[#D0DBEC]mx-auto outline-none rounded-md px-2 py-2 text-lg w-full border-[0.3px]" />
                     <div className="flex justify-end my-5">
                         <button className="p-3 w-[120px] bg-[#4866CF] rounded-[4px] text-white">تایید</button>
                     </div>
