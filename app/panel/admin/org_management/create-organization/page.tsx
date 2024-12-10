@@ -26,11 +26,12 @@ function CreateOrganization() {
     const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Promise.all([
-            await createNewOrganization(org_name, description, address, phone,  shenase_melli, registration_number, token),
+            await createNewOrganization(org_name, description, address, phone, shenase_melli, registration_number, token),
             await getOrganizations(setOrganizations, setOrganizationsStatus),
         ]);
         setCreateBrand({ title: "", description: "" });
     };
+
     return (
         <>
             <div className="flex items-center justify-between py-2">

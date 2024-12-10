@@ -59,7 +59,7 @@ const Form = () => {
 
               <label className="input input-bordered flex items-center gap-2">
                 <FaPhone className="w-4 h-4 opacity-70" />
-                <input type="text" className="grow" placeholder="شماره تماس" {...register('phoneNumber')} />
+                <input type="tel" className="grow" placeholder="شماره تماس" {...register('phoneNumber')} />
                 {errors.fullName && <p className="whitespace-nowrap z-10 absolute translate-y-10 translate-x-4 text-xs tracking-tight bg-red-400/20 px-2 py-0.5 rounded-md text-red-900 w-fit">شماره تلفن وارد شده صحیح نمی باشد</p>}
               </label>
             </div>

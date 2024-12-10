@@ -39,8 +39,8 @@ function SiteTypes() {
         {siteTypes.map((item: any, index) => (
           <div className={`${item.deleted_at ? "bg-red-500/80" : "bg-[#EAEFF6]"} grid grid-cols-4 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer`} key={index}>
             <p>{index + 1}</p>
-            <input value={item.title ? item.title : "-"} readOnly={true} className={`${editField.showEditField ? "bg-white" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
-            <input value={item.description ? item.description : "-"} readOnly={true} className={`${editField.showEditField ? "bg-white" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
+            <input value={item.title ? item.title : "-"} type="text" readOnly={true} className={`${editField.showEditField ? "bg-white" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
+            <input value={item.description ? item.description : "-"} type="text" readOnly={true} className={`${editField.showEditField ? "bg-white" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} outline-none`} />
             <div className="flex flex-row items-center justify-center gap-3">
               <Link href={`/panel/admin/plan-management/site-types/site-type-detail?id=${item.id}`} className="flex justify-center hover:scale-110 duration-300"  >
                 <Image src="/ViewUsers/vieweye.svg" alt="مشاهده" width={20} height={20} />

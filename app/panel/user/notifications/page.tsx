@@ -36,7 +36,7 @@ const Notifications = () => {
             <div className=" w-full grid grid-cols-1 border justify-center items-center gap-y-10 p-[5%] rounded-lg">
               <div className="w-full flex flex-row">
                 <label>موضوع:</label>
-                <input className="h-full bg-[#EDF0FB] rounded-lg" />
+                <input className="h-full bg-[#EDF0FB] rounded-lg" type="text" />
               </div>
               <div className="h-[210px] w-full flex flex-row">
                 <label>پیام:</label>
@@ -60,7 +60,7 @@ const Notifications = () => {
                 <div className="h-[400px] border rounded-lg"></div>
                 <div>
                   <div className="relative">
-                    <input className="h-[50px] w-full border rounded-lg" />
+                    <input className="h-[50px] w-full border rounded-lg" type="text" />
                     <div className="absolute top-1/2 -translate-y-1/2 left-3">
                       <Image src="/sendchat.svg" width={30} height={30} alt="send" />
                     </div>

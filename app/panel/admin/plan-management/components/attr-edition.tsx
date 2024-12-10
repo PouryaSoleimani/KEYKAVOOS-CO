@@ -62,8 +62,8 @@ function AttrEdition({ token, planId, addAtrrAndValue, setAddAttrAndValue, setPl
         {planAttrs.map(
           (item: { deleted_at: string; id: number; title: string; description: string; values: any }) => (
             <div className={`${item.deleted_at ? "bg-red-500/80" : "bg-[#EAEFF6]"} grid grid-cols-5 gap-x-5 text-center py-3 rounded-[4px] cursor-pointer px-2`} key={item.id} >
-              <input value={item?.title} readOnly={true} className={`${item.deleted_at ? "bg-transparent" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} text-center py-2`} />
-              <input value={item?.description ? item.description : "-"} readOnly={true} className={`${item.deleted_at ? "bg-transparent" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} text-center py-2`} />
+              <input value={item?.title} type="text" readOnly={true} className={`${item.deleted_at ? "bg-transparent" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} text-center py-2`} />
+              <input value={item?.description ? item.description : "-"} type="text" readOnly={true} className={`${item.deleted_at ? "bg-transparent" : "bg-[#EAEFF6] caret-transparent cursor-default text-center"} text-center py-2`} />
               <p>---</p>
               <div className="flex flex-row items-center justify-center gap-8">
                 <span onClick={() => deletePlanAttr(item?.id, setAttrIsDeleted)} className="flex justify-center hover:scale-105 duration-300" >

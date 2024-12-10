@@ -91,6 +91,7 @@ function ManageValues() {
             key={item.id}
           >
             <input
+            type="text"
               value={editValue.showField ? editValue.title : item.title}
               onChange={(e) =>
                 setEditValue((last) => ({
@@ -105,6 +106,7 @@ function ManageValues() {
               } outline-none`}
             />
             <input
+            type="text"
               value={
                 editValue.showField ? editValue.description : item.description
               }

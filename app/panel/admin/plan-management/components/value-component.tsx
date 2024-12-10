@@ -91,6 +91,7 @@ function ValueComponent({
         className="flex items-center gap-3"
       >
         <input
+        type="text"
           value={
             planValue
             //   : item.title

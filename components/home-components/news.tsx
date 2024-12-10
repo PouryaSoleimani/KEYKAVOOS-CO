@@ -52,7 +52,7 @@ function News() {
         <button className="bg-zinc-600 text-white w-[130px] m-0 py-3 rounded-l-xl hover:text-white hover:bg-[#4866CF] duration-300" type="submit"  >
           تایید ایمیل
         </button>
-        <input className="outline-none w-full rounded-r-xl px-3" dir="rtl" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="outline-none w-full rounded-r-xl px-3" dir="rtl" value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
       </div>
       <Image src="/Newsletter/bottomsvg-newsletterbg-icon.svg" alt="bg" className="absolute -left-16 -bottom-20 -z-10 max-lg:hidden opacity-50 w-80" width={25} height={25} />
       <Image src="/Newsletter/bottomsvg-newsletterbg-icon.svg" alt="bg" className="absolute -right-16 -top-20 rotate-180 opacity-50 max-lg:hidden w-80 " width={25} height={25} />

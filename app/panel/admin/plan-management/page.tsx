@@ -70,6 +70,7 @@ function PlanManagement() {
                     : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
                     } outline-none`}
                   readOnly={true}
+                  type="text"
                 />
                 <input
                   value={item.plan.description ? item.plan.description : "-"}
@@ -78,6 +79,7 @@ function PlanManagement() {
                     : "bg-[#EAEFF6] caret-transparent cursor-default text-center"
                     } outline-none`}
                   readOnly={true}
+                  type="text"
                 />
                 <div className="flex flex-row items-center justify-center gap-5">
                   <Link href={`/panel/admin/plan-management/plan-detail?id=${item.plan.id}`} className="flex justify-center hover:scale-125 duration-300" >
