@@ -39,7 +39,7 @@ function SubmitConsultation() {
       <form onSubmit={(e) => handleSubmission(e)} className="bg-white shadow mx-auto rounded-lg py-[3%] px-[3%] w-full grid grid-cols-1 gap-3 mt-10 lg:mt-0" >
         <div className="grid grid-cols-1 gap-8 max-w-[27rem]">
           <TicketFields label="عنوان مشاوره:" width="100%" value={ticket.title} onChange={(e) => setTicket((last) => ({ ...last, title: e.target.value }))} />
-            <span className="absolute right-[8.6rem] text-red-800 text-xl top-5">*</span>
+          <span className="absolute right-[8.6rem] text-red-800 text-xl top-5">*</span>
           <TicketFields label="تاریخ:" width="100%" value={ticket.date} onChange={(e) => setTicket((last) => ({ ...last, date: e.target.value }))} type="date" />
           <span className="absolute right-[5rem] text-red-800 text-xl top-32">*</span>
           <SubmitOrderDropdown onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTicket((last) => ({ ...last, type: e.target.value }))} value={ticket.type} dropdownItems={["حضوری", "آنلاین", "تلفنی"]} dropDownTitle="نوع درخواست مشاوره:" />

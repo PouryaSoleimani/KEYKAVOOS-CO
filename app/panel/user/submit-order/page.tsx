@@ -33,10 +33,10 @@ function SubmitOrder() {
 
   // GETTING PLANS AND TYPES
   useEffect(() => {
-      const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
-      const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
-      setAllPlans(localPlans);
-      setSiteTypes(localSiteTypes);
+    const localPlans = JSON.parse(window.sessionStorage.getItem("plans") as string);
+    const localSiteTypes = JSON.parse(window.sessionStorage.getItem("site-types") as string);
+    setAllPlans(localPlans);
+    setSiteTypes(localSiteTypes);
   }, []);
 
   const [similarSiteData, setSimilarSiteData] = useState<SimilarSiteType[]>([{ title: "", url: "" },]);
@@ -80,8 +80,8 @@ function SubmitOrder() {
   };
 
   useEffect(() => {
-      const consultation_id = JSON.parse(window.sessionStorage.getItem("consultation_id") as string);
-      setConsultationId(consultation_id);
+    const consultation_id = JSON.parse(window.sessionStorage.getItem("consultation_id") as string);
+    setConsultationId(consultation_id);
   }, [consultationId]);
 
   // const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
