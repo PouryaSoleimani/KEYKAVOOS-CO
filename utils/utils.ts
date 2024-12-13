@@ -64,7 +64,7 @@ export const getUserNotification = async (
   // setNotificationDetailStatus: React.Dispatch<React.SetStateAction<{ loading: boolean; error: string; }>>
 ) => {
   try {
-    const { data } = await app.get(`/notification/show/${id}`);
+    const { data } = await app.get(`/notification/getUserNotification`);
     setUserNotifications(data.data);
     console.log("notif", data.data);
   } catch (error: any) {

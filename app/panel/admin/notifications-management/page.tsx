@@ -26,9 +26,11 @@ const NotificationManagement = () => {
     const [allTickets, setAllTickets] = useState([])
 
     const GETALLNOTIFICATIONS = () => {
-        app.get('/notifications')
-            .then((response: any) => { console.log("NOTIFS ====>", response.data.data); setAllNotifs(response.data.data) })
-            .catch((error: any) => { console.log(error.response); })
+        setTimeout(() => {
+            app.get('/notifications')
+                .then((response: any) => { console.log("NOTIFS ====>", response?.data.data); setAllNotifs(response?.data.data) })
+                .catch((error: any) => { console.log(error.response); })
+        }, 750);
     }
 
     useEffect(() => { GETALLNOTIFICATIONS() }, [])
@@ -105,7 +107,7 @@ const NotificationManagement = () => {
                                                 onClick={(event) => CLOSENOTIFICATION(event, item.id)}
                                                 // onClick={() => closeTicket(2, item.id, setAllTickets, setIsClosed)}
                                                 className={`cursor-pointer hover:scale-125 duration-300 `}>
-                                                <Image src="/Panel/checkmark.svg" alt="بستن" width={20} />
+                                                <Image src="/Panel/checkmark.svg" alt="بستن" width={20} height={20} />
                                             </div>
                                         )}
                                     </div>

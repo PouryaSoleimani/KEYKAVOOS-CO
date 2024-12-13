@@ -12,7 +12,9 @@ import { IoReloadCircle } from "react-icons/io5";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import BackButton from "../components/BackButton";
 const moment = require("moment-jalaali");
-export type ConsultTypes = { id: number; deleted_at: string; title: string; description: string; created_at: string; };
+export type ConsultTypes = {
+  [x: string]: any; id: number; deleted_at: string; title: string; description: string; created_at: string;
+};
 function Consultations() {
   const { token } = useSelector((state: any) => state.userData);
   const [allConsults, setAllConsults] = useState<ConsultTypes[]>([]);
@@ -27,13 +29,14 @@ function Consultations() {
         <h1 className="text-2xl font-bold text-[#4866cf] pr-2">مشاوره ها</h1>
       </div>
       <div>
-        <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center grid grid-cols-1 gap-5">
-          <div className="grid lg:grid-cols-5 grid-cols-12 items-center">
-            <div className=" text-xs lg:text-xl col-span-1">ردیف</div>
-            <div className=" text-xs lg:text-xl col-span-2 lg:col-span-1">تاریخ</div>
-            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">موضوع</div>
-            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">توضیحات</div>
-            <div className=" text-xs lg:text-xl col-span-3 lg:col-span-1">عملیات</div>
+        <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center grid grid-cols-1 gap-5 text-sm">
+          <div className="grid lg:grid-cols-6 grid-cols-12 items-center">
+            <div className=" text-xs lg:text-[16px] font-bold col-span-1">ردیف</div>
+            <div className=" text-xs lg:text-[16px] font-bold col-span-2 lg:col-span-1">نام و نام خانوادگی</div>
+            <div className=" text-xs lg:text-[16px] font-bold col-span-2 lg:col-span-1">تاریخ مشاوره</div>
+            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">موضوع مشاوره</div>
+            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">توضیحات</div>
+            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">عملیات</div>
           </div>
           {consultStatus.loading ? (
             <SkeletonTheme>
@@ -42,12 +45,13 @@ function Consultations() {
           ) : consultStatus.erorr ? (
             <NotFound text={`${consultStatus.erorr}`} />
           ) : (
-            <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-5 text-md">
               {allConsults.map((item, index) => (
-                <div className={`${item.deleted_at ? "bg-red-500" : "bg-[#EAEFF6]"} grid lg:grid-cols-5 grid-cols-12 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`} key={index}>
+                <div className={`${item.deleted_at ? "bg-red-500" : "bg-[#EAEFF6]"} grid lg:grid-cols-6 grid-cols-12 gap-x-5 text-center py-4 rounded-[4px] cursor-pointer items-center`} key={index}>
                   <p className="col-span-1">{index + 1}</p>
+                  <p className="col-span-1">{item?.register_user?.name} {item?.register_user.surname}</p>
                   <p className="col-span-2 lg:col-span-1">
-                    {item.created_at ? moment(item.created_at, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
+                    {item.date ? moment(item.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}
                   </p>
                   <p className="col-span-3 lg:col-span-1">{item.title}</p>
                   <p className="col-span-3 lg:col-span-1">{item.description}</p>
