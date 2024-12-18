@@ -9,6 +9,7 @@ import { IoArrowBack } from "react-icons/io5";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
+import { ImInsertTemplate } from "react-icons/im";
 
 export type ProjectDetailType = {
   title: string;
@@ -29,8 +30,8 @@ function ProjectDetail() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
   const [projectDetail, setProjectDetail] = useState<ProjectDetailType>();
   const [projectDetailStatus, setProjectDetailStatus] = useState({ loading: false, error: "", });
-
-  useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
+  const [BUDGET, setBUDGET] = useState(null)
+  useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); console.log("PROJECT DETAIL : ", projectDetail) }, []);
 
   return (
     <div>
@@ -175,18 +176,23 @@ function ProjectDetail() {
               </div>
             )}
           </div>
-          <div className="grid grid-cols-2">
-            <div className="bg-[#4866CE] text-white rounded-lg p-4 flex justify-start items-center gap-2 w-[40%]">
-              <label className="whitespace-nowrap">
+          <div className="">
+            <div className="bg-[#4866CE] text-white rounded-lg p-4 gap-2 w-[30%]">
+              <label className="whitespace-nowrap pr-1 text-xl">
                 {rejection.isRejected ? "شماره درخواست:" : "مبلغ نهایی:"}
               </label>
               {rejection.isRejected && (
                 <div className="font-faNum bg-[#4866CE] text-white">{id}</div>
               )}
               {!rejection.isRejected && (
-                <div className="font-faNum bg-[#4866CE] text-white">
-                  {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
-                </div>
+                <>
+                  {/* <div className="font-faNum bg-[#4866CE] text-white">
+                    {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
+                  </div> */}
+                  <label className="form-control w-full max-w-xs my-3 ">
+                    <input type="text" placeholder="..." className="input input-bordered w-full max-w-xs" />
+                  </label>
+                </>
               )}
             </div>
             {projectDetail?.status === "processing" && (
