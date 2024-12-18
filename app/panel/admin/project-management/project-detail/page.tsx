@@ -34,10 +34,10 @@ function ProjectDetail() {
   useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
   useEffect(() => {
     if (projectDetail !== null) {
-      setBUDGET(Number(projectDetail?.budget_cost).toLocaleString());
+      setBUDGET(projectDetail?.budget_cost.toLocaleString());
       console.log(" BUDGET ===> ", BUDGET)
     }
-  }, [])
+  }, [projectDetail])
 
   return (
     <div>
@@ -193,7 +193,8 @@ function ProjectDetail() {
               {!rejection.isRejected && (
                 <>
                   <div className="font-faNum bg-[#4866CE] text-white pt-2`">
-                    {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
+                    <input type="text" placeholder={`${Number(BUDGET).toLocaleString()} تومان`} className="input input-bordered w-full max-w-xs text-black text-lg" />
+                    <button></button>
                   </div>
                 </>
               )}
