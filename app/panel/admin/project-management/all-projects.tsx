@@ -18,7 +18,7 @@ function AllProjects() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-7 text-center">
+      <div className="grid grid-cols-7 text-center text-sm">
         <p>ردیف</p>
         <p>شماره درخواست</p>
         <p>عنوان پروژه</p>

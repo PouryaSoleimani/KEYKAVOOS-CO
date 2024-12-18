@@ -67,7 +67,7 @@ const PanelNav = ({ userProfile, status, numberOfAnnouncements, setShowAnnouncem
                   <Image alt="profile" src={`https://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={37} height={32} />
                 </div>
               ) : (
-                <Image src="/USER__DEFAULT.png" alt="default-pic" width={40} className="hover:scale-110 duration-300 rounded-full" />)}
+                <Image src="/USER__DEFAULT.png" alt="default-pic" width={40} height={40} className="hover:scale-110 duration-300 rounded-full" />)}
               <div className="rounded-full bg-[#EAEFF6] flex justify-center items-center p-2 cursor-pointer" onClick={() => (dispatch(logoutUser()), router.replace("/"))} >
                 <Image src="/Panel/exit.svg" alt="exit" width={24} height={24} className="p-0.5 -translate-x-0.5 hover:scale-110 duration-300" />
               </div>
