@@ -18,10 +18,11 @@ function AllProjects() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-7 text-center text-sm">
+      <div className="grid grid-cols-8 text-center text-sm">
         <p>ردیف</p>
         <p>شماره درخواست</p>
         <p>عنوان پروژه</p>
+        <p>اولویت پروژه  </p>
         <p>مبلغ پروژه</p>
         <p>نوع</p>
         <p className="-translate-x-4">وضعیت</p>
@@ -35,12 +36,13 @@ function AllProjects() {
         <NotFound text={`${allProjectsStatus.error}`} />
       ) : (
         projectMangementData?.map((item: any, index) => (
-          <div key={item?.id} className={`grid grid-cols-7 items-center text-center py-4 rounded-[4px] ${item.rejected_projects.length !== 0 || item?.status === "not-verified" ? "bg-red-100" : " bg-[#EAEFF6] text-black"}`} >
+          <div key={item?.id} className={`grid grid-cols-8 items-center text-center py-4 rounded-[4px] ${item.rejected_projects.length !== 0 || item?.status === "not-verified" ? "bg-red-100" : " bg-[#EAEFF6] text-black"}`} >
             <p className="font-faNum">{index + 1}</p>
             <p className="font-faNum">{item?.id}</p>
             <p>{item?.title ? item?.title : "-"}</p>
+            <p>{item?.priority === "low" ? "کم" : "زیاد"}</p>
             <p className="font-faNum">
-              {Number(item?.final_price).toLocaleString()}
+              {Number(item?.budget_cost).toLocaleString()}
             </p>
             <p className="whitespace-nowrap text-ellipsis tracking-tight">{item.plan?.title ? item.plan?.title : "-"}</p>
             <p className="-translate-x-4">
