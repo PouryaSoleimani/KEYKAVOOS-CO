@@ -30,8 +30,14 @@ function ProjectDetail() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
   const [projectDetail, setProjectDetail] = useState<ProjectDetailType>();
   const [projectDetailStatus, setProjectDetailStatus] = useState({ loading: false, error: "", });
-  const [BUDGET, setBUDGET] = useState(null)
-  useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); console.log("PROJECT DETAIL : ", projectDetail) }, []);
+  const [BUDGET, setBUDGET] = useState<any>(null)
+  useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
+  useEffect(() => {
+    if (projectDetail !== null) {
+      setBUDGET(Number(projectDetail?.budget_cost).toLocaleString());
+      console.log(" BUDGET ===> ", BUDGET)
+    }
+  }, [])
 
   return (
     <div>
@@ -177,7 +183,7 @@ function ProjectDetail() {
             )}
           </div>
           <div className="">
-            <div className="bg-[#4866CE] text-white rounded-lg p-4 gap-2 w-[30%]">
+            <div className="bg-[#4866CE] text-white rounded-lg p-4 gap-2 w-fit flex items-center justify-center leading-2">
               <label className="whitespace-nowrap pr-1 text-xl">
                 {rejection.isRejected ? "شماره درخواست:" : "مبلغ نهایی:"}
               </label>
@@ -186,12 +192,9 @@ function ProjectDetail() {
               )}
               {!rejection.isRejected && (
                 <>
-                  <div className="font-faNum bg-[#4866CE] text-white">
+                  <div className="font-faNum bg-[#4866CE] text-white pt-2`">
                     {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
                   </div>
-                  {/* <label className="form-control w-full max-w-xs my-3 ">
-                    <input type="text" placeholder="..." className="input input-bordered w-full max-w-xs" />
-                  </label> */}
                 </>
               )}
             </div>
