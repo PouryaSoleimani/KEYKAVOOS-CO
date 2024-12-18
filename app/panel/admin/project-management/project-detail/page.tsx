@@ -193,9 +193,9 @@ function ProjectDetail() {
               {!rejection.isRejected && (
                 <>
                   <div className="font-faNum bg-[#4866CE] text-white pt-2`">
-                    <input type="text" placeholder={`${Number(BUDGET).toLocaleString()} تومان`} className="input input-bordered w-full max-w-xs text-black text-lg" />
-                    <button></button>
+                    <input type="text" placeholder={`${Number(BUDGET).toLocaleString()} تومان`} className="input input-bordered w-full max-w-xs text-black text-lg" value={BUDGET ? Number(BUDGET).toLocaleString() : "---"} onChange={(event) => setBUDGET(event.target.value)} />
                   </div>
+                  <button className="btn btn-active bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500 text-lg  border-none outline-none font-thin">ثبت مبلغ جدید</button>
                 </>
               )}
             </div>
