@@ -186,12 +186,12 @@ function ProjectDetail() {
               )}
               {!rejection.isRejected && (
                 <>
-                  {/* <div className="font-faNum bg-[#4866CE] text-white">
+                  <div className="font-faNum bg-[#4866CE] text-white">
                     {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
-                  </div> */}
-                  <label className="form-control w-full max-w-xs my-3 ">
+                  </div>
+                  {/* <label className="form-control w-full max-w-xs my-3 ">
                     <input type="text" placeholder="..." className="input input-bordered w-full max-w-xs" />
-                  </label>
+                  </label> */}
                 </>
               )}
             </div>
