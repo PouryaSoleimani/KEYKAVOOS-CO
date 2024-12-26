@@ -851,6 +851,14 @@ export const mainAdminSidebarOptions = [
       "/panel/admin/newsletter/create-newsletter",
     ],
   },
+  {
+    text: "تنظیمات",
+    imgSrc: "/Panel/settings.svg",
+    address: "/panel/admin/settings",
+    path: [
+      "/panel/admin/settings",
+    ],
+  },
 ];
 export const UserDashboardInfo = [
   {
