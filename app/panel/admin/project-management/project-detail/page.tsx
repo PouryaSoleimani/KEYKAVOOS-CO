@@ -29,6 +29,7 @@ export type ProjectDetailType = {
   Similar_Site: { id: number; url: string }[];
   description: string;
   Templates: { id: number; template_name: string }[];
+  org_colors: string[] | number[]
   Colors: { id: number; color: string }[];
   status?: string;
 };
@@ -214,12 +215,11 @@ function ProjectDetail() {
                 </SkeletonTheme>
               ) : (
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.Colors ? (
-                    projectDetail?.Colors.map((item, index) => (
-                      <p key={item.id}>
-                        {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
-                      </p>
-                    ))
+                  {projectDetail?.org_colors ? (projectDetail?.org_colors.map((item: any, index) => (
+                    <p key={item.id} className="text-zinc-500 w-fit">
+                      {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
+                    </p>
+                  ))
                   ) : (
                     <p dir="rtl">-</p>
                   )}
