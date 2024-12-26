@@ -215,8 +215,10 @@ function ProjectDetail() {
                 </SkeletonTheme>
               ) : (
                 <>
-                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">   {Number(BUDGET).toLocaleString()} تومان </div>
-                  <BiEdit  className="absolute top-0  z-30"/>
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px] flex items-center gap-x-4">
+                    {Number(BUDGET).toLocaleString()} تومان
+                    <BiEdit className="z-30 hover:text-blue-700 hover:scale-110  duration-500 cursor-pointer" />
+                  </div>
                 </>
               )}
             </div>
