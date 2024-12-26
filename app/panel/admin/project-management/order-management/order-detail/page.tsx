@@ -10,7 +10,7 @@ import BackButton from "../../../components/BackButton";
 // ^ COMPONENT --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function OrderDetail() {
   const { token } = useSelector((state: any) => state.userData);
-  const [orderDetail, setOrderDetail] = useState([]);
+  const [orderDetail, setOrderDetail] = useState<any>([]);
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderStatuses, setOrderStatuses] = useState<any>([]);
@@ -49,6 +49,70 @@ function OrderDetail() {
     <section >
       <BackButton />
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] mt-2">
+        {/*//^ PROJECT DETAILS */}
+        <div className="flex items-center  justify-around flex-wrap">
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">عنوان سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.title}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">مبلغ سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.price}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">اولویت سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.priority == "high" ? "زیاد" : "کم"}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">اولویت سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.status == "verified" ? "تایید شده" : "در حال بررسی"}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">نوع پروژه</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.type_id == 1 ? "فروشگاهی" : orderDetail?.project?.type_id == 2 ? "شرکتی" : orderDetail?.project?.type_id == 3 ? "گردشگری" : orderDetail?.project?.type_id == 4 ? "پزشکی" : orderDetail?.project?.type_id == 5 ? "شخصی" : orderDetail?.project?.type_id == 6 ? "پورتال" : orderDetail?.project?.type_id == 7 ? "خبری" : "-"}
+
+            </span>
+          </label>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* //? STATUS CHANGE */}
         <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
           <p>تغییر وضعیت سفارش</p>
           <SubmitOrderDropdown dropDownTitle="" dropdownItems={orderStatusDropdownItems} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setOrderStatusInput(e.target.value)} value={orderStatusInput} name="order-status" />
