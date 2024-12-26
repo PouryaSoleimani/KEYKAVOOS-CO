@@ -40,6 +40,7 @@ function ProjectDetail() {
     }
   }, [projectDetail])
 
+  
   function budgetChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     if (BUDGET) {
       setBUDGET(`${Number(event.target.value).toLocaleString()}  تومان`)
