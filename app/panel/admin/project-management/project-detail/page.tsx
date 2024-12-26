@@ -13,6 +13,7 @@ import { ImInsertTemplate } from "react-icons/im";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { BiEdit } from "react-icons/bi";
 
 const schema = yup.object().shape({
   budget: yup.number().required(),
@@ -213,7 +214,10 @@ function ProjectDetail() {
                   <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">   {Number(BUDGET).toLocaleString()} تومان </div>
+                <>
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">   {Number(BUDGET).toLocaleString()} تومان </div>
+                  <BiEdit  className="absolute top-10 z-30"/>
+                </>
               )}
             </div>
             {projectDetail?.status === "processing" && (
