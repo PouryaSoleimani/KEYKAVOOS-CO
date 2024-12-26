@@ -33,6 +33,7 @@ export type ProjectDetailType = {
   Colors: { id: number; color: string }[];
   status?: string;
   plugins: any[]
+  site_lookslikes: any[]
 };
 
 type Inputs = { budget: number }
@@ -162,10 +163,10 @@ function ProjectDetail() {
                 </SkeletonTheme>
               ) : (
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.Similar_Site ? (
-                    projectDetail?.Similar_Site.map((item, index) => (
-                      <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
-                        {item.url ? item.url : "سایتی توسط کاربر ثبت نشده است."}
+                  {projectDetail?.site_lookslikes ? (
+                    projectDetail?.site_lookslikes.map((item, index) => (
+                      <p key={item.id} className="text-zinc-500 p-1 rounded-sm"  >
+                        {item.title ? item.title : "ثبت نشده"}
                       </p>
                     ))
                   ) : (
