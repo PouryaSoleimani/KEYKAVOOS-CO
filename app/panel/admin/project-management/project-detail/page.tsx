@@ -11,6 +11,13 @@ import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
 import { ImInsertTemplate } from "react-icons/im";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  budget: yup.number().required(),
+})
+  .required();
 
 export type ProjectDetailType = {
   title: string;
@@ -24,9 +31,7 @@ export type ProjectDetailType = {
   status?: string;
 };
 
-type Inputs = {
-  projectBudgetInput: number
-}
+type Inputs = { projectBudgetInput: number }
 
 function ProjectDetail() {
   const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
@@ -52,8 +57,9 @@ function ProjectDetail() {
     } else {
       setBUDGET("---")
     }
-
   }
+
+  const { register, handleSubmit, watch, formState: { errors }, } = useForm({ resolver: yupResolver(schema), })
 
   // ^ RETURN ===================================================================================================================================================
   return (
