@@ -24,7 +24,7 @@ const schema = yup.object().shape({
 export type ProjectDetailType = {
   title: string;
   type: string;
-  plan: { title: string };
+  plan: { title: string, type_id: string | number };
   budget_cost: string;
   Similar_Site: { id: number; url: string }[];
   description: string;
@@ -121,7 +121,7 @@ function ProjectDetail() {
                   </SkeletonTheme>
                 ) : (
                   <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                    {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
+                    {projectDetail?.plan?.type_id == 1 ? "فروشگاهی" : projectDetail?.plan?.type_id == 2 ? "شرکتی" : projectDetail?.plan?.type_id == 3 ? "گردشگری" : projectDetail?.plan?.type_id == 4 ? "پزشکی" : projectDetail?.plan?.type_id == 5 ? "شخصی" : projectDetail?.plan?.type_id == 6 ? "پورتال" : projectDetail?.plan?.type_id == 7 ? "خبری" : "-"}
                   </div>
                 )}
               </div>
