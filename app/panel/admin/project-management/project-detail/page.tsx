@@ -205,6 +205,7 @@ function ProjectDetail() {
             )}
           </div>
           <div className="">
+            {/* //^ مبلغ نهایی */}
             <div className="flex flex-col gap-3">
               <label className="tracking-tight">مبلغ نهایی پروژه : </label>
               {projectDetailStatus.loading ? (
