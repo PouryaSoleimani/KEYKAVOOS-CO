@@ -16,8 +16,7 @@ import * as yup from 'yup';
 
 const schema = yup.object().shape({
   budget: yup.number().required(),
-})
-  .required();
+}).required();
 
 export type ProjectDetailType = {
   title: string;
@@ -31,7 +30,7 @@ export type ProjectDetailType = {
   status?: string;
 };
 
-type Inputs = { projectBudgetInput: number }
+type Inputs = { budget: number }
 
 function ProjectDetail() {
   const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
@@ -206,21 +205,16 @@ function ProjectDetail() {
             )}
           </div>
           <div className="">
-            <div className="bg-[#4866CE] text-white rounded-lg p-4 gap-2 w-fit flex items-center justify-center leading-2">
-              <label className="whitespace-nowrap pr-1 text-xl">
-                {rejection.isRejected ? "شماره درخواست:" : "مبلغ نهایی:"}
-              </label>
-              {rejection.isRejected && (
-                <div className="font-faNum bg-[#4866CE] text-white">{id}</div>
-              )}
-              {!rejection.isRejected && (
-                <>
-                  <div className="font-faNum bg-[#4866CE] text-white pt-2`">
-                    <input type="number" placeholder={`${Number(BUDGET).toLocaleString()} تومان`} className="input input-bordered w-full max-w-xs text-black text-lg" value={Number(BUDGET).toLocaleString()} onChange={event => budgetChangeHandler(event)} />
-                    {errors.budget && <span>مبلغ به درستی وارد نشده است</span>}
-                  </div>
-                  <button className="btn btn-active bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500 text-lg  border-none outline-none font-thin">ثبت مبلغ جدید</button>
-                </>
+            <div className="flex flex-col gap-3">
+              <label className="tracking-tight">مبلغ نهایی پروژه : </label>
+              {projectDetailStatus.loading ? (
+                <SkeletonTheme>
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                </SkeletonTheme>
+              ) : (
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.description}
+                </div>
               )}
             </div>
             {projectDetail?.status === "processing" && (
