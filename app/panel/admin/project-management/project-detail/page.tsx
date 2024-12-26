@@ -216,7 +216,7 @@ function ProjectDetail() {
               ) : (
                 <>
                   <div className="bg-[#EAEFF6] p-4 rounded-[4px]">   {Number(BUDGET).toLocaleString()} تومان </div>
-                  <BiEdit  className="absolute top-10 z-30"/>
+                  <BiEdit  className="absolute top-0  z-30"/>
                 </>
               )}
             </div>
