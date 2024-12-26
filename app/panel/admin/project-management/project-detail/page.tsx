@@ -14,6 +14,8 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { BiEdit } from "react-icons/bi";
+import { space } from "postcss/lib/list";
+import toast, { Toaster } from 'react-hot-toast';
 
 const schema = yup.object().shape({
   budget: yup.number().required(),
@@ -58,192 +60,208 @@ function ProjectDetail() {
       setBUDGET("---")
     }
   }
-
-  const { register, handleSubmit, watch, formState: { errors }, } = useForm({ resolver: yupResolver(schema), })
-
+  const notifyBudgetChange = () => toast.success('مبلغ پروژه با موفقیت ویرایش شد');
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm({ resolver: yupResolver(schema), })
+  const onSubmitBudget: SubmitHandler<Inputs> = (data) => { console.log(data); reset(); notifyBudgetChange() }
   // ^ RETURN ===================================================================================================================================================
   return (
-    <div>
-      <div className="w-[210px] z-10">
-        <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
-          <span>شماره درخواست:</span>
-          <p className="font-faNum">{id}</p>
+    <>
+      {/* //!  BUDGET MODAL */}
+      <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+      <div className="modal" role="dialog">
+        <div className="modal-box py-10">
+          <form className="flex items-center  justify-between gap-x-2" onSubmit={handleSubmit(onSubmitBudget)}>
+            <input className="border border-zinc-300 px-2 py-3  rounded-md w-full" type="text" {...register('budget')} placeholder={`${Number(BUDGET).toLocaleString()}  تومان`} />
+            {errors.budget && <span className="absolute top-24 mr-1 bg-red-300/50 p-1 rounded-md  text-[10px] text-red-800">مبلغ به درستی وارد نشده است</span>}
+            <button type="submit" className="btn btn-success p-1 text-white hover:bg-green-500 font-extralight"> ویرایش مبلغ</button>
+          </form>
         </div>
+        <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
       </div>
-      <div className="py-[3%] w-full shadow mx-auto bg-white rounded-lg px-[3%] grid grid-cols-1 gap-5 relative">
-
-        <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
-          <Link href="/panel/admin/project-management" className="bg-white rounded-lg p-3 hover:bg-[#4866CF] hover:text-white duration-300"   >
-            <IoArrowBack />
-          </Link>
+      <div>
+        <div className="w-[210px] z-10">
+          <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
+            <span>شماره درخواست:</span>
+            <p className="font-faNum">{id}</p>
+          </div>
         </div>
+        <div className="py-[3%] w-full shadow mx-auto bg-white rounded-lg px-[3%] grid grid-cols-1 gap-5 relative">
 
-        <div className="grid grid-cols-1 gap-5">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-3">
-              <p className="tracking-tight">عنوان پروژه : </p>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.title ? projectDetail?.title : "-"}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col gap-3">
-              <label htmlFor="" className="tracking-tight">نوع پروژه : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
-                </div>
-              )}
-            </div>
+          <div className="flex justify-end text-xl cursor-pointer absolute -top-12 left-0">
+            <Link href="/panel/admin/project-management" className="bg-white rounded-lg p-3 hover:bg-[#4866CF] hover:text-white duration-300"   >
+              <IoArrowBack />
+            </Link>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-3">
-              <label htmlFor="" className="tracking-tight">پلن انتخابی : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col gap-3">
-              <label htmlFor="" className="tracking-tight">بودجه مورد نظر : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px] font-faNum">
-                  {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <label htmlFor="" className="tracking-tight">سایت مشابه مورد نظر شما : </label>
-            {projectDetailStatus.loading ? (
-              <SkeletonTheme>
-                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-              </SkeletonTheme>
-            ) : (
-              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                {projectDetail?.Similar_Site ? (
-                  projectDetail?.Similar_Site.map((item, index) => (
-                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
-                      {item.url ? item.url : "سایتی توسط کاربر ثبت نشده است."}
-                    </p>
-                  ))
+
+          <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-3">
+                <p className="tracking-tight">عنوان پروژه : </p>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
                 ) : (
-                  <p>-</p>
-                )}
-              </div>
-            )}
-          </div>
-          <div>
-            <div className="flex flex-col gap-3">
-              <label className="tracking-tight">توضیحات پروژه : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.description}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <label htmlFor="" className="tracking-tight">قالب و افزونه های مورد نیاز  : </label>
-            {projectDetailStatus.loading ? (
-              <SkeletonTheme>
-                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-              </SkeletonTheme>
-            ) : (
-              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                {projectDetail?.Templates ? (
-                  projectDetail?.Templates.map((item, index) => (
-                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
-                      {item.template_name ? item.template_name : "تمپلیتی توسط کاربر ثبت نشده است"}
-                    </p>
-                  ))
-                ) : (
-                  <p>-</p>
-                )}
-              </div>
-            )}
-          </div>
-          <div className="flex flex-col gap-3">
-            <label htmlFor="" className="tracking-tight">رنگ سازمانی : </label>
-            {projectDetailStatus.loading ? (
-              <SkeletonTheme>
-                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-              </SkeletonTheme>
-            ) : (
-              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                {projectDetail?.Colors ? (
-                  projectDetail?.Colors.map((item, index) => (
-                    <p key={item.id}>
-                      {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
-                    </p>
-                  ))
-                ) : (
-                  <p dir="rtl">-</p>
-                )}
-              </div>
-            )}
-          </div>
-          <div className="">
-            {/* //^ مبلغ نهایی */}
-            <div className="flex flex-col gap-3">
-              <label className="tracking-tight">مبلغ نهایی پروژه : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <>
-                  <div className="bg-[#EAEFF6] p-4 rounded-[4px] flex items-center gap-x-4">
-                    {Number(BUDGET).toLocaleString()} تومان
-                    <BiEdit className="z-30 hover:text-blue-700 hover:scale-110  duration-500 cursor-pointer" />
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                    {projectDetail?.title ? projectDetail?.title : "-"}
                   </div>
-                </>
+                )}
+              </div>
+              <div className="flex flex-col gap-3">
+                <label htmlFor="" className="tracking-tight">نوع پروژه : </label>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
+                ) : (
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                    {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-3">
+                <label htmlFor="" className="tracking-tight">پلن انتخابی : </label>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
+                ) : (
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                    {projectDetail?.plan?.title ? projectDetail?.plan?.title : "-"}
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col gap-3">
+                <label htmlFor="" className="tracking-tight">بودجه مورد نظر : </label>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
+                ) : (
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px] font-faNum">
+                    {projectDetail?.budget_cost ? Number(projectDetail?.budget_cost).toLocaleString() : ""}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col gap-3">
+              <label htmlFor="" className="tracking-tight">سایت مشابه مورد نظر شما : </label>
+              {projectDetailStatus.loading ? (
+                <SkeletonTheme>
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                </SkeletonTheme>
+              ) : (
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.Similar_Site ? (
+                    projectDetail?.Similar_Site.map((item, index) => (
+                      <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
+                        {item.url ? item.url : "سایتی توسط کاربر ثبت نشده است."}
+                      </p>
+                    ))
+                  ) : (
+                    <p>-</p>
+                  )}
+                </div>
               )}
             </div>
-            {projectDetail?.status === "processing" && (
-              <div className="w-full flex justify-end items-center gap-3">
-                <button className="bg-red-800 text-white rounded-lg py-3 px-4 hover:bg-red-600 duration-300" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
-                  رد پروژه
-                </button>
-                <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id))}>
-                  تایید پروژه
+            <div>
+              <div className="flex flex-col gap-3">
+                <label className="tracking-tight">توضیحات پروژه : </label>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
+                ) : (
+                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                    {projectDetail?.description}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col gap-3">
+              <label htmlFor="" className="tracking-tight">قالب و افزونه های مورد نیاز  : </label>
+              {projectDetailStatus.loading ? (
+                <SkeletonTheme>
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                </SkeletonTheme>
+              ) : (
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.Templates ? (
+                    projectDetail?.Templates.map((item, index) => (
+                      <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
+                        {item.template_name ? item.template_name : "تمپلیتی توسط کاربر ثبت نشده است"}
+                      </p>
+                    ))
+                  ) : (
+                    <p>-</p>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="flex flex-col gap-3">
+              <label htmlFor="" className="tracking-tight">رنگ سازمانی : </label>
+              {projectDetailStatus.loading ? (
+                <SkeletonTheme>
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                </SkeletonTheme>
+              ) : (
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.Colors ? (
+                    projectDetail?.Colors.map((item, index) => (
+                      <p key={item.id}>
+                        {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
+                      </p>
+                    ))
+                  ) : (
+                    <p dir="rtl">-</p>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="">
+              {/* //^ مبلغ نهایی */}
+              <div className="flex flex-col gap-3">
+                <label className="tracking-tight">مبلغ نهایی پروژه : </label>
+                {projectDetailStatus.loading ? (
+                  <SkeletonTheme>
+                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                  </SkeletonTheme>
+                ) : (
+                  <>
+                    <div className="bg-[#EAEFF6] p-4 rounded-[4px] flex items-center gap-x-4">
+                      {Number(BUDGET).toLocaleString()} تومان
+                      <label htmlFor="my_modal_7" className="btn p-0.5 px-3">
+                        <BiEdit className="z-30 hover:text-blue-700 hover:scale-110  duration-500 cursor-pointer text-xl" />
+                      </label>
+                    </div>
+                  </>
+                )}
+              </div>
+              {projectDetail?.status === "processing" && (
+                <div className="w-full flex justify-end items-center gap-3">
+                  <button className="bg-red-800 text-white rounded-lg py-3 px-4 hover:bg-red-600 duration-300" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
+                    رد پروژه
+                  </button>
+                  <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id))}>
+                    تایید پروژه
+                  </button>
+                </div>
+              )}
+            </div>
+            {rejection.isRejected && (
+              <div className="relative">
+                <textarea className="p-[1%] bg-[#EAEFF6] rounded-[4px] w-full placeholder:text-[#4866CE]" rows={4} placeholder="علت رد پروژه" onChange={(e) => setRejection((last) => ({ ...last, rejection_reason: e.target.value, }))} value={rejection.rejection_reason}></textarea>
+                <button className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] px-4 py-3 hover:bg-blue-800 duration-500" onClick={() => rejectProject(token, rejection.rejection_reason, Number(id), userProfile.id)} >
+                  تایید و ارسال به کارفرما
                 </button>
               </div>
             )}
           </div>
-          {rejection.isRejected && (
-            <div className="relative">
-              <textarea className="p-[1%] bg-[#EAEFF6] rounded-[4px] w-full placeholder:text-[#4866CE]" rows={4} placeholder="علت رد پروژه" onChange={(e) => setRejection((last) => ({ ...last, rejection_reason: e.target.value, }))} value={rejection.rejection_reason}></textarea>
-              <button className="bg-[#4866CE] text-white absolute left-2 bottom-5 rounded-[4px] px-4 py-3 hover:bg-blue-800 duration-500" onClick={() => rejectProject(token, rejection.rejection_reason, Number(id), userProfile.id)} >
-                تایید و ارسال به کارفرما
-              </button>
-            </div>
-          )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
