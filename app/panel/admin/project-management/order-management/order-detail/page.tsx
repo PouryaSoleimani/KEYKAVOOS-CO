@@ -48,18 +48,12 @@ function OrderDetail() {
   };
 
   return (
-    <>
+    <section >
       <BackButton />
-      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%]">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] mt-2">
         <form onSubmit={(e) => handleSubmission(e)} className="grid grid-cols-1 gap-5" >
           <p>تغییر وضعیت سفارش</p>
-          <SubmitOrderDropdown
-            dropDownTitle=""
-            dropdownItems={orderStatusDropdownItems}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setOrderStatusInput(e.target.value)}
-            value={orderStatusInput}
-            name="order-status"
-          />
+          <SubmitOrderDropdown dropDownTitle="" dropdownItems={orderStatusDropdownItems} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setOrderStatusInput(e.target.value)} value={orderStatusInput} name="order-status" />
           <div className="flex justify-end">
             <button className="bg-[#4866CE] text-white rounded-lg px-5 py-3 hover:bg-blue-800 duration-500">
               تایید
@@ -67,7 +61,7 @@ function OrderDetail() {
           </div>
         </form>
       </div>
-    </>
+    </section>
   );
 }
 
