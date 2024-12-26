@@ -96,7 +96,7 @@ function Genuine({ userId, token }: GenuineProps) {
             <PanelFields label="نام خانوادگی : " onChange={handleChange} value={values.LastName} name="LastName" placeholder={userProfile?.surname} />
             <PanelFields label="ایمیل : " onChange={handleChange} value={values.email} name="email" placeholder={userProfile?.email ? userProfile.email : "---"} />
           </div>
-          <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
+          <div className="flex flex-col lg:flex-row gap-10 items-start justify-start pt-5">
             {/* <SettingsFileupload handleChange={handleFileChange} selectedFile={selectedFile} label="عکس کاربری:" /> */}
             <div className="flex flex-col pt-6 justify-start gap-y-4 h-inherit w-full lg:w-1/2">
               <div className="flex flex-row items-center gap-2 whitespace-nowrap">
@@ -109,24 +109,27 @@ function Genuine({ userId, token }: GenuineProps) {
                   </span>
                 </label>
               </div>
-              <p className="text-justify w-full py-2 mt-6 tracking-tighter leading-7 text-[#858585] font-faNum ">
+              <p className="text-start w-full py-2  tracking-tighter leading-7 text-[#858585] font-faNum text-md ">
                 فقط فایل های jpg / jpeg / png  حداکثر حجم 2MB حداقل سایز تصویر
                 انتخابی باید(200px*200px) باشد.
               </p>
             </div>
             {USER_PROFILE_PIC ? (
-              <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-                <Image alt="profile" src={`https://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={550} height={32} />
+              <div className="flex justify-center items-center w-full lg:w-full p-8 lg:p-2 h-full">
+                <Image alt="profile" src={`https://back.keykavoos.co/storage/${userProfile.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={650} height={32} />
               </div>
             ) : (
               <div className="flex justify-center items-center w-full lg:w-1/2 p-8 lg:p-2 h-full">
-                <Image src="/USER__DEFAULT.png" alt="عکس انتخاب شده" width={500} height={200} className="rounded-full lg:translate-x-4" />
+                <Image src="/USER__DEFAULT.png" alt="عکس انتخاب شده" width={600} height={600} className="rounded-full lg:translate-x-4" />
               </div>
             )}
           </div>
         </div>
-        <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 mt-2">
+        <div className="w-full flex items-center justify-center lg:justify-end px-2 lg:px-8 -translate-y-16 ">
           <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-2 rounded-md hover:bg-blue-800 duration-300 tracking-wide" onClick={handleSubmission}> تایید  ویرایش</button>
+        </div>
+        <div className="w-full flex items-center justify-center -translate-y-12">
+          <button className="btn btn-error w-1/5 font-extralight text-white hover:bg-red-700 duration-500">حذف حساب کاربری</button>
         </div>
       </form>
     </>

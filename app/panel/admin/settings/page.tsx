@@ -23,7 +23,7 @@ function PersonalInfo() {
   // ^ RETURN ===========================================================================================================================
   return (
     <>
-      <div className="py-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%] animate__animated animate__pulse">
+      <div className="pt-[5%] w-[90%] shadow mx-auto bg-white rounded-2xl px-[3%] animate__animated animate__pulse">
         <div className="pb-[5%] pt-0 lg:block hidden">
           <SettingsHeader step={step} setStep={setStep} />
         </div>
