@@ -66,7 +66,7 @@ function ProjectDetail() {
   const onSubmitBudget: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     reset();
-    setBUDGET(Number(data.budget).toLocaleString())
+    setBUDGET(Number(data.budget))
     notifyBudgetChange()
   }
   // ^ RETURN ===================================================================================================================================================
