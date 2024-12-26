@@ -213,9 +213,7 @@ function ProjectDetail() {
                   <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.description}
-                </div>
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">   {Number(BUDGET).toLocaleString()} تومان </div>
               )}
             </div>
             {projectDetail?.status === "processing" && (
