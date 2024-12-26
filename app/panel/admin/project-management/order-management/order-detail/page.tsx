@@ -1,16 +1,13 @@
 "use client";
 //  ^ ADMIN PANEL SINGLE ORDER DETAILS PAGE ===================================================================================================================================
 import SubmitOrderDropdown from "@/app/panel/user/submit-order/components/submit-order-dropdown";
-import {
-  changeOrderStatus,
-  getAllOrderStatuses,
-  getOrderDetail,
-} from "@/utils/utils";
+import { changeOrderStatus, getAllOrderStatuses, getOrderDetail, } from "@/utils/utils";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import BackButton from "../../../components/BackButton";
 
+// ^ COMPONENT --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function OrderDetail() {
   const { token } = useSelector((state: any) => state.userData);
   const [orderDetail, setOrderDetail] = useState([]);
