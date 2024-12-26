@@ -35,20 +35,20 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-      const localRole = JSON.parse(
-        window.localStorage.getItem("role") as string
-      );
-      setRole(localRole);
+    const localRole = JSON.parse(
+      window.localStorage.getItem("role") as string
+    );
+    setRole(localRole);
   }, []);
   useEffect(() => {
-      Promise.all([
-        getAllUsers(token, setAllUsersData, setUsersStatus),
-        getUserNotification(token, Number(userId), setUserNotifications),
-        getAllPositions(token, setPositions),
-        getAllPermissions(token, setPermissions, setPermissionStatus),
-        getAllRole(token, setRoles, setDataLoading),
-        getAllBrands(setBrands),
-      ]);
+    Promise.all([
+      getAllUsers(token, setAllUsersData, setUsersStatus),
+      getUserNotification(token, Number(userId), setUserNotifications),
+      getAllPositions(token, setPositions),
+      getAllPermissions(token, setPermissions, setPermissionStatus),
+      getAllRole(token, setRoles, setDataLoading),
+      getAllBrands(setBrands),
+    ]);
   }, [
     token,
     setAllPlans,
