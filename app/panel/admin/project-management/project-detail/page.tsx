@@ -43,6 +43,7 @@ function ProjectDetail() {
   const [projectDetail, setProjectDetail] = useState<ProjectDetailType>();
   const [projectDetailStatus, setProjectDetailStatus] = useState({ loading: false, error: "", });
   const [BUDGET, setBUDGET] = useState<any>("")
+  // ^ FUNCTIONS
   useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
 
   useEffect(() => {
@@ -62,7 +63,12 @@ function ProjectDetail() {
   }
   const notifyBudgetChange = () => toast.success('مبلغ پروژه با موفقیت ویرایش شد');
   const { register, handleSubmit, reset, formState: { errors }, } = useForm({ resolver: yupResolver(schema), })
-  const onSubmitBudget: SubmitHandler<Inputs> = (data) => { console.log(data); reset(); notifyBudgetChange() }
+  const onSubmitBudget: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    reset();
+    setBUDGET(Number(data.budget).toLocaleString())
+    notifyBudgetChange()
+  }
   // ^ RETURN ===================================================================================================================================================
   return (
     <>
