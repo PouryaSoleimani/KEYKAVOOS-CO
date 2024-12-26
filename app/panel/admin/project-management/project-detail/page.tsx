@@ -32,6 +32,7 @@ export type ProjectDetailType = {
   org_colors: string[] | number[]
   Colors: { id: number; color: string }[];
   status?: string;
+  plugins: any[]
 };
 
 type Inputs = { budget: number }
@@ -195,10 +196,10 @@ function ProjectDetail() {
                 </SkeletonTheme>
               ) : (
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.Templates ? (
-                    projectDetail?.Templates.map((item, index) => (
-                      <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
-                        {item.template_name ? item.template_name : "تمپلیتی توسط کاربر ثبت نشده است"}
+                  {projectDetail?.plugins ? (
+                    projectDetail?.plugins.map((item: any, index) => (
+                      <p key={item.id} className="text-zinc-500  p-1 rounded-sm"  >
+                        {item.template_name ? item.template_name : " ثبت نشده "}
                       </p>
                     ))
                   ) : (
@@ -216,8 +217,8 @@ function ProjectDetail() {
               ) : (
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
                   {projectDetail?.org_colors ? (projectDetail?.org_colors.map((item: any, index) => (
-                    <p key={item.id} className="text-zinc-500 w-fit">
-                      {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
+                    <p key={item.id} className="text-zinc-500 w-fit text-sm">
+                      {item.color ? item.color : "ثبت نشده"}
                     </p>
                   ))
                   ) : (
