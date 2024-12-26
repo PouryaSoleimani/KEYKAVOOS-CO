@@ -10,6 +10,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
 import { ImInsertTemplate } from "react-icons/im";
+import { useForm, SubmitHandler } from "react-hook-form"
 
 export type ProjectDetailType = {
   title: string;
@@ -22,6 +23,10 @@ export type ProjectDetailType = {
   Colors: { id: number; color: string }[];
   status?: string;
 };
+
+type Inputs = {
+  projectBudgetInput: number
+}
 
 function ProjectDetail() {
   const [rejection, setRejection] = useState({ isRejected: false, rejection_reason: "", });
@@ -40,7 +45,7 @@ function ProjectDetail() {
     }
   }, [projectDetail])
 
-  
+
   function budgetChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     if (BUDGET) {
       setBUDGET(`${Number(event.target.value).toLocaleString()}  تومان`)
