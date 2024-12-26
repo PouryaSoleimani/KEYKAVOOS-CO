@@ -30,8 +30,9 @@ function ProjectDetail() {
   const { token, userProfile } = useSelector((state: any) => state.userData);
   const [projectDetail, setProjectDetail] = useState<ProjectDetailType>();
   const [projectDetailStatus, setProjectDetailStatus] = useState({ loading: false, error: "", });
-  const [BUDGET, setBUDGET] = useState<any>(null)
+  const [BUDGET, setBUDGET] = useState<any>("")
   useEffect(() => { getProjectDetail(token, id, setProjectDetail, setProjectDetailStatus); }, []);
+
   useEffect(() => {
     if (projectDetail !== null) {
       setBUDGET(projectDetail?.budget_cost.toLocaleString());
@@ -40,7 +41,11 @@ function ProjectDetail() {
   }, [projectDetail])
 
   function budgetChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    if (BUDGET) { setBUDGET(`${Number(event.target.value).toLocaleString()}  تومان`) } else { setBUDGET("---") }
+    if (BUDGET) {
+      setBUDGET(`${Number(event.target.value).toLocaleString()}  تومان`)
+    } else {
+      setBUDGET("---")
+    }
 
   }
 
