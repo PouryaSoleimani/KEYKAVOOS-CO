@@ -104,7 +104,7 @@ function Genuine({ userId, token }: GenuineProps) {
 
   // ! PASSWORD CHANGE
   const { register, handleSubmit: handeSubmitPassword, reset, formState: { errors }, } = useForm<Inputs>()
-  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data); reset(); notifySuccess2() }
+  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data); reset(); notifySuccess2(); setTimeout(() => { location.reload() }, (750)); }
   //^  RETURN =====================================================================================================================================================
   return (
     <>
@@ -116,12 +116,12 @@ function Genuine({ userId, token }: GenuineProps) {
           <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handeSubmitPassword(onSubmitPassword)}>
             <label className="input input-bordered flex items-center gap-2">
               <FaKey />
-              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" {...register("passwordChange")} />
+              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" {...register("passwordChange")} required />
               <IoEye className="w-5 h-5" onClick={passwordInputTypeHandler} />
             </label>
             <button type="submit" className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
           </form>
-
+             
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
       </div>
@@ -167,7 +167,7 @@ function Genuine({ userId, token }: GenuineProps) {
           <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-3 rounded-md hover:bg-blue-800 duration-300 tracking-wide" onClick={handleSubmission}> تایید  ویرایش</button>
         </div>
         <div className="w-full flex items-center justify-start -translate-y-16 gap-x-4">
-          <label htmlFor="my_modal_7" className="btn bg-cyan-600 text-white font-medium">تغییر رمز عبور</label>
+          <label htmlFor="my_modal_7" className="btn bg-cyan-600 text-white font-medium hover:bg-cyan-800 duration-500">تغییر رمز عبور</label>
           <button className="btn btn-error w-1/5 font-medium text-white hover:bg-red-700 duration-500">حذف حساب کاربری</button>
         </div>
       </form>
