@@ -100,7 +100,7 @@ function Genuine({ userId, token }: GenuineProps) {
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
       </div>
-      
+
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">
@@ -141,9 +141,8 @@ function Genuine({ userId, token }: GenuineProps) {
           <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-3 rounded-md hover:bg-blue-800 duration-300 tracking-wide" onClick={handleSubmission}> تایید  ویرایش</button>
         </div>
         <div className="w-full flex items-center justify-start -translate-y-16 gap-x-4">
-          <button className="btn btn-warning text-white font-medium">تغییر رمز عبور</button>
+          <label htmlFor="my_modal_7" className="btn btn-warning text-white font-medium">تغییر رمز عبور</label>
           <button className="btn btn-error w-1/5 font-medium text-white hover:bg-red-700 duration-500">حذف حساب کاربری</button>
-          <label htmlFor="my_modal_7" className="btn">open modal</label>
         </div>
       </form>
     </>
