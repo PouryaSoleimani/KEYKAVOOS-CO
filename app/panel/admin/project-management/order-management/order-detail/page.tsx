@@ -115,7 +115,7 @@ function OrderDetail() {
 
           <label className="form-control w-full max-w-xs my-5">
             <div className="label">
-              <span className="label-text">وضعیت سفارش</span>
+              <span className="label-text">مرحله سفارش</span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
               {orderDetail?.status?.title}
@@ -128,6 +128,15 @@ function OrderDetail() {
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
               {orderDetail?.user?.name}  {orderDetail?.user?.surname}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">وضعیت سفارش </span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.status} 
             </span>
           </label>
 
