@@ -45,9 +45,7 @@ function OrderDetail() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await changeOrderStatus(token, Number(orderId), Number(orderStatusId));
-    setTimeout(() => {
-      router.refresh()
-    }, 1000);
+    setTimeout(() => { location.reload() }, 1000);
   };
 
   return (

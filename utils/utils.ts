@@ -3475,13 +3475,14 @@ export const changeOrderStatus = async (
       }
     );
     console.log("status change verification", data);
-    toast.success("وضعیت پروژه با موفقیت تغییر داده شد.", {
+    toast.success("وضعیت پروژه با موفقیت ویرایش شد .", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
+      style : {whiteSpace : "nowrap"},
       progress: undefined,
       theme: "light",
       transition: Bounce,
