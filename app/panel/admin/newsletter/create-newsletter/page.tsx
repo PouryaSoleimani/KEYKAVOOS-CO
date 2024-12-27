@@ -83,15 +83,7 @@ function CreateNewsletter() {
       <BackButton />
       <form onSubmit={(e) => handleNewsLetterSubmission(e)} className="flex flex-col gap-5 bg-white shadow mx-auto rounded-2xl w-full p-[3%] mt-2" >
         <p>ایجاد خبرنامه جدید</p>
-        <TicketFields
-          label="عنوان:"
-          width="100%"
-          value={newsletterInfo.title}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setNewsLetteInfo((last) => ({ ...last, title: e.target.value, }))
-          }
-        // direction="flex-row items-center"
-        />
+        <TicketFields label="عنوان:" width="100%" value={newsletterInfo.title} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewsLetteInfo((last) => ({ ...last, title: e.target.value, }))} />
         <div className="grid grid-cols-2 gap-5">
           <SubmitOrderDropdown
             dropDownTitle="به کاربر:"
