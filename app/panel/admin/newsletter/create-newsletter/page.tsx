@@ -13,9 +13,13 @@ function CreateNewsletter() {
   const [departments, setDepartments] = useState<any>([]);
   const [brands, setBrands] = useState([]);
   const [newsletterInfo, setNewsLetteInfo] = useState({ title: "", description: "", user_id: "", dept_id: "", brand_id: "", });
+  const departmentsLocal = [
+    { id: 1, title: "واحد مالی" },
+    { id: 2, title: "واحد فنی" }
+  ]
+  app.get("/departments").then((res) => { console.log("DEPARTMENTS", res.data) })
 
   useEffect(() => {
-    app.get("/departments").then((res) => { console.log(res.data) };
     const localUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
     setUsers(localUsers);
 
@@ -103,7 +107,7 @@ function CreateNewsletter() {
           />
           <SubmitOrderDropdown
             dropDownTitle="به دپارتمان:"
-            dropdownItems={departments}
+            dropdownItems={departmentsLocal}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))}
             value={newsletterInfo.dept_id}
             name={newsletterInfo.dept_id}
