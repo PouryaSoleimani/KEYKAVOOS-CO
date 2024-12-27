@@ -102,7 +102,7 @@ function Genuine({ userId, token }: GenuineProps) {
   }
 
   // ! PASSWORD CHANGE
-  const { register, handleSubmit , watch, formState: { errors }, } = useForm<Inputs>()
+  const { register, handleSubmit : handeSubmitPassword , watch, formState: { errors }, } = useForm<Inputs>()
   //^  RETURN =====================================================================================================================================================
   return (
     <>
