@@ -2,11 +2,11 @@
 //  ^ ADMIN PANEL SINGLE ORDER DETAILS PAGE ===================================================================================================================================
 import SubmitOrderDropdown from "@/app/panel/user/submit-order/components/submit-order-dropdown";
 import { changeOrderStatus, getAllOrderStatuses, getOrderDetail, } from "@/utils/utils";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import BackButton from "../../../components/BackButton";
-import { useRouter } from "next/router";
+
 
 // ^ COMPONENT --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function OrderDetail() {
@@ -46,7 +46,7 @@ function OrderDetail() {
     e.preventDefault();
     await changeOrderStatus(token, Number(orderId), Number(orderStatusId));
     setTimeout(() => {
-      router.reload()
+      router.refresh()
     }, 1000);
   };
 
