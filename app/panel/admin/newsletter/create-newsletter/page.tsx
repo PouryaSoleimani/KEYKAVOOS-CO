@@ -88,9 +88,7 @@ function CreateNewsletter() {
           <SubmitOrderDropdown
             dropDownTitle="به کاربر:"
             dropdownItems={usersInfo}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))
-            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))}
             value={newsletterInfo.user_id}
             name={newsletterInfo.user_id}
           />
