@@ -112,7 +112,7 @@ function Genuine({ userId, token }: GenuineProps) {
       <div className="modal" role="dialog">
         <div className="modal-box">
           <h3 className="text-lg font-bold text-center">تغییر رمز عبور کاربری</h3>
-          <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handleSubmit(onSubmit)}>
+          <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handeSubmitPassword(onSubmitPassword)}>
             <label className="input input-bordered flex items-center gap-2">
               <FaKey />
               <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" />
