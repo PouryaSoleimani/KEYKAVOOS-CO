@@ -141,7 +141,7 @@ function Genuine({ userId, token }: GenuineProps) {
           <button className="bg-[#4866CF] text-white w-full lg:w-1/2 py-3 rounded-md hover:bg-blue-800 duration-300 tracking-wide" onClick={handleSubmission}> تایید  ویرایش</button>
         </div>
         <div className="w-full flex items-center justify-start -translate-y-16 gap-x-4">
-          <label htmlFor="my_modal_7" className="btn btn-warning text-white font-medium">تغییر رمز عبور</label>
+          <label htmlFor="my_modal_7" className="btn bg-cyan-600 text-white font-medium">تغییر رمز عبور</label>
           <button className="btn btn-error w-1/5 font-medium text-white hover:bg-red-700 duration-500">حذف حساب کاربری</button>
         </div>
       </form>
