@@ -29,7 +29,7 @@ function ConsultDetail() {
         </Link>
       </div>
 
-      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-5">
+      <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-3">
         <div className="grid grid-cols-5">
           <div>ID</div>
           <div>تاریخ درخواست مشاوره</div>
