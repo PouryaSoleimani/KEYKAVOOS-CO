@@ -81,10 +81,26 @@ function OrderDetail() {
 
           <label className="form-control w-full max-w-xs my-5">
             <div className="label">
-              <span className="label-text">اولویت سفارش</span>
+              <span className="label-text">نوع سفارش</span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
-              {orderDetail?.project?.priority == "high" ? "زیاد" : "کم"}
+              {orderDetail?.project?.plan_id == "1" ? "پایه فروشکاهی" :
+                orderDetail?.project?.plan_id == "2" ? "حرفه ای  فروشکاهی" :
+                  orderDetail?.project?.plan_id == "3" ? "ویژه فروشکاهی" :
+                    orderDetail?.project?.plan_id == "4" ? "الیت  فروشکاهی" :
+                      orderDetail?.project?.plan_id == "5" ? "پایه شرکتی" :
+                        orderDetail?.project?.plan_id == "6" ? "حرفه ای شرکتی" :
+                          orderDetail?.project?.plan_id == "7" ? "ویژه شرکتی" :
+                            orderDetail?.project?.plan_id == "8" ? "الیت شرکتی" :
+                              orderDetail?.project?.plan_id == "9" ? "پایه گردشگری" :
+                                orderDetail?.project?.plan_id == "10" ? "حرفه ای گردشگری" :
+                                  orderDetail?.project?.plan_id == "11" ? "ویژه گردشگری" :
+                                    orderDetail?.project?.plan_id == "12" ? "الیت گردشگری" :
+                                      orderDetail?.project?.plan_id == "13" ? "پایه پزشکی" :
+                                        orderDetail?.project?.plan_id == "14" ? "حرفه ای پزشکی" :
+                                          orderDetail?.project?.plan_id == "15" ? "ویژه فروشکاهی" :
+                                            orderDetail?.project?.plan_id == "16" ? "الیت فروشکاهی" :
+            }
             </span>
           </label>
 
@@ -108,20 +124,10 @@ function OrderDetail() {
 
           <label className="form-control w-full max-w-xs my-5">
             <div className="label">
-              <span className="label-text">نام سفارش دهنده سفارش</span>
+              <span className="label-text">نام سفارش دهنده </span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
               {orderDetail?.user?.name}  {orderDetail?.user?.surname}
-            </span>
-          </label>
-
-          <label className="form-control w-full max-w-xs my-5">
-            <div className="label">
-              <span className="label-text">نوع پروژه</span>
-            </div>
-            <span className="input input-bordered w-full max-w-xs flex items-center ">
-              {/* {orderDetail? == 1 ? "کم" : "زیاد"} */}
-
             </span>
           </label>
 
