@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import NotFound from "../../components/NotFound";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
+import Image from "next/image";
 const moment = require("moment-jalaali");
 export type ConsultationDetail = { id: number; title: string; description: string; date: string; };
 
@@ -48,7 +49,10 @@ function ConsultDetail() {
             <p>{consultationDetail.id}</p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
-            <p>{consultationDetail?.register_user.name}  {consultationDetail?.register_user.surname} <img src={consultationDetail?.register_user.pic_path} alt="" /> </p>
+            <p className="flex items-center justify-center gap-x-2">
+              <Image alt="profile" src={`https://back.keykavoos.co/storage/${consultationDetail?.register_user.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={32} height={32} />
+              {consultationDetail?.register_user.name}  {consultationDetail?.register_user.surname}
+            </p>
             <p>{consultationDetail.description}</p>
           </div>
         )}
