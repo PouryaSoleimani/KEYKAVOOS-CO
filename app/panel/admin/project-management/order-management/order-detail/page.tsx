@@ -84,7 +84,34 @@ function OrderDetail() {
               <span className="label-text">اولویت سفارش</span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
-              {orderDetail?.project?.status == "verified" ? "تایید شده" : "در حال بررسی"}
+              {orderDetail?.project?.priority == "high" ? "زیاد" : "کم"}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">توضیحات سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.project?.description}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">وضعیت سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.status?.title}
+            </span>
+          </label>
+
+          <label className="form-control w-full max-w-xs my-5">
+            <div className="label">
+              <span className="label-text">نام سفارش دهنده سفارش</span>
+            </div>
+            <span className="input input-bordered w-full max-w-xs flex items-center ">
+              {orderDetail?.user?.name}  {orderDetail?.user?.surname}
             </span>
           </label>
 
@@ -93,7 +120,7 @@ function OrderDetail() {
               <span className="label-text">نوع پروژه</span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
-              {orderDetail?.project?.type_id == 1 ? "فروشگاهی" : orderDetail?.project?.type_id == 2 ? "شرکتی" : orderDetail?.project?.type_id == 3 ? "گردشگری" : orderDetail?.project?.type_id == 4 ? "پزشکی" : orderDetail?.project?.type_id == 5 ? "شخصی" : orderDetail?.project?.type_id == 6 ? "پورتال" : orderDetail?.project?.type_id == 7 ? "خبری" : "-"}
+              {/* {orderDetail? == 1 ? "کم" : "زیاد"} */}
 
             </span>
           </label>
