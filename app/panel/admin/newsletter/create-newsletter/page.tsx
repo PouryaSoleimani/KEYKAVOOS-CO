@@ -81,10 +81,7 @@ function CreateNewsletter() {
   return (
     <>
       <BackButton />
-      <form
-        onSubmit={(e) => handleNewsLetterSubmission(e)}
-        className="flex flex-col gap-5 bg-white shadow mx-auto rounded-2xl w-full p-[3%]"
-      >
+      <form onSubmit={(e) => handleNewsLetterSubmission(e)} className="flex flex-col gap-5 bg-white shadow mx-auto rounded-2xl w-full p-[3%] mt-2" >
         <p>ایجاد خبرنامه جدید</p>
         <TicketFields
           label="عنوان:"
