@@ -15,10 +15,13 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { FaKey } from "react-icons/fa";
 import { IoEye } from "react-icons/io5";
+import { useForm, SubmitHandler } from "react-hook-form"
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
 
 type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
+type Inputs = { passwordChange: string }
+
 
 //^ COMPONENT ==========================================================================================================================================================================
 function Genuine({ userId, token }: GenuineProps) {
@@ -97,6 +100,9 @@ function Genuine({ userId, token }: GenuineProps) {
     router.refresh()
     console.log("SUBMIT SUBMIT SUBMIT")
   }
+
+  // ! PASSWORD CHANGE
+  const { register, handleSubmit , watch, formState: { errors }, } = useForm<Inputs>()
   //^  RETURN =====================================================================================================================================================
   return (
     <>
