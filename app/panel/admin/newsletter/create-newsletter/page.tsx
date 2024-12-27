@@ -38,8 +38,8 @@ function CreateNewsletter() {
   }, [users]);
 
   useEffect(() => {
-    if (departments.length > 0 && !newsletterInfo.dept_id) {
-      const firstDepartment = departments[0].department?.name_fa;
+    if (departments?.length > 0 && !newsletterInfo.dept_id) {
+      const firstDepartment = departments[0]?.department?.name_fa;
       setNewsLetteInfo((prev) => ({ ...prev, dept_id: firstDepartment }));
     }
   }, [departments]);
@@ -54,7 +54,7 @@ function CreateNewsletter() {
       item?.name + " " + item?.surname
   );
 
-  const depId = departments
+  const depId = departments?.length > 0 && departments
     .filter((item: { department: { name_fa: string } }) =>
       newsletterInfo?.dept_id?.includes(item.department?.name_fa)
     )
