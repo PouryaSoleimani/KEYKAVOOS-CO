@@ -15,7 +15,7 @@ function ConsultDetail() {
   const { token } = useSelector((state: any) => state.userData);
   const params = useSearchParams();
   const id = params.get("id");
-  const [consultationDetail, setConsultationDetail] = useState<any>({ title: "", description: "", date: "", user_id: "" });
+  const [consultationDetail, setConsultationDetail] = useState<any>({ title: "", description: "", date: "", user_id: "" , register_user : { name: "", surname: "" } });
   const [consultDetailStatus, setConsultDetailStatus] = useState({ loading: false, erorr: "", });
 
   useEffect(() => { getConsultationDetail(token, id, setConsultationDetail, setConsultDetailStatus); }, []);
@@ -48,7 +48,7 @@ function ConsultDetail() {
             <p>{consultationDetail.id}</p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
-            <p>{consultationDetail.register_user.name}  {consultationDetail.register_user.surname} <img src={consultationDetail?.register_user.pic_path} alt="" /> </p>
+            <p>{consultationDetail?.register_user.name}  {consultationDetail?.register_user.surname}  </p>
             <p>{consultationDetail.description}</p>
           </div>
         )}
