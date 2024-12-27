@@ -31,11 +31,12 @@ function ConsultDetail() {
       </div>
 
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-3">
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-6">
           <div>ID</div>
           <div>تاریخ درخواست مشاوره</div>
           <div>عنوان مشاوره</div>
-          <div> نام درخواست دهنده </div>
+          <div> درخواست دهنده </div>
+          <div> شماره تماس </div>
           <div>توضیحات</div>
         </div>
         {consultDetailStatus.loading ? (
@@ -45,7 +46,7 @@ function ConsultDetail() {
         ) : consultDetailStatus.erorr ? (
           <NotFound text={`${consultDetailStatus.erorr}`} />
         ) : (
-          <div className="grid grid-cols-5 py-4 bg-[#EAEFF6] rounded-[4px]">
+          <div className="grid grid-cols-6 py-4 bg-[#EAEFF6] rounded-[4px]">
             <p>{consultationDetail.id}</p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
@@ -53,6 +54,7 @@ function ConsultDetail() {
               <Image alt="profile" src={`https://back.keykavoos.co/storage/${consultationDetail?.register_user.pic_path}`} className="rounded-full flex items-center justify-center text-[10px] text-zinc-600 p-0" width={32} height={32} />
               {consultationDetail?.register_user.name}  {consultationDetail?.register_user.surname}
             </p>
+            <p>{consultationDetail?.register_user?.mobile}</p>
             <p>{consultationDetail.description}</p>
           </div>
         )}
