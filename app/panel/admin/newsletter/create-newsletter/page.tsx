@@ -115,15 +115,7 @@ function CreateNewsletter() {
             name={newsletterInfo.dept_id}
           />
         </div>
-        <div
-          style={{
-            border: "none",
-            borderTop: "3px solid",
-            borderImage:
-              "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1",
-            margin: "3% 0",
-          }}
-        ></div>
+        <div style={{ border: "none", borderTop: "3px solid", borderImage: "linear-gradient(to right, #FFFFFF 0%, #4866CE 45% ,#4866CE 55% , #FFFFFF 100%) 1", margin: "3% 0", }}></div>
 
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-2">
