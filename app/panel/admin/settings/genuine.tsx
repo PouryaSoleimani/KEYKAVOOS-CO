@@ -102,7 +102,8 @@ function Genuine({ userId, token }: GenuineProps) {
   }
 
   // ! PASSWORD CHANGE
-  const { register, handleSubmit : handeSubmitPassword , watch, formState: { errors }, } = useForm<Inputs>()
+  const { register, handleSubmit: handeSubmitPassword, watch, formState: { errors }, } = useForm<Inputs>()
+  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data) }
   //^  RETURN =====================================================================================================================================================
   return (
     <>
@@ -111,13 +112,13 @@ function Genuine({ userId, token }: GenuineProps) {
       <div className="modal" role="dialog">
         <div className="modal-box">
           <h3 className="text-lg font-bold text-center">تغییر رمز عبور کاربری</h3>
-          <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10">
+          <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handleSubmit(onSubmit)}>
             <label className="input input-bordered flex items-center gap-2">
               <FaKey />
               <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" />
               <IoEye className="w-5 h-5" onClick={passwordInputTypeHandler} />
             </label>
-            <button className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
+            <button type="submit" className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
           </form>
 
         </div>
