@@ -99,8 +99,8 @@ function OrderDetail() {
                                       orderDetail?.project?.plan_id == "13" ? "پایه پزشکی" :
                                         orderDetail?.project?.plan_id == "14" ? "حرفه ای پزشکی" :
                                           orderDetail?.project?.plan_id == "15" ? "ویژه فروشکاهی" :
-                                            orderDetail?.project?.plan_id == "16" ? "الیت فروشکاهی" :
-            }
+                                            orderDetail?.project?.plan_id == "16" ? "الیت فروشکاهی" : " ثبت نشده"
+              }
             </span>
           </label>
 
