@@ -22,9 +22,11 @@ type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
 function Genuine({ userId, token }: GenuineProps) {
   const [selectedFile, setSelectedFile] = useState<any>(null);
   const [USERID, SETUSERID] = useState(null)
+  const [showPasswordChangeModal, setshowPasswordChangeModal] = useState(false)
   const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
   const dispatch = useDispatch();
+
   //* NOTIFICATIONS
   const notifySuccess = () => toast.success("آپلود فایل موفقیت آمیز بود", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
   const notifyError = () => toast.error("خطا در آپلود فایل، لطفا مجددا آپلود کنید", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
@@ -89,6 +91,16 @@ function Genuine({ userId, token }: GenuineProps) {
   //^  RETURN =====================================================================================================================================================
   return (
     <>
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+      <div className="modal" role="dialog">
+        <div className="modal-box">
+          <h3 className="text-lg font-bold">Hello!</h3>
+          <p className="py-4">This modal works with a hidden checkbox!</p>
+        </div>
+        <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+      </div>
+      
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
           <div className="flex flex-col justify-between gap-2 px-2">
@@ -131,6 +143,7 @@ function Genuine({ userId, token }: GenuineProps) {
         <div className="w-full flex items-center justify-start -translate-y-16 gap-x-4">
           <button className="btn btn-warning text-white font-medium">تغییر رمز عبور</button>
           <button className="btn btn-error w-1/5 font-medium text-white hover:bg-red-700 duration-500">حذف حساب کاربری</button>
+          <label htmlFor="my_modal_7" className="btn">open modal</label>
         </div>
       </form>
     </>
