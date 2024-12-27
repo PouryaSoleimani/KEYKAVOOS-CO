@@ -35,6 +35,7 @@ function Genuine({ userId, token }: GenuineProps) {
   //* NOTIFICATIONS
   const notifySuccess = () => toast.success("آپلود فایل موفقیت آمیز بود", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
   const notifyError = () => toast.error("خطا در آپلود فایل، لطفا مجددا آپلود کنید", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
+  const notifySuccess2 = () => toast.success("پسورد شما به موفقیت ویرایش شد", { style: { border: '2px solid #4866CF', padding: '7px', color: '#303030', fontSize: "14px", fontWeight: "400" }, })
 
   function showUserProfile() { console.log("USER PROFILE_PIC PATH ==>", userProfile.pic_path); console.log(userProfile); SETUSERID(userProfile.id) }
   useEffect(() => { showUserProfile() }, [])
@@ -77,7 +78,7 @@ function Genuine({ userId, token }: GenuineProps) {
 
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
-  //? PASSWORD INPUT TYPE CHANGER
+  //* PASSWORD INPUT TYPE CHANGER
   function passwordInputTypeHandler() {
     if (passwordInputType == "password") {
       setPasswordInputType("text")
@@ -103,7 +104,7 @@ function Genuine({ userId, token }: GenuineProps) {
 
   // ! PASSWORD CHANGE
   const { register, handleSubmit: handeSubmitPassword, reset, formState: { errors }, } = useForm<Inputs>()
-  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data); reset() }
+  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data); reset(); notifySuccess2() }
   //^  RETURN =====================================================================================================================================================
   return (
     <>
@@ -115,7 +116,7 @@ function Genuine({ userId, token }: GenuineProps) {
           <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handeSubmitPassword(onSubmitPassword)}>
             <label className="input input-bordered flex items-center gap-2">
               <FaKey />
-              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" {...register("passwordChange")}  />
+              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" {...register("passwordChange")} />
               <IoEye className="w-5 h-5" onClick={passwordInputTypeHandler} />
             </label>
             <button type="submit" className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
