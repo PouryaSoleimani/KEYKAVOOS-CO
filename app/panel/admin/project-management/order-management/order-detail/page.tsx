@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import BackButton from "../../../components/BackButton";
+import { useRouter } from "next/router";
 
 // ^ COMPONENT --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function OrderDetail() {
@@ -15,6 +16,7 @@ function OrderDetail() {
   const orderId = params.get("id");
   const [orderStatuses, setOrderStatuses] = useState<any>([]);
   const [orderStatusInput, setOrderStatusInput] = useState("");
+  const router = useRouter()
 
   useEffect(() => {
     Promise.all([
@@ -43,6 +45,9 @@ function OrderDetail() {
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await changeOrderStatus(token, Number(orderId), Number(orderStatusId));
+    setTimeout(() => {
+      router.reload()
+    }, 1000);
   };
 
   return (
@@ -136,7 +141,7 @@ function OrderDetail() {
               <span className="label-text">وضعیت سفارش </span>
             </div>
             <span className="input input-bordered w-full max-w-xs flex items-center ">
-              {orderDetail?.project?.status} 
+              {orderDetail?.project?.status}
             </span>
           </label>
 
