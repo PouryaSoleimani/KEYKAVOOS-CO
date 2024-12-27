@@ -29,7 +29,7 @@ function Genuine({ userId, token }: GenuineProps) {
   const [USERID, SETUSERID] = useState(null)
   const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
-  const [passwordInputType, setPasswordInputType] = useState("")
+  const [passwordInputType, setPasswordInputType] = useState("password")
   const dispatch = useDispatch();
 
   //* NOTIFICATIONS
@@ -102,8 +102,8 @@ function Genuine({ userId, token }: GenuineProps) {
   }
 
   // ! PASSWORD CHANGE
-  const { register, handleSubmit: handeSubmitPassword, watch, formState: { errors }, } = useForm<Inputs>()
-  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data) }
+  const { register, handleSubmit: handeSubmitPassword, reset, formState: { errors }, } = useForm<Inputs>()
+  const onSubmitPassword: SubmitHandler<Inputs> = (data) => { console.log(data); reset() }
   //^  RETURN =====================================================================================================================================================
   return (
     <>
@@ -115,7 +115,7 @@ function Genuine({ userId, token }: GenuineProps) {
           <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10" onSubmit={handeSubmitPassword(onSubmitPassword)}>
             <label className="input input-bordered flex items-center gap-2">
               <FaKey />
-              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" />
+              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" {...register("passwordChange")}  />
               <IoEye className="w-5 h-5" onClick={passwordInputTypeHandler} />
             </label>
             <button type="submit" className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
