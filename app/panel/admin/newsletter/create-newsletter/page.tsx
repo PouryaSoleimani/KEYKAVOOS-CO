@@ -5,6 +5,7 @@ import { createNewsLetter } from "@/utils/utils";
 import { useSelector } from "react-redux";
 import SubmitOrderDropdown from "@/app/panel/user/submit-order/components/submit-order-dropdown";
 import BackButton from "../../components/BackButton";
+import app from "@/services/service";
 
 function CreateNewsletter() {
   const { token } = useSelector((state: any) => state.userData);
@@ -14,19 +15,14 @@ function CreateNewsletter() {
   const [newsletterInfo, setNewsLetteInfo] = useState({ title: "", description: "", user_id: "", dept_id: "", brand_id: "", });
 
   useEffect(() => {
-    const localUsers = JSON.parse(
-      window.sessionStorage.getItem("users") as string
-    );
+    app.get("/departments").then((res) => { console.log(res.data) };
+    const localUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
     setUsers(localUsers);
 
-    const localDepartments = JSON.parse(
-      window.sessionStorage.getItem("departments") as string
-    );
+    const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
     setDepartments(localDepartments);
 
-    const localBrands = JSON.parse(
-      window.sessionStorage.getItem("brands") as string
-    );
+    const localBrands = JSON.parse(window.sessionStorage.getItem("brands") as string);
     setBrands(localBrands);
   }, []);
 
@@ -107,10 +103,8 @@ function CreateNewsletter() {
           />
           <SubmitOrderDropdown
             dropDownTitle="به دپارتمان:"
-            dropdownItems={departmentsInfo}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))
-            }
+            dropdownItems={departments}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))}
             value={newsletterInfo.dept_id}
             name={newsletterInfo.dept_id}
           />
@@ -120,20 +114,7 @@ function CreateNewsletter() {
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-2">
             <label htmlFor="" className="whitespace-nowrap">متن خبرنامه:</label>
-            <textarea
-              name=""
-              id=""
-              cols={30}
-              rows={10}
-              className="p-2 bg-[#EAEFF6] rounded-[4px] w-full"
-              value={newsletterInfo.description}
-              onChange={(e) =>
-                setNewsLetteInfo((last) => ({
-                  ...last,
-                  description: e.target.value,
-                }))
-              }
-            ></textarea>
+            <textarea name="" id="" cols={30} rows={10} className="p-2 bg-[#EAEFF6] rounded-[4px] w-full" value={newsletterInfo.description} onChange={(e) => setNewsLetteInfo((last) => ({ ...last, description: e.target.value, }))} ></textarea>
           </div>
         </div>
 
