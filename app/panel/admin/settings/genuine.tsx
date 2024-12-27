@@ -13,18 +13,20 @@ import USER__DEFAULT from '/USER__DEFAULT.png'
 import Image from "next/image";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { useRouter } from "next/navigation";
-
+import { FaKey } from "react-icons/fa";
+import { IoEye } from "react-icons/io5";
 
 const initialValues = { FirstName: "", LastName: "", email: "", mobile: "", };
+
 type GenuineProps = { PhoneNumber: string; userId: string; token: string; };
 
 //^ COMPONENT ==========================================================================================================================================================================
 function Genuine({ userId, token }: GenuineProps) {
   const [selectedFile, setSelectedFile] = useState<any>(null);
   const [USERID, SETUSERID] = useState(null)
-  const [showPasswordChangeModal, setshowPasswordChangeModal] = useState(false)
   const handleFileChange = (file: File) => { setSelectedFile(file); };
   const { userProfile } = useSelector((state: any) => state.userData);
+  const [passwordInputType, setPasswordInputType] = useState("")
   const dispatch = useDispatch();
 
   //* NOTIFICATIONS
@@ -72,7 +74,14 @@ function Genuine({ userId, token }: GenuineProps) {
 
   const { values, handleChange, handleSubmit } = useFormik({ initialValues, onSubmit: handleSubmission, });
 
-
+  //? PASSWORD INPUT TYPE CHANGER
+  function passwordInputTypeHandler() {
+    if (passwordInputType == "password") {
+      setPasswordInputType("text")
+    } else {
+      setPasswordInputType("password")
+    }
+  }
 
   // * HANDLE PROFILE PIC
   function handleProfilePic(event: React.ChangeEvent<HTMLInputElement>) {
@@ -91,15 +100,24 @@ function Genuine({ userId, token }: GenuineProps) {
   //^  RETURN =====================================================================================================================================================
   return (
     <>
-      {/* Put this part before </body> tag */}
+      {/* CHANGE PASSWORD MODAL */}
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box">
-          <h3 className="text-lg font-bold">Hello!</h3>
-          <p className="py-4">This modal works with a hidden checkbox!</p>
+          <h3 className="text-lg font-bold text-center">تغییر رمز عبور کاربری</h3>
+          <form className="flex flex-col items-center justify-center gap-y-4 w-full my-10">
+            <label className="input input-bordered flex items-center gap-2">
+              <FaKey />
+              <input type={passwordInputType} className="grow mt-1 text-lg text-zinc-700" />
+              <IoEye className="w-5 h-5" onClick={passwordInputTypeHandler} />
+            </label>
+            <button className="btn btn-success w-1/2 mx-auto text-white font-medium">تایید</button>
+          </form>
+
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
       </div>
+      {/* ************************* */}
 
       <form className="flex flex-col lg:gap-2 items-center lg:items-end gap-12" >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%]">
