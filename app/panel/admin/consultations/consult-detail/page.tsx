@@ -34,7 +34,7 @@ function ConsultDetail() {
           <div>ID</div>
           <div>تاریخ درخواست مشاوره</div>
           <div>عنوان مشاوره</div>
-          <div> USER_ID </div>
+          <div> نام درخواست دهنده </div>
           <div>توضیحات</div>
         </div>
         {consultDetailStatus.loading ? (
@@ -48,7 +48,7 @@ function ConsultDetail() {
             <p>{consultationDetail.id}</p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
-            <p>{consultationDetail.user_id ? consultationDetail.user_id : " --- "}</p>
+            <p>{consultationDetail.register_user.name}  {consultationDetail.register_user.surname} </p>
             <p>{consultationDetail.description}</p>
           </div>
         )}
