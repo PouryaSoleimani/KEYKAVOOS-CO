@@ -8,8 +8,6 @@ import React, { useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
-import NotFound from "../../components/NotFound";
-import { ImInsertTemplate } from "react-icons/im";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
