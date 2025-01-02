@@ -52,10 +52,7 @@ function ConsultDetail() {
             <p>{consultationDetail.id} </p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
-            <p>
-              <Image src={consultDetailStatus.register_user.pic_path} width={25} height={25} />
-              {consultationDetail.register_user.name} {consultationDetail.register_user.surname}
-            </p>
+            <p>{consultationDetail.register_user.name} {consultationDetail.register_user.surname}</p>
             <p>{consultationDetail.description}</p>
           </div>
         )}
