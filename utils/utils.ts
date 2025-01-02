@@ -2765,19 +2765,8 @@ export const restoreConsultation = async (
 export const getConsultationDetail = async (
   token: string,
   consultationId: string | null,
-  setConsultationDetail: React.Dispatch<
-    React.SetStateAction<{
-      title: string;
-      description: string;
-      date: string;
-      user_id: string
-    }>
-  >,
-  setConsultDetailStatus?: React.Dispatch<
-    React.SetStateAction<{
-      loading: boolean;
-      erorr: string;
-    }>
+  setConsultationDetail: React.Dispatch<React.SetStateAction<{ id: number; title: string; description: string; date: string; user_id: string; register_user: { name: string, surname: string } }>>,
+  setConsultDetailStatus?: React.Dispatch<React.SetStateAction<{ loading: boolean; erorr: string; }>
   >
 ) => {
   try {
