@@ -12,7 +12,6 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { BiEdit } from "react-icons/bi";
-import { space } from "postcss/lib/list";
 import toast, { Toaster } from 'react-hot-toast';
 
 const schema = yup.object().shape({
