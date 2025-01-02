@@ -157,11 +157,11 @@ function ProjectDetail() {
                 <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
               </SkeletonTheme>
             ) : (
-              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                {projectDetail?.Similar_Site ? (
-                  projectDetail?.Similar_Site.map((item: any, index: any) => (
-                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
-                      {item.url ? item.url : "سایتی توسط کاربر ثبت نشده است."}
+              <div className="bg-[#EAEFF6] p-4 rounded-[4px] text-xl tracking-wide">
+                {projectDetail?.site_lookslikes ? (
+                  projectDetail?.site_lookslikes.map((item: any) => (
+                    <p key={item.id} className="text-zinc-500 p-1 rounded-sm"  >
+                      {item ? item.title : "ثبت نشده"}
                     </p>
                   ))
                 ) : (
@@ -170,19 +170,17 @@ function ProjectDetail() {
               </div>
             )}
           </div>
-          <div>
-            <div className="flex flex-col gap-3">
-              <label className="tracking-tight">توضیحات پروژه : </label>
-              {projectDetailStatus.loading ? (
-                <SkeletonTheme>
-                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                </SkeletonTheme>
-              ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                  {projectDetail?.description}
-                </div>
-              )}
-            </div>
+          <div className="flex flex-col gap-3">
+            <label className="tracking-tight">توضیحات پروژه : </label>
+            {projectDetailStatus.loading ? (
+              <SkeletonTheme>
+                <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+              </SkeletonTheme>
+            ) : (
+              <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                {projectDetail?.description}
+              </div>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <label htmlFor="" className="tracking-tight">قالب و افزونه های مورد نیاز  : </label>
@@ -212,12 +210,11 @@ function ProjectDetail() {
               </SkeletonTheme>
             ) : (
               <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                {projectDetail?.Colors ? (
-                  projectDetail?.Colors.map((item: any, index: any) => (
-                    <p key={item.id}>
-                      {item.color ? item.color : "رنگی توسط کاربر ثبت نشده است."}
-                    </p>
-                  ))
+                {projectDetail?.org_colors ? (projectDetail?.org_colors.map((item: any) => (
+                  <p key={item.id} className="text-zinc-500 w-fit text-sm">
+                    {item.color ? item.color : "ثبت نشده"}
+                  </p>
+                ))
                 ) : (
                   <p dir="rtl">-</p>
                 )}
@@ -225,7 +222,7 @@ function ProjectDetail() {
             )}
           </div>
           <div className="grid grid-cols-2">
-            <div className="bg-[#4866CE] text-white rounded-lg p-4 flex justify-start items-center gap-2 w-[40%]">
+            <div className="bg-[#4866CE] text-white rounded-lg p-4 flex justify-start items-center gap-3 w-[50%]">
               <label className="whitespace-nowrap">
                 {rejection.isRejected ? "شماره درخواست:" : "مبلغ نهایی:"}
               </label>

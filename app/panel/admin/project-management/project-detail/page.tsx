@@ -160,11 +160,11 @@ function ProjectDetail() {
                   <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
                 </SkeletonTheme>
               ) : (
-                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px] text-xl tracking-wide">
                   {projectDetail?.site_lookslikes ? (
                     projectDetail?.site_lookslikes.map((item, index) => (
                       <p key={item.id} className="text-zinc-500 p-1 rounded-sm"  >
-                        {item.title ? item.title : "ثبت نشده"}
+                        {item ? item.title : "ثبت نشده"}
                       </p>
                     ))
                   ) : (
@@ -173,19 +173,17 @@ function ProjectDetail() {
                 </div>
               )}
             </div>
-            <div>
-              <div className="flex flex-col gap-3">
-                <label className="tracking-tight">توضیحات پروژه : </label>
-                {projectDetailStatus.loading ? (
-                  <SkeletonTheme>
-                    <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
-                  </SkeletonTheme>
-                ) : (
-                  <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
-                    {projectDetail?.description}
-                  </div>
-                )}
-              </div>
+            <div className="flex flex-col gap-3">
+              <label className="tracking-tight">توضیحات پروژه : </label>
+              {projectDetailStatus.loading ? (
+                <SkeletonTheme>
+                  <Skeleton count={1} className="p-4" baseColor="#EAEFF6" />
+                </SkeletonTheme>
+              ) : (
+                <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
+                  {projectDetail?.description}
+                </div>
+              )}
             </div>
             <div className="flex flex-col gap-3">
               <label htmlFor="" className="tracking-tight">قالب و افزونه های مورد نیاز  : </label>
@@ -250,7 +248,7 @@ function ProjectDetail() {
                   <button className="bg-red-800 text-white rounded-lg py-3 px-4 hover:bg-red-600 duration-300" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
                     رد پروژه
                   </button>
-                  <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id) , projectDetail.budget_cost)}>
+                  <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id), projectDetail.budget_cost)}>
                     تایید پروژه
                   </button>
                 </div>
