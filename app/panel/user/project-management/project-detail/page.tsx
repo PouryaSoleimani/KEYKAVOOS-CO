@@ -85,18 +85,18 @@ function ProjectDetail() {
     <div>
       {/* //^ PROGRESS BAR  */}
       <ul className="steps mx-auto my-16 w-full" dir="ltr">
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تکمیل سفارش</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">واریز پیش پرداخت</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">بررسی نیاز های پروژه</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی بک اند</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ساخت دیتابیس</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">طراحی رابط کاربری</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی فرانت اند</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ایجاد درگاه ها و لینک ها</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کنترل کیفی نهایی</li>
-        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تحویل وب اپلیکیشن</li>
+        <li className="step  text-xs tracking-tighter  step-primary">تکمیل سفارش</li>
+        <li className="step  text-xs tracking-tighter  step-primary">واریز پیش پرداخت</li>
+        <li className="step  text-xs tracking-tighter  step-primary">بررسی نیاز های پروژه</li>
+        <li className="step  text-xs tracking-tighter  step-primary">کدنویسی بک اند</li>
+        <li className="step  text-xs tracking-tighter  step-primary">ساخت دیتابیس</li>
+        <li className="step  text-xs tracking-tighter  step-primary">طراحی رابط کاربری</li>
+        <li className="step  text-xs tracking-tighter  step-primary">کدنویسی فرانت اند</li>
+        <li className="step  text-xs tracking-tighter  step-primary">ایجاد درگاه ها و لینک ها</li>
+        <li className="step  text-xs tracking-tighter  step-primary">کنترل کیفی نهایی</li>
+        <li className="step  text-xs tracking-tighter  step-primary">تحویل وب اپلیکیشن</li>
       </ul>
-      
+
       <div className="w-[210px] z-10">
         <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
           <span>شماره درخواست:</span>
@@ -174,7 +174,7 @@ function ProjectDetail() {
               <div className="bg-[#EAEFF6] p-4 rounded-[4px] text-xl tracking-wide">
                 {projectDetail?.site_lookslikes ? (
                   projectDetail?.site_lookslikes.map((item: any) => (
-                    <p key={item.id} className="text-zinc-500 p-1 rounded-sm"  >
+                    <p key={item.id} className="text-zinc-500 p-1 rounded-xs"  >
                       {item ? item.title : "ثبت نشده"}
                     </p>
                   ))
@@ -206,7 +206,7 @@ function ProjectDetail() {
               <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
                 {projectDetail?.Templates ? (
                   projectDetail?.Templates.map((item: any, index: any) => (
-                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-sm"  >
+                    <p key={item.id} className="bg-[#4866CE] text-white p-1 rounded-xs"  >
                       {item.template_name ? item.template_name : "تمپلیتی توسط کاربر ثبت نشده است"}
                     </p>
                   ))
@@ -225,7 +225,7 @@ function ProjectDetail() {
             ) : (
               <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
                 {projectDetail?.org_colors ? (projectDetail?.org_colors.map((item: any) => (
-                  <p key={item.id} className="text-zinc-500 w-fit text-sm">
+                  <p key={item.id} className="text-zinc-500 w-fit text-xs">
                     {item.color ? item.color : "ثبت نشده"}
                   </p>
                 ))
