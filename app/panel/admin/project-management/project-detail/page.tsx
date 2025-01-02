@@ -207,9 +207,9 @@ function ProjectDetail() {
               ) : (
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
                   {projectDetail?.plugins ? (
-                    projectDetail?.plugins.map((item: any, index) => (
+                    projectDetail?.plugins.map((item: any) => (
                       <p key={item.id} className="text-zinc-500  p-1 rounded-sm"  >
-                        {item.template_name ? item.template_name : " ثبت نشده "}
+                        {item ? item.template_name : " ثبت نشده "}
                       </p>
                     ))
                   ) : (
@@ -228,7 +228,7 @@ function ProjectDetail() {
                 <div className="bg-[#EAEFF6] p-4 rounded-[4px]">
                   {projectDetail?.org_colors ? (projectDetail?.org_colors.map((item: any, index) => (
                     <p key={item.id} className="text-zinc-500 w-fit text-sm">
-                      {item.color ? item.color : "ثبت نشده"}
+                      {item ? item.color : "ثبت نشده"}
                     </p>
                   ))
                   ) : (
