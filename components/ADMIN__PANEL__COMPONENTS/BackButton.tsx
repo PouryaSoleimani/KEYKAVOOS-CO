@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation';
 import { GrRefresh } from 'react-icons/gr';
 
 const BackButton = () => {
-    const location = useRouter()
-    const backHandler = () => { location.back() }
-    const reloadHandler = () => (location.refresh())
+    const Location = useRouter()
+    const backHandler = () => { Location.back() }
+    const reloadHandler = () => { location.reload() }
     return (
         <div className="flex flex-row-reverse  items-center justify-between  px-2  h-fit">
             <button onClick={backHandler} className="bg-white rounded-lg p-3 text-xl hover:bg-[#4866CF] hover:text-white duration-300 cursor-pointer shadow-lg shadow-zinc-300">

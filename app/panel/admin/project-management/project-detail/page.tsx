@@ -250,7 +250,7 @@ function ProjectDetail() {
                   <button className="bg-red-800 text-white rounded-lg py-3 px-4 hover:bg-red-600 duration-300" onClick={() => setRejection((last) => ({ ...last, isRejected: true }))}>
                     رد پروژه
                   </button>
-                  <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id))}>
+                  <button className="bg-emerald-800 text-white rounded-lg py-3 px-4 hover:bg-emerald-600 duration-500" onClick={() => confirmProjectByAdmin(token, Number(id) , projectDetail.budget_cost)}>
                     تایید پروژه
                   </button>
                 </div>

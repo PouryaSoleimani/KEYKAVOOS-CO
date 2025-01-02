@@ -3423,10 +3423,11 @@ export const getOrganizationDetail = async (
 // confirm project
 export const confirmProjectByAdmin = async (
   token: string,
-  projectId: number
+  projectId: number,
+  budget: number | string,
 ) => {
   try {
-    const { data } = await app(`/project/verify/${projectId}`);
+    const { data } = await app.post(`/project/verify/${projectId}`, { price: budget });
     console.log("pro verification", data);
     toast.success("پروژه با موفقیت تایید شد", {
       position: "top-right",
@@ -3482,7 +3483,7 @@ export const changeOrderStatus = async (
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      style : {whiteSpace : "nowrap"},
+      style: { whiteSpace: "nowrap" },
       progress: undefined,
       theme: "light",
       transition: Bounce,

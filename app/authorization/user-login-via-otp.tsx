@@ -34,12 +34,10 @@ const UserLoginViaOTP = () => {
   }, []);
 
   useEffect(() => {
-    setCounter(180);
+    setCounter(120);
     if (errorMessage && !showModal && !errorOnProfileHandler) {
       sendOTPCodeMain(PhoneNumber, setAuthSteps);
     }
-    // console.log(!showModal);
-    // console.log(errorMessage);
   }, [showModal]);
 
   const handleSubmission = async (e: FormEvent<HTMLFormElement>) => {
@@ -56,6 +54,7 @@ const UserLoginViaOTP = () => {
   useEffect(() => {
     if (status === "failed") {
       setOTP("");
+      location.reload();
     }
   }, [status]);
   // console.log(successMessage);
