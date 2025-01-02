@@ -64,16 +64,16 @@ const WebApplicationServicePage: React.FC = () => {
                 <h2 className='text-center font-extralight text-xl text-zinc-700 bg-zinc-300 py-2 px-16 rounded-xl w-fit mx-auto'>از طراحی تا تحویل نهایی</h2>
             </div>
             <ul className="steps mx-auto my-10 w-full">
-                <li className="step step-primary">تکمیل سفارش</li>
-                <li className="step step-primary">واریز پیش پرداخت</li>
-                <li className="step step-primary">بررسی نیاز های پروژه</li>
-                <li className="step step-primary">کدنویسی بک اند</li>
-                <li className="step step-primary">ساخت دیتابیس</li>
-                <li className="step step-primary">طراحی رابط کاربری</li>
-                <li className="step step-primary">کدنویسی فرانت اند</li>
-                <li className="step step-primary tracking-tighter">ایجاد درگاه ها و لینک ها</li>
-                <li className="step step-primary">کنترل کیفی نهایی</li>
-                <li className="step step-primary">تحویل وب اپلیکیشن</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تکمیل سفارش</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">واریز پیش پرداخت</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">بررسی نیاز های پروژه</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی بک اند</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ساخت دیتابیس</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">طراحی رابط کاربری</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی فرانت اند</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ایجاد درگاه ها و لینک ها</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کنترل کیفی نهایی</li>
+                <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تحویل وب اپلیکیشن</li>
             </ul>
             {/* PHONES */}
             <CarouselGames2 />

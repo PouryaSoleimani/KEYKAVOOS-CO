@@ -84,6 +84,19 @@ function ProjectDetail() {
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
       </div>
+      {/* //^ PROGRESS BAR  */}
+      <ul className="steps mx-auto my-16 w-full" dir="ltr">
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تکمیل سفارش</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">واریز پیش پرداخت</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">بررسی نیاز های پروژه</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی بک اند</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ساخت دیتابیس</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">طراحی رابط کاربری</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کدنویسی فرانت اند</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">ایجاد درگاه ها و لینک ها</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">کنترل کیفی نهایی</li>
+        <li className="step whitespace-nowrap text-sm tracking-tighter  step-primary">تحویل وب اپلیکیشن</li>
+      </ul>
       <div>
         <div className="w-[210px] z-10">
           <div className="bg-[#4866CE] text-white rounded-t-lg relative right-1 top-1 py-2 px-2 flex justify-start items-center gap-2">
