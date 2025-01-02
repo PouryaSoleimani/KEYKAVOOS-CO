@@ -9,7 +9,7 @@ import NotFound from "../../components/NotFound";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
 const moment = require("moment-jalaali");
-export type ConsultationDetail = { id: number; title: string; description: string; date: string; };
+export type ConsultationDetail = { id: number; title: string; description: string; date: string;user_id: string; };
 
 function ConsultDetail() {
   const { token } = useSelector((state: any) => state.userData);
@@ -30,7 +30,8 @@ function ConsultDetail() {
       </div>
 
       <div className="bg-white shadow mx-auto rounded-lg w-full p-[3%] text-center grid grid-cols-1 gap-5">
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-5">
+          <div>ردیف</div>
           <div>تاریخ درخواست مشاوره</div>
           <div>عنوان مشاوره</div>
           <div> USER_ID </div>
@@ -43,7 +44,8 @@ function ConsultDetail() {
         ) : consultDetailStatus.erorr ? (
           <NotFound text={`${consultDetailStatus.erorr}`} />
         ) : (
-          <div className="grid grid-cols-4 py-4 bg-[#EAEFF6] rounded-[4px]">
+          <div className="grid grid-cols-5 py-4 bg-[#EAEFF6] rounded-[4px]">
+            <p>{consultationDetail.?id} /p>
             <p>{consultationDetail.date ? moment(consultationDetail.date, "YYYY-MM-DDTHH:mm:ss.SSSZ").format("jYYYY/jM/jD") : "-"}</p>
             <p>{consultationDetail.title}</p>
             <p>{consultationDetail.user_id ? consultationDetail.user_id : " --- "}</p>
