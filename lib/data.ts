@@ -552,6 +552,7 @@ export const TechnologyData = [
     id: 2,
     title: "بک اند",
     imgUrl: "/NEW__TECH__ICONS/BACKEND.png",
+    link : "/technologies/graphic",
     technologies: [
       {
         id: 2,

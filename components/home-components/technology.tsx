@@ -4,7 +4,7 @@ import TechnologyCard from "./technology-card";
 import { TechnologyData } from "@/lib/data";
 import styles from './plans.module.css'
 
-type techInfoType = { id: number; title: string; imgUrl: string; technologies: { id: number; techImgUrl: string[]; tech: string[]; }[]; }
+type techInfoType = { id: number; title: string; imgUrl: string; techHref: string; technologies: { id: number; techImgUrl: string[]; tech: string[]; }[]; }
 
 
 function Technology() {
