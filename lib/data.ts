@@ -552,7 +552,7 @@ export const TechnologyData = [
     id: 2,
     title: "بک اند",
     imgUrl: "/NEW__TECH__ICONS/BACKEND.png",
-    link : "/technologies/graphic",
+    link : "/technologies/backend",
     technologies: [
       {
         id: 2,
@@ -575,6 +575,7 @@ export const TechnologyData = [
     id: 1,
     title: "فرانت اند",
     imgUrl: "/NEW__TECH__ICONS/FRONTEND.png",
+    link : "/technologies/frontend",
     technologies: [
       {
         id: 6,
@@ -598,6 +599,7 @@ export const TechnologyData = [
     id: 0,
     title: "گرافیک",
     imgUrl: "/NEW__TECH__ICONS/PANELS.png",
+    link : "/technologies/graphic",
     technologies: [
       {
         id: 7,
@@ -616,11 +618,11 @@ export const TechnologyData = [
       },
     ],
   },
-
   {
     id: 5,
     title: "پنل ها",
     imgUrl: '/NEW__TECH__ICONS/PANELS.png',
+    link : "/technologies/panels",
     technologies: [
       {
         id: 10,
@@ -643,6 +645,7 @@ export const TechnologyData = [
     id: 3,
     title: "سرور",
     imgUrl: "/NEW__TECH__ICONS/SERVER.png",
+    link : "/technologies/server",
     technologies: [
       {
         id: 13,
@@ -665,6 +668,7 @@ export const TechnologyData = [
     id: 4,
     title: "دیتابیس",
     imgUrl: '/NEW__TECH__ICONS/DATABASE.png',
+    link : "/technologies/database",
     technologies: [
       {
         id: 16,
