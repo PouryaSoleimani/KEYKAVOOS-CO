@@ -14,31 +14,25 @@ function CreateNewsletter() {
   const [newsletterInfo, setNewsLetteInfo] = useState({ title: "", description: "", user_id: "", dept_id: "", brand_id: "", });
 
   useEffect(() => {
-    const localUsers = JSON.parse(
-      window.sessionStorage.getItem("users") as string
-    );
+    const localUsers = JSON.parse(window.sessionStorage.getItem("users") as string);
     setUsers(localUsers);
 
-    const localDepartments = JSON.parse(
-      window.sessionStorage.getItem("departments") as string
-    );
+    const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
     setDepartments(localDepartments);
 
-    const localBrands = JSON.parse(
-      window.sessionStorage.getItem("brands") as string
-    );
+    const localBrands = JSON.parse(window.sessionStorage.getItem("brands") as string);
     setBrands(localBrands);
   }, []);
 
   useEffect(() => {
-    if (users.length > 0 && !newsletterInfo.user_id) {
+    if (users?.length > 0 && !newsletterInfo?.user_id) {
       const firstUser: { name: string } = users?.[0];
       setNewsLetteInfo((prev) => ({ ...prev, user_id: firstUser.name }));
     }
   }, [users]);
 
   useEffect(() => {
-    if (departments.length > 0 && !newsletterInfo.dept_id) {
+    if (departments?.length > 0 && !newsletterInfo.dept_id) {
       const firstDepartment = departments[0].department?.name_fa;
       setNewsLetteInfo((prev) => ({ ...prev, dept_id: firstDepartment }));
     }
@@ -95,18 +89,14 @@ function CreateNewsletter() {
           <SubmitOrderDropdown
             dropDownTitle="به کاربر:"
             dropdownItems={usersInfo}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))
-            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setNewsLetteInfo((last) => ({ ...last, user_id: e.target.value }))}
             value={newsletterInfo.user_id}
             name={newsletterInfo.user_id}
           />
           <SubmitOrderDropdown
             dropDownTitle="به دپارتمان:"
             dropdownItems={departmentsInfo}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))
-            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setNewsLetteInfo((last) => ({ ...last, dept_id: e.target.value }))}
             value={newsletterInfo.dept_id}
             name={newsletterInfo.dept_id}
           />
