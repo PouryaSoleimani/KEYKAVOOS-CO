@@ -838,7 +838,7 @@ export const mainAdminSidebarOptions = [
   },
   {
     text: "مدیریت اعلان ها",
-    imgSrc: "/Panel/support.svg",
+    imgSrc: "/Panel/projectsmanagement.svg",
     address: "/panel/admin/notifications-management",
     path: [
       "/panel/admin/notifications-management",
@@ -849,7 +849,7 @@ export const mainAdminSidebarOptions = [
   },
   {
     text: "خبرنامه",
-    imgSrc: "/Panel/support.svg",
+    imgSrc: "/Panel/searchprojectssidebar.svg",
     address: "/panel/admin/newsletter",
     path: [
       "/panel/admin/newsletter",

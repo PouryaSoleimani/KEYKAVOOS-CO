@@ -54,17 +54,13 @@ function CreateNewsletter() {
       item?.name + " " + item?.surname
   );
 
-  const depId = departments
-    .filter((item: { department: { name_fa: string } }) =>
-      newsletterInfo?.dept_id?.includes(item.department?.name_fa)
-    )
+  const depId = departments?.filter((item: { department: { name_fa: string } }) =>
+    newsletterInfo?.dept_id?.includes(item.department?.name_fa))
     .map((item: { department: { id: number } }) => item.department.id)[0];
 
-  const userId = users
-    .filter((item: { name: string }) =>
-      newsletterInfo?.user_id?.includes(item?.name)
-    )
-    .map((item: { id: number }) => item?.id)[0];
+  const userId = users?.filter((item: { name: string }) =>
+    newsletterInfo?.user_id?.includes(item?.name)
+  ).map((item: { id: number }) => item?.id)[0];
 
   const handleNewsLetterSubmission = async (
     e: React.FormEvent<HTMLFormElement>
