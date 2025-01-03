@@ -31,12 +31,12 @@ function Consultations() {
       <div>
         <div className="bg-white shadow mx-auto rounded-2xl w-full p-[3%] text-center grid grid-cols-1 gap-5 text-sm">
           <div className="grid lg:grid-cols-6 grid-cols-12 items-center">
-            <div className=" text-xs lg:text-[16px] font-bold col-span-1">ردیف</div>
-            <div className=" text-xs lg:text-[16px] font-bold col-span-2 lg:col-span-1">نام و نام خانوادگی</div>
-            <div className=" text-xs lg:text-[16px] font-bold col-span-2 lg:col-span-1">تاریخ مشاوره</div>
-            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">موضوع مشاوره</div>
-            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">توضیحات</div>
-            <div className=" text-xs lg:text-[16px] font-bold col-span-3 lg:col-span-1">عملیات</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-1">ردیف</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-2 lg:col-span-1">نام و نام خانوادگی</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-2 lg:col-span-1">تاریخ مشاوره</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-3 lg:col-span-1">موضوع مشاوره</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-3 lg:col-span-1">توضیحات</div>
+            <div className="text-xs lg:text-[16px] font-thin col-span-3 lg:col-span-1">عملیات</div>
           </div>
           {consultStatus.loading ? (
             <SkeletonTheme>
