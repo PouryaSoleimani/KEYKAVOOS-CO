@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoArrowBack } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import SubmitOrderDropdown from "../../submit-order/components/submit-order-dropdown";
-// import { createTicket } from "@/utils/utils";
 import { CREATETICKET } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
@@ -83,8 +82,12 @@ function AddNewTicket() {
           </div>
         </div>
         <div className="flex justify-end gap-x-3">
-          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg flex items-center flex-row-reverse gap-x-2 hover:bg-blue-800 duration-300 -translate-y-4`} >  <BiUpload className="w-6 h-6" /> انتخاب فایل </button>
-          <button className={`${"bg-emerald-600"} text-white px-12 py-4 text-lg rounded-lg hover:bg-emerald-800 duration-300 -translate-y-4`} >   ارسال تیکت </button>
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg flex items-center flex-row-reverse gap-x-2 hover:bg-blue-800 duration-300 -translate-y-4`} type="button">
+            <BiUpload className="w-6 h-6" /> 
+            <span>فایل پیوست</span> 
+            <input type="file" className="opacity-0 w-inherit absolute -z-10" />
+          </button>
+          <button className={`${"bg-emerald-600"} text-white px-12 py-4 text-lg rounded-lg hover:bg-emerald-800 duration-300 -translate-y-4`} type="submit" >   ارسال تیکت </button>
         </div>
       </form>
     </div>
