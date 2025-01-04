@@ -1,6 +1,6 @@
 "use client";
 //^ SUPPORT ==  ADD NEW TICKET  ================================================================================================================================ 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import TicketFields from "./components/ticket-fields";
 import { useDispatch, useSelector } from "react-redux";
 import { IoArrowBack } from "react-icons/io5";
@@ -48,12 +48,15 @@ function AddNewTicket() {
   const departmentId = typedDepartments?.filter((item) => item.department.id === Number(ticket.dept_id))?.map((item) => item.department.id)[0];
 
   useEffect(() => { console.log("DEPARTMENT INFO", departmentInfo, typedDepartments) }, [])
+  const fileInput: React.MutableRefObject<any> = useRef("FILEINPUT");
+  
   // * HANDLE SUMBISSION
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, departmentId, userProfile.id, null)
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
+
 
   //^ RETURN  ================================================================================================================================================
   return (
@@ -83,9 +86,9 @@ function AddNewTicket() {
         </div>
         <div className="flex justify-end gap-x-3">
           <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg flex items-center flex-row-reverse gap-x-2 hover:bg-blue-800 duration-300 -translate-y-4`} type="button">
-            <BiUpload className="w-6 h-6" /> 
-            <span>فایل پیوست</span> 
-            <input type="file" className="opacity-0 w-inherit absolute -z-10" />
+            <BiUpload className="w-6 h-6" />
+            <input type="file" className="opacity-0 w-inherit absolute -z-10" ref={fileInput} />
+            {fileInput.current && fileInput.current.files?.length > 0 ? fileInput.current.files[0].name.toString() : "فایل پیوست"}
           </button>
           <button className={`${"bg-emerald-600"} text-white px-12 py-4 text-lg rounded-lg hover:bg-emerald-800 duration-300 -translate-y-4`} type="submit" >   ارسال تیکت </button>
         </div>
