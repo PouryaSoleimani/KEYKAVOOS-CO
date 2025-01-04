@@ -53,7 +53,7 @@ function AddNewTicket() {
   // * HANDLE SUMBISSION
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    CREATETICKET(ticket.title, token, fileInput.current , ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, departmentId, userProfile.id, null)
+    CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, departmentId, userProfile.id, null)
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
 
