@@ -2839,9 +2839,9 @@ export const getConsultationDetail = async (
 //   }
 // };
 
-export const CREATETICKET = (title: string, token: string, description: string, status_id: string | number, priority_id: number, dept_id: number | string, register_user_id: number, ticket_id: number | null) => {
+export const CREATETICKET = (title: string, token: string, fileinput: any, description: string, status_id: string | number, priority_id: number, dept_id: number | string, register_user_id: number, ticket_id: number | null) => {
 
-  const newTicketInfos = { title, description, status_id: 1, priority_id, dept_id, register_user_id, ticket_id }
+  const newTicketInfos = { title, description, status_id: 1, priority_id, dept_id, register_user_id, ticket_id, file: fileinput };
 
   app.post("/ticket/store", newTicketInfos, { headers: { Authorization: `Bearer ${token}` } }).
     then(response => {
