@@ -29,8 +29,8 @@ function AddNewTicket() {
 
 
   useEffect(() => {
-      const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
-      setDepartments(localDepartments);
+    const localDepartments = JSON.parse(window.sessionStorage.getItem("departments") as string);
+    setDepartments(localDepartments);
   }, []);
 
   useEffect(() => {
@@ -76,15 +76,13 @@ function AddNewTicket() {
         <div className="flex flex-col gap-2 -translate-y-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="">متن تیکت:</label>
-            <span className="absolute right-[4.8rem] -top-1 text-red-800 text-xl">*</span>
+            <span className="absolute right-[4.8rem] -top-0.5  text-red-800 text-xl">*</span>
             <textarea placeholder="متن خود را اینجا بنویسید ..." name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full px-4 py-3 rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}>
             </textarea>
           </div>
         </div>
-        <div className="flex justify-end"><span className="absolute right-[8rem] text-red-800">*</span>
-          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg hover:bg-blue-800 duration-300 -translate-y-4`} >
-            ارسال تیکت
-          </button>
+        <div className="flex justify-end">
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg hover:bg-blue-800 duration-300 -translate-y-4`} >   ارسال تیکت </button>
         </div>
       </form>
     </div>
