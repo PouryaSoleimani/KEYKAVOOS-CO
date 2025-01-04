@@ -11,6 +11,7 @@ import { CREATETICKET } from "@/utils/utils";
 import { DepartmentContext } from "@/app/panel/admin/context/department-context/DepartmentContext";
 import { DepartmentFinalType } from "@/app/panel/admin/org_management/departments/page";
 import app from "@/services/service";
+import { BiUpload } from "react-icons/bi";
 
 // ^ COMPONENT
 function AddNewTicket() {
@@ -77,12 +78,13 @@ function AddNewTicket() {
           <div className="flex flex-col gap-2">
             <label htmlFor="">متن تیکت:</label>
             <span className="absolute right-[4.8rem] -top-0.5  text-red-800 text-xl">*</span>
-            <textarea placeholder="متن خود را اینجا بنویسید ..." name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full px-4 py-3 rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}>
-            </textarea>
+            <textarea placeholder="متن خود را اینجا بنویسید ..." name="" id="" cols={90} rows={10} className="p-2 bg-[#EAEFF6] lg:w-full px-4 py-3 rounded-lg w-full" value={ticket.description} onChange={(e) => setTicket((last) => ({ ...last, description: e.target.value }))}> </textarea>
+            <span className="mr-1 bg-zinc-100 w-fit px-3 rounded-md">{ticket.description.length}</span>
           </div>
         </div>
-        <div className="flex justify-end">
-          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg hover:bg-blue-800 duration-300 -translate-y-4`} >   ارسال تیکت </button>
+        <div className="flex justify-end gap-x-3">
+          <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg flex items-center flex-row-reverse gap-x-2 hover:bg-blue-800 duration-300 -translate-y-4`} >  <BiUpload className="w-6 h-6" /> انتخاب فایل </button>
+          <button className={`${"bg-emerald-600"} text-white px-12 py-4 text-lg rounded-lg hover:bg-emerald-800 duration-300 -translate-y-4`} >   ارسال تیکت </button>
         </div>
       </form>
     </div>
