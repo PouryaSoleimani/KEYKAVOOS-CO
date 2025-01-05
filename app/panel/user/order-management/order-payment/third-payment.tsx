@@ -14,6 +14,7 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, 
   File2: any;
   token: string;
 }) {
+  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
   const { userProfile } = useSelector((state: any) => state.userData);
   const [isFileUploaded2, setIsFileUploaded2] = useState(false)
   const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,9 +25,6 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, 
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
   const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
-  useEffect(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, []);
-
-
 
   // ^ RETURN ================================================================================================================================
   return (
