@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import FinanceInput from "../../finance/components/finance-input";
 import Image from "next/image";
-import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload } from "@/utils/utils";
+import { getOrderDetail, handleBudegtChange, handlePaymentFileUpload, handlePaymentFileUpload2 } from "@/utils/utils";
 import uploadfile from "@/public/Panel/uploadfile.svg";
 import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, 
 }) {
   const { userProfile } = useSelector((state: any) => state.userData);
   const [isFileUploaded2, setIsFileUploaded2] = useState(false)
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File2, token, thirdOrderPayment.id, userProfile.id, isFileUploaded2, setIsFileUploaded2); };
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload2(File2, token, thirdOrderPayment.id, userProfile.id, isFileUploaded2, setIsFileUploaded2); };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
@@ -49,7 +49,7 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, 
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
-                    {File2 ? (File2.name) : isFileUploaded2 === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15}/>)}
+                    {File2 ? (File2.name) : isFileUploaded2 === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15} />)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>

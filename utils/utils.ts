@@ -3629,6 +3629,59 @@ export const handlePaymentFileUpload = async (
     console.log(error?.response?.data.message);
   }
 };
+export const handlePaymentFileUpload2 = async (
+  File2: File,
+  token: string,
+  paymentId: number,
+  id: number,
+  isFileUploaded2: boolean,
+  setIsFileUploaded: React.Dispatch<React.SetStateAction<boolean>>,
+) => {
+  const formData = new FormData();
+  formData.append("file", File2);
+  const UPLOADINFOS = { file2: File, uploader_user_id: id }
+  try {
+    const { data } = await app.post(
+      `/payment/file/upload/${paymentId}`,
+      UPLOADINFOS,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    console.log("payment file", data);
+    setIsFileUploaded(true)
+    console.log("IS FILE UPLOADED ? ==>", isFileUploaded2);
+    toast.success("آپلود فایل موفق بود.", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
+    });
+  } catch (error: any) {
+    toast.error("خطا در آپلود فایل، لطفا مجدد آپلود کنید.", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      rtl: true,
+    });
+    console.log(error?.response?.data.message);
+  }
+};
 // pay
 export const sendAmount = async (token: string, amount: number, paymentId: number, setUrl: React.Dispatch<React.SetStateAction<string>>) => {
   console.log(paymentId);
