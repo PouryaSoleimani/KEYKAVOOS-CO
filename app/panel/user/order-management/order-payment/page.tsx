@@ -18,16 +18,23 @@ function OrderPayment() {
   const params = useSearchParams();
   const orderId = params.get("id");
   const [File, setFile] = useState<any>(null);
+  const [File2, setFile2] = useState<any>(null);
   const [fileSelected, setFileSelected] = useState(false);
+  const [fileSelected2, setFileSelected2] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
   const [orderDetailStatus, seOrderDetailStatus] = useState({ loading: false, error: "", });
 
   const handleChangingFile = (file: File) => { setFile(file); setFileSelected(true); };
+  const handleChangingFile2 = (file2: File) => { setFile2(file2); setFileSelected2(true); };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) { handleChangingFile(file); }
+  };
+  const handleFileChange2 = (event: ChangeEvent<HTMLInputElement>) => {
+    const file2 = event.target.files?.[0];
+    if (file2) { handleChangingFile2(file2); }
   };
 
   useEffect(() => { setTimeout(() => { getOrderDetail(token, Number(orderId), setOrderDetail, seOrderDetailStatus); }, 1500); }, []);
@@ -68,7 +75,7 @@ function OrderPayment() {
             <div className="grid grid-cols-1 gap-8">
               <FirstPayment firstOrderPayment={firstOrderPayment} token={token} />
               <SecondPayment paidAmount={secondOrderPayment?.amount} handleFileChange={handleFileChange} secondOrderPayment={secondOrderPayment} File={File} token={token} />
-              <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange={handleFileChange} File={File} token={token} />
+              <ThirdPayment thirdOrderPayment={thirdOrderPayment} totalPaid={totalPaid} handleFileChange2={handleFileChange2} File2={File2} token={token} />
             </div>
           </div>
         )}

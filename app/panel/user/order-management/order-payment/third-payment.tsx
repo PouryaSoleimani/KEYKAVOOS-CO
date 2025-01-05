@@ -7,16 +7,16 @@ import uploadfile from "@/public/Panel/uploadfile.svg";
 import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 
-function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, token, }: {
+function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, token, }: {
   thirdOrderPayment: { final_price: number; debt: number; amount: number; id: number; };
   totalPaid: number;
-  handleFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  File: any;
+  handleFileChange2: (event: ChangeEvent<HTMLInputElement>) => void;
+  File2: any;
   token: string;
 }) {
   const { userProfile } = useSelector((state: any) => state.userData);
-  const [isFileUploaded, setIsFileUploaded] = useState(false)
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, thirdOrderPayment.id, userProfile.id, isFileUploaded, setIsFileUploaded); };
+  const [isFileUploaded2, setIsFileUploaded2] = useState(false)
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File2, token, thirdOrderPayment.id, userProfile.id, isFileUploaded2, setIsFileUploaded2); };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
@@ -44,12 +44,12 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange, totalPaid, File, to
               <p className="my-2 font-sm tracking-tight"> لطفا فایل چک قسط سوم را آپلود کنید : </p>
               <div className="flex text-black border-[#4866cf] bg-[#EAEFF6] border-2 rounded-[8px] items-center justify-between py-2 w-full px-2">
                 <div>
-                  <input id="fileInput" type="file" multiple style={{ display: "none" }} onChange={handleFileChange} />
+                  <input id="fileInput" type="file" multiple style={{ display: "none" }} onChange={handleFileChange2} />
                   <label htmlFor="fileInput" className="cursor-pointer hover:bg-[#4866cf] hover:text-white p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
                   <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
-                    {File ? (File.name) : isFileUploaded === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15}/>)}
+                    {File2 ? (File2.name) : isFileUploaded2 === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15}/>)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
                     فرمت های مورد قبول:  <b>  zip, rar  </b>
