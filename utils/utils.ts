@@ -3635,7 +3635,7 @@ export const handlePaymentFileUpload2 = async (
   paymentId: number,
   id: number,
   isFileUploaded2: boolean,
-  setIsFileUploaded: React.Dispatch<React.SetStateAction<boolean>>,
+  setIsFileUploaded2: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   const formData = new FormData();
   formData.append("file", File2);
@@ -3652,7 +3652,7 @@ export const handlePaymentFileUpload2 = async (
       }
     );
     console.log("payment file", data);
-    setIsFileUploaded(true)
+    setIsFileUploaded2(true)
     console.log("IS FILE UPLOADED ? ==>", isFileUploaded2);
     toast.success("آپلود فایل موفق بود.", {
       position: "top-right",

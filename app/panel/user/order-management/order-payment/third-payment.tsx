@@ -47,11 +47,11 @@ function ThirdPayment({ thirdOrderPayment, handleFileChange2, totalPaid, File2, 
               <p className="my-2 font-sm tracking-tight"> لطفا فایل چک قسط سوم را آپلود کنید : </p>
               <div className="flex text-black border-[#4866cf] bg-[#EAEFF6] border-2 rounded-[8px] items-center justify-between py-2 w-full px-2">
                 <div>
-                  <input id="fileInput" type="file" multiple style={{ display: "none" }} onChange={handleFileChange2} />
-                  <label htmlFor="fileInput" className="cursor-pointer hover:bg-[#4866cf] hover:text-white p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
+                  <input id="fileInput2" type="file" multiple style={{ display: "none" }} onChange={handleFileChange2} />
+                  <label htmlFor="fileInput2" className="cursor-pointer hover:bg-[#4866cf] hover:text-white p-2 rounded-md duration-500 tracking-tight">انتخاب فایل</label>
                 </div>
                 <div className="flex flex-col items-center justify-end space-y-2">
-                  <label htmlFor="fileInput" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
+                  <label htmlFor="fileInput2" style={{ cursor: "pointer" }} className="flex justify-center items-center whitespace-nowrap"  >
                     {File2 ? (File2.name) : isFileUploaded2 === true ? " آپلود مجدد" : (<Image src="/Panel/uploadfile.svg" alt="انتخاب فایل" className="w-5 h-5 hover:scale-125 duration-300" width={15} height={15} />)}
                   </label>
                   <span dir="rtl" className="text-[#4f647e] text-[.6rem] sm:text-[.8rem] tracking-tighter">
