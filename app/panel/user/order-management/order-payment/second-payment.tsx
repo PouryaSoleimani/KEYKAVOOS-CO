@@ -18,7 +18,10 @@ function SecondPayment({ secondOrderPayment, paidAmount, handleFileChange, File,
 }) {
   const { userProfile } = useSelector((state: any) => state.userData);
   const [isFileUploaded, setIsFileUploaded] = useState(false)
-  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); await handlePaymentFileUpload(File, token, secondOrderPayment.id, userProfile.id, isFileUploaded, setIsFileUploaded); };
+  const handleSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await handlePaymentFileUpload(File, token, secondOrderPayment.id, userProfile.id, isFileUploaded, setIsFileUploaded);
+  };
   const params = useSearchParams();
   const orderId = params.get("id");
   const [orderDetail, setOrderDetail] = useState<any>([]);
