@@ -44,7 +44,7 @@ function AddNewTicket() {
   const dispatch = useDispatch();
   const router = useRouter();
   const [ticket, setTicket] = useState({ title: "", description: "", status_id: "", priority_id: "کم", register_user_id: "", dept_id: "", departmentId: "" });
-
+  const [ticketFile, setticketFile] = useState<any>(null)
   const departmentId = typedDepartments?.filter((item) => item.department.id === Number(ticket.dept_id))?.map((item) => item.department.id)[0];
 
   useEffect(() => { console.log("DEPARTMENT INFO", departmentInfo, typedDepartments) }, [])
@@ -56,7 +56,10 @@ function AddNewTicket() {
     CREATETICKET(ticket.title, token, ticket.description, ticket.status_id, ticket.priority_id == "عادی" ? 1 : 2, departmentId, userProfile.id, null)
     setTicket((last) => ({ ...last, title: "", description: "" }));
   };
-
+  function ticketFileChangeHandler() {
+    const file = fileInput.current.files[0];
+    setticketFile(file);
+  }
 
   //^ RETURN  ================================================================================================================================================
   return (
@@ -87,7 +90,7 @@ function AddNewTicket() {
         <div className="flex justify-end gap-x-3">
           <button className={`${"bg-[#4866CE]"} text-white px-12 py-4 text-lg rounded-lg flex items-center flex-row-reverse gap-x-2 hover:bg-blue-800 duration-300 -translate-y-4`} type="button">
             <BiUpload className="w-6 h-6" />
-            <input type="file" className="opacity-0 w-inherit absolute -z-10" ref={fileInput} />
+            <input type="file" className="opacity-0 w-inherit absolute " ref={fileInput} onChange={ticketFileChangeHandler} />
             {fileInput.current && fileInput.current.files?.length > 0 ? fileInput.current.files[0].name.toString() : "فایل پیوست"}
           </button>
           <button className={`${"bg-emerald-600"} text-white px-12 py-4 text-lg rounded-lg hover:bg-emerald-800 duration-300 -translate-y-4`} type="submit" >   ارسال تیکت </button>

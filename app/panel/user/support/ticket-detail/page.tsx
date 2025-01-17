@@ -123,7 +123,7 @@ function TicketDetail() {
   // };
 
   useEffect(() => { getTicketDetail(); }, []);
-
+  const LOCATION = useRouter()
   useEffect(() => {
     const childsId = ticketDetail.SenderText[0]?.messages.map(
       (child: { childId: string }) => child.childId
@@ -143,6 +143,7 @@ function TicketDetail() {
       .then(response => {
         console.log("%c SUCCESS ====>", "color : lime", response)
         toast.success("آپلود فایل موفق بود.", { position: "top-right", autoClose: 1500, hideProgressBar: true, style: { fontSize: "14px", whiteSpace: "nowrap" }, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", transition: Bounce, rtl: true, });
+        LOCATION.refresh()
       })
       .catch(error => {
         console.log("%c ERROR ===> ", "color : orangered", error.response)
